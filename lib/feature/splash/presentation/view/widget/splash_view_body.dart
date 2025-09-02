@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:study_box/core/helper/app_router.dart';
+import 'package:study_box/core/utils/assets.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -28,9 +31,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
       curve: Curves.bounceOut,
     ));
     _animationController.repeat(reverse: true);
-    Future.delayed(const Duration(seconds: 3), () {
-      if (mounted) {}
-    });
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        if (mounted) {
+          context.go(AppRouter.onboardingView);
+        }
+      },
+    );
   }
 
   @override
@@ -51,7 +59,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
               return Transform.scale(
                 scale: _scaleAnimation.value,
                 child: Image.asset(
-                  'assets/images/png/splash_view.png',
+                  Assets.imagesPngSplashView,
                   width: 300.w,
                   height: 350.h,
                 ),

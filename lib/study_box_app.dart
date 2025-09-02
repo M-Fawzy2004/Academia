@@ -21,7 +21,7 @@ class StudyBoxApp extends StatelessWidget {
           brightness: Brightness.light,
           primaryColor: AppColors.primaryColor,
           scaffoldBackgroundColor: AppColors.grey,
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
             backgroundColor: AppColors.grey,
             foregroundColor: AppColors.black,
             elevation: 0,
@@ -38,7 +38,7 @@ class StudyBoxApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.darkBackgroundColor,
           appBarTheme: const AppBarTheme(
             backgroundColor: AppColors.darkBackgroundColor,
-            foregroundColor: AppColors.darkTextColor,
+            foregroundColor: AppColors.white,
             elevation: 0,
             systemOverlayStyle: SystemUiOverlayStyle(
               statusBarColor: Colors.transparent,
