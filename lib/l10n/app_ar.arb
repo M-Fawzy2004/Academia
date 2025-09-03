@@ -1,0 +1,43 @@
+{
+  "@@locale": "ar",
+  "onboarding": "الترحيب",
+  "@onboarding": {
+    "description": "العنوان الرئيسي لشاشة الـ Onboarding"
+  },
+  "onboarding_title1": "StudyBox – كل مذاكرتك في مكان واحد",
+  "@onboarding_title1": {
+    "description": "عنوان الواجهة الأولى"
+  },
+  "onboarding_desc1": "اجمع موادك، ملفاتك، وملاحظاتك في تطبيق واحد بسيط يساعدك تنظم دراستك من غير لخبطة",
+  "@onboarding_desc1": {
+    "description": "وصف الواجهة الأولى"
+  },
+  "onboarding_title2": "رتب موادك بسهولة",
+  "@onboarding_title2": {
+    "description": "عنوان الواجهة الثانية"
+  },
+  "onboarding_desc2": "أنشئ قسم لكل مادة، وخلي كل الملفات، الملاحظات، والتسجيلات متجمعة مع بعض عشان توصّلها بسرعة",
+  "@onboarding_desc2": {
+    "description": "وصف الواجهة الثانية"
+  },
+  "onboarding_title3": "ملاحظاتك وملفاتك في مكان آمن",
+  "@onboarding_title3": {
+    "description": "عنوان الواجهة الثالثة"
+  },
+  "onboarding_desc3": "دوّن ملاحظاتك، ارفع ملفاتك، واحفظ تسجيلاتك الصوتية علشان تراجعها في أي وقت وأي مكان",
+  "@onboarding_desc3": {
+    "description": "وصف الواجهة الثالثة"
+  },
+  "onboarding_skip": "تخطي",
+  "@onboarding_skip": {
+    "description": "زر التخطي في شاشة الـ Onboarding"
+  },
+  "onboarding_next": "التالي",
+  "@onboarding_next": {
+    "description": "زر التالي في شاشة الـ Onboarding"
+  },
+  "onboarding_start_now": "ابدأ الآن",
+  "@onboarding_start_now": {
+    "description": "زر البدء (Done) في شاشة الـ Onboarding"
+  }
+}

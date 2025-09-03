@@ -1,0 +1,43 @@
+{
+  "@@locale": "en",
+  "onboarding": "Onboarding",
+  "@onboarding": {
+    "description": "The title of the onboarding screen"
+  },
+  "onboarding_title1": "StudyBox – All your study materials in one place",
+  "@onboarding_title1": {
+    "description": "The title of the first onboarding screen"
+  },
+  "onboarding_desc1": "Gather your subjects, files, and notes in one simple app that helps you organize your studies without confusion.",
+  "@onboarding_desc1": {
+    "description": "The description of the first onboarding screen"
+  },
+  "onboarding_title2": "Organize your subjects easily",
+  "@onboarding_title2": {
+    "description": "The title of the second onboarding screen"
+  },
+  "onboarding_desc2": "Create a section for each subject and keep all your files, notes, and recordings together for quick access.",
+  "@onboarding_desc2": {
+    "description": "The description of the second onboarding screen"
+  },
+  "onboarding_title3": "Your notes and files in a safe place",
+  "@onboarding_title3": {
+    "description": "The title of the third onboarding screen"
+  },
+  "onboarding_desc3": "Write your notes, upload your files, and save your recordings so you can review them anytime, anywhere.",
+  "@onboarding_desc3": {
+    "description": "The description of the third onboarding screen"
+  },
+  "onboarding_skip": "Skip",
+  "@onboarding_skip": {
+    "description": "The skip button of the onboarding screen"
+  },
+  "onboarding_next": "Next",
+  "@onboarding_next": {
+    "description": "The next button of the onboarding screen"
+  },
+  "onboarding_start_now": "Start now",
+  "@onboarding_start_now": {
+    "description": "The done button of the onboarding screen"
+  }
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/onboarding/data/model/onboarding_model.dart';
@@ -35,7 +36,7 @@ class OnboardingPage extends StatelessWidget {
           child: Stack(
             children: [
               Positioned(
-                top: 50.h,
+                top: 80.h,
                 right: -40.w,
                 child: Container(
                   width: 120.w,
@@ -76,7 +77,7 @@ class OnboardingPage extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        'تخطي',
+                        context.tr.onboarding_skip,
                         style: Styles.font12MediumWhiteBold(context),
                       ),
                     ),

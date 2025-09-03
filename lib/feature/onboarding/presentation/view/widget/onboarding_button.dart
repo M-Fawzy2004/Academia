@@ -24,7 +24,7 @@ class OnboardingButton extends StatelessWidget {
           backgroundColor:
               isPrimary ? const Color(0xFF667EEA) : const Color(0xFFF8FAFC),
           foregroundColor: isPrimary ? Colors.white : const Color(0xFF475569),
-          elevation: isPrimary ? 4 : 0,
+          elevation: isPrimary ? 1 : 0,
           shadowColor: const Color(0xFF667EEA).withOpacity(0.3),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.r),

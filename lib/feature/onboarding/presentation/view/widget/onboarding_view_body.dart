@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/core/utils/assets.dart';
 import 'package:study_box/feature/onboarding/data/model/onboarding_model.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_bottom_section.dart';
@@ -20,26 +21,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
 
-  final List<OnboardingModel> _onboardingData = [
-    OnboardingModel(
-      image: Assets.imagesJpgOnboardingImage1,
-      title: 'StudyBox – كل مذاكرتك في مكان واح',
-      description:
-          'اجمع موادك، ملفاتك، وملاحظاتك في تطبيق واحد بسيط يساعدك تنظم دراستك من غير لخبطة',
-    ),
-    OnboardingModel(
-      image: Assets.imagesJpgOnboardingImage2,
-      title: 'رتب موادك بسهولة',
-      description:
-          'أنشئ قسم لكل مادة، وخلي كل الملفات، الملاحظات، والتسجيلات متجمعة مع بعض عشان توصّلها بسرعة',
-    ),
-    OnboardingModel(
-      image: Assets.imagesJpgOnboardingImage3,
-      title: 'ملاحظاتك وملفاتك في مكان آمن',
-      description:
-          'دوّن ملاحظاتك، ارفع ملفاتك، واحفظ تسجيلاتك الصوتية علشان تراجعها في أي وقت وأي مكان',
-    ),
-  ];
+  // Remove the hardcoded list - we'll build it dynamically
+  List<OnboardingModel> _onboardingData = [];
 
   @override
   void initState() {
@@ -62,6 +45,30 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
     ));
 
     _animationController.forward();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Build the onboarding data using localized strings
+
+    _onboardingData = [
+      OnboardingModel(
+        image: Assets.imagesJpgOnboardingImage1,
+        title: context.tr.onboarding_title1,
+        description: context.tr.onboarding_desc1,
+      ),
+      OnboardingModel(
+        image: Assets.imagesJpgOnboardingImage2,
+        title: context.tr.onboarding_title2,
+        description: context.tr.onboarding_desc2,
+      ),
+      OnboardingModel(
+        image: Assets.imagesJpgOnboardingImage3,
+        title: context.tr.onboarding_title3,
+        description: context.tr.onboarding_desc3,
+      ),
+    ];
   }
 
   @override
@@ -102,6 +109,15 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
 
   @override
   Widget build(BuildContext context) {
+    // Check if onboarding data is ready
+    if (_onboardingData.isEmpty) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return Scaffold(
       body: Column(
         children: [

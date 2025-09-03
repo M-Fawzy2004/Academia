@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_button.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_page_indicator.dart';
 
@@ -29,13 +30,13 @@ class OnboardingBottomSection extends StatelessWidget {
         SizedBox(height: 32.h),
         if (currentIndex == totalPages - 1)
           OnboardingButton(
-            text: 'ابدأ الآن',
+            text: context.tr.onboarding_start_now,
             onPressed: onGetStarted,
             isPrimary: true,
           )
         else
           OnboardingButton(
-            text: 'التالي',
+            text: context.tr.onboarding_next,
             onPressed: onNext,
             isPrimary: false,
           ),

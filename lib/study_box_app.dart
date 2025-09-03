@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/l10n/app_localizations.dart' show AppLocalizations;
 
-class StudyBoxApp extends StatelessWidget {
+class StudyBoxApp extends StatefulWidget {
   const StudyBoxApp({super.key});
+
+  @override
+  State<StudyBoxApp> createState() => _StudyBoxAppState();
+}
+
+class _StudyBoxAppState extends State<StudyBoxApp> {
+  Locale _locale = const Locale('en');
+
+  void setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +31,17 @@ class StudyBoxApp extends StatelessWidget {
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
         debugShowCheckedModeBanner: false,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ar'),
+        ],
+        locale: _locale,
         theme: ThemeData(
           fontFamily: 'fontApp',
           brightness: Brightness.light,
