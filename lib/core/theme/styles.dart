@@ -15,4 +15,16 @@ class Styles {
         fontWeight: FontWeightHelper.medium,
         color: AppColors.darkTextPrimary,
       );
+
+  static TextStyle font14MediumPrimaryBold(BuildContext context) => TextStyle(
+        fontSize: 14.sp,
+        fontWeight: FontWeightHelper.extraBold,
+        color: AppColors.darkPrimaryColor,
+      );
+
+  static TextStyle font13MediumGreyBold(BuildContext context) => TextStyle(
+        fontSize: 13.sp,
+        fontWeight: FontWeightHelper.medium,
+        color: AppColors.darkLightGrey,
+      );
 }
