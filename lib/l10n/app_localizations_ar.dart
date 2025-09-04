@@ -40,4 +40,20 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get onboarding_start_now => 'ابدأ الآن';
+
+  @override
+  String get welcome => 'الترحيب';
+
+  @override
+  String get welcome_title => 'جاهز تبدأ رحلتك الدراسية مع StudyBox';
+
+  @override
+  String get welcome_desc =>
+      'رتب موادك، احفظ ملفاتك وملاحظاتك، وخلي مذاكرتك منظمة زي ما تحب';
+
+  @override
+  String get welcome_button_login => 'تسجيل الدخول';
+
+  @override
+  String get welcome_button_register => 'Register';
 }

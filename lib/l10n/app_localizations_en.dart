@@ -41,4 +41,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onboarding_start_now => 'Start now';
+
+  @override
+  String get welcome => 'Welcome';
+
+  @override
+  String get welcome_title => 'Ready to start your study journey with StudyBox';
+
+  @override
+  String get welcome_desc =>
+      'Organize your materials, save your files and notes, and keep your studies organized the way you like.';
+
+  @override
+  String get welcome_button_login => 'Login';
+
+  @override
+  String get welcome_button_register => 'Register';
 }

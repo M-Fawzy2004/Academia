@@ -157,6 +157,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start now'**
   String get onboarding_start_now;
+
+  /// The title of the welcome screen
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// The title of the welcome screen
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to start your study journey with StudyBox'**
+  String get welcome_title;
+
+  /// The description of the welcome screen
+  ///
+  /// In en, this message translates to:
+  /// **'Organize your materials, save your files and notes, and keep your studies organized the way you like.'**
+  String get welcome_desc;
+
+  /// The login button of the welcome screen
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get welcome_button_login;
+
+  /// The register button of the welcome screen
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get welcome_button_register;
 }
 
 class _AppLocalizationsDelegate

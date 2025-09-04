@@ -39,5 +39,25 @@
   "onboarding_start_now": "Start now",
   "@onboarding_start_now": {
     "description": "The done button of the onboarding screen"
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "The title of the welcome screen"
+  },
+  "welcome_title": "Ready to start your study journey with StudyBox",
+  "@welcome_title": {
+    "description": "The title of the welcome screen"
+  },
+  "welcome_desc": "Organize your materials, save your files and notes, and keep your studies organized the way you like.",
+  "@welcome_desc": {
+    "description": "The description of the welcome screen"
+  },
+  "welcome_button_login": "Login",
+  "@welcome_button_login": {
+    "description": "The login button of the welcome screen"
+  },
+  "welcome_button_register": "Register",
+  "@welcome_button_register": {
+    "description": "The register button of the welcome screen"
   }
 }

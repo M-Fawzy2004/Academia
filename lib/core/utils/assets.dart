@@ -14,6 +14,10 @@ class Assets {
   /// assets/images/jpg/onboarding_image3.jpg
   static const String imagesJpgOnboardingImage3 = "assets/images/jpg/onboarding_image3.jpg";
 
+  /// Assets for imagesJpgWelcomeViewImage
+  /// assets/images/jpg/welcome_view_image.jpg
+  static const String imagesJpgWelcomeViewImage = "assets/images/jpg/welcome_view_image.jpg";
+
   /// Assets for imagesPngSplashView
   /// assets/images/png/splash_view.png
   static const String imagesPngSplashView = "assets/images/png/splash_view.png";
