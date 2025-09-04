@@ -57,4 +57,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcome_button_register => 'Register';
+
+  @override
+  String get login => 'login';
+
+  @override
+  String get login_email => 'Email';
+
+  @override
+  String get login_pass => 'Password';
+
+  @override
+  String get login_forgot => 'Forgot password?';
+
+  @override
+  String get login_button => 'Login';
+
+  @override
+  String get login_register => 'Register';
+
+  @override
+  String get login_not_have_an_account => 'Don\'t have an account?';
+
+  @override
+  String get login_with_google => 'Continue with Google';
+
+  @override
+  String get login_with_apple => 'Continue with Apple';
+
+  @override
+  String get login_or => 'OR';
+
+  @override
+  String get register => 'Register';
+
+  @override
+  String get register_username => 'Username';
+
+  @override
+  String get register_confirm_pass => 'Confirm Password';
+
+  @override
+  String get register_have_an_account => 'Already have an account?';
 }

@@ -55,5 +55,47 @@ class AppLocalizationsAr extends AppLocalizations {
   String get welcome_button_login => 'تسجيل الدخول';
 
   @override
-  String get welcome_button_register => 'Register';
+  String get welcome_button_register => 'إنشاء حساب';
+
+  @override
+  String get login => 'تسجيل الدخول';
+
+  @override
+  String get login_email => 'البريد الإلكتروني';
+
+  @override
+  String get login_pass => 'كلمة المرور';
+
+  @override
+  String get login_forgot => 'هل نسيت كلمة المرور؟';
+
+  @override
+  String get login_button => 'تسجيل الدخول';
+
+  @override
+  String get login_register => 'إنشاء حساب';
+
+  @override
+  String get login_not_have_an_account => 'ليس لديك حساب؟';
+
+  @override
+  String get login_with_google => 'تسجيل الدخول باستخدام جوجل';
+
+  @override
+  String get login_with_apple => 'تسجيل الدخول باستخدام أبل';
+
+  @override
+  String get login_or => 'أو';
+
+  @override
+  String get register => 'إنشاء حساب';
+
+  @override
+  String get register_username => 'اسم المستخدم';
+
+  @override
+  String get register_confirm_pass => 'تأكيد كلمة المرور';
+
+  @override
+  String get register_have_an_account => 'هل لديك حساب بالفعل؟';
 }

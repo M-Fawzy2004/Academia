@@ -6,10 +6,12 @@ class AuthRedirectText extends StatelessWidget {
     super.key,
     required this.title,
     required this.buttonTitle,
+    this.onTap,
   });
 
   final String title;
   final String buttonTitle;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class AuthRedirectText extends StatelessWidget {
           style: Styles.font13MediumGreyBold(context),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: onTap,
           child: Text(
             buttonTitle,
             style: Styles.font14MediumPrimaryBold(context),

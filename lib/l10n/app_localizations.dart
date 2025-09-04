@@ -98,7 +98,7 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
-  /// The title of the onboarding screen
+  /// Translation of the onboarding screen
   ///
   /// In en, this message translates to:
   /// **'Onboarding'**
@@ -158,7 +158,7 @@ abstract class AppLocalizations {
   /// **'Start now'**
   String get onboarding_start_now;
 
-  /// The title of the welcome screen
+  /// Translation of the welcome screen
   ///
   /// In en, this message translates to:
   /// **'Welcome'**
@@ -187,6 +187,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Register'**
   String get welcome_button_register;
+
+  /// Translation of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'login'**
+  String get login;
+
+  /// The email field of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get login_email;
+
+  /// The password field of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get login_pass;
+
+  /// The forgot password button of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get login_forgot;
+
+  /// The login button of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login_button;
+
+  /// The register button of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get login_register;
+
+  /// The register button of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get login_not_have_an_account;
+
+  /// The login with Google button of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Google'**
+  String get login_with_google;
+
+  /// The login with Apple button of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Apple'**
+  String get login_with_apple;
+
+  /// The or button of the login screen
+  ///
+  /// In en, this message translates to:
+  /// **'OR'**
+  String get login_or;
+
+  /// Translation of the register screen
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// The username field of the register screen
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get register_username;
+
+  /// The confirm password field of the register screen
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get register_confirm_pass;
+
+  /// The login button of the register screen
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get register_have_an_account;
 }
 
 class _AppLocalizationsDelegate

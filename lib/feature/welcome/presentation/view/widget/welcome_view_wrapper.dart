@@ -30,7 +30,7 @@ class _WelcomeViewWrapperState extends State<WelcomeViewWrapper>
         if (state is WelcomeNavigateToLogin) {
           context.push(AppRouter.loginView);
         } else if (state is WelcomeNavigateToSignUp) {
-          // context.go(AppRouter.signUpView);
+          context.push(AppRouter.registerView);
         }
       },
       builder: (context, state) {

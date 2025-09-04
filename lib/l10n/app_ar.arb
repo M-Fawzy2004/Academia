@@ -56,8 +56,64 @@
   "@welcome_button_login": {
     "description": "الزر لتسجيل الدخول في شاشة الترحيب"
   },
-  "welcome_button_register": "Register",
+  "welcome_button_register": "إنشاء حساب",
   "@welcome_button_register": {
     "description": "الزر للتسجيل في شاشة الترحيب"
+  },
+  "login": "تسجيل الدخول",
+  "@login": {
+    "description": "ترجمة شاشة تسجيل الدخول"
+  },
+  "login_email": "البريد الإلكتروني",
+  "@login_email": {
+    "description": "حقل البريد الإلكتروني في شاشة تسجيل الدخول"
+  },
+  "login_pass": "كلمة المرور",
+  "@login_pass": {
+    "description": "حقل كلمة المرور في شاشة تسجيل الدخول"
+  },
+  "login_forgot": "هل نسيت كلمة المرور؟",
+  "@login_forgot": {
+    "description": "زر استعادة كلمة المرور في شاشة تسجيل الدخول"
+  },
+  "login_button": "تسجيل الدخول",
+  "@login_button": {
+    "description": "زر تسجيل الدخول في الشاشة"
+  },
+  "login_register": "إنشاء حساب",
+  "@login_register": {
+    "description": "زر الانتقال لشاشة التسجيل"
+  },
+  "login_not_have_an_account": "ليس لديك حساب؟",
+  "@login_not_have_an_account": {
+    "description": "النص المرافق لزر التسجيل في شاشة تسجيل الدخول"
+  },
+  "login_with_google": "تسجيل الدخول باستخدام جوجل",
+  "@login_with_google": {
+    "description": "زر تسجيل الدخول باستخدام جوجل في شاشة تسجيل الدخول"
+  },
+  "login_with_apple": "تسجيل الدخول باستخدام أبل",
+  "@login_with_apple": {
+    "description": "زر تسجيل الدخول باستخدام أبل في شاشة تسجيل الدخول"
+  },
+  "login_or": "أو",
+  "@login_or": {
+    "description": "النص الفاصل (أو) في شاشة تسجيل الدخول"
+  },
+  "register": "إنشاء حساب",
+  "@register": {
+    "description": "ترجمة شاشة إنشاء الحساب"
+  },
+  "register_username": "اسم المستخدم",
+  "@register_username": {
+    "description": "حقل اسم المستخدم في شاشة إنشاء الحساب"
+  },
+  "register_confirm_pass": "تأكيد كلمة المرور",
+  "@register_confirm_pass": {
+    "description": "حقل تأكيد كلمة المرور في شاشة إنشاء الحساب"
+  },
+  "register_have_an_account": "هل لديك حساب بالفعل؟",
+  "@register_have_an_account": {
+    "description": "النص المرافق لزر تسجيل الدخول في شاشة إنشاء الحساب"
   }
 }

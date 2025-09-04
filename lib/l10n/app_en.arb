@@ -2,7 +2,7 @@
   "@@locale": "en",
   "onboarding": "Onboarding",
   "@onboarding": {
-    "description": "The title of the onboarding screen"
+    "description": "Translation of the onboarding screen"
   },
   "onboarding_title1": "StudyBox – All your study materials in one place",
   "@onboarding_title1": {
@@ -42,7 +42,7 @@
   },
   "welcome": "Welcome",
   "@welcome": {
-    "description": "The title of the welcome screen"
+    "description": "Translation of the welcome screen"
   },
   "welcome_title": "Ready to start your study journey with StudyBox",
   "@welcome_title": {
@@ -59,5 +59,61 @@
   "welcome_button_register": "Register",
   "@welcome_button_register": {
     "description": "The register button of the welcome screen"
+  },
+  "login": "login",
+  "@login": {
+    "description": "Translation of the login screen"
+  },
+  "login_email": "Email",
+  "@login_email": {
+    "description": "The email field of the login screen"
+  },
+  "login_pass": "Password",
+  "@login_pass": {
+    "description": "The password field of the login screen"
+  },
+  "login_forgot": "Forgot password?",
+  "@login_forgot": {
+    "description": "The forgot password button of the login screen"
+  },
+  "login_button": "Login",
+  "@login_button": {
+    "description": "The login button of the login screen"
+  },
+  "login_register": "Register",
+  "@login_register": {
+    "description": "The register button of the login screen"
+  },
+  "login_not_have_an_account": "Don't have an account?",
+  "@login_not_have_an_account": {
+    "description": "The register button of the login screen"
+  },
+  "login_with_google": "Continue with Google",
+  "@login_with_google": {
+    "description": "The login with Google button of the login screen"
+  },
+  "login_with_apple": "Continue with Apple",
+  "@login_with_apple": {
+    "description": "The login with Apple button of the login screen"
+  },
+  "login_or": "OR",
+  "@login_or": {
+    "description": "The or button of the login screen"
+  },
+  "register": "Register",
+  "@register": {
+    "description": "Translation of the register screen"
+  },
+  "register_username": "Username",
+  "@register_username": {
+    "description": "The username field of the register screen"
+  },
+  "register_confirm_pass": "Confirm Password",
+  "@register_confirm_pass": {
+    "description": "The confirm password field of the register screen"
+  },
+  "register_have_an_account": "Already have an account?",
+  "@register_have_an_account": {
+    "description": "The login button of the register screen"
   }
 }

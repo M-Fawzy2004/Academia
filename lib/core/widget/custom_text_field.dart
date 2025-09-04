@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/theme/app_color.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -111,8 +112,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         maxLength: widget.maxLength,
         validator: widget.validator,
         style: TextStyle(
-          color: widget.textColor ?? Colors.black87,
-          fontSize: 16,
+          color: widget.textColor ?? AppColors.darkTextPrimary,
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w700,
         ),
         decoration: InputDecoration(
           labelText: widget.labelText,
@@ -157,7 +159,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 )
               : null,
           contentPadding: widget.contentPadding ??
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
             borderSide: BorderSide.none,
