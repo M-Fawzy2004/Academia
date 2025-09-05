@@ -10,6 +10,10 @@ class Assets {
   /// assets/images/icon/google.png
   static const String imagesIconGoogle = "assets/images/icon/google.png";
 
+  /// Assets for imagesJpgForgetPassImage
+  /// assets/images/jpg/forget_pass_image.png
+  static const String imagesJpgForgetPassImage = "assets/images/jpg/forget_pass_image.png";
+
   /// Assets for imagesJpgOnboardingImage1
   /// assets/images/jpg/onboarding_image1.jpg
   static const String imagesJpgOnboardingImage1 = "assets/images/jpg/onboarding_image1.jpg";
@@ -29,5 +33,13 @@ class Assets {
   /// Assets for imagesPngSplashView
   /// assets/images/png/splash_view.png
   static const String imagesPngSplashView = "assets/images/png/splash_view.png";
+
+  /// Assets for imagesPngVerfEmailImage
+  /// assets/images/png/verf_email_image.png
+  static const String imagesPngVerfEmailImage = "assets/images/png/verf_email_image.png";
+
+  /// Assets for imagesPngWelcomeViewImage
+  /// assets/images/png/welcome_view_image.png
+  static const String imagesPngWelcomeViewImage = "assets/images/png/welcome_view_image.png";
 }
 

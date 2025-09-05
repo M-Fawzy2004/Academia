@@ -21,26 +21,29 @@ class WelcomeViewBody extends StatelessWidget {
               bool isSmallScreen = constraints.maxHeight < 600.h;
               bool isMediumScreen = constraints.maxHeight < 800.h &&
                   constraints.maxHeight >= MediaQuery.of(context).size.height.h;
-              return ConstrainedBox(
-                constraints: BoxConstraints(
-                  minHeight: constraints.maxHeight,
-                ),
-                child: IntrinsicHeight(
-                  child: Column(
-                    children: [
-                      heightBox(isSmallScreen ? 10.h : 15.h),
-                      WelcomeHeaderImage(
-                        isSmallScreen: isSmallScreen,
-                        cubit: cubit,
-                        isMediumScreen: isMediumScreen,
-                      ),
-                      heightBox(isSmallScreen ? 15.h : 25.h),
-                      WelcomeContentSection(
-                        isSmallScreen: isSmallScreen,
-                        cubit: cubit,
-                        isMediumScreen: isMediumScreen,
-                      ),
-                    ],
+              return SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: constraints.maxHeight,
+                  ),
+                  child: IntrinsicHeight(
+                    child: Column(
+                      children: [
+                        heightBox(isSmallScreen ? 10.h : 15.h),
+                        WelcomeHeaderImage(
+                          isSmallScreen: isSmallScreen,
+                          cubit: cubit,
+                          isMediumScreen: isMediumScreen,
+                        ),
+                        heightBox(isSmallScreen ? 15.h : 25.h),
+                        WelcomeContentSection(
+                          isSmallScreen: isSmallScreen,
+                          cubit: cubit,
+                          isMediumScreen: isMediumScreen,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               );

@@ -41,7 +41,7 @@ class WelcomeHeaderImage extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20.r),
                 child: Image.asset(
-                  Assets.imagesJpgWelcomeViewImage,
+                  Assets.imagesPngWelcomeViewImage,
                   height: isSmallScreen
                       ? 200.h
                       : isMediumScreen

@@ -23,6 +23,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
       context.read<OnboardingCubit>().initializeAnimations(this, context);
     });
   }
+  
 
   @override
   Widget build(BuildContext context) {

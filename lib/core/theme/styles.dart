@@ -27,4 +27,10 @@ class Styles {
         fontWeight: FontWeightHelper.medium,
         color: AppColors.darkLightGrey,
       );
+
+  static TextStyle font18MediumPrimaryBold(BuildContext context) => TextStyle(
+        fontSize: 18.sp,
+        fontWeight: FontWeightHelper.extraBold,
+        color: AppColors.darkPrimaryColor,
+      );
 }

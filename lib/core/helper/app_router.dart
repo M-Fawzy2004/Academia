@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:study_box/feature/auth/presentation/view/forget_pass_view.dart';
 import 'package:study_box/feature/auth/presentation/view/login_view.dart';
 import 'package:study_box/feature/auth/presentation/view/register_view.dart';
+import 'package:study_box/feature/auth/presentation/view/verf_email_view.dart';
 import 'package:study_box/feature/welcome/presentation/view/welcome_view.dart';
 import 'package:study_box/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:study_box/feature/splash/presentation/view/splash_view.dart';
@@ -11,6 +13,8 @@ abstract class AppRouter {
   static const welcomeView = '/welcomeView';
   static const loginView = '/loginView';
   static const registerView = '/registerView';
+  static const forgetPassView = '/forgetPassView';
+  static const verfEmailView = '/verfEmailView';
 
   static var router = GoRouter(
     routes: [
@@ -42,6 +46,18 @@ abstract class AppRouter {
         path: registerView,
         builder: (BuildContext context, GoRouterState state) {
           return const RegisterView();
+        },
+      ),
+      GoRoute(
+        path: forgetPassView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const ForgetPassView();
+        },
+      ),
+      GoRoute(
+        path: verfEmailView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const VerfEmailView();
         },
       ),
     ],
