@@ -20,7 +20,7 @@ class EmailInputStep extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: Text(
-            'من فضلك ادخل بريدك الالكتروني',
+            context.tr.enter_email,
             style: Styles.font14MediumPrimaryBold(context),
           ),
         ),

@@ -271,6 +271,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Already have an account?'**
   String get register_have_an_account;
+
+  /// Translation of the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password'**
+  String get forget;
+
+  /// The reset password button of the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get forget_reset;
+
+  /// The send verification code button of the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Send Verification Code'**
+  String get enter_verfivcation_code;
+
+  /// The identity confirmation button of the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Identity Confirmation'**
+  String get identity_confirmation;
+
+  /// The save password button of the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Save Password'**
+  String get save_pass;
+
+  /// The text for the email field in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get enter_email;
+
+  /// The resend code button of the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Resend Code'**
+  String get resend_code;
+
+  /// The back to previous step button of the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Previous Step'**
+  String get back_step;
+
+  /// The text shown after sending the verification code in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'A verification code has been sent to your email'**
+  String get send_code_with_email;
+
+  /// The text for the verification code field in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter the 6-digit code'**
+  String get enter_code;
+
+  /// The label for the verification code field in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Code'**
+  String get verf_code;
+
+  /// The text for the confirm code button in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Code'**
+  String get confirm_code;
+
+  /// The text for the new password field in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your new password'**
+  String get enter_new_pass;
+
+  /// The label for the new password field in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get new_pass;
+
+  /// The validation text for the new password field in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters'**
+  String get pass_at_least;
+
+  /// The text for the confirm email button in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Email'**
+  String get confirm_email;
+
+  /// The text for the verification button in the forget password screen
+  ///
+  /// In en, this message translates to:
+  /// **'Verification'**
+  String get verf;
 }
 
 class _AppLocalizationsDelegate

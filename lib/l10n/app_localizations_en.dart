@@ -99,4 +99,56 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get register_have_an_account => 'Already have an account?';
+
+  @override
+  String get forget => 'Forget Password';
+
+  @override
+  String get forget_reset => 'Reset Password';
+
+  @override
+  String get enter_verfivcation_code => 'Send Verification Code';
+
+  @override
+  String get identity_confirmation => 'Identity Confirmation';
+
+  @override
+  String get save_pass => 'Save Password';
+
+  @override
+  String get enter_email => 'Please enter your email';
+
+  @override
+  String get resend_code => 'Resend Code';
+
+  @override
+  String get back_step => 'Back to Previous Step';
+
+  @override
+  String get send_code_with_email =>
+      'A verification code has been sent to your email';
+
+  @override
+  String get enter_code => 'Please enter the 6-digit code';
+
+  @override
+  String get verf_code => 'Verification Code';
+
+  @override
+  String get confirm_code => 'Confirm Code';
+
+  @override
+  String get enter_new_pass => 'Please enter your new password';
+
+  @override
+  String get new_pass => 'New Password';
+
+  @override
+  String get pass_at_least => 'Password must be at least 8 characters';
+
+  @override
+  String get confirm_email => 'Confirm Email';
+
+  @override
+  String get verf => 'Verification';
 }

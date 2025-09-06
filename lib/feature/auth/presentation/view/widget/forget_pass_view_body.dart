@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/utils/assets.dart';
 import 'package:study_box/core/widget/custom_button.dart';
@@ -66,48 +67,48 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
   }
 
   void _resendVerificationCode() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('تم إرسال رمز التحقق مرة أخرى')),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   const SnackBar(content: Text('تم إرسال رمز التحقق مرة أخرى')),
+    // );
   }
 
   void _showSuccessDialog() {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('نجح!'),
-        content: const Text('تم تغيير كلمة المرور بنجاح'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('موافق'),
-          ),
-        ],
-      ),
-    );
+    // showDialog(
+    //   context: context,
+    //   builder: (context) => AlertDialog(
+    //     title: const Text('نجح!'),
+    //     content: const Text('تم تغيير كلمة المرور بنجاح'),
+    //     actions: [
+    //       TextButton(
+    //         onPressed: () {
+    //           Navigator.of(context).pop();
+    //         },
+    //         child: const Text('موافق'),
+    //       ),
+    //     ],
+    //   ),
+    // );
   }
 
   String _getTitle() {
     switch (currentStep) {
       case ForgetPasswordStep.enterEmail:
-        return 'إستعادة كلمة المرور';
+        return context.tr.forget_reset;
       case ForgetPasswordStep.enterVerificationCode:
-        return 'تأكيد الهوية';
+        return context.tr.identity_confirmation;
       case ForgetPasswordStep.resetPassword:
-        return 'كلمة مرور جديدة';
+        return context.tr.register_confirm_pass;
     }
   }
 
   String _getButtonText() {
     switch (currentStep) {
       case ForgetPasswordStep.enterEmail:
-        return 'إرسال رمز التحقق';
+        return context.tr.enter_verfivcation_code;
       case ForgetPasswordStep.enterVerificationCode:
-        return 'تأكيد الرمز';
+        return context.tr.confirm_code;
       case ForgetPasswordStep.resetPassword:
-        return 'حفظ كلمة المرور';
+        return context.tr.save_pass;
     }
   }
 

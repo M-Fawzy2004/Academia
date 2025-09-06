@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/forget_pass_view_body.dart';
 
@@ -25,7 +26,7 @@ class ForgetPasswordActionButtons extends StatelessWidget {
           TextButton(
             onPressed: onResendCode,
             child: Text(
-              'إعادة إرسال الرمز',
+              context.tr.resend_code,
               style: Styles.font14MediumPrimaryBold(context),
             ),
           ),
@@ -35,7 +36,7 @@ class ForgetPasswordActionButtons extends StatelessWidget {
           TextButton(
             onPressed: onGoBack,
             child: Text(
-              'رجوع للخطوة السابقة',
+              context.tr.back_step,
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.grey[600],

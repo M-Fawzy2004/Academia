@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
 
@@ -30,21 +31,21 @@ class _ResetPasswordStepState extends State<ResetPasswordStep> {
         Align(
           alignment: Alignment.centerRight,
           child: Text(
-            'من فضلك ادخل كلمة المرور الجديدة',
+            context.tr.enter_new_pass,
             style: Styles.font14MediumPrimaryBold(context),
           ),
         ),
         heightBox(15),
         CustomTextField(
           controller: widget.newPasswordController,
-          hintText: 'كلمة المرور الجديدة',
+          hintText: context.tr.new_pass,
           suffixIcon: isPasswordVisible ? IconlyLight.show : IconlyLight.hide,
           obscureText: !isPasswordVisible,
         ),
         heightBox(15),
         CustomTextField(
           controller: widget.confirmPasswordController,
-          hintText: 'تأكيد كلمة المرور',
+          hintText: context.tr.register_confirm_pass,
           suffixIcon:
               isConfirmPasswordVisible ? IconlyLight.show : IconlyLight.hide,
           obscureText: !isConfirmPasswordVisible,
@@ -53,7 +54,7 @@ class _ResetPasswordStepState extends State<ResetPasswordStep> {
         Align(
           alignment: Alignment.centerRight,
           child: Text(
-            'يجب أن تكون كلمة المرور 8 أحرف على الأقل',
+            context.tr.pass_at_least,
             style: TextStyle(
               fontSize: 12.sp,
               color: Colors.grey[600],

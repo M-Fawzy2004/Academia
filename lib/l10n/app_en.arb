@@ -115,5 +115,73 @@
   "register_have_an_account": "Already have an account?",
   "@register_have_an_account": {
     "description": "The login button of the register screen"
+  },
+  "forget": "Forget Password",
+  "@forget": {
+    "description": "Translation of the forget password screen"
+  },
+  "forget_reset": "Reset Password",
+  "@forget_reset": {
+    "description": "The reset password button of the forget password screen"
+  },
+  "enter_verfivcation_code": "Send Verification Code",
+  "@enter_verfivcation_code": {
+    "description": "The send verification code button of the forget password screen"
+  },
+  "identity_confirmation": "Identity Confirmation",
+  "@identity_confirmation": {
+    "description": "The identity confirmation button of the forget password screen"
+  },
+  "save_pass": "Save Password",
+  "@save_pass": {
+    "description": "The save password button of the forget password screen"
+  },
+  "enter_email": "Please enter your email",
+  "@enter_email": {
+    "description": "The text for the email field in the forget password screen"
+  },
+  "resend_code": "Resend Code",
+  "@resend_code": {
+    "description": "The resend code button of the forget password screen"
+  },
+  "back_step": "Back to Previous Step",
+  "@back_step": {
+    "description": "The back to previous step button of the forget password screen"
+  },
+  "send_code_with_email": "A verification code has been sent to your email",
+  "@send_code_with_email": {
+    "description": "The text shown after sending the verification code in the forget password screen"
+  },
+  "enter_code": "Please enter the 6-digit code",
+  "@enter_code": {
+    "description": "The text for the verification code field in the forget password screen"
+  },
+  "verf_code": "Verification Code",
+  "@verf_code": {
+    "description": "The label for the verification code field in the forget password screen"
+  },
+  "confirm_code": "Confirm Code",
+  "@confirm_code": {
+    "description": "The text for the confirm code button in the forget password screen"
+  },
+  "enter_new_pass": "Please enter your new password",
+  "@enter_new_pass": {
+    "description": "The text for the new password field in the forget password screen"
+  },
+  "new_pass": "New Password",
+  "@new_pass": {
+    "description": "The label for the new password field in the forget password screen"
+  },
+  "pass_at_least": "Password must be at least 8 characters",
+  "@pass_at_least": {
+    "description": "The validation text for the new password field in the forget password screen"
+  },
+  "confirm_email": "Confirm Email",
+  "@confirm_email": {
+    "description": "The text for the confirm email button in the forget password screen"
+  },
+  "verf": "Verification",
+  "@verf": {
+    "description": "The text for the verification button in the forget password screen"
   }
 }

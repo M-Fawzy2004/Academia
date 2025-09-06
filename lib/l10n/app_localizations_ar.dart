@@ -98,4 +98,55 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get register_have_an_account => 'هل لديك حساب بالفعل؟';
+
+  @override
+  String get forget => 'استعادة كلمة المرور';
+
+  @override
+  String get forget_reset => 'استعادة كلمة المرور';
+
+  @override
+  String get enter_verfivcation_code => 'إرسال رمز التحقق';
+
+  @override
+  String get identity_confirmation => 'تأكيد الحساب';
+
+  @override
+  String get save_pass => 'حفظ كلمة المرور';
+
+  @override
+  String get enter_email => 'من فضلك ادخل البريد الالكتروني';
+
+  @override
+  String get resend_code => 'اعادة ارسال الرمز';
+
+  @override
+  String get back_step => 'الرجوع للخطوة السابقة';
+
+  @override
+  String get send_code_with_email => 'تم إرسال رمز التحقق إلى بريدك الالكتروني';
+
+  @override
+  String get enter_code => 'من فضلك ادخل الرمز المكون من 6 أرقام';
+
+  @override
+  String get verf_code => 'رمز التحقق';
+
+  @override
+  String get confirm_code => 'تاكيد الرمز';
+
+  @override
+  String get enter_new_pass => 'من فضلك ادخل كلمة المرور الجديدة';
+
+  @override
+  String get new_pass => 'كلمة المرور الجديدة';
+
+  @override
+  String get pass_at_least => 'كلمة المرور يجب ان تكون على الاقل 8 حروف';
+
+  @override
+  String get confirm_email => 'تاكيد البريد الالكتروني';
+
+  @override
+  String get verf => 'التحقق';
 }
