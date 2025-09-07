@@ -15,7 +15,10 @@ abstract class AuthRepository {
 
   Future<Either<String, AuthModel>> signInWithGoogle();
   Future<Either<String, AuthModel>> signInWithApple();
-  Future<Either<String, String>> verifyEmail({required String token});
+  Future<Either<String, String>> verifyEmail({
+    required String token,
+    String? email,
+  });
   Future<Either<String, String>> resendEmailVerification({
     required String email,
   });

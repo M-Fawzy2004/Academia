@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
+import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/custom_flushbar.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/helper/translate.dart';
@@ -13,7 +15,7 @@ import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dar
 
 class VerfEmailViewBody extends StatefulWidget {
   const VerfEmailViewBody({super.key, this.email});
-  
+
   final String? email;
 
   @override
@@ -24,6 +26,25 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
   final TextEditingController codeController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  String? effectiveEmail;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Get email from widget or GoRouter query parameters
+    effectiveEmail = widget.email;
+
+    if (effectiveEmail == null || effectiveEmail!.isEmpty) {
+      try {
+        final queryParams = GoRouterState.of(context).uri.queryParameters;
+        effectiveEmail = queryParams['email'];
+      } catch (e) {
+        // Fallback if GoRouter is not available
+      }
+    }
+  }
+
   @override
   void dispose() {
     codeController.dispose();
@@ -32,13 +53,16 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
 
   void _handleVerifyEmail() {
     if (formKey.currentState!.validate()) {
-      context.read<AuthCubit>().verifyEmail(token: codeController.text.trim());
+      context.read<AuthCubit>().verifyEmail(
+            token: codeController.text.trim(),
+            email: effectiveEmail,
+          );
     }
   }
 
   void _handleResendCode() {
-    if (widget.email != null && widget.email!.isNotEmpty) {
-      context.read<AuthCubit>().resendEmailVerification(email: widget.email!);
+    if (effectiveEmail != null && effectiveEmail!.isNotEmpty) {
+      context.read<AuthCubit>().resendEmailVerification(email: effectiveEmail!);
     } else {
       CustomFlushbar.showError(context, 'Email not found');
     }
@@ -52,20 +76,23 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
           CustomFlushbar.showError(context, state.message);
           context.read<AuthCubit>().clearError();
         }
-        
+
         if (state is AuthEmailVerified) {
           CustomFlushbar.showSuccess(context, state.message);
-          // You might want to navigate somewhere or refresh user data
           context.read<AuthCubit>().initializeAuth();
         }
-        
-        if (state is AuthEmailSent) {
-          CustomFlushbar.showSuccess(context, state.message);
+
+        if (state is AuthAuthenticated) {
+          context.go(AppRouter.homeView);
+          CustomFlushbar.showSuccess(
+            context,
+            "The account has been created successfully",
+          );
         }
       },
       builder: (context, state) {
         final bool isLoading = state is AuthLoading;
-        
+
         return SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Form(
@@ -101,10 +128,10 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                     color: Colors.grey[600],
                   ),
                 ),
-                if (widget.email != null) ...[
+                if (effectiveEmail != null && effectiveEmail!.isNotEmpty) ...[
                   heightBox(5),
                   Text(
-                    'Sent to: ${widget.email}',
+                    'Sent to: $effectiveEmail',
                     style: TextStyle(
                       fontSize: 12.sp,
                       color: Colors.blue[600],

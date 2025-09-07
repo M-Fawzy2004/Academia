@@ -25,6 +25,9 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         return const Left('Failed to create account');
       }
 
+      // Ensure a profile row exists with email
+      await _ensureProfileExists(response.user!);
+
       final authModel =
           AuthModel.fromUser(response.user!, profile: {'name': name});
       return Right(authModel);
@@ -119,12 +122,28 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
 
   // Verify email with token
   @override
-  Future<Either<String, String>> verifyEmail({required String token}) async {
+  Future<Either<String, String>> verifyEmail({
+    required String token,
+    String? email,
+  }) async {
     try {
-      await _supabaseClient.auth.verifyOTP(
-        token: token,
-        type: OtpType.signup,
-      );
+      if (email != null && email.isNotEmpty) {
+        await _supabaseClient.auth.verifyOTP(
+          token: token,
+          type: OtpType.signup,
+          email: email,
+        );
+      } else {
+        await _supabaseClient.auth.verifyOTP(
+          token: token,
+          type: OtpType.signup,
+        );
+      }
+      // After successful verification, backfill the profile email if missing
+      final currentUser = _supabaseClient.auth.currentUser;
+      if (currentUser != null) {
+        await _ensureProfileExists(currentUser);
+      }
       return const Right('Email verified successfully');
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
@@ -191,14 +210,16 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         return const Left('No authenticated user found');
       }
 
-      // محاولة الحصول على الملف الشخصي
       Map<String, dynamic>? profile = await _getUserProfile(user.id);
 
-      // إذا لم يكن موجود، استخدم البيانات من user metadata
-      profile ??= {
-        'name': user.userMetadata?['name'] ?? '',
-        'email': user.email ?? '',
-      };
+      // If there is no profile or email is missing, ensure minimal profile exists
+      if (profile == null || profile['email'] == null) {
+        await _ensureProfileExists(user);
+        profile = await _getUserProfile(user.id) ?? {
+          'name': user.userMetadata?['name'] ?? '',
+          'email': user.email ?? '',
+        };
+      }
 
       final authModel = AuthModel.fromUser(user, profile: profile);
       return Right(authModel);
@@ -230,7 +251,6 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       if (updateData.isNotEmpty) {
         updateData['updated_at'] = DateTime.now().toIso8601String();
 
-        // استخدم upsert للتعامل مع حالة عدم وجود السجل
         await _supabaseClient.from(AppConstant.tableAuthUsers).upsert({
           'id': user.id,
           'email': user.email,
@@ -260,40 +280,6 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     }
   }
 
-  // Create user profile in database
-  Future<void> _createUserProfile(User user, String name) async {
-    try {
-      final existingProfile = await _getUserProfile(user.id);
-      if (existingProfile != null) {
-        return;
-      }
-
-      final profileData = <String, dynamic>{
-        'id': user.id,
-        'email': user.email,
-        'email_verified': user.emailConfirmedAt != null,
-        'created_at': DateTime.now().toIso8601String(),
-      };
-
-      if (name.trim().isNotEmpty) {
-        profileData['name'] = name.trim();
-      }
-
-      await _supabaseClient
-          .from(AppConstant.tableAuthUsers)
-          .insert(profileData);
-    } catch (e) {
-      try {
-        await _supabaseClient.from(AppConstant.tableAuthUsers).upsert({
-          'id': user.id,
-          'email': user.email,
-        });
-      } catch (basicError) {
-        rethrow;
-      }
-    }
-  }
-
   // Get user profile from database
   Future<Map<String, dynamic>?> _getUserProfile(String userId) async {
     try {
@@ -304,8 +290,26 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
           .maybeSingle();
       return response;
     } catch (e) {
-      print('Error getting user profile: $e');
       return null;
+    }
+  }
+
+  // Create profile row if missing or missing email
+  Future<void> _ensureProfileExists(User user) async {
+    try {
+      final existing = await _getUserProfile(user.id);
+      if (existing == null || existing['email'] == null) {
+        final data = {
+          'id': user.id,
+          'email': user.email,
+          'name': user.userMetadata?['name'],
+          'created_at': DateTime.now().toIso8601String(),
+        }..removeWhere((key, value) => value == null);
+
+        await _supabaseClient.from(AppConstant.tableAuthUsers).upsert(data).eq('id', user.id);
+      }
+    } catch (_) {
+      // Ignore backfill failures; not critical to auth flow
     }
   }
 

@@ -90,10 +90,16 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   // Verify user email with OTP code
-  Future<void> verifyEmail({required String token}) async {
+  Future<void> verifyEmail({
+    required String token,
+    String? email,
+  }) async {
     emit(AuthLoading());
 
-    final result = await _authRepository.verifyEmail(token: token);
+    final result = await _authRepository.verifyEmail(
+      token: token,
+      email: email, 
+    );
 
     result.fold(
       (error) => emit(AuthError(error)),

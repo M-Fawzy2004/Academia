@@ -60,8 +60,9 @@ abstract class AppRouter {
       GoRoute(
         path: verfEmailView,
         builder: (BuildContext context, GoRouterState state) {
+          final String? email = state.uri.queryParameters['email'];
           return AppProviders.emailVerificationView(
-            child: const VerfEmailView(),
+            child: VerfEmailView(email: email),
           );
         },
       ),

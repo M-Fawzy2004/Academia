@@ -39,10 +39,6 @@ class _RegisterFormWrapperState extends State<RegisterFormWrapper> {
             );
           }
         }
-
-        if (state is AuthAuthenticated) {
-          context.go(AppRouter.homeView);
-        }
       },
       builder: (context, state) => RegisterForm(
         state: state,

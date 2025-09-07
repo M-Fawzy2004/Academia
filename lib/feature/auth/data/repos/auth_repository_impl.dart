@@ -68,12 +68,18 @@ class AuthRepositoryImpl implements AuthRepository {
 
   // Verify user email address with OTP token
   @override
-  Future<Either<String, String>> verifyEmail({required String token}) async {
+  Future<Either<String, String>> verifyEmail({
+    required String token,
+    String? email,
+  }) async {
     if (token.trim().isEmpty) {
       return const Left('Verification code is required');
     }
 
-    return await _authService.verifyEmail(token: token.trim());
+    return await _authService.verifyEmail(
+      token: token.trim(),
+      email: email?.trim(),
+    );
   }
 
   // Send new email verification code
