@@ -75,6 +75,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   bool _obscureText = false;
   late FocusNode _focusNode;
   bool _isFocused = false;
+  String? _errorText;
+  final GlobalKey<FormFieldState> _fieldKey = GlobalKey<FormFieldState>();
 
   @override
   void initState() {
@@ -94,15 +96,31 @@ class _CustomTextFieldState extends State<CustomTextField> {
     super.dispose();
   }
 
+  void _onTextChanged(String value) {
+    // Clear error when user starts typing
+    if (_errorText != null) {
+      setState(() {
+        _errorText = null;
+      });
+      _fieldKey.currentState?.reset();
+    }
+
+    // Call the original onChanged callback if provided
+    if (widget.onChanged != null) {
+      widget.onChanged!(value);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: widget.height,
       width: widget.width,
       child: TextFormField(
+        key: _fieldKey,
         controller: widget.controller,
         focusNode: _focusNode,
-        onChanged: widget.onChanged,
+        onChanged: _onTextChanged,
         onTap: widget.onTap,
         keyboardType: widget.keyboardType,
         obscureText: _obscureText,
@@ -110,9 +128,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
         readOnly: widget.readOnly,
         maxLines: widget.maxLines,
         maxLength: widget.maxLength,
-        validator: widget.validator,
+        validator: (value) {
+          final error = widget.validator?.call(value);
+          setState(() {
+            _errorText = error;
+          });
+          return error;
+        },
         style: TextStyle(
-          color: widget.textColor ?? AppColors.darkTextPrimary,
+          color: widget.textColor ?? AppColors.getTextColor(context),
           fontSize: 14.sp,
           fontWeight: FontWeight.w700,
         ),
@@ -173,15 +197,26 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
+            borderSide: BorderSide(
+              color: widget.focusedBorderColor ?? Colors.red,
+              width: 1.5.w,
+            ),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
-            borderSide: const BorderSide(
+            borderSide: BorderSide(
               color: Colors.red,
+              width: 2.w,
             ),
           ),
-          disabledBorder: OutlineInputBorder(
+          border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
+            borderSide: BorderSide.none,
+          ),
+          errorStyle: TextStyle(
+            color: Colors.redAccent,
+            fontSize: 11.sp,
+            fontWeight: FontWeight.w400,
           ),
         ),
       ),

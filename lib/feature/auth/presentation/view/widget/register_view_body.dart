@@ -6,7 +6,7 @@ import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/auth_redirect_text.dart';
-import 'package:study_box/feature/auth/presentation/view/widget/register_form.dart';
+import 'package:study_box/feature/auth/presentation/view/widget/register_form_wrapper.dart';
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({super.key});
@@ -33,7 +33,7 @@ class RegisterViewBody extends StatelessWidget {
             ),
           ),
           heightBox(50),
-          const RegisterForm(),
+          const RegisterFormWrapper(),
           heightBox(15),
           AuthRedirectText(
             onTap: () {

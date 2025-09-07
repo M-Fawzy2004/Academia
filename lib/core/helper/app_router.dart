@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:study_box/core/const/app_providers.dart';
 import 'package:study_box/feature/auth/presentation/view/forget_pass_view.dart';
 import 'package:study_box/feature/auth/presentation/view/login_view.dart';
 import 'package:study_box/feature/auth/presentation/view/register_view.dart';
 import 'package:study_box/feature/auth/presentation/view/verf_email_view.dart';
+import 'package:study_box/feature/home/presentation/view/home_view.dart';
 import 'package:study_box/feature/welcome/presentation/view/welcome_view.dart';
 import 'package:study_box/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:study_box/feature/splash/presentation/view/splash_view.dart';
@@ -15,6 +17,7 @@ abstract class AppRouter {
   static const registerView = '/registerView';
   static const forgetPassView = '/forgetPassView';
   static const verfEmailView = '/verfEmailView';
+  static const homeView = '/homeView';
 
   static var router = GoRouter(
     routes: [
@@ -45,7 +48,7 @@ abstract class AppRouter {
       GoRoute(
         path: registerView,
         builder: (BuildContext context, GoRouterState state) {
-          return const RegisterView();
+          return AppProviders.registerView(child: const RegisterView());
         },
       ),
       GoRoute(
@@ -57,7 +60,15 @@ abstract class AppRouter {
       GoRoute(
         path: verfEmailView,
         builder: (BuildContext context, GoRouterState state) {
-          return const VerfEmailView();
+          return AppProviders.emailVerificationView(
+            child: const VerfEmailView(),
+          );
+        },
+      ),
+      GoRoute(
+        path: homeView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const HomeView();
         },
       ),
     ],

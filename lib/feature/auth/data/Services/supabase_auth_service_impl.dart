@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:study_box/core/const/app_constant.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service.dart';
 import 'package:study_box/feature/auth/data/model/auth_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -24,8 +25,8 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         return const Left('Failed to create account');
       }
 
-      await _createUserProfile(response.user!, name);
-      final authModel = AuthModel.fromUser(response.user!, profile: {'name': name});
+      final authModel =
+          AuthModel.fromUser(response.user!, profile: {'name': name});
       return Right(authModel);
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
@@ -122,7 +123,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     try {
       await _supabaseClient.auth.verifyOTP(
         token: token,
-        type: OtpType.email,
+        type: OtpType.signup,
       );
       return const Right('Email verified successfully');
     } on AuthException catch (e) {
@@ -134,7 +135,8 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
 
   // Resend email verification
   @override
-  Future<Either<String, String>> resendEmailVerification({required String email}) async {
+  Future<Either<String, String>> resendEmailVerification(
+      {required String email}) async {
     try {
       await _supabaseClient.auth.resend(
         type: OtpType.signup,
@@ -166,7 +168,8 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
 
   // Update user password
   @override
-  Future<Either<String, String>> updatePassword({required String password}) async {
+  Future<Either<String, String>> updatePassword(
+      {required String password}) async {
     try {
       await _supabaseClient.auth.updateUser(
         UserAttributes(password: password),
@@ -188,7 +191,15 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         return const Left('No authenticated user found');
       }
 
-      final profile = await _getUserProfile(user.id);
+      // محاولة الحصول على الملف الشخصي
+      Map<String, dynamic>? profile = await _getUserProfile(user.id);
+
+      // إذا لم يكن موجود، استخدم البيانات من user metadata
+      profile ??= {
+        'name': user.userMetadata?['name'] ?? '',
+        'email': user.email ?? '',
+      };
+
       final authModel = AuthModel.fromUser(user, profile: profile);
       return Right(authModel);
     } catch (e) {
@@ -219,16 +230,17 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       if (updateData.isNotEmpty) {
         updateData['updated_at'] = DateTime.now().toIso8601String();
 
-        await _supabaseClient
-            .from('user_profiles')
-            .upsert({
-              'id': user.id,
-              ...updateData,
-            });
+        // استخدم upsert للتعامل مع حالة عدم وجود السجل
+        await _supabaseClient.from(AppConstant.tableAuthUsers).upsert({
+          'id': user.id,
+          'email': user.email,
+          ...updateData,
+        }).eq('id', user.id);
       }
 
       final profile = await _getUserProfile(user.id);
-      final authModel = AuthModel.fromUser(user, profile: profile);
+      final authModel =
+          AuthModel.fromUser(user, profile: profile ?? updateData);
       return Right(authModel);
     } catch (e) {
       return Left('Failed to update profile: ${e.toString()}');
@@ -250,24 +262,49 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
 
   // Create user profile in database
   Future<void> _createUserProfile(User user, String name) async {
-    await _supabaseClient.from('user_profiles').insert({
-      'id': user.id,
-      'email': user.email,
-      'name': name,
-      'created_at': DateTime.now().toIso8601String(),
-    });
+    try {
+      final existingProfile = await _getUserProfile(user.id);
+      if (existingProfile != null) {
+        return;
+      }
+
+      final profileData = <String, dynamic>{
+        'id': user.id,
+        'email': user.email,
+        'email_verified': user.emailConfirmedAt != null,
+        'created_at': DateTime.now().toIso8601String(),
+      };
+
+      if (name.trim().isNotEmpty) {
+        profileData['name'] = name.trim();
+      }
+
+      await _supabaseClient
+          .from(AppConstant.tableAuthUsers)
+          .insert(profileData);
+    } catch (e) {
+      try {
+        await _supabaseClient.from(AppConstant.tableAuthUsers).upsert({
+          'id': user.id,
+          'email': user.email,
+        });
+      } catch (basicError) {
+        rethrow;
+      }
+    }
   }
 
   // Get user profile from database
   Future<Map<String, dynamic>?> _getUserProfile(String userId) async {
     try {
       final response = await _supabaseClient
-          .from('user_profiles')
+          .from(AppConstant.tableAuthUsers)
           .select()
           .eq('id', userId)
           .maybeSingle();
       return response;
     } catch (e) {
+      print('Error getting user profile: $e');
       return null;
     }
   }
