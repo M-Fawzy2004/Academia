@@ -16,7 +16,7 @@ class CustomLoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double effectiveHeight = height ?? 20.h;
-    final Color effectiveColor = color ?? AppColors.secondaryColor;
+    final Color effectiveColor = color ?? AppColors.primaryColor;
     return Center(
       child: LoadingAnimationWidget.threeArchedCircle(
         color: effectiveColor,

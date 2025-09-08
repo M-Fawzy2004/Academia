@@ -12,6 +12,10 @@ class AppConstant {
   static String appleClientID =
       '362884712086-nrev0ugkqg181vhuudln6cagrg38gca2.apps.googleusercontent.com';
 
+  // clent ID Web
+  static String webClientID =
+      '362884712086-78c5ncfp3of4gduao2r28i5lk141ugh6.apps.googleusercontent.com';
+
   // supabase tables
   // user auth tables
   static const String tableAuthUsers = 'user_profiles';

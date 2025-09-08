@@ -1,4 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:study_box/core/const/app_constant.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service.dart';
 import 'package:study_box/feature/auth/data/model/auth_model.dart';
@@ -6,6 +8,12 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuthServiceImpl implements SupabaseAuthService {
   final SupabaseClient _supabaseClient = Supabase.instance.client;
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: ['email', 'profile'],
+    clientId: AppConstant.appleClientID,
+    serverClientId: AppConstant.webClientID,
+  );
 
   // Sign up new user with email and password
   @override
@@ -68,22 +76,30 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
   @override
   Future<Either<String, AuthModel>> signInWithGoogle() async {
     try {
-      final response = await _supabaseClient.auth.signInWithOAuth(
-        OAuthProvider.google,
-        redirectTo: 'your-app://auth-callback',
-      );
+      // أولاً نعمل sign out عشان نضمن إن المستخدم هيشوف كل الحسابات
+      await _googleSignIn.signOut();
 
-      if (!response) {
+      // هنا بنستخدم signIn مع forcing account selection
+      final googleUser = await _googleSignIn.signIn();
+      if (googleUser == null) {
         return const Left('Google sign-in was cancelled');
       }
 
-      final user = _supabaseClient.auth.currentUser;
-      if (user == null) {
+      final googleAuth = await googleUser.authentication;
+
+      final response = await _supabaseClient.auth.signInWithIdToken(
+        provider: OAuthProvider.google,
+        idToken: googleAuth.idToken!,
+        accessToken: googleAuth.accessToken,
+      );
+
+      if (response.user == null) {
         return const Left('Failed to authenticate with Google');
       }
 
-      final profile = await _getUserProfile(user.id);
-      final authModel = AuthModel.fromUser(user, profile: profile);
+      await _ensureProfileExists(response.user!);
+      final profile = await _getUserProfile(response.user!.id);
+      final authModel = AuthModel.fromUser(response.user!, profile: profile);
       return Right(authModel);
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
@@ -96,22 +112,25 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
   @override
   Future<Either<String, AuthModel>> signInWithApple() async {
     try {
-      final response = await _supabaseClient.auth.signInWithOAuth(
-        OAuthProvider.apple,
-        redirectTo: 'your-app://auth-callback',
+      final appleCredential = await SignInWithApple.getAppleIDCredential(
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName
+        ],
       );
 
-      if (!response) {
-        return const Left('Apple sign-in was cancelled');
-      }
+      final response = await _supabaseClient.auth.signInWithIdToken(
+        provider: OAuthProvider.apple,
+        idToken: appleCredential.identityToken!,
+      );
 
-      final user = _supabaseClient.auth.currentUser;
-      if (user == null) {
+      if (response.user == null) {
         return const Left('Failed to authenticate with Apple');
       }
 
-      final profile = await _getUserProfile(user.id);
-      final authModel = AuthModel.fromUser(user, profile: profile);
+      await _ensureProfileExists(response.user!);
+      final profile = await _getUserProfile(response.user!.id);
+      final authModel = AuthModel.fromUser(response.user!, profile: profile);
       return Right(authModel);
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
@@ -215,10 +234,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       // If there is no profile or email is missing, ensure minimal profile exists
       if (profile == null || profile['email'] == null) {
         await _ensureProfileExists(user);
-        profile = await _getUserProfile(user.id) ?? {
-          'name': user.userMetadata?['name'] ?? '',
-          'email': user.email ?? '',
-        };
+        profile = await _getUserProfile(user.id) ??
+            {
+              'name': user.userMetadata?['name'] ?? '',
+              'email': user.email ?? '',
+            };
       }
 
       final authModel = AuthModel.fromUser(user, profile: profile);
@@ -306,7 +326,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
           'created_at': DateTime.now().toIso8601String(),
         }..removeWhere((key, value) => value == null);
 
-        await _supabaseClient.from(AppConstant.tableAuthUsers).upsert(data).eq('id', user.id);
+        await _supabaseClient
+            .from(AppConstant.tableAuthUsers)
+            .upsert(data)
+            .eq('id', user.id);
       }
     } catch (_) {
       // Ignore backfill failures; not critical to auth flow
