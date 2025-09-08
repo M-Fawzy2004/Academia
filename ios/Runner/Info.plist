@@ -41,6 +41,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+    	<dict>
+        	<key>CFBundleURLName</key>
+        	<string>google</string>
+        	<key>CFBundleURLSchemes</key>
+        	<array>
+            	<string>com.googleusercontent.apps.362884712086-nrev0ugkqg181vhuudln6cagrg38gca2</string>
+        	</array>
+    	</dict>
+	</array>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
