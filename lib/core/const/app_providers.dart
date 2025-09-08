@@ -36,7 +36,7 @@ class AppProviders {
     );
   }
 
-  /// Home View Provider (يمكن يحتاج providers تانية لاحقاً)
+  /// Home View Provider 
   static Widget homeView({required Widget child}) {
     return BlocProvider<AuthCubit>(
       create: (_) => getIt<AuthCubit>(),

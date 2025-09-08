@@ -42,7 +42,7 @@ abstract class AppRouter {
       GoRoute(
         path: loginView,
         builder: (BuildContext context, GoRouterState state) {
-          return const LoginView();
+          return AppProviders.loginView(child: const LoginView());
         },
       ),
       GoRoute(
@@ -69,7 +69,7 @@ abstract class AppRouter {
       GoRoute(
         path: homeView,
         builder: (BuildContext context, GoRouterState state) {
-          return const HomeView();
+          return AppProviders.homeView(child: const HomeView());
         },
       ),
     ],

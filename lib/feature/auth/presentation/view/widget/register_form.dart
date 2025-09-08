@@ -10,7 +10,7 @@ import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dar
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({
-    super.key, 
+    super.key,
     required this.state,
     this.onEmailChanged,
   });
@@ -33,7 +33,6 @@ class _RegisterFormState extends State<RegisterForm> {
   @override
   void initState() {
     super.initState();
-    // مراقبة تغيير البريد الإلكتروني
     emailController.addListener(() {
       widget.onEmailChanged?.call(emailController.text.trim());
     });
@@ -51,11 +50,11 @@ class _RegisterFormState extends State<RegisterForm> {
   void _handleSignUp() {
     if (formKey.currentState!.validate()) {
       context.read<AuthCubit>().signUp(
-        email: emailController.text.trim(),
-        password: passController.text,
-        confirmPassword: confirmPassController.text,
-        name: usernameController.text.trim(),
-      );
+            email: emailController.text.trim(),
+            password: passController.text,
+            confirmPassword: confirmPassController.text,
+            name: usernameController.text.trim(),
+          );
     }
   }
 
@@ -106,7 +105,8 @@ class _RegisterFormState extends State<RegisterForm> {
           heightBox(35),
           CustomButton(
             text: context.tr.login_register,
-            onPressed: isLoading ? null : _handleSignUp,
+            onPressed: _handleSignUp,
+            isLoading: isLoading,
           ),
         ],
       ),

@@ -5,11 +5,10 @@ import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
-import 'package:study_box/core/utils/assets.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/auth_redirect_text.dart';
-import 'package:study_box/feature/auth/presentation/view/widget/login_form.dart';
+import 'package:study_box/feature/auth/presentation/view/widget/login_form_wrapper.dart';
+import 'package:study_box/feature/auth/presentation/view/widget/login_with_social.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/or_divider.dart';
-import 'package:study_box/feature/auth/presentation/view/widget/social_login_button.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -36,21 +35,11 @@ class LoginViewBody extends StatelessWidget {
             ),
           ),
           heightBox(50),
-          const LoginForm(),
+          const LoginFormWrapper(),
           heightBox(15),
           const OrDivider(),
           heightBox(20),
-          SocialLoginButton(
-            text: context.tr.login_with_google,
-            assetPath: Assets.imagesIconGoogle,
-            onTap: () {},
-          ),
-          heightBox(15),
-          SocialLoginButton(
-            text: context.tr.login_with_apple,
-            assetPath: Assets.imagesIconApple,
-            onTap: () {},
-          ),
+          const LoginWithSocial(),
           heightBox(30),
           AuthRedirectText(
             onTap: () {
@@ -65,3 +54,4 @@ class LoginViewBody extends StatelessWidget {
     );
   }
 }
+

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
+import 'package:study_box/core/helper/custom_loading_widget.dart';
 import 'package:study_box/feature/welcome/presentation/manager/cubit/welcome_cubit.dart';
 import 'package:study_box/feature/welcome/presentation/view/widget/welcome_view_body.dart';
 
@@ -36,8 +38,10 @@ class _WelcomeViewWrapperState extends State<WelcomeViewWrapper>
       builder: (context, state) {
         final cubit = context.read<WelcomeCubit>();
         if (state is WelcomeInitial) {
-          return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
+          return Scaffold(
+            body: Center(
+              child: CustomLoadingWidget(height: 40.sp),
+            ),
           );
         }
         return WelcomeViewBody(cubit: cubit);

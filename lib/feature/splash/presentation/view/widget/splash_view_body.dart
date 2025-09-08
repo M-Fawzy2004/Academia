@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/utils/assets.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -31,14 +32,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
       curve: Curves.bounceOut,
     ));
     _animationController.repeat(reverse: true);
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        if (mounted) {
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) {
+        final user = Supabase.instance.client.auth.currentUser;
+
+        if (user != null) {
+          context.go(AppRouter.homeView);
+        } else {
           context.go(AppRouter.onboardingView);
         }
-      },
-    );
+      }
+    });
   }
 
   @override
