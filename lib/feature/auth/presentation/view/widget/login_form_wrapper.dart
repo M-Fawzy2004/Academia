@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
-import 'package:study_box/core/helper/custom_flushbar.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/login_form.dart';
 
@@ -14,13 +14,13 @@ class LoginFormWrapper extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthError) {
-          CustomFlushbar.showError(context, state.message);
+          CustomSnackBar.showError(context, state.message);
           context.read<AuthCubit>().clearError();
         }
 
         if (state is AuthAuthenticated) {
-          context.go(AppRouter.homeView);
-          CustomFlushbar.showSuccess(
+          context.go(AppRouter.mainView);
+          CustomSnackBar.showSuccess(
             context,
             "Successfully logged in",
           );

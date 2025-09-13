@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/app_router.dart';
-import 'package:study_box/core/helper/custom_flushbar.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
@@ -64,7 +64,7 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
     if (effectiveEmail != null && effectiveEmail!.isNotEmpty) {
       context.read<AuthCubit>().resendEmailVerification(email: effectiveEmail!);
     } else {
-      CustomFlushbar.showError(context, 'Email not found');
+      CustomSnackBar.showError(context, 'Email not found');
     }
   }
 
@@ -73,18 +73,18 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthError) {
-          CustomFlushbar.showError(context, state.message);
+          CustomSnackBar.showError(context, state.message);
           context.read<AuthCubit>().clearError();
         }
 
         if (state is AuthEmailVerified) {
-          CustomFlushbar.showSuccess(context, state.message);
+          CustomSnackBar.showSuccess(context, state.message);
           context.read<AuthCubit>().initializeAuth();
         }
 
         if (state is AuthAuthenticated) {
-          context.go(AppRouter.homeView);
-          CustomFlushbar.showSuccess(
+          context.go(AppRouter.mainView);
+          CustomSnackBar.showSuccess(
             context,
             "The account has been created successfully",
           );

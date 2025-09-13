@@ -22,9 +22,21 @@ class Styles {
         color: AppColors.darkPrimaryColor,
       );
 
+  static TextStyle font14MediumBold(BuildContext context) => TextStyle(
+        fontSize: 14.sp,
+        fontWeight: FontWeightHelper.extraBold,
+        color: AppColors.lightSurfaceColor,
+      );
+
   static TextStyle font13MediumGreyBold(BuildContext context) => TextStyle(
         fontSize: 13.sp,
         fontWeight: FontWeightHelper.medium,
+        color: AppColors.darkLightGrey,
+      );
+
+  static TextStyle font13GreyBold(BuildContext context) => TextStyle(
+        fontSize: 13.sp,
+        fontWeight: FontWeightHelper.bold,
         color: AppColors.darkLightGrey,
       );
 
@@ -32,5 +44,23 @@ class Styles {
         fontSize: 18.sp,
         fontWeight: FontWeightHelper.extraBold,
         color: AppColors.darkPrimaryColor,
+      );
+
+  static TextStyle font18MediumBold(BuildContext context) => TextStyle(
+        fontSize: 18.sp,
+        fontWeight: FontWeightHelper.extraBold,
+        color: AppColors.getDarkGreyColor(context),
+      );
+
+  static TextStyle font20MediumBold(BuildContext context) => TextStyle(
+        fontSize: 20.sp,
+        fontWeight: FontWeightHelper.extraBold,
+        color: AppColors.getDarkGreyColor(context),
+      );
+
+  static TextStyle font15MediumBold(BuildContext context) => TextStyle(
+        fontSize: 15.sp,
+        fontWeight: FontWeightHelper.extraBold,
+        color: AppColors.getTextPrimaryColor(context),
       );
 }

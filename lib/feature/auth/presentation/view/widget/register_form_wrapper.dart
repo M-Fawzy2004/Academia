@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
-import 'package:study_box/core/helper/custom_flushbar.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/register_form.dart';
 
@@ -21,7 +21,7 @@ class _RegisterFormWrapperState extends State<RegisterFormWrapper> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthError) {
-          CustomFlushbar.showError(context, state.message);
+          CustomSnackBar.showError(context, state.message);
           context.read<AuthCubit>().clearError();
         }
 
@@ -33,7 +33,7 @@ class _RegisterFormWrapperState extends State<RegisterFormWrapper> {
                 '${AppRouter.verfEmailView}?email=${Uri.encodeComponent(userEmail!)}');
           } else {
             context.go(AppRouter.verfEmailView);
-            CustomFlushbar.showError(
+            CustomSnackBar.showError(
               context,
               'Warning: Email not found in registration response',
             );

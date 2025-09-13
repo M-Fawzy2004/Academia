@@ -5,7 +5,9 @@ import 'package:study_box/feature/auth/presentation/view/forget_pass_view.dart';
 import 'package:study_box/feature/auth/presentation/view/login_view.dart';
 import 'package:study_box/feature/auth/presentation/view/register_view.dart';
 import 'package:study_box/feature/auth/presentation/view/verf_email_view.dart';
-import 'package:study_box/feature/home/presentation/view/home_view.dart';
+import 'package:study_box/feature/courses/presentation/view/courses_view.dart';
+import 'package:study_box/feature/main_home/presentation/view/main_view.dart';
+import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
 import 'package:study_box/feature/welcome/presentation/view/welcome_view.dart';
 import 'package:study_box/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:study_box/feature/splash/presentation/view/splash_view.dart';
@@ -17,7 +19,9 @@ abstract class AppRouter {
   static const registerView = '/registerView';
   static const forgetPassView = '/forgetPassView';
   static const verfEmailView = '/verfEmailView';
-  static const homeView = '/homeView';
+  static const mainView = '/mainView';
+  static const coursesView = '/coursesView';
+  static const profileView = '/profileView';
 
   static var router = GoRouter(
     routes: [
@@ -54,7 +58,7 @@ abstract class AppRouter {
       GoRoute(
         path: forgetPassView,
         builder: (BuildContext context, GoRouterState state) {
-          return const ForgetPassView();
+          return AppProviders.forgetPasswordView(child: const ForgetPassView());
         },
       ),
       GoRoute(
@@ -67,9 +71,21 @@ abstract class AppRouter {
         },
       ),
       GoRoute(
-        path: homeView,
+        path: mainView,
         builder: (BuildContext context, GoRouterState state) {
-          return AppProviders.homeView(child: const HomeView());
+          return AppProviders.homeView(child: const MainView());
+        },
+      ),
+      GoRoute(
+        path: coursesView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const CoursesView();
+        },
+      ),
+      GoRoute(
+        path: profileView,
+        builder: (BuildContext context, GoRouterState state) {
+          return AppProviders.profileView(child: const ProfileView());
         },
       ),
     ],

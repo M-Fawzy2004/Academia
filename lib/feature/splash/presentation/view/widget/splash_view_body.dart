@@ -37,7 +37,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         final user = Supabase.instance.client.auth.currentUser;
 
         if (user != null) {
-          context.go(AppRouter.homeView);
+          context.go(AppRouter.mainView);
         } else {
           context.go(AppRouter.onboardingView);
         }
@@ -64,8 +64,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
                 scale: _scaleAnimation.value,
                 child: Image.asset(
                   Assets.imagesPngSplashView,
-                  width: 300.w,
-                  height: 350.h,
+                  width: 200.w,
+                  height: 200.h,
                 ),
               );
             },

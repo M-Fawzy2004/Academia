@@ -43,4 +43,12 @@ class AppProviders {
       child: child,
     );
   }
+
+  /// profile View Provider
+  static Widget profileView({required Widget child}) {
+    return BlocProvider<AuthCubit>(
+      create: (_) => getIt<AuthCubit>(),
+      child: child,
+    );
+  }
 }

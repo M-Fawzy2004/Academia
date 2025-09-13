@@ -73,7 +73,7 @@ class AppColors {
 
   static Color getSurfaceColor(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
-        ? darkSurfaceColor
+        ? const Color.fromRGBO(30, 41, 59, 1)
         : lightSurfaceColor;
   }
 
