@@ -7,10 +7,12 @@ import 'package:study_box/core/widget/custom_text_field.dart';
 
 class EmailInputStep extends StatelessWidget {
   final TextEditingController emailController;
+  final String? Function(String?)? validator;
 
   const EmailInputStep({
     super.key,
     required this.emailController,
+    this.validator,
   });
 
   @override
@@ -29,6 +31,8 @@ class EmailInputStep extends StatelessWidget {
           controller: emailController,
           hintText: context.tr.login_email,
           suffixIcon: IconlyLight.message,
+          keyboardType: TextInputType.emailAddress,
+          validator: validator,
         ),
       ],
     );

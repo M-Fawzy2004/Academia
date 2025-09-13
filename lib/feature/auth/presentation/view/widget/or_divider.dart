@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -18,7 +19,7 @@ class OrDivider extends StatelessWidget {
           ),
         ),
         Text(
-          "OR",
+          context.tr.login_or,
           style: Styles.font14MediumPrimaryBold(context),
         ),
         Expanded(

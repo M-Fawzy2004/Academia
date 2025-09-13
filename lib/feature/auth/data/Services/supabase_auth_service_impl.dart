@@ -149,15 +149,16 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       if (email != null && email.isNotEmpty) {
         await _supabaseClient.auth.verifyOTP(
           token: token,
-          type: OtpType.signup,
+          type: OtpType.recovery, // Changed to recovery for password reset
           email: email,
         );
       } else {
         await _supabaseClient.auth.verifyOTP(
           token: token,
-          type: OtpType.signup,
+          type: OtpType.recovery, // Changed to recovery for password reset
         );
       }
+
       // After successful verification, backfill the profile email if missing
       final currentUser = _supabaseClient.auth.currentUser;
       if (currentUser != null) {
@@ -353,7 +354,20 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         return 'New registrations are currently disabled';
       case 'Email rate limit exceeded':
         return 'Too many requests. Please try again later';
+      case 'Token has expired':
+      case 'Invalid token':
+      case 'Token expired':
+        return 'Verification code has expired. Please request a new code';
+      case 'Invalid OTP':
+      case 'Token not found':
+        return 'Invalid verification code. Please check and try again';
       default:
+        // Check if error message contains common expiry keywords
+        if (error.message.toLowerCase().contains('expired') ||
+            error.message.toLowerCase().contains('invalid token') ||
+            error.message.toLowerCase().contains('token not found')) {
+          return 'Verification code has expired or is invalid. Please request a new code';
+        }
         return error.message;
     }
   }

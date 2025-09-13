@@ -58,7 +58,7 @@ abstract class AppRouter {
       GoRoute(
         path: forgetPassView,
         builder: (BuildContext context, GoRouterState state) {
-          return AppProviders.forgetPasswordView(child: const ForgetPassView());
+          return const ForgetPassView();
         },
       ),
       GoRoute(

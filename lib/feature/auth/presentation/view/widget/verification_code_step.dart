@@ -8,10 +8,12 @@ import 'package:study_box/core/widget/custom_text_field.dart';
 
 class VerificationCodeStep extends StatelessWidget {
   final TextEditingController verificationCodeController;
+  final String? Function(String?)? validator;
 
   const VerificationCodeStep({
     super.key,
     required this.verificationCodeController,
+    this.validator,
   });
 
   @override
@@ -37,6 +39,7 @@ class VerificationCodeStep extends StatelessWidget {
           hintText: context.tr.verf_code,
           suffixIcon: IconlyLight.shield_done,
           keyboardType: TextInputType.number,
+          validator: validator,
         ),
       ],
     );

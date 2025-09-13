@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/helper/translate.dart';
-import 'package:study_box/core/theme/styles.dart';
-import 'package:study_box/core/utils/assets.dart';
-import 'package:study_box/core/widget/custom_button.dart';
+import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
+import 'package:study_box/feature/auth/presentation/view/widget/code_verification_action_buttons.dart' show CodeVerificationActionButtons;
 import 'package:study_box/feature/auth/presentation/view/widget/email_input_step.dart';
-import 'package:study_box/feature/auth/presentation/view/widget/forget_password_action_buttons.dart';
+import 'package:study_box/feature/auth/presentation/view/widget/forget_password_header.dart';
+import 'package:study_box/feature/auth/presentation/view/widget/forget_password_main_button.dart';
+import 'package:study_box/feature/auth/presentation/view/widget/password_reset_success_dialog.dart';
+import 'package:study_box/feature/auth/presentation/view/widget/resend_timer_widget.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/reset_password_step.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/verification_code_step.dart';
+import 'dart:async';
 
 enum ForgetPasswordStep {
   enterEmail,
@@ -34,21 +38,81 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  // Methods
-  void _nextStep() {
+  // Form keys for validation
+  final GlobalKey<FormState> _emailFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _codeFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _passwordFormKey = GlobalKey<FormState>();
+
+  // Timer for resend functionality
+  Timer? _resendTimer;
+  int _resendCountdown = 0;
+  bool _isResendEnabled = true;
+
+  // Timer duration - 1.5 minutes
+  static const int _resendCooldownDuration = 90;
+
+  void _startResendTimer() {
     setState(() {
-      switch (currentStep) {
-        case ForgetPasswordStep.enterEmail:
-          currentStep = ForgetPasswordStep.enterVerificationCode;
-          break;
-        case ForgetPasswordStep.enterVerificationCode:
-          currentStep = ForgetPasswordStep.resetPassword;
-          break;
-        case ForgetPasswordStep.resetPassword:
-          _showSuccessDialog();
-          break;
-      }
+      _isResendEnabled = false;
+      _resendCountdown = _resendCooldownDuration;
     });
+
+    _resendTimer?.cancel();
+    _resendTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_resendCountdown > 0) {
+          _resendCountdown--;
+        } else {
+          _isResendEnabled = true;
+          timer.cancel();
+        }
+      });
+    });
+  }
+
+  void _stopResendTimer() {
+    _resendTimer?.cancel();
+    setState(() {
+      _resendCountdown = 0;
+      _isResendEnabled = true;
+    });
+  }
+
+  String _formatTime(int seconds) {
+    int minutes = seconds ~/ 60;
+    int remainingSeconds = seconds % 60;
+    return '${minutes.toString().padLeft(2, '0')}:${remainingSeconds.toString().padLeft(2, '0')}';
+  }
+
+  void _nextStep() {
+    final authCubit = context.read<AuthCubit>();
+
+    switch (currentStep) {
+      case ForgetPasswordStep.enterEmail:
+        if (_emailFormKey.currentState?.validate() ?? false) {
+          authCubit.resetPassword(email: emailController.text.trim());
+        }
+        break;
+
+      case ForgetPasswordStep.enterVerificationCode:
+        if (_codeFormKey.currentState?.validate() ?? false) {
+          authCubit.clearError();
+          authCubit.verifyEmail(
+            token: verificationCodeController.text.trim(),
+            email: emailController.text.trim(),
+          );
+        }
+        break;
+
+      case ForgetPasswordStep.resetPassword:
+        if (_passwordFormKey.currentState?.validate() ?? false) {
+          authCubit.updatePassword(
+            password: newPasswordController.text.trim(),
+            confirmPassword: confirmPasswordController.text.trim(),
+          );
+        }
+        break;
+    }
   }
 
   void _goBackStep() {
@@ -56,6 +120,7 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
       switch (currentStep) {
         case ForgetPasswordStep.enterVerificationCode:
           currentStep = ForgetPasswordStep.enterEmail;
+          _stopResendTimer();
           break;
         case ForgetPasswordStep.resetPassword:
           currentStep = ForgetPasswordStep.enterVerificationCode;
@@ -64,30 +129,33 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
           break;
       }
     });
+    context.read<AuthCubit>().clearError();
   }
 
   void _resendVerificationCode() {
-    // ScaffoldMessenger.of(context).showSnackBar(
-    //   const SnackBar(content: Text('تم إرسال رمز التحقق مرة أخرى')),
-    // );
+    if (!_isResendEnabled || emailController.text.trim().isEmpty) return;
+
+    context.read<AuthCubit>().resetPassword(email: emailController.text.trim());
+    _startResendTimer();
+    verificationCodeController.clear();
   }
 
   void _showSuccessDialog() {
-    // showDialog(
-    //   context: context,
-    //   builder: (context) => AlertDialog(
-    //     title: const Text('نجح!'),
-    //     content: const Text('تم تغيير كلمة المرور بنجاح'),
-    //     actions: [
-    //       TextButton(
-    //         onPressed: () {
-    //           Navigator.of(context).pop();
-    //         },
-    //         child: const Text('موافق'),
-    //       ),
-    //     ],
-    //   ),
-    // );
+    _stopResendTimer();
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const PasswordResetSuccessDialog(),
+    );
+  }
+
+  void _showErrorSnackBar(String message) {
+    CustomSnackBar.showError(context, message);
+  }
+
+  void _showSuccessSnackBar(String message) {
+    CustomSnackBar.showSuccess(context, message);
   }
 
   String _getTitle() {
@@ -115,19 +183,89 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
   Widget _buildCurrentStep() {
     switch (currentStep) {
       case ForgetPasswordStep.enterEmail:
-        return EmailInputStep(emailController: emailController);
+        return Form(
+          key: _emailFormKey,
+          child: EmailInputStep(
+            emailController: emailController,
+            validator: (value) {
+              if (value == null || value.trim().isEmpty) {
+                return 'Email is required';
+              }
+              final emailRegex =
+                  RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+              if (!emailRegex.hasMatch(value.trim())) {
+                return 'Please enter a valid email';
+              }
+              return null;
+            },
+          ),
+        );
 
       case ForgetPasswordStep.enterVerificationCode:
-        return VerificationCodeStep(
-          verificationCodeController: verificationCodeController,
+        return Column(
+          children: [
+            Form(
+              key: _codeFormKey,
+              child: VerificationCodeStep(
+                verificationCodeController: verificationCodeController,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Verification code is required';
+                  }
+                  if (value.trim().length < 6) {
+                    return 'Please enter a valid verification code';
+                  }
+                  return null;
+                },
+              ),
+            ),
+            if (!_isResendEnabled && _resendCountdown > 0)
+              ResendTimerWidget(
+                remainingTime: _resendCountdown,
+                formatTime: _formatTime,
+              ),
+          ],
         );
 
       case ForgetPasswordStep.resetPassword:
-        return ResetPasswordStep(
-          newPasswordController: newPasswordController,
-          confirmPasswordController: confirmPasswordController,
+        return Form(
+          key: _passwordFormKey,
+          child: ResetPasswordStep(
+            newPasswordController: newPasswordController,
+            confirmPasswordController: confirmPasswordController,
+            passwordValidator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Password is required';
+              }
+              if (value.length < 6) {
+                return 'Password must be at least 6 characters';
+              }
+              return null;
+            },
+            confirmPasswordValidator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please confirm your password';
+              }
+              if (value != newPasswordController.text) {
+                return 'Passwords do not match';
+              }
+              return null;
+            },
+          ),
         );
     }
+  }
+
+  Widget _buildActionButtons() {
+    if (currentStep != ForgetPasswordStep.enterVerificationCode) {
+      return const SizedBox.shrink();
+    }
+
+    return CodeVerificationActionButtons(
+      isResendEnabled: _isResendEnabled,
+      onResendCode: _resendVerificationCode,
+      onGoBack: _goBackStep,
+    );
   }
 
   @override
@@ -136,42 +274,52 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
     verificationCodeController.dispose();
     newPasswordController.dispose();
     confirmPasswordController.dispose();
+    _resendTimer?.cancel();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Column(
-        children: [
-          heightBox(50),
-          Text(
-            _getTitle(),
-            style: Styles.font18MediumPrimaryBold(context),
-          ),
-          heightBox(20),
-          Center(
-            child: Image.asset(
-              Assets.imagesJpgForgetPassImage,
-              height: 200.h,
-              width: 200.w,
+    return BlocListener<AuthCubit, AuthState>(
+      listener: (context, state) {
+        if (state is AuthError) {
+          _showErrorSnackBar(state.message);
+        } else if (state is AuthPasswordResetSent) {
+          _showSuccessSnackBar(state.message);
+          setState(() {
+            currentStep = ForgetPasswordStep.enterVerificationCode;
+          });
+          _startResendTimer();
+        } else if (state is AuthEmailVerified) {
+          _showSuccessSnackBar(state.message);
+          _stopResendTimer();
+          setState(() {
+            currentStep = ForgetPasswordStep.resetPassword;
+          });
+        } else if (state is AuthPasswordUpdated) {
+          _showSuccessDialog();
+        }
+      },
+      child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            heightBox(50),
+            ForgetPasswordHeader(title: _getTitle()),
+            heightBox(20),
+            _buildCurrentStep(),
+            heightBox(30),
+            ForgetPasswordMainButton(
+              currentStep: currentStep,
+              buttonText: _getButtonText(),
+              onPressed: _nextStep,
             ),
-          ),
-          heightBox(20),
-          _buildCurrentStep(),
-          heightBox(30),
-          CustomButton(
-            text: _getButtonText(),
-            onPressed: _nextStep,
-          ),
-          ForgetPasswordActionButtons(
-            currentStep: currentStep,
-            onResendCode: _resendVerificationCode,
-            onGoBack: _goBackStep,
-          ),
-        ],
+            _buildActionButtons(),
+          ],
+        ),
       ),
     );
   }
 }
+
+

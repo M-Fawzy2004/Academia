@@ -9,11 +9,15 @@ import 'package:study_box/core/widget/custom_text_field.dart';
 class ResetPasswordStep extends StatefulWidget {
   final TextEditingController newPasswordController;
   final TextEditingController confirmPasswordController;
+  final String? Function(String?)? passwordValidator;
+  final String? Function(String?)? confirmPasswordValidator;
 
   const ResetPasswordStep({
     super.key,
     required this.newPasswordController,
     required this.confirmPasswordController,
+    this.passwordValidator,
+    this.confirmPasswordValidator,
   });
 
   @override
@@ -41,6 +45,12 @@ class _ResetPasswordStepState extends State<ResetPasswordStep> {
           hintText: context.tr.new_pass,
           suffixIcon: isPasswordVisible ? IconlyLight.show : IconlyLight.hide,
           obscureText: !isPasswordVisible,
+          validator: widget.passwordValidator,
+          onSuffixIconPressed: () {
+            setState(() {
+              isPasswordVisible = !isPasswordVisible;
+            });
+          },
         ),
         heightBox(15),
         CustomTextField(
@@ -49,6 +59,12 @@ class _ResetPasswordStepState extends State<ResetPasswordStep> {
           suffixIcon:
               isConfirmPasswordVisible ? IconlyLight.show : IconlyLight.hide,
           obscureText: !isConfirmPasswordVisible,
+          validator: widget.confirmPasswordValidator,
+          onSuffixIconPressed: () {
+            setState(() {
+              isConfirmPasswordVisible = !isConfirmPasswordVisible;
+            });
+          },
         ),
         heightBox(10),
         Align(
