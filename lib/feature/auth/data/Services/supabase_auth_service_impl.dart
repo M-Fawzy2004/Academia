@@ -4,6 +4,7 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:study_box/core/const/app_constant.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service.dart';
 import 'package:study_box/feature/auth/data/model/auth_model.dart';
+import 'package:study_box/l10n/app_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuthServiceImpl implements SupabaseAuthService {
@@ -14,6 +15,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     clientId: AppConstant.appleClientID,
     serverClientId: AppConstant.webClientID,
   );
+
+  final AppLocalizations appLocalizations;
+
+  SupabaseAuthServiceImpl({required this.appLocalizations});
 
   // Sign up new user with email and password
   @override
@@ -30,7 +35,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return const Left('Failed to create account');
+        return Left(appLocalizations.failed_to_create_account);
       }
 
       // Ensure a profile row exists with email
@@ -42,7 +47,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('An unexpected error occurred: ${e.toString()}');
+      return Left(appLocalizations.unexpected_error_occurred);
     }
   }
 
@@ -59,7 +64,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return const Left('Invalid credentials');
+        return Left(appLocalizations.invalid_credentials);
       }
 
       final profile = await _getUserProfile(response.user!.id);
@@ -68,7 +73,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('An unexpected error occurred: ${e.toString()}');
+      return Left(appLocalizations.unexpected_error_occurred);
     }
   }
 
@@ -76,13 +81,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
   @override
   Future<Either<String, AuthModel>> signInWithGoogle() async {
     try {
-      // أولاً نعمل sign out عشان نضمن إن المستخدم هيشوف كل الحسابات
       await _googleSignIn.signOut();
 
-      // هنا بنستخدم signIn مع forcing account selection
       final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) {
-        return const Left('Google sign-in was cancelled');
+        return Left(appLocalizations.google_signin_cancelled);
       }
 
       final googleAuth = await googleUser.authentication;
@@ -94,7 +97,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return const Left('Failed to authenticate with Google');
+        return Left(appLocalizations.failed_authenticate_google);
       }
 
       await _ensureProfileExists(response.user!);
@@ -104,7 +107,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('Google sign-in failed: ${e.toString()}');
+      return Left(appLocalizations.google_signin_failed);
     }
   }
 
@@ -125,7 +128,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return const Left('Failed to authenticate with Apple');
+        return Left(appLocalizations.failed_authenticate_apple);
       }
 
       await _ensureProfileExists(response.user!);
@@ -135,7 +138,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('Apple sign-in failed: ${e.toString()}');
+      return Left(appLocalizations.apple_signin_failed);
     }
   }
 
@@ -159,16 +162,15 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         );
       }
 
-      // After successful verification, backfill the profile email if missing
       final currentUser = _supabaseClient.auth.currentUser;
       if (currentUser != null) {
         await _ensureProfileExists(currentUser);
       }
-      return const Right('Email verified successfully');
+      return Right(appLocalizations.email_verified_successfully);
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('Email verification failed: ${e.toString()}');
+      return Left(appLocalizations.email_verification_failed);
     }
   }
 
@@ -192,11 +194,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         );
       }
 
-      return const Right('Password reset code verified successfully');
+      return Right(appLocalizations.password_reset_verified_successfully);
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('Password reset verification failed: ${e.toString()}');
+      return Left(appLocalizations.password_reset_verification_failed);
     }
   }
 
@@ -209,11 +211,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         type: OtpType.signup,
         email: email,
       );
-      return const Right('Verification email sent successfully');
+      return Right(appLocalizations.verification_email_sent_successfully);
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('Failed to send verification email: ${e.toString()}');
+      return Left(appLocalizations.failed_send_verification_email);
     }
   }
 
@@ -225,11 +227,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         email,
         redirectTo: 'your-app://reset-password',
       );
-      return const Right('Password reset email sent successfully');
+      return Right(appLocalizations.password_reset_email_sent_successfully);
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('Failed to send password reset email: ${e.toString()}');
+      return Left(appLocalizations.failed_send_password_reset_email);
     }
   }
 
@@ -241,11 +243,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       await _supabaseClient.auth.updateUser(
         UserAttributes(password: password),
       );
-      return const Right('Password updated successfully');
+      return Right(appLocalizations.password_updated_successfully);
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('Failed to update password: ${e.toString()}');
+      return Left(appLocalizations.failed_update_password);
     }
   }
 
@@ -255,12 +257,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     try {
       final user = _supabaseClient.auth.currentUser;
       if (user == null) {
-        return const Left('No authenticated user found');
+        return Left(appLocalizations.no_authenticated_user_found);
       }
 
       Map<String, dynamic>? profile = await _getUserProfile(user.id);
 
-      // If there is no profile or email is missing, ensure minimal profile exists
       if (profile == null || profile['email'] == null) {
         await _ensureProfileExists(user);
         profile = await _getUserProfile(user.id) ??
@@ -273,7 +274,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       final authModel = AuthModel.fromUser(user, profile: profile);
       return Right(authModel);
     } catch (e) {
-      return Left('Failed to get current user: ${e.toString()}');
+      return Left(appLocalizations.failed_get_current_user);
     }
   }
 
@@ -288,7 +289,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     try {
       final user = _supabaseClient.auth.currentUser;
       if (user == null) {
-        return const Left('No authenticated user found');
+        return Left(appLocalizations.no_authenticated_user_found);
       }
 
       final updateData = <String, dynamic>{};
@@ -312,7 +313,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
           AuthModel.fromUser(user, profile: profile ?? updateData);
       return Right(authModel);
     } catch (e) {
-      return Left('Failed to update profile: ${e.toString()}');
+      return Left(appLocalizations.failed_update_profile);
     }
   }
 
@@ -325,7 +326,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     } on AuthException catch (e) {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
-      return Left('Failed to sign out: ${e.toString()}');
+      return Left(appLocalizations.failed_sign_out);
     }
   }
 
@@ -369,32 +370,32 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
   String _getAuthErrorMessage(AuthException error) {
     switch (error.message) {
       case 'Invalid login credentials':
-        return 'Invalid email or password';
+        return appLocalizations.invalid_login_credentials;
       case 'Email not confirmed':
-        return 'Please verify your email before signing in';
+        return appLocalizations.email_not_confirmed;
       case 'User already registered':
-        return 'An account with this email already exists';
+        return appLocalizations.user_already_registered;
       case 'Password should be at least 6 characters':
-        return 'Password must be at least 6 characters long';
+        return appLocalizations.password_min_length;
       case 'Invalid email':
-        return 'Please enter a valid email address';
+        return appLocalizations.invalid_email;
       case 'Signup disabled':
-        return 'New registrations are currently disabled';
+        return appLocalizations.signup_disabled;
       case 'Email rate limit exceeded':
-        return 'Too many requests. Please try again later';
+        return appLocalizations.email_rate_limit_exceeded;
       case 'Token has expired':
       case 'Invalid token':
       case 'Token expired':
-        return 'Verification code has expired. Please request a new code';
+        return appLocalizations.verification_code_expired;
       case 'Invalid OTP':
       case 'Token not found':
-        return 'Invalid verification code. Please check and try again';
+        return appLocalizations.invalid_verification_code;
       default:
         // Check if error message contains common expiry keywords
         if (error.message.toLowerCase().contains('expired') ||
             error.message.toLowerCase().contains('invalid token') ||
             error.message.toLowerCase().contains('token not found')) {
-          return 'Verification code has expired or is invalid. Please request a new code';
+          return appLocalizations.verification_code_expired;
         }
         return error.message;
     }

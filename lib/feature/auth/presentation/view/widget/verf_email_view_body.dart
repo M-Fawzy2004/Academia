@@ -57,7 +57,7 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
     if (formKey.currentState!.validate()) {
       print('Verifying email with token: ${codeController.text.trim()}');
       print('Email: $effectiveEmail');
-      
+
       context.read<AuthCubit>().verifyEmail(
             token: codeController.text.trim(),
             email: effectiveEmail,
@@ -70,7 +70,7 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
       print('Resending code to: $effectiveEmail');
       context.read<AuthCubit>().resendEmailVerification(email: effectiveEmail!);
     } else {
-      CustomSnackBar.showError(context, 'Email not found');
+      CustomSnackBar.showError(context, context.tr.email_not_found);
     }
   }
 
@@ -79,7 +79,7 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         print('Current state: $state');
-        
+
         if (state is AuthError) {
           CustomSnackBar.showError(context, state.message);
           context.read<AuthCubit>().clearError();
@@ -87,20 +87,18 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
 
         if (state is AuthEmailVerified) {
           CustomSnackBar.showSuccess(context, state.message);
-          // لا نحتاج لاستدعاء initializeAuth هنا لأنه يتم في AuthCubit
         }
 
         if (state is AuthAuthenticated) {
           context.go(AppRouter.mainView);
           CustomSnackBar.showSuccess(
             context,
-            "The account has been verified and created successfully",
+            context.tr.account_verified_created,
           );
         }
 
         if (state is AuthEmailSent) {
           CustomSnackBar.showSuccess(context, state.message);
-          // مسح الكود القديم بعد إرسال كود جديد
           codeController.clear();
         }
       },
@@ -160,13 +158,13 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                   suffixIcon: IconlyLight.shield_done,
                   keyboardType: TextInputType.number,
                   enabled: !isLoading,
-                  maxLength: 6, // معظم أكواد OTP تكون 6 أرقام
+                  maxLength: 6,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Verification code is required';
+                      return context.tr.verification_code_required;
                     }
                     if (value.trim().length != 6) {
-                      return 'Verification code must be 6 digits';
+                      return context.tr.verification_code_6_digits;
                     }
                     return null;
                   },
@@ -189,7 +187,6 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                     ),
                   ),
                 ),
-                // إضافة معلومات إضافية للمستخدم
                 heightBox(20),
                 Container(
                   padding: EdgeInsets.all(16.w),
@@ -212,7 +209,7 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            'Important Notes:',
+                            context.tr.important_notes,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w600,
@@ -223,9 +220,9 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                       ),
                       heightBox(8),
                       Text(
-                        '• Check your spam/junk folder if you don\'t see the email\n'
-                        '• The verification code expires after 10 minutes\n'
-                        '• Your account will be created only after verification',
+                        '• ${context.tr.check_spam_folder}\n'
+                        '• ${context.tr.code_expires_10_minutes}\n'
+                        '• ${context.tr.account_created_after_verification}',
                         style: TextStyle(
                           fontSize: 12.sp,
                           color: Colors.blue[600],

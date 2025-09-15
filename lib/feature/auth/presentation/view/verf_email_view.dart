@@ -10,13 +10,8 @@ class VerfEmailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get email from query parameters if not provided directly
     final String? emailFromQuery = GoRouterState.of(context).uri.queryParameters['email'];
     final String? finalEmail = email ?? emailFromQuery;
-
-    print('Email from constructor: $email');
-    print('Email from query: $emailFromQuery');
-    print('Final email: $finalEmail');
 
     return Scaffold(
       body: SafeArea(

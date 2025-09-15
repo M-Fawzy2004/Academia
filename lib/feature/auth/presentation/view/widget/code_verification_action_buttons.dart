@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/helper/translate.dart';
 
 class CodeVerificationActionButtons extends StatelessWidget {
   final bool isResendEnabled;
@@ -25,7 +26,7 @@ class CodeVerificationActionButtons extends StatelessWidget {
             TextButton.icon(
               onPressed: onGoBack,
               icon: const Icon(Icons.arrow_back),
-              label: const Text('Back'),
+              label: Text(context.tr.back_button),
               style: TextButton.styleFrom(
                 foregroundColor: Theme.of(context).primaryColor,
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
@@ -34,7 +35,11 @@ class CodeVerificationActionButtons extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: isResendEnabled ? onResendCode : null,
               icon: const Icon(Icons.refresh),
-              label: Text(isResendEnabled ? 'Resend' : 'Waiting...'),
+              label: Text(
+                isResendEnabled
+                    ? context.tr.resend_button
+                    : context.tr.waiting_text,
+              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: isResendEnabled
                     ? Theme.of(context).primaryColor

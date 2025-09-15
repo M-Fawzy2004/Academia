@@ -54,14 +54,14 @@ class _LoginFormState extends State<LoginForm> {
             controller: emailController,
             hintText: context.tr.login_email,
             suffixIcon: IconlyLight.message,
-            validator: FormValidators.validateEmail,
+            validator: FormValidators.emailValidator(context),
           ),
           heightBox(15),
           CustomTextField(
             controller: passwordController,
             hintText: context.tr.login_pass,
             obscureText: true,
-            validator: FormValidators.validatePassword,
+            validator: FormValidators.passwordValidator(context),
           ),
           heightBox(20),
           Row(

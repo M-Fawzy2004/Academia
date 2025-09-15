@@ -1,62 +1,65 @@
+import 'package:flutter/widgets.dart';
+import 'package:study_box/core/helper/translate.dart';
+
 class FormValidators {
   // Username validator
-  static String? validateUsername(String? value) {
+  static String? validateUsername(String? value, BuildContext context) {
     if (value == null || value.isEmpty) {
-      return 'Please enter username';
+      return context.tr.please_enter_username;
     }
     if (value.length < 3) {
-      return 'Username must be at least 3 characters';
+      return context.tr.username_3_characters;
     }
     if (value.length > 20) {
-      return 'Username must be less than 20 characters';
+      return context.tr.username_20_characters;
     }
-    // Check if username contains only letters, numbers, and underscores
     if (!RegExp(r'^[a-zA-Z0-9_]+$').hasMatch(value)) {
-      return 'Username can only contain letters, numbers, and underscores';
+      return context.tr.username_letters_numbers_underscores;
     }
     return null;
   }
 
   // Email validator
-  static String? validateEmail(String? value) {
+  static String? validateEmail(String? value, BuildContext context) {
     if (value == null || value.isEmpty) {
-      return 'Please enter email';
+      return context.tr.please_enter_email;
     }
     // Basic email regex pattern
     String emailPattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
     RegExp regExp = RegExp(emailPattern);
 
     if (!regExp.hasMatch(value)) {
-      return 'Please enter a valid email address';
+      return context.tr.valid_email_address;
     }
     return null;
   }
 
   // Password validator
-  static String? validatePassword(String? value) {
+  static String? validatePassword(String? value, BuildContext context) {
     if (value == null || value.isEmpty) {
-      return 'Please enter password';
+      return context.tr.please_enter_password;
     }
     if (value.length < 6) {
-      return 'Password must be at least 6 characters';
+      return context.tr.password_6_chars_minimum;
     }
     if (value.length > 50) {
-      return 'Password must be less than 50 characters';
+      return context.tr.password_50_chars_maximum;
     }
     // Check if password contains at least one letter and one number
     if (!RegExp(r'^(?=.*[a-zA-Z])(?=.*\d)').hasMatch(value)) {
-      return 'Password must contain at least one letter and one number';
+      return context.tr.password_letter_number;
     }
     return null;
   }
 
   // Confirm password validator
-  static String? validateConfirmPassword(String? value, String? password) {
+  static String? validateConfirmPassword(
+      String? value, String? password, BuildContext context) {
     if (value == null || value.isEmpty) {
-      return 'Please enter confirm password';
+      return context.tr.please_enter_confirm_password;
     }
     if (value != password) {
-      return 'Passwords do not match';
+      return context.tr.email_not_found;
     }
     return null;
   }
@@ -69,51 +72,65 @@ class FormValidators {
     return null;
   }
 
-  // Phone number validator
-  static String? validatePhoneNumber(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter phone number';
-    }
-    // Egyptian phone number pattern (example)
-    if (!RegExp(r'^(010|011|012|015)\d{8}$').hasMatch(value)) {
-      return 'Please enter a valid Egyptian phone number';
-    }
-    return null;
-  }
-
   // Name validator (first name, last name)
-  static String? validateName(String? value, {String? fieldName}) {
+  static String? validateName(BuildContext context, String? value,
+      {String? fieldName}) {
     if (value == null || value.isEmpty) {
-      return 'Please enter ${fieldName ?? 'name'}';
+      return context.tr.please_enter_name;
     }
     if (value.length < 2) {
-      return '${fieldName ?? 'Name'} must be at least 2 characters';
+      return context.tr.name_2_characters;
     }
     if (value.length > 50) {
-      return '${fieldName ?? 'Name'} must be less than 50 characters';
+      return context.tr.name_50_characters;
     }
     // Check if name contains only letters and spaces
     if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(value)) {
-      return '${fieldName ?? 'Name'} can only contain letters and spaces';
+      return context.tr.name_letters_spaces;
     }
     return null;
   }
 
   // Age validator
-  static String? validateAge(String? value) {
+  static String? validateAge(String? value, BuildContext context) {
     if (value == null || value.isEmpty) {
-      return 'Please enter age';
+      return context.tr.please_enter_age;
     }
     int? age = int.tryParse(value);
     if (age == null) {
-      return 'Please enter a valid age';
+      return context.tr.valid_age;
     }
     if (age < 13) {
-      return 'Age must be at least 13';
-    }
-    if (age > 120) {
-      return 'Please enter a valid age';
+      return context.tr.age_minimum_13;
     }
     return null;
+  }
+
+  // Helper methods that return validator functions
+  static String? Function(String?) emailValidator(BuildContext context) {
+    return (String? value) => validateEmail(value, context);
+  }
+
+  static String? Function(String?) passwordValidator(BuildContext context) {
+    return (String? value) => validatePassword(value, context);
+  }
+
+  static String? Function(String?) usernameValidator(BuildContext context) {
+    return (String? value) => validateUsername(value, context);
+  }
+
+  static String? Function(String?) nameValidator(BuildContext context,
+      {String? fieldName}) {
+    return (String? value) =>
+        validateName(context, value, fieldName: fieldName);
+  }
+
+  static String? Function(String?) ageValidator(BuildContext context) {
+    return (String? value) => validateAge(value, context);
+  }
+
+  static String? Function(String?) confirmPasswordValidator(
+      BuildContext context, String password) {
+    return (String? value) => validateConfirmPassword(value, password, context);
   }
 }

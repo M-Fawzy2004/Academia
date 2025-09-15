@@ -6,11 +6,11 @@
   },
   "onboarding_title1": "StudyBox – كل مذاكرتك في مكان واحد",
   "@onboarding_title1": {
-    "description": "عنوان الواجهة الأولى"
+    "description": "عنوان الواجهة الأولى"
   },
   "onboarding_desc1": "اجمع موادك، ملفاتك، وملاحظاتك في تطبيق واحد بسيط يساعدك تنظم دراستك من غير لخبطة",
   "@onboarding_desc1": {
-    "description": "وصف الواجهة الأولى"
+    "description": "وصف الواجهة الأولى"
   },
   "onboarding_title2": "رتب موادك بسهولة",
   "@onboarding_title2": {
@@ -183,5 +183,313 @@
   "verf": "التحقق",
   "@verf": {
     "description": "النص المرافق لزر تاكيد البريد الالكتروني في شاشة استعادة كلمة المرور"
+  },
+  "back_button": "رجوع",
+  "@back_button": {
+    "description": "نص زر الرجوع"
+  },
+  "resend_button": "إعادة الإرسال",
+  "@resend_button": {
+    "description": "نص زر إعادة الإرسال"
+  },
+  "waiting_text": "انتظار...",
+  "@waiting_text": {
+    "description": "نص الانتظار أثناء العد التنازلي"
+  },
+  "successfully_logged_in": "تم تسجيل الدخول بنجاح",
+  "@successfully_logged_in": {
+    "description": "رسالة نجاح تسجيل الدخول"
+  },
+  "account_verified_created": "تم تأكيد الحساب وإنشاؤه بنجاح",
+  "@account_verified_created": {
+    "description": "رسالة نجاح تأكيد وإنشاء الحساب"
+  },
+  "email_not_found": "البريد الإلكتروني غير موجود",
+  "@email_not_found": {
+    "description": "رسالة خطأ عندما لا يوجد بريد إلكتروني"
+  },
+  "verification_code_required": "رمز التحقق مطلوب",
+  "@verification_code_required": {
+    "description": "رسالة التحقق لحقل رمز التحقق"
+  },
+  "verification_code_6_digits": "رمز التحقق يجب أن يكون 6 أرقام",
+  "@verification_code_6_digits": {
+    "description": "رسالة التحقق لطول رمز التحقق"
+  },
+  "important_notes": "ملاحظات مهمة:",
+  "@important_notes": {
+    "description": "عنوان قسم الملاحظات المهمة"
+  },
+  "check_spam_folder": "تحقق من مجلد الرسائل غير المرغوب فيها إذا لم تجد البريد الإلكتروني",
+  "@check_spam_folder": {
+    "description": "ملاحظة حول فحص مجلد الرسائل غير المرغوب فيها"
+  },
+  "code_expires_10_minutes": "رمز التحقق ينتهي بعد 10 دقائق",
+  "@code_expires_10_minutes": {
+    "description": "ملاحظة حول انتهاء صلاحية الرمز"
+  },
+  "account_created_after_verification": "سيتم إنشاء حسابك فقط بعد التحقق",
+  "@account_created_after_verification": {
+    "description": "ملاحظة حول توقيت إنشاء الحساب"
+  },
+  "email_required": "البريد الإلكتروني مطلوب",
+  "@email_required": {
+    "description": "رسالة التحقق لحقل البريد الإلكتروني"
+  },
+  "valid_email_required": "من فضلك ادخل بريد إلكتروني صحيح",
+  "@valid_email_required": {
+    "description": "رسالة التحقق لصيغة البريد الإلكتروني الصحيحة"
+  },
+  "password_required": "كلمة المرور مطلوبة",
+  "@password_required": {
+    "description": "رسالة التحقق لحقل كلمة المرور"
+  },
+  "password_6_characters": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+  "@password_6_characters": {
+    "description": "رسالة التحقق لطول كلمة المرور"
+  },
+  "confirm_password_required": "من فضلك أكد كلمة المرور",
+  "@confirm_password_required": {
+    "description": "رسالة التحقق لحقل تأكيد كلمة المرور"
+  },
+  "passwords_not_match": "كلمات المرور غير متطابقة",
+  "@passwords_not_match": {
+    "description": "رسالة التحقق عندما كلمات المرور غير متطابقة"
+  },
+  "please_enter_username": "من فضلك ادخل اسم المستخدم",
+  "@please_enter_username": {
+    "description": "رسالة التحقق لحقل اسم المستخدم"
+  },
+  "username_3_characters": "اسم المستخدم يجب أن يكون 3 أحرف على الأقل",
+  "@username_3_characters": {
+    "description": "رسالة التحقق للحد الأدنى لطول اسم المستخدم"
+  },
+  "username_20_characters": "اسم المستخدم يجب أن يكون أقل من 20 حرف",
+  "@username_20_characters": {
+    "description": "رسالة التحقق للحد الأقصى لطول اسم المستخدم"
+  },
+  "username_letters_numbers_underscores": "اسم المستخدم يمكن أن يحتوي على أحرف وأرقام وشرطة سفلية فقط",
+  "@username_letters_numbers_underscores": {
+    "description": "رسالة التحقق لصيغة اسم المستخدم"
+  },
+  "please_enter_email": "من فضلك ادخل البريد الإلكتروني",
+  "@please_enter_email": {
+    "description": "رسالة التحقق لحقل البريد الإلكتروني"
+  },
+  "valid_email_address": "من فضلك ادخل عنوان بريد إلكتروني صحيح",
+  "@valid_email_address": {
+    "description": "رسالة التحقق لصيغة البريد الإلكتروني"
+  },
+  "please_enter_password": "من فضلك ادخل كلمة المرور",
+  "@please_enter_password": {
+    "description": "رسالة التحقق لحقل كلمة المرور"
+  },
+  "password_6_chars_minimum": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+  "@password_6_chars_minimum": {
+    "description": "رسالة التحقق للحد الأدنى لطول كلمة المرور"
+  },
+  "password_50_chars_maximum": "كلمة المرور يجب أن تكون أقل من 50 حرف",
+  "@password_50_chars_maximum": {
+    "description": "رسالة التحقق للحد الأقصى لطول كلمة المرور"
+  },
+  "password_letter_number": "كلمة المرور يجب أن تحتوي على حرف واحد ورقم واحد على الأقل",
+  "@password_letter_number": {
+    "description": "رسالة التحقق لتعقيد كلمة المرور"
+  },
+  "please_enter_confirm_password": "من فضلك ادخل تأكيد كلمة المرور",
+  "@please_enter_confirm_password": {
+    "description": "رسالة التحقق لحقل تأكيد كلمة المرور"
+  },
+  "please_enter_field": "من فضلك املأ هذا الحقل",
+  "@please_enter_field": {
+    "description": "رسالة التحقق العامة للحقول المطلوبة"
+  },
+  "please_enter_phone": "من فضلك ادخل رقم الهاتف",
+  "@please_enter_phone": {
+    "description": "رسالة التحقق لحقل رقم الهاتف"
+  },
+  "valid_egyptian_phone": "من فضلك ادخل رقم هاتف مصري صحيح",
+  "@valid_egyptian_phone": {
+    "description": "رسالة التحقق لصيغة رقم الهاتف المصري"
+  },
+  "please_enter_name": "من فضلك ادخل الاسم",
+  "@please_enter_name": {
+    "description": "رسالة التحقق لحقل الاسم"
+  },
+  "name_2_characters": "الاسم يجب أن يكون حرفين على الأقل",
+  "@name_2_characters": {
+    "description": "رسالة التحقق للحد الأدنى لطول الاسم"
+  },
+  "name_50_characters": "الاسم يجب أن يكون أقل من 50 حرف",
+  "@name_50_characters": {
+    "description": "رسالة التحقق للحد الأقصى لطول الاسم"
+  },
+  "name_letters_spaces": "الاسم يمكن أن يحتوي على أحرف ومسافات فقط",
+  "@name_letters_spaces": {
+    "description": "رسالة التحقق لصيغة الاسم"
+  },
+  "please_enter_age": "من فضلك ادخل العمر",
+  "@please_enter_age": {
+    "description": "رسالة التحقق لحقل العمر"
+  },
+  "valid_age": "من فضلك ادخل عمر صحيح",
+  "@valid_age": {
+    "description": "رسالة التحقق لصيغة العمر"
+  },
+  "age_minimum_13": "العمر يجب أن يكون 13 سنة على الأقل",
+  "@age_minimum_13": {
+    "description": "رسالة التحقق للحد الأدنى للعمر"
+  },
+  "warning_email_not_found": "تحذير: لم يتم العثور على البريد الإلكتروني في استجابة التسجيل",
+  "@warning_email_not_found": {
+    "description": "رسالة تحذير عندما لا يوجد بريد إلكتروني في التسجيل"
+  },
+  "sent_to": "مرسل إلى:",
+  "@sent_to": {
+    "description": "تسمية لإظهار عنوان البريد الإلكتروني"
+  },
+  "failed_to_create_account": "فشل في إنشاء الحساب",
+  "@failed_to_create_account": {
+    "description": "رسالة خطأ عند فشل إنشاء الحساب"
+  },
+  "invalid_credentials": "بيانات الدخول غير صحيحة",
+  "@invalid_credentials": {
+    "description": "رسالة خطأ عند بيانات دخول غير صحيحة"
+  },
+  "google_signin_cancelled": "تم إلغاء تسجيل الدخول بجوجل",
+  "@google_signin_cancelled": {
+    "description": "رسالة عند إلغاء تسجيل الدخول بجوجل"
+  },
+  "failed_authenticate_google": "فشل في التحقق من الهوية مع جوجل",
+  "@failed_authenticate_google": {
+    "description": "رسالة خطأ عند فشل التحقق مع جوجل"
+  },
+  "google_signin_failed": "فشل في تسجيل الدخول بجوجل",
+  "@google_signin_failed": {
+    "description": "رسالة خطأ عامة لفشل جوجل"
+  },
+  "failed_authenticate_apple": "فشل في التحقق من الهوية مع أبل",
+  "@failed_authenticate_apple": {
+    "description": "رسالة خطأ عند فشل التحقق مع أبل"
+  },
+  "apple_signin_failed": "فشل في تسجيل الدخول بأبل",
+  "@apple_signin_failed": {
+    "description": "رسالة خطأ عامة لفشل أبل"
+  },
+  "email_verified_successfully": "تم تأكيد البريد الإلكتروني بنجاح",
+  "@email_verified_successfully": {
+    "description": "رسالة نجاح تأكيد البريد الإلكتروني"
+  },
+  "email_verification_failed": "فشل في تأكيد البريد الإلكتروني",
+  "@email_verification_failed": {
+    "description": "رسالة خطأ عند فشل تأكيد البريد"
+  },
+  "password_reset_verified_successfully": "تم تأكيد رمز استعادة كلمة المرور بنجاح",
+  "@password_reset_verified_successfully": {
+    "description": "رسالة نجاح تأكيد رمز استعادة كلمة المرور"
+  },
+  "password_reset_verification_failed": "فشل في تأكيد رمز استعادة كلمة المرور",
+  "@password_reset_verification_failed": {
+    "description": "رسالة خطأ عند فشل تأكيد رمز الاستعادة"
+  },
+  "verification_email_sent_successfully": "تم إرسال بريد التأكيد بنجاح",
+  "@verification_email_sent_successfully": {
+    "description": "رسالة نجاح إرسال بريد التأكيد"
+  },
+  "failed_send_verification_email": "فشل في إرسال بريد التأكيد",
+  "@failed_send_verification_email": {
+    "description": "رسالة خطأ عند فشل إرسال بريد التأكيد"
+  },
+  "password_reset_email_sent_successfully": "تم إرسال بريد استعادة كلمة المرور بنجاح",
+  "@password_reset_email_sent_successfully": {
+    "description": "رسالة نجاح إرسال بريد استعادة كلمة المرور"
+  },
+  "failed_send_password_reset_email": "فشل في إرسال بريد استعادة كلمة المرور",
+  "@failed_send_password_reset_email": {
+    "description": "رسالة خطأ عند فشل إرسال بريد الاستعادة"
+  },
+  "password_updated_successfully": "تم تحديث كلمة المرور بنجاح",
+  "@password_updated_successfully": {
+    "description": "رسالة نجاح تحديث كلمة المرور"
+  },
+  "failed_update_password": "فشل في تحديث كلمة المرور",
+  "@failed_update_password": {
+    "description": "رسالة خطأ عند فشل تحديث كلمة المرور"
+  },
+  "no_authenticated_user_found": "لم يتم العثور على مستخدم مُسجل",
+  "@no_authenticated_user_found": {
+    "description": "رسالة خطأ عند عدم وجود مستخدم مُسجل"
+  },
+  "failed_get_current_user": "فشل في الحصول على بيانات المستخدم الحالي",
+  "@failed_get_current_user": {
+    "description": "رسالة خطأ عند فشل الحصول على المستخدم"
+  },
+  "name_cannot_be_empty": "الاسم لا يمكن أن يكون فارغاً",
+  "@name_cannot_be_empty": {
+    "description": "رسالة خطأ عند إرسال اسم فارغ"
+  },
+  "failed_update_profile": "فشل في تحديث الملف الشخصي",
+  "@failed_update_profile": {
+    "description": "رسالة خطأ عند فشل تحديث الملف الشخصي"
+  },
+  "failed_sign_out": "فشل في تسجيل الخروج",
+  "@failed_sign_out": {
+    "description": "رسالة خطأ عند فشل تسجيل الخروج"
+  },
+  "invalid_email_or_password": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+  "@invalid_email_or_password": {
+    "description": "رسالة خطأ لبيانات دخول غير صحيحة"
+  },
+  "please_verify_email_before_signin": "يرجى تأكيد بريدك الإلكتروني قبل تسجيل الدخول",
+  "@please_verify_email_before_signin": {
+    "description": "رسالة طلب تأكيد البريد قبل الدخول"
+  },
+  "account_already_exists": "يوجد حساب بهذا البريد الإلكتروني بالفعل",
+  "@account_already_exists": {
+    "description": "رسالة وجود حساب سابق"
+  },
+  "password_must_be_6_characters": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+  "@password_must_be_6_characters": {
+    "description": "رسالة الحد الأدنى لكلمة المرور"
+  },
+  "please_enter_valid_email": "يرجى إدخال بريد إلكتروني صحيح",
+  "@please_enter_valid_email": {
+    "description": "رسالة طلب بريد إلكتروني صحيح"
+  },
+  "signup_disabled": "التسجيل الجديد معطل حالياً",
+  "@signup_disabled": {
+    "description": "رسالة تعطيل التسجيل الجديد"
+  },
+  "email_rate_limit_exceeded": "تم تجاوز الحد المسموح للطلبات. يرجى المحاولة لاحقاً",
+  "@email_rate_limit_exceeded": {
+    "description": "رسالة تجاوز حد الطلبات"
+  },
+  "verification_code_expired": "انتهت صلاحية رمز التحقق. يرجى طلب رمز جديد",
+  "@verification_code_expired": {
+    "description": "رسالة انتهاء صلاحية رمز التحقق"
+  },
+  "invalid_verification_code": "رمز التحقق غير صحيح. يرجى التحقق والمحاولة مرة أخرى",
+  "@invalid_verification_code": {
+    "description": "رسالة رمز تحقق غير صحيح"
+  },
+  "verification_code_expired_or_invalid": "انتهت صلاحية رمز التحقق أو أنه غير صحيح. يرجى طلب رمز جديد",
+  "@verification_code_expired_or_invalid": {
+    "description": "رسالة شاملة لمشاكل رمز التحقق"
+  },
+  "unexpected_error_occurred": "حدث خطأ غير متوقع",
+  "@unexpected_error_occurred": {
+    "description": "رسالة خطأ عامة غير متوقع"
+  },
+  "name_is_required": "الاسم مطلوب",
+  "@name_is_required": {
+    "description": "رسالة طلب إدخال الاسم"
+  },
+  "password_is_required": "كلمة المرور مطلوبة",
+  "@password_is_required": {
+    "description": "رسالة طلب إدخال كلمة المرور"
+  },
+  "password_must_be_6_chars": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+  "@password_must_be_6_chars": {
+    "description": "رسالة طول كلمة المرور"
   }
 }

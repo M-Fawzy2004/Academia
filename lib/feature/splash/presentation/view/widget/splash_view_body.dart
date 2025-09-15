@@ -35,7 +35,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         final user = Supabase.instance.client.auth.currentUser;
-
         if (user != null) {
           context.go(AppRouter.mainView);
         } else {

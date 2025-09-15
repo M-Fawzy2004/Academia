@@ -190,12 +190,12 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
             emailController: emailController,
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
-                return 'Email is required';
+                return context.tr.email_required;
               }
               final emailRegex =
                   RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
               if (!emailRegex.hasMatch(value.trim())) {
-                return 'Please enter a valid email';
+                return context.tr.valid_email_required;
               }
               return null;
             },
@@ -214,7 +214,7 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
                     return 'Verification code is required';
                   }
                   if (value.trim().length < 6) {
-                    return 'Please enter a valid verification code';
+                    return context.tr.valid_email_required;
                   }
                   return null;
                 },
@@ -236,19 +236,19 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
             confirmPasswordController: confirmPasswordController,
             passwordValidator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Password is required';
+                return context.tr.password_required;
               }
               if (value.length < 6) {
-                return 'Password must be at least 6 characters';
+                return context.tr.password_6_characters;
               }
               return null;
             },
             confirmPasswordValidator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please confirm your password';
+                return context.tr.confirm_password_required;
               }
               if (value != newPasswordController.text) {
-                return 'Passwords do not match';
+                return context.tr.passwords_not_match;
               }
               return null;
             },

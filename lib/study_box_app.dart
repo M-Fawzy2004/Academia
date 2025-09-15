@@ -14,7 +14,7 @@ class StudyBoxApp extends StatefulWidget {
 }
 
 class _StudyBoxAppState extends State<StudyBoxApp> {
-  Locale _locale = const Locale('en');
+  Locale _locale = const Locale('ar');
 
   void setLocale(Locale locale) {
     setState(() {

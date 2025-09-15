@@ -149,4 +149,277 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get verf => 'التحقق';
+
+  @override
+  String get back_button => 'رجوع';
+
+  @override
+  String get resend_button => 'إعادة الإرسال';
+
+  @override
+  String get waiting_text => 'انتظار...';
+
+  @override
+  String get successfully_logged_in => 'تم تسجيل الدخول بنجاح';
+
+  @override
+  String get account_verified_created => 'تم تأكيد الحساب وإنشاؤه بنجاح';
+
+  @override
+  String get email_not_found => 'البريد الإلكتروني غير موجود';
+
+  @override
+  String get verification_code_required => 'رمز التحقق مطلوب';
+
+  @override
+  String get verification_code_6_digits => 'رمز التحقق يجب أن يكون 6 أرقام';
+
+  @override
+  String get important_notes => 'ملاحظات مهمة:';
+
+  @override
+  String get check_spam_folder =>
+      'تحقق من مجلد الرسائل غير المرغوب فيها إذا لم تجد البريد الإلكتروني';
+
+  @override
+  String get code_expires_10_minutes => 'رمز التحقق ينتهي بعد 10 دقائق';
+
+  @override
+  String get account_created_after_verification =>
+      'سيتم إنشاء حسابك فقط بعد التحقق';
+
+  @override
+  String get email_required => 'البريد الإلكتروني مطلوب';
+
+  @override
+  String get valid_email_required => 'من فضلك ادخل بريد إلكتروني صحيح';
+
+  @override
+  String get password_required => 'كلمة المرور مطلوبة';
+
+  @override
+  String get password_6_characters =>
+      'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+
+  @override
+  String get confirm_password_required => 'من فضلك أكد كلمة المرور';
+
+  @override
+  String get passwords_not_match => 'كلمات المرور غير متطابقة';
+
+  @override
+  String get please_enter_username => 'من فضلك ادخل اسم المستخدم';
+
+  @override
+  String get username_3_characters =>
+      'اسم المستخدم يجب أن يكون 3 أحرف على الأقل';
+
+  @override
+  String get username_20_characters => 'اسم المستخدم يجب أن يكون أقل من 20 حرف';
+
+  @override
+  String get username_letters_numbers_underscores =>
+      'اسم المستخدم يمكن أن يحتوي على أحرف وأرقام وشرطة سفلية فقط';
+
+  @override
+  String get please_enter_email => 'من فضلك ادخل البريد الإلكتروني';
+
+  @override
+  String get valid_email_address => 'من فضلك ادخل عنوان بريد إلكتروني صحيح';
+
+  @override
+  String get please_enter_password => 'من فضلك ادخل كلمة المرور';
+
+  @override
+  String get password_6_chars_minimum =>
+      'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+
+  @override
+  String get password_50_chars_maximum =>
+      'كلمة المرور يجب أن تكون أقل من 50 حرف';
+
+  @override
+  String get password_letter_number =>
+      'كلمة المرور يجب أن تحتوي على حرف واحد ورقم واحد على الأقل';
+
+  @override
+  String get please_enter_confirm_password => 'من فضلك ادخل تأكيد كلمة المرور';
+
+  @override
+  String get please_enter_field => 'من فضلك املأ هذا الحقل';
+
+  @override
+  String get please_enter_phone => 'من فضلك ادخل رقم الهاتف';
+
+  @override
+  String get valid_egyptian_phone => 'من فضلك ادخل رقم هاتف مصري صحيح';
+
+  @override
+  String get please_enter_name => 'من فضلك ادخل الاسم';
+
+  @override
+  String get name_2_characters => 'الاسم يجب أن يكون حرفين على الأقل';
+
+  @override
+  String get name_50_characters => 'الاسم يجب أن يكون أقل من 50 حرف';
+
+  @override
+  String get name_letters_spaces => 'الاسم يمكن أن يحتوي على أحرف ومسافات فقط';
+
+  @override
+  String get please_enter_age => 'من فضلك ادخل العمر';
+
+  @override
+  String get valid_age => 'من فضلك ادخل عمر صحيح';
+
+  @override
+  String get age_minimum_13 => 'العمر يجب أن يكون 13 سنة على الأقل';
+
+  @override
+  String get warning_email_not_found =>
+      'تحذير: لم يتم العثور على البريد الإلكتروني في استجابة التسجيل';
+
+  @override
+  String get sent_to => 'مرسل إلى:';
+
+  @override
+  String get failed_to_create_account => 'فشل في إنشاء الحساب';
+
+  @override
+  String get invalid_credentials => 'بيانات الدخول غير صحيحة';
+
+  @override
+  String get google_signin_cancelled => 'تم إلغاء تسجيل الدخول بجوجل';
+
+  @override
+  String get failed_authenticate_google => 'فشل في التحقق من الهوية مع جوجل';
+
+  @override
+  String get google_signin_failed => 'فشل في تسجيل الدخول بجوجل';
+
+  @override
+  String get failed_authenticate_apple => 'فشل في التحقق من الهوية مع أبل';
+
+  @override
+  String get apple_signin_failed => 'فشل في تسجيل الدخول بأبل';
+
+  @override
+  String get email_verified_successfully => 'تم تأكيد البريد الإلكتروني بنجاح';
+
+  @override
+  String get email_verification_failed => 'فشل في تأكيد البريد الإلكتروني';
+
+  @override
+  String get password_reset_verified_successfully =>
+      'تم تأكيد رمز استعادة كلمة المرور بنجاح';
+
+  @override
+  String get password_reset_verification_failed =>
+      'فشل في تأكيد رمز استعادة كلمة المرور';
+
+  @override
+  String get verification_email_sent_successfully =>
+      'تم إرسال بريد التأكيد بنجاح';
+
+  @override
+  String get failed_send_verification_email => 'فشل في إرسال بريد التأكيد';
+
+  @override
+  String get password_reset_email_sent_successfully =>
+      'تم إرسال بريد استعادة كلمة المرور بنجاح';
+
+  @override
+  String get failed_send_password_reset_email =>
+      'فشل في إرسال بريد استعادة كلمة المرور';
+
+  @override
+  String get password_updated_successfully => 'تم تحديث كلمة المرور بنجاح';
+
+  @override
+  String get failed_update_password => 'فشل في تحديث كلمة المرور';
+
+  @override
+  String get no_authenticated_user_found => 'لم يتم العثور على مستخدم مُسجل';
+
+  @override
+  String get failed_get_current_user =>
+      'فشل في الحصول على بيانات المستخدم الحالي';
+
+  @override
+  String get name_cannot_be_empty => 'الاسم لا يمكن أن يكون فارغاً';
+
+  @override
+  String get failed_update_profile => 'فشل في تحديث الملف الشخصي';
+
+  @override
+  String get failed_sign_out => 'فشل في تسجيل الخروج';
+
+  @override
+  String get invalid_email_or_password =>
+      'البريد الإلكتروني أو كلمة المرور غير صحيحة';
+
+  @override
+  String get please_verify_email_before_signin =>
+      'يرجى تأكيد بريدك الإلكتروني قبل تسجيل الدخول';
+
+  @override
+  String get account_already_exists =>
+      'يوجد حساب بهذا البريد الإلكتروني بالفعل';
+
+  @override
+  String get password_must_be_6_characters =>
+      'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+
+  @override
+  String get please_enter_valid_email => 'يرجى إدخال بريد إلكتروني صحيح';
+
+  @override
+  String get signup_disabled => 'التسجيل الجديد معطل حالياً';
+
+  @override
+  String get email_rate_limit_exceeded =>
+      'تم تجاوز الحد المسموح للطلبات. يرجى المحاولة لاحقاً';
+
+  @override
+  String get verification_code_expired =>
+      'انتهت صلاحية رمز التحقق. يرجى طلب رمز جديد';
+
+  @override
+  String get invalid_verification_code =>
+      'رمز التحقق غير صحيح. يرجى التحقق والمحاولة مرة أخرى';
+
+  @override
+  String get verification_code_expired_or_invalid =>
+      'انتهت صلاحية رمز التحقق أو أنه غير صحيح. يرجى طلب رمز جديد';
+
+  @override
+  String get unexpected_error_occurred => 'حدث خطأ غير متوقع';
+
+  @override
+  String get name_is_required => 'الاسم مطلوب';
+
+  @override
+  String get password_is_required => 'كلمة المرور مطلوبة';
+
+  @override
+  String get password_must_be_6_chars =>
+      'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+
+  @override
+  String get invalid_login_credentials => 'Invalid email or password';
+
+  @override
+  String get email_not_confirmed =>
+      'Please verify your email before signing in';
+
+  @override
+  String get user_already_registered =>
+      'An account with this email already exists';
+
+  @override
+  String get password_min_length =>
+      'Password must be at least 6 characters long';
+
+  @override
+  String get invalid_email => 'Please enter a valid email address';
 }

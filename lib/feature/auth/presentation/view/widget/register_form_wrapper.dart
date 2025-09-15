@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/custom_snack_bar.dart';
+import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/register_form.dart';
 
@@ -35,7 +36,7 @@ class _RegisterFormWrapperState extends State<RegisterFormWrapper> {
             context.go(AppRouter.verfEmailView);
             CustomSnackBar.showError(
               context,
-              'Warning: Email not found in registration response',
+              context.tr.warning_email_not_found,
             );
           }
         }

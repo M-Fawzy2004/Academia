@@ -2,186 +2,514 @@
   "@@locale": "en",
   "onboarding": "Onboarding",
   "@onboarding": {
-    "description": "Translation of the onboarding screen"
+    "description": "Main title of the Onboarding screen"
   },
-  "onboarding_title1": "StudyBox – All your study materials in one place",
+  "onboarding_title1": "StudyBox – All your studies in one place",
   "@onboarding_title1": {
-    "description": "The title of the first onboarding screen"
+    "description": "Title of the first onboarding screen"
   },
-  "onboarding_desc1": "Gather your subjects, files, and notes in one simple app that helps you organize your studies without confusion.",
+  "onboarding_desc1": "Gather your materials, files, and notes in one simple app that helps you organize your studies without confusion",
   "@onboarding_desc1": {
-    "description": "The description of the first onboarding screen"
+    "description": "Description of the first onboarding screen"
   },
   "onboarding_title2": "Organize your subjects easily",
   "@onboarding_title2": {
-    "description": "The title of the second onboarding screen"
+    "description": "Title of the second onboarding screen"
   },
-  "onboarding_desc2": "Create a section for each subject and keep all your files, notes, and recordings together for quick access.",
+  "onboarding_desc2": "Create a section for each subject, keeping all files, notes, and recordings together for quick access",
   "@onboarding_desc2": {
-    "description": "The description of the second onboarding screen"
+    "description": "Description of the second onboarding screen"
   },
-  "onboarding_title3": "Your notes and files in a safe place",
+  "onboarding_title3": "Your notes and files are safe",
   "@onboarding_title3": {
-    "description": "The title of the third onboarding screen"
+    "description": "Title of the third onboarding screen"
   },
-  "onboarding_desc3": "Write your notes, upload your files, and save your recordings so you can review them anytime, anywhere.",
+  "onboarding_desc3": "Write your notes, upload your files, and save your audio recordings to review anytime, anywhere",
   "@onboarding_desc3": {
-    "description": "The description of the third onboarding screen"
+    "description": "Description of the third onboarding screen"
   },
   "onboarding_skip": "Skip",
   "@onboarding_skip": {
-    "description": "The skip button of the onboarding screen"
+    "description": "Skip button in onboarding screen"
   },
   "onboarding_next": "Next",
   "@onboarding_next": {
-    "description": "The next button of the onboarding screen"
+    "description": "Next button in onboarding screen"
   },
-  "onboarding_start_now": "Start now",
+  "onboarding_start_now": "Start Now",
   "@onboarding_start_now": {
-    "description": "The done button of the onboarding screen"
+    "description": "Start (Done) button in onboarding screen"
   },
   "welcome": "Welcome",
   "@welcome": {
-    "description": "Translation of the welcome screen"
+    "description": "Special translation of the welcome screen"
   },
-  "welcome_title": "Ready to start your study journey with StudyBox",
+  "welcome_title": "Ready to start your study journey with StudyBox?",
   "@welcome_title": {
-    "description": "The title of the welcome screen"
+    "description": "Title of the welcome screen"
   },
-  "welcome_desc": "Organize your materials, save your files and notes, and keep your studies organized the way you like.",
+  "welcome_desc": "Organize your subjects, save your files and notes, and keep your studies structured the way you like",
   "@welcome_desc": {
-    "description": "The description of the welcome screen"
+    "description": "Description in the welcome screen"
   },
   "welcome_button_login": "Login",
   "@welcome_button_login": {
-    "description": "The login button of the welcome screen"
+    "description": "Login button in the welcome screen"
   },
   "welcome_button_register": "Register",
   "@welcome_button_register": {
-    "description": "The register button of the welcome screen"
+    "description": "Register button in the welcome screen"
   },
-  "login": "login",
+  "login": "Login",
   "@login": {
-    "description": "Translation of the login screen"
+    "description": "Login screen translation"
   },
   "login_email": "Email",
   "@login_email": {
-    "description": "The email field of the login screen"
+    "description": "Email field in login screen"
   },
   "login_pass": "Password",
   "@login_pass": {
-    "description": "The password field of the login screen"
+    "description": "Password field in login screen"
   },
   "login_forgot": "Forgot password?",
   "@login_forgot": {
-    "description": "The forgot password button of the login screen"
+    "description": "Forgot password button in login screen"
   },
   "login_button": "Login",
   "@login_button": {
-    "description": "The login button of the login screen"
+    "description": "Login button in login screen"
   },
   "login_register": "Register",
   "@login_register": {
-    "description": "The register button of the login screen"
+    "description": "Navigate to register screen"
   },
   "login_not_have_an_account": "Don't have an account?",
   "@login_not_have_an_account": {
-    "description": "The register button of the login screen"
+    "description": "Text before register button in login screen"
   },
-  "login_with_google": "Continue with Google",
+  "login_with_google": "Login with Google",
   "@login_with_google": {
-    "description": "The login with Google button of the login screen"
+    "description": "Login with Google button"
   },
-  "login_with_apple": "Continue with Apple",
+  "login_with_apple": "Login with Apple",
   "@login_with_apple": {
-    "description": "The login with Apple button of the login screen"
+    "description": "Login with Apple button"
   },
-  "login_or": "OR",
+  "login_or": "or",
   "@login_or": {
-    "description": "The or button of the login screen"
+    "description": "Separator text in login screen"
   },
   "register": "Register",
   "@register": {
-    "description": "Translation of the register screen"
+    "description": "Register screen translation"
   },
   "register_username": "Username",
   "@register_username": {
-    "description": "The username field of the register screen"
+    "description": "Username field in register screen"
   },
   "register_confirm_pass": "Confirm Password",
   "@register_confirm_pass": {
-    "description": "The confirm password field of the register screen"
+    "description": "Confirm password field in register screen"
   },
   "register_have_an_account": "Already have an account?",
   "@register_have_an_account": {
-    "description": "The login button of the register screen"
+    "description": "Text before login button in register screen"
   },
-  "forget": "Forget Password",
+  "forget": "Forgot Password",
   "@forget": {
-    "description": "Translation of the forget password screen"
+    "description": "Forgot password screen translation"
   },
   "forget_reset": "Reset Password",
   "@forget_reset": {
-    "description": "The reset password button of the forget password screen"
+    "description": "Reset password button"
   },
-  "enter_verfivcation_code": "Send Verification Code",
+  "enter_verfivcation_code": "Send verification code",
   "@enter_verfivcation_code": {
-    "description": "The send verification code button of the forget password screen"
+    "description": "Send verification code button"
   },
   "identity_confirmation": "Identity Confirmation",
   "@identity_confirmation": {
-    "description": "The identity confirmation button of the forget password screen"
+    "description": "Identity confirmation button"
   },
   "save_pass": "Save Password",
   "@save_pass": {
-    "description": "The save password button of the forget password screen"
+    "description": "Save password button"
   },
   "enter_email": "Please enter your email",
   "@enter_email": {
-    "description": "The text for the email field in the forget password screen"
+    "description": "Helper text for email field"
   },
   "resend_code": "Resend Code",
   "@resend_code": {
-    "description": "The resend code button of the forget password screen"
+    "description": "Resend code button"
   },
-  "back_step": "Back to Previous Step",
+  "back_step": "Back to previous step",
   "@back_step": {
-    "description": "The back to previous step button of the forget password screen"
+    "description": "Back to previous step button"
   },
-  "send_code_with_email": "A verification code has been sent to your email",
+  "send_code_with_email": "Verification code sent to your email",
   "@send_code_with_email": {
-    "description": "The text shown after sending the verification code in the forget password screen"
+    "description": "Helper text for code sent"
   },
   "enter_code": "Please enter the 6-digit code",
   "@enter_code": {
-    "description": "The text for the verification code field in the forget password screen"
+    "description": "Helper text for verification code field"
   },
   "verf_code": "Verification Code",
   "@verf_code": {
-    "description": "The label for the verification code field in the forget password screen"
+    "description": "Verification code label"
   },
   "confirm_code": "Confirm Code",
   "@confirm_code": {
-    "description": "The text for the confirm code button in the forget password screen"
+    "description": "Confirm code button"
   },
-  "enter_new_pass": "Please enter your new password",
+  "enter_new_pass": "Please enter a new password",
   "@enter_new_pass": {
-    "description": "The text for the new password field in the forget password screen"
+    "description": "Helper text for new password field"
   },
   "new_pass": "New Password",
   "@new_pass": {
-    "description": "The label for the new password field in the forget password screen"
+    "description": "New password field label"
   },
   "pass_at_least": "Password must be at least 8 characters",
   "@pass_at_least": {
-    "description": "The validation text for the new password field in the forget password screen"
+    "description": "Password minimum length validation"
   },
   "confirm_email": "Confirm Email",
   "@confirm_email": {
-    "description": "The text for the confirm email button in the forget password screen"
+    "description": "Confirm email button"
   },
-  "verf": "Verification",
+  "verf": "Verify",
   "@verf": {
-    "description": "The text for the verification button in the forget password screen"
+    "description": "Verify button"
+  },
+  "back_button": "Back",
+  "@back_button": {
+    "description": "Back button text"
+  },
+  "resend_button": "Resend",
+  "@resend_button": {
+    "description": "Resend button text"
+  },
+  "waiting_text": "Waiting...",
+  "@waiting_text": {
+    "description": "Waiting text during countdown"
+  },
+  "successfully_logged_in": "Successfully logged in",
+  "@successfully_logged_in": {
+    "description": "Login success message"
+  },
+  "account_verified_created": "Account verified and created successfully",
+  "@account_verified_created": {
+    "description": "Account verification success message"
+  },
+  "email_not_found": "Email not found",
+  "@email_not_found": {
+    "description": "Error when email not found"
+  },
+  "verification_code_required": "Verification code is required",
+  "@verification_code_required": {
+    "description": "Validation for verification code required"
+  },
+  "verification_code_6_digits": "Verification code must be 6 digits",
+  "@verification_code_6_digits": {
+    "description": "Validation for verification code length"
+  },
+  "important_notes": "Important Notes:",
+  "@important_notes": {
+    "description": "Important notes section title"
+  },
+  "check_spam_folder": "Check your spam folder if you didn't receive the email",
+  "@check_spam_folder": {
+    "description": "Note about spam folder"
+  },
+  "code_expires_10_minutes": "Verification code expires in 10 minutes",
+  "@code_expires_10_minutes": {
+    "description": "Note about code expiration"
+  },
+  "account_created_after_verification": "Your account will be created only after verification",
+  "@account_created_after_verification": {
+    "description": "Note about account creation timing"
+  },
+  "email_required": "Email is required",
+  "@email_required": {
+    "description": "Validation for email required"
+  },
+  "valid_email_required": "Please enter a valid email address",
+  "@valid_email_required": {
+    "description": "Validation for valid email format"
+  },
+  "password_required": "Password is required",
+  "@password_required": {
+    "description": "Validation for password required"
+  },
+  "password_6_characters": "Password must be at least 6 characters",
+  "@password_6_characters": {
+    "description": "Validation for minimum password length"
+  },
+  "confirm_password_required": "Please confirm your password",
+  "@confirm_password_required": {
+    "description": "Validation for confirm password"
+  },
+  "passwords_not_match": "Passwords do not match",
+  "@passwords_not_match": {
+    "description": "Validation when passwords don't match"
+  },
+  "please_enter_username": "Please enter a username",
+  "@please_enter_username": {
+    "description": "Validation for username required"
+  },
+  "username_3_characters": "Username must be at least 3 characters",
+  "@username_3_characters": {
+    "description": "Validation for minimum username length"
+  },
+  "username_20_characters": "Username must be less than 20 characters",
+  "@username_20_characters": {
+    "description": "Validation for maximum username length"
+  },
+  "username_letters_numbers_underscores": "Username can only contain letters, numbers, and underscores",
+  "@username_letters_numbers_underscores": {
+    "description": "Validation for username format"
+  },
+  "please_enter_email": "Please enter an email",
+  "@please_enter_email": {
+    "description": "Validation for email required"
+  },
+  "valid_email_address": "Please enter a valid email address",
+  "@valid_email_address": {
+    "description": "Validation for email format"
+  },
+  "please_enter_password": "Please enter a password",
+  "@please_enter_password": {
+    "description": "Validation for password required"
+  },
+  "password_6_chars_minimum": "Password must be at least 6 characters",
+  "@password_6_chars_minimum": {
+    "description": "Validation for minimum password length"
+  },
+  "password_50_chars_maximum": "Password must be less than 50 characters",
+  "@password_50_chars_maximum": {
+    "description": "Validation for maximum password length"
+  },
+  "password_letter_number": "Password must contain at least one letter and one number",
+  "@password_letter_number": {
+    "description": "Validation for password complexity"
+  },
+  "please_enter_confirm_password": "Please enter confirm password",
+  "@please_enter_confirm_password": {
+    "description": "Validation for confirm password required"
+  },
+  "please_enter_field": "Please fill out this field",
+  "@please_enter_field": {
+    "description": "Generic validation for required field"
+  },
+  "please_enter_phone": "Please enter phone number",
+  "@please_enter_phone": {
+    "description": "Validation for phone number required"
+  },
+  "valid_egyptian_phone": "Please enter a valid Egyptian phone number",
+  "@valid_egyptian_phone": {
+    "description": "Validation for Egyptian phone number format"
+  },
+  "please_enter_name": "Please enter a name",
+  "@please_enter_name": {
+    "description": "Validation for name required"
+  },
+  "name_2_characters": "Name must be at least 2 characters",
+  "@name_2_characters": {
+    "description": "Validation for minimum name length"
+  },
+  "name_50_characters": "Name must be less than 50 characters",
+  "@name_50_characters": {
+    "description": "Validation for maximum name length"
+  },
+  "name_letters_spaces": "Name can only contain letters and spaces",
+  "@name_letters_spaces": {
+    "description": "Validation for name format"
+  },
+  "please_enter_age": "Please enter age",
+  "@please_enter_age": {
+    "description": "Validation for age required"
+  },
+  "valid_age": "Please enter a valid age",
+  "@valid_age": {
+    "description": "Validation for valid age format"
+  },
+  "age_minimum_13": "Age must be at least 13",
+  "@age_minimum_13": {
+    "description": "Validation for minimum age"
+  },
+  "warning_email_not_found": "Warning: Email not found in registration response",
+  "@warning_email_not_found": {
+    "description": "Warning when no email found during registration"
+  },
+  "sent_to": "Sent to:",
+  "@sent_to": {
+    "description": "Label to show the email address"
+  },
+  "failed_to_create_account": "Failed to create account",
+  "@failed_to_create_account": {
+    "description": "Error message when account creation fails"
+  },
+  "invalid_credentials": "Invalid credentials",
+  "@invalid_credentials": {
+    "description": "Error message when login credentials are invalid"
+  },
+  "google_signin_cancelled": "Google sign-in was cancelled",
+  "@google_signin_cancelled": {
+    "description": "Message when Google sign-in is cancelled"
+  },
+  "failed_authenticate_google": "Failed to authenticate with Google",
+  "@failed_authenticate_google": {
+    "description": "Error message when Google authentication fails"
+  },
+  "google_signin_failed": "Google sign-in failed",
+  "@google_signin_failed": {
+    "description": "General error message for Google sign-in failure"
+  },
+  "failed_authenticate_apple": "Failed to authenticate with Apple",
+  "@failed_authenticate_apple": {
+    "description": "Error message when Apple authentication fails"
+  },
+  "apple_signin_failed": "Apple sign-in failed",
+  "@apple_signin_failed": {
+    "description": "General error message for Apple sign-in failure"
+  },
+  "email_verified_successfully": "Email verified successfully",
+  "@email_verified_successfully": {
+    "description": "Success message for email verification"
+  },
+  "email_verification_failed": "Email verification failed",
+  "@email_verification_failed": {
+    "description": "Error message when email verification fails"
+  },
+  "password_reset_verified_successfully": "Password reset code verified successfully",
+  "@password_reset_verified_successfully": {
+    "description": "Success message for password reset code verification"
+  },
+  "password_reset_verification_failed": "Password reset code verification failed",
+  "@password_reset_verification_failed": {
+    "description": "Error message when password reset code verification fails"
+  },
+  "verification_email_sent_successfully": "Verification email sent successfully",
+  "@verification_email_sent_successfully": {
+    "description": "Success message for sending verification email"
+  },
+  "failed_send_verification_email": "Failed to send verification email",
+  "@failed_send_verification_email": {
+    "description": "Error message when sending verification email fails"
+  },
+  "password_reset_email_sent_successfully": "Password reset email sent successfully",
+  "@password_reset_email_sent_successfully": {
+    "description": "Success message for sending password reset email"
+  },
+  "failed_send_password_reset_email": "Failed to send password reset email",
+  "@failed_send_password_reset_email": {
+    "description": "Error message when sending password reset email fails"
+  },
+  "password_updated_successfully": "Password updated successfully",
+  "@password_updated_successfully": {
+    "description": "Success message for password update"
+  },
+  "failed_update_password": "Failed to update password",
+  "@failed_update_password": {
+    "description": "Error message when password update fails"
+  },
+  "no_authenticated_user_found": "No authenticated user found",
+  "@no_authenticated_user_found": {
+    "description": "Error message when no authenticated user exists"
+  },
+  "failed_get_current_user": "Failed to get current user data",
+  "@failed_get_current_user": {
+    "description": "Error message when fetching current user fails"
+  },
+  "name_cannot_be_empty": "Name cannot be empty",
+  "@name_cannot_be_empty": {
+    "description": "Error message when name is empty"
+  },
+  "failed_update_profile": "Failed to update profile",
+  "@failed_update_profile": {
+    "description": "Error message when profile update fails"
+  },
+  "failed_sign_out": "Failed to sign out",
+  "@failed_sign_out": {
+    "description": "Error message when sign out fails"
+  },
+  "invalid_email_or_password": "Invalid email or password",
+  "@invalid_email_or_password": {
+    "description": "Error message for invalid login credentials"
+  },
+  "please_verify_email_before_signin": "Please verify your email before signing in",
+  "@please_verify_email_before_signin": {
+    "description": "Message requesting email verification before sign in"
+  },
+  "account_already_exists": "An account with this email already exists",
+  "@account_already_exists": {
+    "description": "Message when account already exists"
+  },
+  "password_must_be_6_characters": "Password must be at least 6 characters",
+  "@password_must_be_6_characters": {
+    "description": "Minimum password length message"
+  },
+  "please_enter_valid_email": "Please enter a valid email address",
+  "@please_enter_valid_email": {
+    "description": "Message requesting a valid email"
+  },
+  "signup_disabled": "New sign-ups are currently disabled",
+  "@signup_disabled": {
+    "description": "Message when new sign-ups are disabled"
+  },
+  "email_rate_limit_exceeded": "Request limit exceeded. Please try again later",
+  "@email_rate_limit_exceeded": {
+    "description": "Message when request rate limit is exceeded"
+  },
+  "verification_code_expired": "Verification code has expired. Please request a new one",
+  "@verification_code_expired": {
+    "description": "Message when verification code is expired"
+  },
+  "invalid_verification_code": "Invalid verification code. Please check and try again",
+  "@invalid_verification_code": {
+    "description": "Message when verification code is invalid"
+  },
+  "verification_code_expired_or_invalid": "Verification code is expired or invalid. Please request a new one",
+  "@verification_code_expired_or_invalid": {
+    "description": "Message for expired or invalid verification code"
+  },
+  "unexpected_error_occurred": "An unexpected error occurred",
+  "@unexpected_error_occurred": {
+    "description": "General unexpected error message"
+  },
+  "name_is_required": "Name is required",
+  "@name_is_required": {
+    "description": "Message requesting name input"
+  },
+  "password_is_required": "Password is required",
+  "@password_is_required": {
+    "description": "Message requesting password input"
+  },
+  "password_must_be_6_chars": "Password must be at least 6 characters",
+  "@password_must_be_6_chars": {
+    "description": "Password length requirement message"
+  },
+  "invalid_login_credentials": "Invalid email or password",
+  "@invalid_login_credentials": {
+    "description": "Error message for invalid login credentials"
+  },
+  "email_not_confirmed": "Please verify your email before signing in",
+  "@email_not_confirmed": {
+    "description": "Message when email is not verified"
+  },
+  "user_already_registered": "An account with this email already exists",
+  "@user_already_registered": {
+    "description": "Message when user already registered"
+  },
+  "password_min_length": "Password must be at least 6 characters long",
+  "@password_min_length": {
+    "description": "Password length requirement message"
+  },
+  "invalid_email": "Please enter a valid email address",
+  "@invalid_email": {
+    "description": "Message when email is invalid"
   }
 }

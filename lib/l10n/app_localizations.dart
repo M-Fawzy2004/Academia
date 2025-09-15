@@ -98,281 +98,773 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
-  /// Translation of the onboarding screen
+  /// Main title of the Onboarding screen
   ///
   /// In en, this message translates to:
   /// **'Onboarding'**
   String get onboarding;
 
-  /// The title of the first onboarding screen
+  /// Title of the first onboarding screen
   ///
   /// In en, this message translates to:
-  /// **'StudyBox – All your study materials in one place'**
+  /// **'StudyBox – All your studies in one place'**
   String get onboarding_title1;
 
-  /// The description of the first onboarding screen
+  /// Description of the first onboarding screen
   ///
   /// In en, this message translates to:
-  /// **'Gather your subjects, files, and notes in one simple app that helps you organize your studies without confusion.'**
+  /// **'Gather your materials, files, and notes in one simple app that helps you organize your studies without confusion'**
   String get onboarding_desc1;
 
-  /// The title of the second onboarding screen
+  /// Title of the second onboarding screen
   ///
   /// In en, this message translates to:
   /// **'Organize your subjects easily'**
   String get onboarding_title2;
 
-  /// The description of the second onboarding screen
+  /// Description of the second onboarding screen
   ///
   /// In en, this message translates to:
-  /// **'Create a section for each subject and keep all your files, notes, and recordings together for quick access.'**
+  /// **'Create a section for each subject, keeping all files, notes, and recordings together for quick access'**
   String get onboarding_desc2;
 
-  /// The title of the third onboarding screen
+  /// Title of the third onboarding screen
   ///
   /// In en, this message translates to:
-  /// **'Your notes and files in a safe place'**
+  /// **'Your notes and files are safe'**
   String get onboarding_title3;
 
-  /// The description of the third onboarding screen
+  /// Description of the third onboarding screen
   ///
   /// In en, this message translates to:
-  /// **'Write your notes, upload your files, and save your recordings so you can review them anytime, anywhere.'**
+  /// **'Write your notes, upload your files, and save your audio recordings to review anytime, anywhere'**
   String get onboarding_desc3;
 
-  /// The skip button of the onboarding screen
+  /// Skip button in onboarding screen
   ///
   /// In en, this message translates to:
   /// **'Skip'**
   String get onboarding_skip;
 
-  /// The next button of the onboarding screen
+  /// Next button in onboarding screen
   ///
   /// In en, this message translates to:
   /// **'Next'**
   String get onboarding_next;
 
-  /// The done button of the onboarding screen
+  /// Start (Done) button in onboarding screen
   ///
   /// In en, this message translates to:
-  /// **'Start now'**
+  /// **'Start Now'**
   String get onboarding_start_now;
 
-  /// Translation of the welcome screen
+  /// Special translation of the welcome screen
   ///
   /// In en, this message translates to:
   /// **'Welcome'**
   String get welcome;
 
-  /// The title of the welcome screen
+  /// Title of the welcome screen
   ///
   /// In en, this message translates to:
-  /// **'Ready to start your study journey with StudyBox'**
+  /// **'Ready to start your study journey with StudyBox?'**
   String get welcome_title;
 
-  /// The description of the welcome screen
+  /// Description in the welcome screen
   ///
   /// In en, this message translates to:
-  /// **'Organize your materials, save your files and notes, and keep your studies organized the way you like.'**
+  /// **'Organize your subjects, save your files and notes, and keep your studies structured the way you like'**
   String get welcome_desc;
 
-  /// The login button of the welcome screen
+  /// Login button in the welcome screen
   ///
   /// In en, this message translates to:
   /// **'Login'**
   String get welcome_button_login;
 
-  /// The register button of the welcome screen
+  /// Register button in the welcome screen
   ///
   /// In en, this message translates to:
   /// **'Register'**
   String get welcome_button_register;
 
-  /// Translation of the login screen
+  /// Login screen translation
   ///
   /// In en, this message translates to:
-  /// **'login'**
+  /// **'Login'**
   String get login;
 
-  /// The email field of the login screen
+  /// Email field in login screen
   ///
   /// In en, this message translates to:
   /// **'Email'**
   String get login_email;
 
-  /// The password field of the login screen
+  /// Password field in login screen
   ///
   /// In en, this message translates to:
   /// **'Password'**
   String get login_pass;
 
-  /// The forgot password button of the login screen
+  /// Forgot password button in login screen
   ///
   /// In en, this message translates to:
   /// **'Forgot password?'**
   String get login_forgot;
 
-  /// The login button of the login screen
+  /// Login button in login screen
   ///
   /// In en, this message translates to:
   /// **'Login'**
   String get login_button;
 
-  /// The register button of the login screen
+  /// Navigate to register screen
   ///
   /// In en, this message translates to:
   /// **'Register'**
   String get login_register;
 
-  /// The register button of the login screen
+  /// Text before register button in login screen
   ///
   /// In en, this message translates to:
   /// **'Don\'t have an account?'**
   String get login_not_have_an_account;
 
-  /// The login with Google button of the login screen
+  /// Login with Google button
   ///
   /// In en, this message translates to:
-  /// **'Continue with Google'**
+  /// **'Login with Google'**
   String get login_with_google;
 
-  /// The login with Apple button of the login screen
+  /// Login with Apple button
   ///
   /// In en, this message translates to:
-  /// **'Continue with Apple'**
+  /// **'Login with Apple'**
   String get login_with_apple;
 
-  /// The or button of the login screen
+  /// Separator text in login screen
   ///
   /// In en, this message translates to:
-  /// **'OR'**
+  /// **'or'**
   String get login_or;
 
-  /// Translation of the register screen
+  /// Register screen translation
   ///
   /// In en, this message translates to:
   /// **'Register'**
   String get register;
 
-  /// The username field of the register screen
+  /// Username field in register screen
   ///
   /// In en, this message translates to:
   /// **'Username'**
   String get register_username;
 
-  /// The confirm password field of the register screen
+  /// Confirm password field in register screen
   ///
   /// In en, this message translates to:
   /// **'Confirm Password'**
   String get register_confirm_pass;
 
-  /// The login button of the register screen
+  /// Text before login button in register screen
   ///
   /// In en, this message translates to:
   /// **'Already have an account?'**
   String get register_have_an_account;
 
-  /// Translation of the forget password screen
+  /// Forgot password screen translation
   ///
   /// In en, this message translates to:
-  /// **'Forget Password'**
+  /// **'Forgot Password'**
   String get forget;
 
-  /// The reset password button of the forget password screen
+  /// Reset password button
   ///
   /// In en, this message translates to:
   /// **'Reset Password'**
   String get forget_reset;
 
-  /// The send verification code button of the forget password screen
+  /// Send verification code button
   ///
   /// In en, this message translates to:
-  /// **'Send Verification Code'**
+  /// **'Send verification code'**
   String get enter_verfivcation_code;
 
-  /// The identity confirmation button of the forget password screen
+  /// Identity confirmation button
   ///
   /// In en, this message translates to:
   /// **'Identity Confirmation'**
   String get identity_confirmation;
 
-  /// The save password button of the forget password screen
+  /// Save password button
   ///
   /// In en, this message translates to:
   /// **'Save Password'**
   String get save_pass;
 
-  /// The text for the email field in the forget password screen
+  /// Helper text for email field
   ///
   /// In en, this message translates to:
   /// **'Please enter your email'**
   String get enter_email;
 
-  /// The resend code button of the forget password screen
+  /// Resend code button
   ///
   /// In en, this message translates to:
   /// **'Resend Code'**
   String get resend_code;
 
-  /// The back to previous step button of the forget password screen
+  /// Back to previous step button
   ///
   /// In en, this message translates to:
-  /// **'Back to Previous Step'**
+  /// **'Back to previous step'**
   String get back_step;
 
-  /// The text shown after sending the verification code in the forget password screen
+  /// Helper text for code sent
   ///
   /// In en, this message translates to:
-  /// **'A verification code has been sent to your email'**
+  /// **'Verification code sent to your email'**
   String get send_code_with_email;
 
-  /// The text for the verification code field in the forget password screen
+  /// Helper text for verification code field
   ///
   /// In en, this message translates to:
   /// **'Please enter the 6-digit code'**
   String get enter_code;
 
-  /// The label for the verification code field in the forget password screen
+  /// Verification code label
   ///
   /// In en, this message translates to:
   /// **'Verification Code'**
   String get verf_code;
 
-  /// The text for the confirm code button in the forget password screen
+  /// Confirm code button
   ///
   /// In en, this message translates to:
   /// **'Confirm Code'**
   String get confirm_code;
 
-  /// The text for the new password field in the forget password screen
+  /// Helper text for new password field
   ///
   /// In en, this message translates to:
-  /// **'Please enter your new password'**
+  /// **'Please enter a new password'**
   String get enter_new_pass;
 
-  /// The label for the new password field in the forget password screen
+  /// New password field label
   ///
   /// In en, this message translates to:
   /// **'New Password'**
   String get new_pass;
 
-  /// The validation text for the new password field in the forget password screen
+  /// Password minimum length validation
   ///
   /// In en, this message translates to:
   /// **'Password must be at least 8 characters'**
   String get pass_at_least;
 
-  /// The text for the confirm email button in the forget password screen
+  /// Confirm email button
   ///
   /// In en, this message translates to:
   /// **'Confirm Email'**
   String get confirm_email;
 
-  /// The text for the verification button in the forget password screen
+  /// Verify button
   ///
   /// In en, this message translates to:
-  /// **'Verification'**
+  /// **'Verify'**
   String get verf;
+
+  /// Back button text
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back_button;
+
+  /// Resend button text
+  ///
+  /// In en, this message translates to:
+  /// **'Resend'**
+  String get resend_button;
+
+  /// Waiting text during countdown
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting...'**
+  String get waiting_text;
+
+  /// Login success message
+  ///
+  /// In en, this message translates to:
+  /// **'Successfully logged in'**
+  String get successfully_logged_in;
+
+  /// Account verification success message
+  ///
+  /// In en, this message translates to:
+  /// **'Account verified and created successfully'**
+  String get account_verified_created;
+
+  /// Error when email not found
+  ///
+  /// In en, this message translates to:
+  /// **'Email not found'**
+  String get email_not_found;
+
+  /// Validation for verification code required
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code is required'**
+  String get verification_code_required;
+
+  /// Validation for verification code length
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code must be 6 digits'**
+  String get verification_code_6_digits;
+
+  /// Important notes section title
+  ///
+  /// In en, this message translates to:
+  /// **'Important Notes:'**
+  String get important_notes;
+
+  /// Note about spam folder
+  ///
+  /// In en, this message translates to:
+  /// **'Check your spam folder if you didn\'t receive the email'**
+  String get check_spam_folder;
+
+  /// Note about code expiration
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code expires in 10 minutes'**
+  String get code_expires_10_minutes;
+
+  /// Note about account creation timing
+  ///
+  /// In en, this message translates to:
+  /// **'Your account will be created only after verification'**
+  String get account_created_after_verification;
+
+  /// Validation for email required
+  ///
+  /// In en, this message translates to:
+  /// **'Email is required'**
+  String get email_required;
+
+  /// Validation for valid email format
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get valid_email_required;
+
+  /// Validation for password required
+  ///
+  /// In en, this message translates to:
+  /// **'Password is required'**
+  String get password_required;
+
+  /// Validation for minimum password length
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get password_6_characters;
+
+  /// Validation for confirm password
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm your password'**
+  String get confirm_password_required;
+
+  /// Validation when passwords don't match
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwords_not_match;
+
+  /// Validation for username required
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a username'**
+  String get please_enter_username;
+
+  /// Validation for minimum username length
+  ///
+  /// In en, this message translates to:
+  /// **'Username must be at least 3 characters'**
+  String get username_3_characters;
+
+  /// Validation for maximum username length
+  ///
+  /// In en, this message translates to:
+  /// **'Username must be less than 20 characters'**
+  String get username_20_characters;
+
+  /// Validation for username format
+  ///
+  /// In en, this message translates to:
+  /// **'Username can only contain letters, numbers, and underscores'**
+  String get username_letters_numbers_underscores;
+
+  /// Validation for email required
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter an email'**
+  String get please_enter_email;
+
+  /// Validation for email format
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get valid_email_address;
+
+  /// Validation for password required
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a password'**
+  String get please_enter_password;
+
+  /// Validation for minimum password length
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get password_6_chars_minimum;
+
+  /// Validation for maximum password length
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be less than 50 characters'**
+  String get password_50_chars_maximum;
+
+  /// Validation for password complexity
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one letter and one number'**
+  String get password_letter_number;
+
+  /// Validation for confirm password required
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter confirm password'**
+  String get please_enter_confirm_password;
+
+  /// Generic validation for required field
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill out this field'**
+  String get please_enter_field;
+
+  /// Validation for phone number required
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter phone number'**
+  String get please_enter_phone;
+
+  /// Validation for Egyptian phone number format
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid Egyptian phone number'**
+  String get valid_egyptian_phone;
+
+  /// Validation for name required
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a name'**
+  String get please_enter_name;
+
+  /// Validation for minimum name length
+  ///
+  /// In en, this message translates to:
+  /// **'Name must be at least 2 characters'**
+  String get name_2_characters;
+
+  /// Validation for maximum name length
+  ///
+  /// In en, this message translates to:
+  /// **'Name must be less than 50 characters'**
+  String get name_50_characters;
+
+  /// Validation for name format
+  ///
+  /// In en, this message translates to:
+  /// **'Name can only contain letters and spaces'**
+  String get name_letters_spaces;
+
+  /// Validation for age required
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter age'**
+  String get please_enter_age;
+
+  /// Validation for valid age format
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid age'**
+  String get valid_age;
+
+  /// Validation for minimum age
+  ///
+  /// In en, this message translates to:
+  /// **'Age must be at least 13'**
+  String get age_minimum_13;
+
+  /// Warning when no email found during registration
+  ///
+  /// In en, this message translates to:
+  /// **'Warning: Email not found in registration response'**
+  String get warning_email_not_found;
+
+  /// Label to show the email address
+  ///
+  /// In en, this message translates to:
+  /// **'Sent to:'**
+  String get sent_to;
+
+  /// Error message when account creation fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to create account'**
+  String get failed_to_create_account;
+
+  /// Error message when login credentials are invalid
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid credentials'**
+  String get invalid_credentials;
+
+  /// Message when Google sign-in is cancelled
+  ///
+  /// In en, this message translates to:
+  /// **'Google sign-in was cancelled'**
+  String get google_signin_cancelled;
+
+  /// Error message when Google authentication fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to authenticate with Google'**
+  String get failed_authenticate_google;
+
+  /// General error message for Google sign-in failure
+  ///
+  /// In en, this message translates to:
+  /// **'Google sign-in failed'**
+  String get google_signin_failed;
+
+  /// Error message when Apple authentication fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to authenticate with Apple'**
+  String get failed_authenticate_apple;
+
+  /// General error message for Apple sign-in failure
+  ///
+  /// In en, this message translates to:
+  /// **'Apple sign-in failed'**
+  String get apple_signin_failed;
+
+  /// Success message for email verification
+  ///
+  /// In en, this message translates to:
+  /// **'Email verified successfully'**
+  String get email_verified_successfully;
+
+  /// Error message when email verification fails
+  ///
+  /// In en, this message translates to:
+  /// **'Email verification failed'**
+  String get email_verification_failed;
+
+  /// Success message for password reset code verification
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset code verified successfully'**
+  String get password_reset_verified_successfully;
+
+  /// Error message when password reset code verification fails
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset code verification failed'**
+  String get password_reset_verification_failed;
+
+  /// Success message for sending verification email
+  ///
+  /// In en, this message translates to:
+  /// **'Verification email sent successfully'**
+  String get verification_email_sent_successfully;
+
+  /// Error message when sending verification email fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to send verification email'**
+  String get failed_send_verification_email;
+
+  /// Success message for sending password reset email
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset email sent successfully'**
+  String get password_reset_email_sent_successfully;
+
+  /// Error message when sending password reset email fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to send password reset email'**
+  String get failed_send_password_reset_email;
+
+  /// Success message for password update
+  ///
+  /// In en, this message translates to:
+  /// **'Password updated successfully'**
+  String get password_updated_successfully;
+
+  /// Error message when password update fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update password'**
+  String get failed_update_password;
+
+  /// Error message when no authenticated user exists
+  ///
+  /// In en, this message translates to:
+  /// **'No authenticated user found'**
+  String get no_authenticated_user_found;
+
+  /// Error message when fetching current user fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to get current user data'**
+  String get failed_get_current_user;
+
+  /// Error message when name is empty
+  ///
+  /// In en, this message translates to:
+  /// **'Name cannot be empty'**
+  String get name_cannot_be_empty;
+
+  /// Error message when profile update fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update profile'**
+  String get failed_update_profile;
+
+  /// Error message when sign out fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to sign out'**
+  String get failed_sign_out;
+
+  /// Error message for invalid login credentials
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email or password'**
+  String get invalid_email_or_password;
+
+  /// Message requesting email verification before sign in
+  ///
+  /// In en, this message translates to:
+  /// **'Please verify your email before signing in'**
+  String get please_verify_email_before_signin;
+
+  /// Message when account already exists
+  ///
+  /// In en, this message translates to:
+  /// **'An account with this email already exists'**
+  String get account_already_exists;
+
+  /// Minimum password length message
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get password_must_be_6_characters;
+
+  /// Message requesting a valid email
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get please_enter_valid_email;
+
+  /// Message when new sign-ups are disabled
+  ///
+  /// In en, this message translates to:
+  /// **'New sign-ups are currently disabled'**
+  String get signup_disabled;
+
+  /// Message when request rate limit is exceeded
+  ///
+  /// In en, this message translates to:
+  /// **'Request limit exceeded. Please try again later'**
+  String get email_rate_limit_exceeded;
+
+  /// Message when verification code is expired
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code has expired. Please request a new one'**
+  String get verification_code_expired;
+
+  /// Message when verification code is invalid
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid verification code. Please check and try again'**
+  String get invalid_verification_code;
+
+  /// Message for expired or invalid verification code
+  ///
+  /// In en, this message translates to:
+  /// **'Verification code is expired or invalid. Please request a new one'**
+  String get verification_code_expired_or_invalid;
+
+  /// General unexpected error message
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred'**
+  String get unexpected_error_occurred;
+
+  /// Message requesting name input
+  ///
+  /// In en, this message translates to:
+  /// **'Name is required'**
+  String get name_is_required;
+
+  /// Message requesting password input
+  ///
+  /// In en, this message translates to:
+  /// **'Password is required'**
+  String get password_is_required;
+
+  /// Password length requirement message
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get password_must_be_6_chars;
+
+  /// Error message for invalid login credentials
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email or password'**
+  String get invalid_login_credentials;
+
+  /// Message when email is not verified
+  ///
+  /// In en, this message translates to:
+  /// **'Please verify your email before signing in'**
+  String get email_not_confirmed;
+
+  /// Message when user already registered
+  ///
+  /// In en, this message translates to:
+  /// **'An account with this email already exists'**
+  String get user_already_registered;
+
+  /// Password length requirement message
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters long'**
+  String get password_min_length;
+
+  /// Message when email is invalid
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get invalid_email;
 }
 
 class _AppLocalizationsDelegate

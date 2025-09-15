@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:study_box/feature/auth/data/model/auth_model.dart';
@@ -17,7 +18,6 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await _authRepository.getCurrentUser();
     result.fold(
       (error) {
-        // إذا كان الخطأ متعلق بعدم التحقق من الإيميل، أرسل حالة خاصة
         if (error.contains('verify your email')) {
           emit(AuthEmailNotVerified());
         } else {
@@ -105,6 +105,7 @@ class AuthCubit extends Cubit<AuthState> {
   // Verify user email with OTP code
   Future<void> verifyEmail({
     required String token,
+     BuildContext? context,
     String? email,
   }) async {
     emit(AuthLoading());

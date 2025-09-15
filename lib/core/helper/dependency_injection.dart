@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service_impl.dart';
 import 'package:study_box/feature/auth/data/repos/auth_repository.dart';
@@ -7,25 +8,30 @@ import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dar
 
 final getIt = GetIt.instance;
 
-// Initialize all dependencies for authentication
 Future<void> initDependencies() async {
-  // Register Supabase Auth Service
-  getIt.registerLazySingleton<SupabaseAuthService>(
-    () => SupabaseAuthServiceImpl(),
+  // Supabase Client
+  getIt.registerLazySingleton<SupabaseClient>(
+    () => Supabase.instance.client,
   );
 
-  // Register Auth Repository
+  // uth Service
+  getIt.registerLazySingleton<SupabaseAuthService>(
+    () => SupabaseAuthServiceImpl(
+      appLocalizations: getIt(),
+    ),
+  );
+
+  // Auth Repository
   getIt.registerLazySingleton<AuthRepository>(
     () => AuthRepositoryImpl(getIt()),
   );
 
-  // Register Auth Cubit
+  // Auth Cubit
   getIt.registerFactory<AuthCubit>(
     () => AuthCubit(getIt()),
   );
 }
 
-// Clear all registered dependencies
 void resetDependencies() {
   getIt.reset();
 }
