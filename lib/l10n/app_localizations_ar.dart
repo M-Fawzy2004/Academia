@@ -406,20 +406,20 @@ class AppLocalizationsAr extends AppLocalizations {
       'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
 
   @override
-  String get invalid_login_credentials => 'Invalid email or password';
+  String get invalid_login_credentials =>
+      'البريد الإلكتروني أو كلمة المرور غير صحيحة';
 
   @override
   String get email_not_confirmed =>
-      'Please verify your email before signing in';
+      'من فضلك قم بتأكيد بريدك الإلكتروني قبل تسجيل الدخول';
 
   @override
   String get user_already_registered =>
-      'An account with this email already exists';
+      'يوجد حساب مسجل بهذا البريد الإلكتروني بالفعل';
 
   @override
-  String get password_min_length =>
-      'Password must be at least 6 characters long';
+  String get password_min_length => 'كلمة المرور يجب أن تكون على الأقل 6 أحرف';
 
   @override
-  String get invalid_email => 'Please enter a valid email address';
+  String get invalid_email => 'من فضلك أدخل بريدًا إلكترونيًا صالحًا';
 }
