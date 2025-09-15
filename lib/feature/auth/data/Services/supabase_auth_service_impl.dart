@@ -149,13 +149,13 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       if (email != null && email.isNotEmpty) {
         await _supabaseClient.auth.verifyOTP(
           token: token,
-          type: OtpType.recovery, // Changed to recovery for password reset
+          type: OtpType.signup,
           email: email,
         );
       } else {
         await _supabaseClient.auth.verifyOTP(
           token: token,
-          type: OtpType.recovery, // Changed to recovery for password reset
+          type: OtpType.signup,
         );
       }
 
@@ -169,6 +169,34 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       return Left(_getAuthErrorMessage(e));
     } catch (e) {
       return Left('Email verification failed: ${e.toString()}');
+    }
+  }
+
+  // Verify password reset with token
+  @override
+  Future<Either<String, String>> verifyPasswordReset({
+    required String token,
+    String? email,
+  }) async {
+    try {
+      if (email != null && email.isNotEmpty) {
+        await _supabaseClient.auth.verifyOTP(
+          token: token,
+          type: OtpType.recovery,
+          email: email,
+        );
+      } else {
+        await _supabaseClient.auth.verifyOTP(
+          token: token,
+          type: OtpType.recovery,
+        );
+      }
+
+      return const Right('Password reset code verified successfully');
+    } on AuthException catch (e) {
+      return Left(_getAuthErrorMessage(e));
+    } catch (e) {
+      return Left('Password reset verification failed: ${e.toString()}');
     }
   }
 

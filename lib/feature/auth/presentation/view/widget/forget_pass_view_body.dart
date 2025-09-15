@@ -4,7 +4,8 @@ import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/helper/translate.dart';
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
-import 'package:study_box/feature/auth/presentation/view/widget/code_verification_action_buttons.dart' show CodeVerificationActionButtons;
+import 'package:study_box/feature/auth/presentation/view/widget/code_verification_action_buttons.dart'
+    show CodeVerificationActionButtons;
 import 'package:study_box/feature/auth/presentation/view/widget/email_input_step.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/forget_password_header.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/forget_password_main_button.dart';
@@ -97,7 +98,7 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
       case ForgetPasswordStep.enterVerificationCode:
         if (_codeFormKey.currentState?.validate() ?? false) {
           authCubit.clearError();
-          authCubit.verifyEmail(
+          authCubit.verifyPasswordReset(
             token: verificationCodeController.text.trim(),
             email: emailController.text.trim(),
           );
@@ -321,5 +322,3 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
     );
   }
 }
-
-

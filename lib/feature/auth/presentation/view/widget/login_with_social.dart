@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/spacing.dart';
@@ -20,14 +22,16 @@ class LoginWithSocial extends StatelessWidget {
             context.read<AuthCubit>().signInWithGoogle();
           },
         ),
-        heightBox(15),
-        SocialLoginButton(
-          text: context.tr.login_with_apple,
-          assetPath: Assets.imagesIconApple,
-          onTap: () {
-            context.read<AuthCubit>().signInWithApple();
-          },
-        ),
+        if (Platform.isIOS) ...[
+          heightBox(15),
+          SocialLoginButton(
+            text: context.tr.login_with_apple,
+            assetPath: Assets.imagesIconApple,
+            onTap: () {
+              context.read<AuthCubit>().signInWithApple();
+            },
+          ),
+        ],
       ],
     );
   }

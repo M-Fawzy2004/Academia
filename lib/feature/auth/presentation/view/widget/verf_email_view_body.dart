@@ -43,6 +43,8 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
         // Fallback if GoRouter is not available
       }
     }
+
+    print('Effective email for verification: $effectiveEmail');
   }
 
   @override
@@ -53,6 +55,9 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
 
   void _handleVerifyEmail() {
     if (formKey.currentState!.validate()) {
+      print('Verifying email with token: ${codeController.text.trim()}');
+      print('Email: $effectiveEmail');
+      
       context.read<AuthCubit>().verifyEmail(
             token: codeController.text.trim(),
             email: effectiveEmail,
@@ -62,6 +67,7 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
 
   void _handleResendCode() {
     if (effectiveEmail != null && effectiveEmail!.isNotEmpty) {
+      print('Resending code to: $effectiveEmail');
       context.read<AuthCubit>().resendEmailVerification(email: effectiveEmail!);
     } else {
       CustomSnackBar.showError(context, 'Email not found');
@@ -72,6 +78,8 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
+        print('Current state: $state');
+        
         if (state is AuthError) {
           CustomSnackBar.showError(context, state.message);
           context.read<AuthCubit>().clearError();
@@ -79,15 +87,21 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
 
         if (state is AuthEmailVerified) {
           CustomSnackBar.showSuccess(context, state.message);
-          context.read<AuthCubit>().initializeAuth();
+          // لا نحتاج لاستدعاء initializeAuth هنا لأنه يتم في AuthCubit
         }
 
         if (state is AuthAuthenticated) {
           context.go(AppRouter.mainView);
           CustomSnackBar.showSuccess(
             context,
-            "The account has been created successfully",
+            "The account has been verified and created successfully",
           );
+        }
+
+        if (state is AuthEmailSent) {
+          CustomSnackBar.showSuccess(context, state.message);
+          // مسح الكود القديم بعد إرسال كود جديد
+          codeController.clear();
         }
       },
       builder: (context, state) {
@@ -146,9 +160,13 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                   suffixIcon: IconlyLight.shield_done,
                   keyboardType: TextInputType.number,
                   enabled: !isLoading,
+                  maxLength: 6, // معظم أكواد OTP تكون 6 أرقام
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return 'Verification code is required';
+                    }
+                    if (value.trim().length != 6) {
+                      return 'Verification code must be 6 digits';
                     }
                     return null;
                   },
@@ -169,6 +187,52 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                         color: isLoading ? Colors.grey : null,
                       ),
                     ),
+                  ),
+                ),
+                // إضافة معلومات إضافية للمستخدم
+                heightBox(20),
+                Container(
+                  padding: EdgeInsets.all(16.w),
+                  decoration: BoxDecoration(
+                    color: Colors.blue.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(8.r),
+                    border: Border.all(
+                      color: Colors.blue.withOpacity(0.3),
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.info_outline,
+                            color: Colors.blue[700],
+                            size: 20.sp,
+                          ),
+                          SizedBox(width: 8.w),
+                          Text(
+                            'Important Notes:',
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.blue[700],
+                            ),
+                          ),
+                        ],
+                      ),
+                      heightBox(8),
+                      Text(
+                        '• Check your spam/junk folder if you don\'t see the email\n'
+                        '• The verification code expires after 10 minutes\n'
+                        '• Your account will be created only after verification',
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          color: Colors.blue[600],
+                          height: 1.4,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

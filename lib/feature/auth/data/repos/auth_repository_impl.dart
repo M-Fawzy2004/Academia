@@ -82,6 +82,22 @@ class AuthRepositoryImpl implements AuthRepository {
     );
   }
 
+  // Verify user password reset with OTP token
+  @override
+  Future<Either<String, String>> verifyPasswordReset({
+    required String token,
+    String? email,
+  }) async {
+    if (token.trim().isEmpty) {
+      return const Left('Verification code is required');
+    }
+
+    return await _authService.verifyPasswordReset(
+      token: token.trim(),
+      email: email?.trim(),
+    );
+  }
+
   // Send new email verification code
   @override
   Future<Either<String, String>> resendEmailVerification(

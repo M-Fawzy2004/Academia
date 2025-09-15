@@ -16,7 +16,14 @@ class AuthCubit extends Cubit<AuthState> {
 
     final result = await _authRepository.getCurrentUser();
     result.fold(
-      (error) => emit(AuthUnauthenticated()),
+      (error) {
+        // إذا كان الخطأ متعلق بعدم التحقق من الإيميل، أرسل حالة خاصة
+        if (error.contains('verify your email')) {
+          emit(AuthEmailNotVerified());
+        } else {
+          emit(AuthUnauthenticated());
+        }
+      },
       (user) => emit(AuthAuthenticated(user)),
     );
   }
@@ -60,7 +67,13 @@ class AuthCubit extends Cubit<AuthState> {
     );
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) {
+        if (error.contains('verify your email')) {
+          emit(AuthEmailNotVerified());
+        } else {
+          emit(AuthError(error));
+        }
+      },
       (user) => emit(AuthAuthenticated(user)),
     );
   }
@@ -103,7 +116,28 @@ class AuthCubit extends Cubit<AuthState> {
 
     result.fold(
       (error) => emit(AuthError(error)),
-      (message) => emit(AuthEmailVerified(message)),
+      (message) {
+        emit(AuthEmailVerified(message));
+        initializeAuth();
+      },
+    );
+  }
+
+  // Verify user password reset with OTP code
+  Future<void> verifyPasswordReset({
+    required String token,
+    String? email,
+  }) async {
+    emit(AuthLoading());
+
+    final result = await _authRepository.verifyPasswordReset(
+      token: token,
+      email: email,
+    );
+
+    result.fold(
+      (error) => emit(AuthError(error)),
+      (message) => emit(AuthEmailVerified(message)), 
     );
   }
 

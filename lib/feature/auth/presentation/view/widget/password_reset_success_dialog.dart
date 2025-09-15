@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/theme/app_color.dart';
 
 class PasswordResetSuccessDialog extends StatelessWidget {
   const PasswordResetSuccessDialog({super.key});
@@ -15,14 +16,7 @@ class PasswordResetSuccessDialog extends StatelessWidget {
         padding: EdgeInsets.all(24.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Theme.of(context).primaryColor.withOpacity(0.1),
-              Colors.white,
-            ],
-          ),
+          color: AppColors.getBackgroundColor(context),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,

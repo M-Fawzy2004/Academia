@@ -19,6 +19,10 @@ abstract class AuthRepository {
     required String token,
     String? email,
   });
+  Future<Either<String, String>> verifyPasswordReset({
+    required String token,
+    String? email,
+  });
   Future<Either<String, String>> resendEmailVerification({
     required String email,
   });
