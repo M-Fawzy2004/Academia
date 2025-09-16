@@ -16,9 +16,7 @@ Future<void> initDependencies() async {
 
   // uth Service
   getIt.registerLazySingleton<SupabaseAuthService>(
-    () => SupabaseAuthServiceImpl(
-      appLocalizations: getIt(),
-    ),
+    () => SupabaseAuthServiceImpl(),
   );
 
   // Auth Repository

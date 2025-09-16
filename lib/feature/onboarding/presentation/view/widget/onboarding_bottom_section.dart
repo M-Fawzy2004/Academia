@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:study_box/core/helper/translate.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_button.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_page_indicator.dart';
 

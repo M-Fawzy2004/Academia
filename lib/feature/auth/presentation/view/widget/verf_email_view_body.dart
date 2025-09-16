@@ -6,7 +6,7 @@ import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/core/helper/spacing.dart';
-import 'package:study_box/core/helper/translate.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/utils/assets.dart';
 import 'package:study_box/core/widget/custom_button.dart';

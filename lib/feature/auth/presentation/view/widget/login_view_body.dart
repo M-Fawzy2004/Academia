@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
-import 'package:study_box/core/helper/translate.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/auth_redirect_text.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/login_form_wrapper.dart';

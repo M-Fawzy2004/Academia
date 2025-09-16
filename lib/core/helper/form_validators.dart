@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:study_box/core/helper/translate.dart';
+import 'package:study_box/core/localization/translate.dart';
 
 class FormValidators {
   // Username validator

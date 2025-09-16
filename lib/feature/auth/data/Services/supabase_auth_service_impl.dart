@@ -3,9 +3,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:study_box/core/const/app_constant.dart';
 import 'package:study_box/core/error/failure.dart';
+import 'package:study_box/core/localization/localization_manager.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service.dart';
 import 'package:study_box/feature/auth/data/model/auth_model.dart';
-import 'package:study_box/l10n/app_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuthServiceImpl implements SupabaseAuthService {
@@ -17,11 +17,8 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     serverClientId: AppConstant.webClientID,
   );
 
-  final AppLocalizations appLocalizations;
+  SupabaseAuthServiceImpl();
 
-  SupabaseAuthServiceImpl({required this.appLocalizations});
-
-  // Sign up new user with email and password
   @override
   Future<Either<Failure, AuthModel>> signUp({
     required String email,
@@ -36,23 +33,20 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return Left(ServerFailure(appLocalizations.failed_to_create_account));
+        return Left(ServerFailure(LocalizationManager.l.failed_to_create_account));
       }
 
-      // Ensure a profile row exists with email
       await _ensureProfileExists(response.user!);
 
-      final authModel =
-          AuthModel.fromUser(response.user!, profile: {'name': name});
+      final authModel = AuthModel.fromUser(response.user!, profile: {'name': name});
       return Right(authModel);
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(appLocalizations.unexpected_error_occurred));
+      return Left(ServerFailure(LocalizationManager.l.unexpected_error_occurred));
     }
   }
 
-  // Sign in with email and password
   @override
   Future<Either<Failure, AuthModel>> signIn({
     required String email,
@@ -65,7 +59,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return Left(ServerFailure(appLocalizations.invalid_credentials));
+        return Left(ServerFailure(LocalizationManager.l.invalid_credentials));
       }
 
       final profile = await _getUserProfile(response.user!.id);
@@ -74,11 +68,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(appLocalizations.unexpected_error_occurred));
+      return Left(ServerFailure(LocalizationManager.l.unexpected_error_occurred));
     }
   }
 
-  // Sign in with Google
   @override
   Future<Either<Failure, AuthModel>> signInWithGoogle() async {
     try {
@@ -86,7 +79,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
 
       final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) {
-        return Left(ServerFailure(appLocalizations.google_signin_cancelled));
+        return Left(ServerFailure(LocalizationManager.l.google_signin_cancelled));
       }
 
       final googleAuth = await googleUser.authentication;
@@ -98,7 +91,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return Left(ServerFailure(appLocalizations.failed_authenticate_google));
+        return Left(ServerFailure(LocalizationManager.l.failed_authenticate_google));
       }
 
       await _ensureProfileExists(response.user!);
@@ -108,11 +101,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(appLocalizations.google_signin_failed));
+      return Left(ServerFailure(LocalizationManager.l.google_signin_failed));
     }
   }
 
-  // Sign in with Apple
   @override
   Future<Either<Failure, AuthModel>> signInWithApple() async {
     try {
@@ -129,7 +121,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return Left(ServerFailure(appLocalizations.failed_authenticate_apple));
+        return Left(ServerFailure(LocalizationManager.l.failed_authenticate_apple));
       }
 
       await _ensureProfileExists(response.user!);
@@ -139,11 +131,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(appLocalizations.apple_signin_failed));
+      return Left(ServerFailure(LocalizationManager.l.apple_signin_failed));
     }
   }
 
-  // Verify email with token
   @override
   Future<Either<Failure, String>> verifyEmail({
     required String token,
@@ -167,15 +158,14 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       if (currentUser != null) {
         await _ensureProfileExists(currentUser);
       }
-      return Right(appLocalizations.email_verified_successfully);
+      return Right(LocalizationManager.l.email_verified_successfully);
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(appLocalizations.email_verification_failed));
+      return Left(ServerFailure(LocalizationManager.l.email_verification_failed));
     }
   }
 
-  // Verify password reset with token
   @override
   Future<Either<Failure, String>> verifyPasswordReset({
     required String token,
@@ -195,34 +185,29 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         );
       }
 
-      return Right(appLocalizations.password_reset_verified_successfully);
+      return Right(LocalizationManager.l.password_reset_verified_successfully);
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(
-          ServerFailure(appLocalizations.password_reset_verification_failed));
+      return Left(ServerFailure(LocalizationManager.l.password_reset_verification_failed));
     }
   }
 
-  // Resend email verification
   @override
-  Future<Either<Failure, String>> resendEmailVerification(
-      {required String email}) async {
+  Future<Either<Failure, String>> resendEmailVerification({required String email}) async {
     try {
       await _supabaseClient.auth.resend(
         type: OtpType.signup,
         email: email,
       );
-      return Right(appLocalizations.verification_email_sent_successfully);
+      return Right(LocalizationManager.l.verification_email_sent_successfully);
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(
-          ServerFailure(appLocalizations.failed_send_verification_email));
+      return Left(ServerFailure(LocalizationManager.l.failed_send_verification_email));
     }
   }
 
-  // Send password reset email
   @override
   Future<Either<Failure, String>> resetPassword({required String email}) async {
     try {
@@ -230,39 +215,34 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         email,
         redirectTo: 'your-app://reset-password',
       );
-      return Right(appLocalizations.password_reset_email_sent_successfully);
+      return Right(LocalizationManager.l.password_reset_email_sent_successfully);
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(
-          ServerFailure(appLocalizations.failed_send_password_reset_email));
+      return Left(ServerFailure(LocalizationManager.l.failed_send_password_reset_email));
     }
   }
 
-  // Update user password
   @override
-  Future<Either<Failure, String>> updatePassword(
-      {required String password}) async {
+  Future<Either<Failure, String>> updatePassword({required String password}) async {
     try {
       await _supabaseClient.auth.updateUser(
         UserAttributes(password: password),
       );
-      return Right(appLocalizations.password_updated_successfully);
+      return Right(LocalizationManager.l.password_updated_successfully);
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(appLocalizations.failed_update_password));
+      return Left(ServerFailure(LocalizationManager.l.failed_update_password));
     }
   }
 
-  // Get current authenticated user
   @override
   Future<Either<Failure, AuthModel>> getCurrentUser() async {
     try {
       final user = _supabaseClient.auth.currentUser;
       if (user == null) {
-        return Left(
-            ServerFailure(appLocalizations.no_authenticated_user_found));
+        return Left(ServerFailure(LocalizationManager.l.no_authenticated_user_found));
       }
 
       Map<String, dynamic>? profile = await _getUserProfile(user.id);
@@ -279,11 +259,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       final authModel = AuthModel.fromUser(user, profile: profile);
       return Right(authModel);
     } catch (e) {
-      return Left(ServerFailure(appLocalizations.failed_get_current_user));
+      return Left(ServerFailure(LocalizationManager.l.failed_get_current_user));
     }
   }
 
-  // Update user profile information
   @override
   Future<Either<Failure, AuthModel>> updateProfile({
     String? name,
@@ -294,8 +273,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     try {
       final user = _supabaseClient.auth.currentUser;
       if (user == null) {
-        return Left(
-            ServerFailure(appLocalizations.no_authenticated_user_found));
+        return Left(ServerFailure(LocalizationManager.l.no_authenticated_user_found));
       }
 
       final updateData = <String, dynamic>{};
@@ -315,15 +293,13 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       }
 
       final profile = await _getUserProfile(user.id);
-      final authModel =
-          AuthModel.fromUser(user, profile: profile ?? updateData);
+      final authModel = AuthModel.fromUser(user, profile: profile ?? updateData);
       return Right(authModel);
     } catch (e) {
-      return Left(ServerFailure(appLocalizations.failed_update_profile));
+      return Left(ServerFailure(LocalizationManager.l.failed_update_profile));
     }
   }
 
-  // Sign out current user
   @override
   Future<Either<Failure, void>> signOut() async {
     try {
@@ -332,11 +308,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     } on AuthException catch (e) {
       return Left(ServerFailure(_getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(appLocalizations.failed_sign_out));
+      return Left(ServerFailure(LocalizationManager.l.failed_sign_out));
     }
   }
 
-  // Get user profile from database
+  // Helper methods (same as before)
   Future<Map<String, dynamic>?> _getUserProfile(String userId) async {
     try {
       final response = await _supabaseClient
@@ -350,7 +326,6 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     }
   }
 
-  // Create profile row if missing or missing email
   Future<void> _ensureProfileExists(User user) async {
     try {
       final existing = await _getUserProfile(user.id);
@@ -372,36 +347,34 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     }
   }
 
-  // Convert AuthException to user-friendly message
   String _getAuthErrorMessage(AuthException error) {
     switch (error.message) {
       case 'Invalid login credentials':
-        return appLocalizations.invalid_login_credentials;
+        return LocalizationManager.l.invalid_login_credentials;
       case 'Email not confirmed':
-        return appLocalizations.email_not_confirmed;
+        return LocalizationManager.l.email_not_confirmed;
       case 'User already registered':
-        return appLocalizations.user_already_registered;
+        return LocalizationManager.l.user_already_registered;
       case 'Password should be at least 6 characters':
-        return appLocalizations.password_min_length;
+        return LocalizationManager.l.password_min_length;
       case 'Invalid email':
-        return appLocalizations.invalid_email;
+        return LocalizationManager.l.invalid_email;
       case 'Signup disabled':
-        return appLocalizations.signup_disabled;
+        return LocalizationManager.l.signup_disabled;
       case 'Email rate limit exceeded':
-        return appLocalizations.email_rate_limit_exceeded;
+        return LocalizationManager.l.email_rate_limit_exceeded;
       case 'Token has expired':
       case 'Invalid token':
       case 'Token expired':
-        return appLocalizations.verification_code_expired;
+        return LocalizationManager.l.verification_code_expired;
       case 'Invalid OTP':
       case 'Token not found':
-        return appLocalizations.invalid_verification_code;
+        return LocalizationManager.l.invalid_verification_code;
       default:
-        // Check if error message contains common expiry keywords
         if (error.message.toLowerCase().contains('expired') ||
             error.message.toLowerCase().contains('invalid token') ||
             error.message.toLowerCase().contains('token not found')) {
-          return appLocalizations.verification_code_expired;
+          return LocalizationManager.l.verification_code_expired;
         }
         return error.message;
     }

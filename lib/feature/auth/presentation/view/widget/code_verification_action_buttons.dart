@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
-import 'package:study_box/core/helper/translate.dart';
+import 'package:study_box/core/localization/translate.dart';
 
 class CodeVerificationActionButtons extends StatelessWidget {
   final bool isResendEnabled;

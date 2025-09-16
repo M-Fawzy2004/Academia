@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/form_validators.dart';
 import 'package:study_box/core/helper/spacing.dart';
-import 'package:study_box/core/helper/translate.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';

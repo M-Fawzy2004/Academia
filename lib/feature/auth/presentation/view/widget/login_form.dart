@@ -4,7 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/extension.dart';
 import 'package:study_box/core/helper/form_validators.dart';
 import 'package:study_box/core/helper/spacing.dart';
-import 'package:study_box/core/helper/translate.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
