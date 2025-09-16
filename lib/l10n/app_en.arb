@@ -511,5 +511,73 @@
   "invalid_email": "Please enter a valid email address",
   "@invalid_email": {
     "description": "Message when email is invalid"
+  },
+  "home_text_navigationbar": "Home",
+  "@home_text_navigationbar": {
+    "description": "Navigation bar text for home View"
+  },
+  "notes_text_navigationbar": "Notes",
+  "@notes_text_navigationbar": {
+    "description": "Navigation bar text for Notes View"
+  },
+  "reminders_text_navigationbar": "Reminders",
+  "@reminders_text_navigationbar": {
+    "description": "Navigation bar text for Reminders View"
+  },
+  "profile_text_navigationbar": "Profile",
+  "@profile_text_navigationbar": {
+    "description": "Navigation bar text for profile View"
+  },
+  "welcome_back": "Welcome Back",
+  "@welcome_back": {
+    "description": "Text for welcome back"
+  },
+  "ready_learning": "Ready to Continue Learning",
+  "@ready_learning": {
+    "description": "Text for ready learning"
+  },
+  "study_streak": "Study Streak",
+  "@study_streak": {
+    "description": "Text for study streak"
+  },
+  "daily_inspiration": "Daily Inspiration",
+  "@daily_inspiration": {
+    "description": "Text for daily inspiration"
+  },
+  "total_subject": "Total Subjects",
+  "@total_subject": {
+    "description": "Text for total subjects"
+  },
+  "tasks": "Tasks",
+  "@tasks": {
+    "description": "Text for tasks"
+  },
+  "completed_tasks": "Completed Tasks",
+  "@completed_tasks": {
+    "description": "Text for completed tasks"
+  },
+  "upcoming_tasks": "Upcoming Tasks",
+  "@upcoming_tasks": {
+    "description": "Text for upcoming tasks"
+  },
+  "view_all": "View All",
+  "@view_all": {
+    "description": "Text for view all"
+  },
+  "subject": "Subjects",
+  "@subject": {
+    "description": "Text for subject"
+  },
+  "add_new_subject": "Add New Subject",
+  "@add_new_subject": {
+    "description": "Text for add new subject"
+  },
+  "day_keep": "Days in a row! Keep it up!",
+  "@day_keep": {
+    "description": "Text for day-keep"
+  },
+  "progress" : "Progress",
+  "@progress": {
+    "description": "Text for progress"
   }
 }

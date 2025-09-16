@@ -422,4 +422,55 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalid_email => 'من فضلك أدخل بريدًا إلكترونيًا صالحًا';
+
+  @override
+  String get home_text_navigationbar => 'الرئيسية';
+
+  @override
+  String get notes_text_navigationbar => 'الملاحظات';
+
+  @override
+  String get reminders_text_navigationbar => 'التذكيرات';
+
+  @override
+  String get profile_text_navigationbar => 'الملف الشخصي';
+
+  @override
+  String get welcome_back => 'مرحبًا بعودتك';
+
+  @override
+  String get ready_learning => 'مستعد لمواصلة التعلم';
+
+  @override
+  String get study_streak => 'سلسلة الدراسة';
+
+  @override
+  String get daily_inspiration => 'إلهام يومي';
+
+  @override
+  String get total_subject => 'إجمالي المواد';
+
+  @override
+  String get tasks => 'المهام';
+
+  @override
+  String get completed_tasks => 'المهام المكتملة';
+
+  @override
+  String get upcoming_tasks => 'المهام القادمة';
+
+  @override
+  String get view_all => 'عرض الكل';
+
+  @override
+  String get subject => 'المواد';
+
+  @override
+  String get add_new_subject => 'إضافة مادة جديدة';
+
+  @override
+  String get day_keep => 'أيام متتالية! استمر!';
+
+  @override
+  String get progress => 'التقدم';
 }

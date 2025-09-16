@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
-import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
@@ -33,30 +33,30 @@ class CustomBottomNavigationBar extends StatelessWidget {
         children: [
           _buildNavItem(
             0,
-            Icons.school_outlined,
-            Icons.school,
-            'Courses',
+            IconlyLight.home,
+            IconlyBold.home,
+            context.tr.home_text_navigationbar,
             context,
           ),
           _buildNavItem(
             1,
             IconlyLight.paper,
             IconlyBold.paper,
-            'Notes',
+            context.tr.notes_text_navigationbar,
             context,
           ),
           _buildNavItem(
             2,
             IconlyLight.time_circle,
             IconlyBold.time_circle,
-            'Reminders',
+            context.tr.reminders_text_navigationbar,
             context,
           ),
           _buildNavItem(
             3,
             IconlyLight.profile,
             IconlyBold.profile,
-            'Profile',
+            context.tr.profile_text_navigationbar,
             context,
           ),
         ],
@@ -98,7 +98,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 size: isSelected ? 24.sp : 22.sp,
               ),
             ),
-            heightBox(4),
             AnimatedOpacity(
               duration: const Duration(milliseconds: 300),
               opacity: isSelected ? 1.0 : 0.6,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -22,14 +23,14 @@ class UpcomingTasksWidget extends StatelessWidget {
             ),
             widthBox(8),
             Text(
-              'Upcoming Tasks',
+              context.tr.upcoming_tasks,
               style: Styles.font15MediumBold(context),
             ),
             const Spacer(),
             TextButton(
               onPressed: () {},
               child: Text(
-                'View All',
+                context.tr.view_all,
                 style: Styles.font13GreyBold(context).copyWith(
                   color: AppColors.primaryColor,
                 ),

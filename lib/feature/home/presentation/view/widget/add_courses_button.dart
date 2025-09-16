@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -43,16 +44,10 @@ class AddCoursesButton extends StatelessWidget {
             ),
             widthBox(12),
             Text(
-              'Add New Course',
+              context.tr.add_new_subject,
               style: Styles.font15MediumBold(context).copyWith(
                 color: AppColors.lightSurfaceColor,
               ),
-            ),
-            widthBox(8),
-            Icon(
-              IconlyLight.arrow_right,
-              color: AppColors.lightSurfaceColor,
-              size: 16.sp,
             ),
           ],
         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -21,12 +22,12 @@ class HeaderSection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Welcome Back!',
+                    context.tr.welcome_back,
                     style: Styles.font20MediumBold(context),
                   ),
                   heightBox(2),
                   Text(
-                    'Ready to continue learning?',
+                    context.tr.ready_learning,
                     style: Styles.font13GreyBold(context),
                   ),
                 ],

@@ -865,6 +865,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter a valid email address'**
   String get invalid_email;
+
+  /// Navigation bar text for home View
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home_text_navigationbar;
+
+  /// Navigation bar text for Notes View
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notes_text_navigationbar;
+
+  /// Navigation bar text for Reminders View
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get reminders_text_navigationbar;
+
+  /// Navigation bar text for profile View
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile_text_navigationbar;
+
+  /// Text for welcome back
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back'**
+  String get welcome_back;
+
+  /// Text for ready learning
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to Continue Learning'**
+  String get ready_learning;
+
+  /// Text for study streak
+  ///
+  /// In en, this message translates to:
+  /// **'Study Streak'**
+  String get study_streak;
+
+  /// Text for daily inspiration
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Inspiration'**
+  String get daily_inspiration;
+
+  /// Text for total subjects
+  ///
+  /// In en, this message translates to:
+  /// **'Total Subjects'**
+  String get total_subject;
+
+  /// Text for tasks
+  ///
+  /// In en, this message translates to:
+  /// **'Tasks'**
+  String get tasks;
+
+  /// Text for completed tasks
+  ///
+  /// In en, this message translates to:
+  /// **'Completed Tasks'**
+  String get completed_tasks;
+
+  /// Text for upcoming tasks
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Tasks'**
+  String get upcoming_tasks;
+
+  /// Text for view all
+  ///
+  /// In en, this message translates to:
+  /// **'View All'**
+  String get view_all;
+
+  /// Text for subject
+  ///
+  /// In en, this message translates to:
+  /// **'Subjects'**
+  String get subject;
+
+  /// Text for add new subject
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Subject'**
+  String get add_new_subject;
+
+  /// Text for day-keep
+  ///
+  /// In en, this message translates to:
+  /// **'Days in a row! Keep it up!'**
+  String get day_keep;
+
+  /// Text for progress
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get progress;
 }
 
 class _AppLocalizationsDelegate

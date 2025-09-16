@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
-class CourseCard extends StatelessWidget {
-  const CourseCard({super.key});
+class SubjectCard extends StatelessWidget {
+  const SubjectCard({super.key});
 
-  // Sample data - replace with actual course data
   final String courseName = 'Math';
   final String courseCode = 'MATH 101';
   final String description = 'Calculus & Linear Algebra';
@@ -98,7 +98,7 @@ class CourseCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Progress',
+                          context.tr.progress,
                           style: Styles.font12MediumWhiteBold(context),
                         ),
                         Text(
@@ -128,7 +128,9 @@ class CourseCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.r),
                 ),
                 child: Icon(
-                  IconlyBold.arrow_right,
+                  Localizations.localeOf(context).languageCode == 'ar'
+                      ? IconlyBold.arrow_left
+                      : IconlyBold.arrow_right,
                   color: AppColors.primaryColor,
                   size: 18.sp,
                 ),

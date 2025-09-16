@@ -424,4 +424,55 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalid_email => 'Please enter a valid email address';
+
+  @override
+  String get home_text_navigationbar => 'Home';
+
+  @override
+  String get notes_text_navigationbar => 'Notes';
+
+  @override
+  String get reminders_text_navigationbar => 'Reminders';
+
+  @override
+  String get profile_text_navigationbar => 'Profile';
+
+  @override
+  String get welcome_back => 'Welcome Back';
+
+  @override
+  String get ready_learning => 'Ready to Continue Learning';
+
+  @override
+  String get study_streak => 'Study Streak';
+
+  @override
+  String get daily_inspiration => 'Daily Inspiration';
+
+  @override
+  String get total_subject => 'Total Subjects';
+
+  @override
+  String get tasks => 'Tasks';
+
+  @override
+  String get completed_tasks => 'Completed Tasks';
+
+  @override
+  String get upcoming_tasks => 'Upcoming Tasks';
+
+  @override
+  String get view_all => 'View All';
+
+  @override
+  String get subject => 'Subjects';
+
+  @override
+  String get add_new_subject => 'Add New Subject';
+
+  @override
+  String get day_keep => 'Days in a row! Keep it up!';
+
+  @override
+  String get progress => 'Progress';
 }

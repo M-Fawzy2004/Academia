@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -42,14 +43,14 @@ class StudyStreakWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Study Streak 🔥',
+                  '${context.tr.study_streak} 🔥',
                   style: Styles.font15MediumBold(context).copyWith(
                     color: AppColors.lightSurfaceColor,
                   ),
                 ),
                 heightBox(4),
                 Text(
-                  '7 days in a row! Keep it up!',
+                  '7 ${context.tr.day_keep}',
                   style: Styles.font13GreyBold(context).copyWith(
                     color: AppColors.lightSurfaceColor.withOpacity(0.8),
                   ),

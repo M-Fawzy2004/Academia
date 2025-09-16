@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconly/iconly.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
-import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/home/presentation/manager/connection/courses_cubit.dart';
 import 'package:study_box/feature/home/presentation/view/widget/add_courses_button.dart';
-import 'package:study_box/feature/home/presentation/view/widget/course_card.dart';
+import 'package:study_box/feature/home/presentation/view/widget/subject_card.dart';
 import 'package:study_box/feature/home/presentation/view/widget/header_section.dart';
+import 'package:study_box/feature/home/presentation/view/widget/subjects_header.dart';
 import 'package:study_box/feature/home/presentation/view/widget/quick_stats_card.dart';
 import 'package:study_box/feature/home/presentation/view/widget/study_streak_widget.dart';
 import 'package:study_box/feature/home/presentation/view/widget/upcoming_tasks_widget.dart';
@@ -27,6 +26,8 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
+      color: AppColors.primaryColor,
+      backgroundColor: AppColors.getNavigationBar(context),
       onRefresh: () async {
         context.read<CoursesCubit>().loadCourses();
       },
@@ -52,30 +53,8 @@ class HomeViewBody extends StatelessWidget {
             child: UpcomingTasksWidget(),
           ),
           SliverToBoxAdapter(child: heightBox(25)),
-          SliverToBoxAdapter(
-            child: Row(
-              children: [
-                Text(
-                  'Materials',
-                  style: Styles.font20MediumBold(context),
-                ),
-                const Spacer(),
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: Icon(
-                    IconlyLight.arrow_right_2,
-                    size: 16.sp,
-                    color: AppColors.primaryColor,
-                  ),
-                  label: Text(
-                    'View all',
-                    style: Styles.font13GreyBold(context).copyWith(
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          const SliverToBoxAdapter(
+            child: SubjectsHeader(),
           ),
           SliverToBoxAdapter(child: heightBox(15)),
           const SliverToBoxAdapter(
@@ -87,7 +66,7 @@ class HomeViewBody extends StatelessWidget {
               (context, index) {
                 return Padding(
                   padding: EdgeInsets.only(bottom: 15.h),
-                  child: const CourseCard(),
+                  child: const SubjectCard(),
                 );
               },
               childCount: courses.length,

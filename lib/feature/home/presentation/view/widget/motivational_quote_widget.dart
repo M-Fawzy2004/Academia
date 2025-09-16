@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/home/data/model/quote.dart';
@@ -83,7 +84,7 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
               ),
               widthBox(10),
               Text(
-                'Daily Inspiration',
+                context.tr.daily_inspiration,
                 style: Styles.font14MediumBold(context).copyWith(
                   color: AppColors.primaryColor,
                 ),

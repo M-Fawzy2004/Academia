@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -16,7 +17,7 @@ class QuickStatsCard extends StatelessWidget {
           child: _buildStatCard(
             context: context,
             icon: IconlyBold.document,
-            title: 'Total Courses',
+            title: context.tr.total_subject,
             value: '12',
             color: Colors.blue,
           ),
@@ -26,7 +27,7 @@ class QuickStatsCard extends StatelessWidget {
           child: _buildStatCard(
             context: context,
             icon: IconlyBold.time_circle,
-            title: 'Tasks',
+            title: context.tr.tasks,
             value: '10',
             color: Colors.green,
           ),
@@ -36,7 +37,7 @@ class QuickStatsCard extends StatelessWidget {
           child: _buildStatCard(
             context: context,
             icon: IconlyBold.star,
-            title: 'Completed Tasks',
+            title: context.tr.completed_tasks,
             value: '5',
             color: Colors.orange,
           ),

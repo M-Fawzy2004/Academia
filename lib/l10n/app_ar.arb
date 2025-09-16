@@ -511,5 +511,73 @@
   "invalid_email": "من فضلك أدخل بريدًا إلكترونيًا صالحًا",
   "@invalid_email": {
     "description": "رسالة عند إدخال بريد إلكتروني غير صحيح"
+  },
+  "home_text_navigationbar": "الرئيسية",
+  "@home_text_navigationbar": {
+    "description": "نص شريط التنقل لواجهة الرئيسية"
+  },
+  "notes_text_navigationbar": "الملاحظات",
+  "@notes_text_navigationbar": {
+    "description": "نص شريط التنقل لواجهة الملاحظات"
+  },
+  "reminders_text_navigationbar": "التذكيرات",
+  "@reminders_text_navigationbar": {
+    "description": "نص شريط التنقل لواجهة التذكيرات"
+  },
+  "profile_text_navigationbar": "الملف الشخصي",
+  "@profile_text_navigationbar": {
+    "description": "نص شريط التنقل لواجهة الملف الشخصي"
+  },
+  "welcome_back": "مرحبًا بعودتك",
+  "@welcome_back": {
+    "description": "نص شريط التنقل لواجهة الملف الشخصي"
+  },
+  "ready_learning": "مستعد لمواصلة التعلم",
+  "@ready_learning": {
+    "description": "نص شريط التنقل لواجهة الملف الشخصي"
+  },
+  "study_streak": "سلسلة الدراسة",
+  "@study_streak": {
+    "description": "نص لسلسلة الدراسة"
+  },
+  "daily_inspiration": "إلهام يومي",
+  "@daily_inspiration": {
+    "description": "نص خاص بالإلهام اليومي"
+  },
+  "total_subject": "إجمالي المواد",
+  "@total_subject": {
+    "description": "نص لعدد المواد الكلي"
+  },
+  "tasks": "المهام",
+  "@tasks": {
+    "description": "نص للمهام"
+  },
+  "completed_tasks": "المهام المكتملة",
+  "@completed_tasks": {
+    "description": "نص للمهام المكتملة"
+  },
+  "upcoming_tasks": "المهام القادمة",
+  "@upcoming_tasks": {
+    "description": "نص للمهام القادمة"
+  },
+  "view_all": "عرض الكل",
+  "@view_all": {
+    "description": "نص لزر عرض الكل"
+  },
+  "subject": "المواد",
+  "@subject": {
+    "description": "نص للمادة"
+  },
+  "add_new_subject": "إضافة مادة جديدة",
+  "@add_new_subject": {
+    "description": "نص لإضافة مادة جديدة"
+  },
+  "day_keep": "أيام متتالية! استمر!",
+  "@day_keep": {
+    "description": "نص للحفظ اليومي"
+  },
+  "progress": "التقدم",
+  "@progress": {
+    "description": "نص للتقدم"
   }
 }
