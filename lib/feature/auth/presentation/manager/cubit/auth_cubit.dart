@@ -18,7 +18,7 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await _authRepository.getCurrentUser();
     result.fold(
       (error) {
-        if (error.contains('verify your email')) {
+        if (error.message.contains('verify your email')) {
           emit(AuthEmailNotVerified());
         } else {
           emit(AuthUnauthenticated());
@@ -49,7 +49,7 @@ class AuthCubit extends Cubit<AuthState> {
     );
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) => emit(AuthError(error.message)),
       (user) => emit(AuthSignUpSuccess(user)),
     );
   }
@@ -68,10 +68,10 @@ class AuthCubit extends Cubit<AuthState> {
 
     result.fold(
       (error) {
-        if (error.contains('verify your email')) {
+        if (error.message.contains('verify your email')) {
           emit(AuthEmailNotVerified());
         } else {
-          emit(AuthError(error));
+          emit(AuthError(error.message));
         }
       },
       (user) => emit(AuthAuthenticated(user)),
@@ -85,7 +85,7 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await _authRepository.signInWithGoogle();
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) => emit(AuthError(error.message)),
       (user) => emit(AuthAuthenticated(user)),
     );
   }
@@ -97,7 +97,7 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await _authRepository.signInWithApple();
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) => emit(AuthError(error.message)),
       (user) => emit(AuthAuthenticated(user)),
     );
   }
@@ -105,18 +105,18 @@ class AuthCubit extends Cubit<AuthState> {
   // Verify user email with OTP code
   Future<void> verifyEmail({
     required String token,
-     BuildContext? context,
+    BuildContext? context,
     String? email,
   }) async {
     emit(AuthLoading());
 
     final result = await _authRepository.verifyEmail(
       token: token,
-      email: email, 
+      email: email,
     );
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) => emit(AuthError(error.message)),
       (message) {
         emit(AuthEmailVerified(message));
         initializeAuth();
@@ -137,8 +137,8 @@ class AuthCubit extends Cubit<AuthState> {
     );
 
     result.fold(
-      (error) => emit(AuthError(error)),
-      (message) => emit(AuthEmailVerified(message)), 
+      (error) => emit(AuthError(error.message)),
+      (message) => emit(AuthEmailVerified(message)),
     );
   }
 
@@ -149,7 +149,7 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await _authRepository.resendEmailVerification(email: email);
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) => emit(AuthError(error.message)),
       (message) => emit(AuthEmailSent(message)),
     );
   }
@@ -161,7 +161,7 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await _authRepository.resetPassword(email: email);
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) => emit(AuthError(error.message)),
       (message) => emit(AuthPasswordResetSent(message)),
     );
   }
@@ -181,7 +181,7 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await _authRepository.updatePassword(password: password);
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) => emit(AuthError(error.message)),
       (message) => emit(AuthPasswordUpdated(message)),
     );
   }
@@ -203,7 +203,7 @@ class AuthCubit extends Cubit<AuthState> {
     );
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) => emit(AuthError(error.message)),
       (user) => emit(AuthAuthenticated(user)),
     );
   }
@@ -215,7 +215,7 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await _authRepository.signOut();
 
     result.fold(
-      (error) => emit(AuthError(error)),
+      (error) => emit(AuthError(error.message)),
       (_) => emit(AuthUnauthenticated()),
     );
   }
@@ -232,7 +232,7 @@ class AuthCubit extends Cubit<AuthState> {
     if (state is AuthAuthenticated) {
       final result = await _authRepository.getCurrentUser();
       result.fold(
-        (error) => emit(AuthError(error)),
+        (error) => emit(AuthError(error.message)),
         (user) => emit(AuthAuthenticated(user)),
       );
     }
