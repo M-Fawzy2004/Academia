@@ -35,7 +35,7 @@ class AppColors {
   static const Color success = Color(0xFF10B981);
   static const Color warning = Color(0xFFF59E0B);
 
-  // Legacy Colors (للحفاظ على التوافق مع الكود الموجود)
+  // Legacy Colors
   static const Color darkGrey = Color(0xFF000000);
   static const Color backgroundColor = Color(0xFF1C1C1E);
   static const Color whitewithOpacity = Color(0xFFF3F2F8);
@@ -79,7 +79,7 @@ class AppColors {
 
   static Color getCardColor(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
-        ? darkCardColor
+        ? darkBackgroundColor
         : lightCardColor;
   }
 

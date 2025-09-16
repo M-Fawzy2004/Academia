@@ -5,12 +5,15 @@ import 'package:study_box/feature/auth/presentation/view/forget_pass_view.dart';
 import 'package:study_box/feature/auth/presentation/view/login_view.dart';
 import 'package:study_box/feature/auth/presentation/view/register_view.dart';
 import 'package:study_box/feature/auth/presentation/view/verf_email_view.dart';
+import 'package:study_box/feature/courses/data/model/quote_provider.dart';
 import 'package:study_box/feature/courses/presentation/view/courses_view.dart';
 import 'package:study_box/feature/main_home/presentation/view/main_view.dart';
 import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
 import 'package:study_box/feature/welcome/presentation/view/welcome_view.dart';
 import 'package:study_box/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:study_box/feature/splash/presentation/view/splash_view.dart';
+// ignore: depend_on_referenced_packages
+import 'package:provider/provider.dart';
 
 abstract class AppRouter {
   static const onboardingView = '/onboardingView';
@@ -73,7 +76,12 @@ abstract class AppRouter {
       GoRoute(
         path: mainView,
         builder: (BuildContext context, GoRouterState state) {
-          return AppProviders.homeView(child: const MainView());
+          return AppProviders.homeView(
+            child: ChangeNotifierProvider(
+              create: (_) => QuoteProvider(),
+              child: const MainView(),
+            ),
+          );
         },
       ),
       GoRoute(
