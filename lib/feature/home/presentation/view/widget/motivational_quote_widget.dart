@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
-import 'package:study_box/core/helper/custom_loading_widget.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
-import 'package:study_box/feature/courses/data/model/quote.dart';
-import 'package:study_box/feature/courses/data/service/quotes_service.dart';
+import 'package:study_box/feature/home/data/model/quote.dart';
+import 'package:study_box/feature/home/data/service/quotes_service.dart';
 
 class MotivationalQuoteWidget extends StatefulWidget {
   const MotivationalQuoteWidget({super.key});
@@ -59,6 +58,7 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.r),
+        color: AppColors.getCardColor(context),
         border: Border.all(
           color: AppColors.primaryColor.withOpacity(0.1),
           width: 1.5.w,
@@ -189,11 +189,6 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
                 ),
               ],
             ),
-          ),
-          SizedBox(
-            width: 20.w,
-            height: 20.h,
-            child: const CustomLoadingWidget(),
           ),
         ],
       ),

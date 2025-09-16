@@ -36,8 +36,8 @@ class AppProviders {
     );
   }
 
-  /// Home View Provider 
-  static Widget homeView({required Widget child}) {
+  /// Home View Provider
+  static Widget mainView({required Widget child}) {
     return BlocProvider<AuthCubit>(
       create: (_) => getIt<AuthCubit>(),
       child: child,

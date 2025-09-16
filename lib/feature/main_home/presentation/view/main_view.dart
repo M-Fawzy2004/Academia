@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study_box/feature/courses/presentation/view/courses_view.dart';
+import 'package:study_box/feature/home/presentation/view/home_view.dart';
 import 'package:study_box/feature/main_home/presentation/view/widget/custom_bottom_navigation_bar.dart';
 import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
 
@@ -14,7 +14,7 @@ class _MainViewState extends State<MainView> {
   int currentIndex = 0;
 
   List<Widget> getScreens = [
-    const CoursesView(),
+    const HomeView(),
     const Center(child: Text('NotesView')),
     const Center(child: Text('ReminderView')),
     const ProfileView(),

@@ -55,6 +55,7 @@ class QuickStatsCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 12.w),
       decoration: BoxDecoration(
+        color: AppColors.getCardColor(context),
         border: Border.all(
           color: AppColors.primaryColor.withOpacity(0.1),
           width: 1.5.w,

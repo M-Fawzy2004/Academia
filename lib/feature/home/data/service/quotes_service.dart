@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:study_box/feature/courses/data/model/quote.dart';
+import 'package:study_box/feature/home/data/model/quote.dart';
 
 class QuotesService {
   static const String _baseUrl = 'https://api.api-ninjas.com/v1/quotes';

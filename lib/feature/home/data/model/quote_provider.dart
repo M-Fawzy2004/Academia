@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:study_box/feature/courses/data/service/quotes_service.dart';
+import 'package:study_box/feature/home/data/service/quotes_service.dart';
 import 'quote.dart';
 
 class QuoteProvider with ChangeNotifier {
@@ -9,7 +9,7 @@ class QuoteProvider with ChangeNotifier {
 
   QuoteProvider() {
     _loadQuote();
-    _timer = Timer.periodic(const Duration(hours: 6), (timer) {
+    _timer = Timer.periodic(const Duration(hours: 12), (timer) {
       _loadQuote();
     });
   }
