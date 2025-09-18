@@ -83,6 +83,12 @@ class AppColors {
         : lightCardColor;
   }
 
+  static Color getFieldColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? darkCardColor
+        : lightCardColor;
+  }
+
   static Color getNavigationBar(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
         ? darkSurfaceColor

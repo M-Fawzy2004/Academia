@@ -144,12 +144,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
           labelText: widget.labelText,
           hintText: widget.hintText,
           filled: true,
-          fillColor: widget.fillColor ?? AppColors.getCardColor(context),
+          fillColor: widget.fillColor ?? AppColors.getFieldColor(context),
           labelStyle: TextStyle(
             color: widget.labelColor ??
                 (_isFocused ? Colors.blue : Colors.grey[600]),
           ),
           hintStyle: TextStyle(
+            fontSize: 15.sp,
             color: widget.hintColor ?? Colors.grey[400],
             fontWeight: FontWeight.w800,
           ),

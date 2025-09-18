@@ -23,7 +23,7 @@ class SocialLoginButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.r),
-          color: AppColors.getCardColor(context),
+          color: AppColors.getFieldColor(context),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

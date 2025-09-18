@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
+import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
@@ -15,6 +17,7 @@ class AddCoursesButton extends StatelessWidget {
     return InkWell(
       onTap: () {
         HapticFeedback.lightImpact();
+        context.push(AppRouter.addSubjectView);
       },
       borderRadius: BorderRadius.circular(16.r),
       child: Container(
