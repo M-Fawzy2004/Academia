@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/home/data/model/quote.dart';
 import 'package:study_box/feature/home/data/service/quotes_service.dart';
+import 'dart:developer' as developer;
+import 'dart:async';
 
 class MotivationalQuoteWidget extends StatefulWidget {
   const MotivationalQuoteWidget({super.key});
@@ -19,35 +22,106 @@ class MotivationalQuoteWidget extends StatefulWidget {
 class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
   Quote? currentQuote;
   bool isLoading = false;
-  bool isRefreshing = false;
+  bool hasError = false;
+  Timer? _refreshTimer;
 
   @override
   void initState() {
     super.initState();
-    _loadDailyQuote();
+    _loadQuote();
+    _setupAutoRefresh();
   }
 
-  Future<void> _loadDailyQuote() async {
-    setState(() => isLoading = true);
+  @override
+  void dispose() {
+    _refreshTimer?.cancel();
+    super.dispose();
+  }
+
+  /// Setup automatic refresh every 6 hours
+  void _setupAutoRefresh() {
+    _refreshTimer = Timer.periodic(const Duration(hours: 6), (timer) {
+      developer.log('Auto-refreshing quote after 6 hours');
+      _loadQuote();
+    });
+  }
+
+  /// Load quote (will use cached if still valid)
+  Future<void> _loadQuote() async {
+    if (!mounted) return;
+
+    setState(() {
+      isLoading = true;
+      hasError = false;
+    });
 
     try {
-      // Try to get educational quote
-      final quote = await QuotesService.getQuoteByCategory('education');
+      developer.log('Loading quote...');
+
+      // This will automatically handle caching
+      final quote = await TimedQuotesService.getDailyQuote();
+
       if (mounted) {
         setState(() {
           currentQuote = quote;
           isLoading = false;
+          hasError = false;
         });
+        developer.log('Quote loaded: ${currentQuote?.text}');
       }
     } catch (e) {
+      developer.log('Error loading quote: $e');
       if (mounted) {
         setState(() {
-          currentQuote = QuotesService.getFallbackQuote();
+          currentQuote = TimedQuotesService.getFallbackQuote();
           isLoading = false;
+          hasError = true;
         });
       }
     }
   }
+
+  /// Force refresh quote (ignore cache)
+  // Future<void> _forceRefreshQuote() async {
+  //   if (!mounted) return;
+
+  //   setState(() {
+  //     isLoading = true;
+  //     hasError = false;
+  //   });
+
+  //   try {
+  //     developer.log('Force refreshing quote...');
+
+  //     final quote = await TimedQuotesService.forceRefreshQuote();
+
+  //     if (mounted) {
+  //       setState(() {
+  //         currentQuote = quote;
+  //         isLoading = false;
+  //         hasError = false;
+  //       });
+  //       developer.log('Quote force refreshed: ${currentQuote?.text}');
+
+  //       // Show snackbar to confirm refresh
+  //       CustomSnackBar.showSuccess(
+  //         context,
+  //         LanguageHelper.isArabic(context)
+  //             ? 'تم تحديث القولة بنجاح'
+  //             : 'Quote refreshed!',
+  //       );
+  //     }
+  //   } catch (e) {
+  //     developer.log('Error force refreshing quote: $e');
+  //     if (mounted) {
+  //       setState(() {
+  //         currentQuote = TimedQuotesService.getFallbackQuote();
+  //         isLoading = false;
+  //         hasError = true;
+  //       });
+  //     }
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -83,12 +157,42 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
                 ),
               ),
               widthBox(10),
-              Text(
-                context.tr.daily_inspiration,
-                style: Styles.font14MediumBold(context).copyWith(
-                  color: AppColors.primaryColor,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      context.tr.daily_inspiration,
+                      style: Styles.font14MediumBold(context).copyWith(
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+                    Text(
+                      'Refreshes every 6 hours',
+                      style: Styles.font12MediumWhiteBold(context).copyWith(
+                        color: AppColors.primaryColor.withOpacity(0.7),
+                        fontSize: 10.sp,
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              // Manual refresh button
+              // GestureDetector(
+              //   onTap: _forceRefreshQuote,
+              //   child: Container(
+              //     padding: EdgeInsets.all(6.w),
+              //     decoration: BoxDecoration(
+              //       color: AppColors.primaryColor.withOpacity(0.1),
+              //       borderRadius: BorderRadius.circular(6.r),
+              //     ),
+              //     child: Icon(
+              //       Icons.refresh,
+              //       color: AppColors.primaryColor,
+              //       size: 16.sp,
+              //     ),
+              //   ),
+              // ),
             ],
           ),
           heightBox(12),
@@ -109,15 +213,16 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
                   color: AppColors.primaryColor,
                 ),
                 widthBox(4),
-                Text(
-                  '— ${currentQuote!.author}',
-                  style: Styles.font13GreyBold(context).copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.primaryColor,
+                Expanded(
+                  child: Text(
+                    '— ${currentQuote!.author}',
+                    style: Styles.font13GreyBold(context).copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.primaryColor,
+                    ),
                   ),
                 ),
                 if (currentQuote!.category != null) ...[
-                  const Spacer(),
                   Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
@@ -136,11 +241,40 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
                 ],
               ],
             ),
+            if (hasError) ...[
+              heightBox(4),
+              Text(
+                '(Using offline quote)',
+                style: Styles.font12MediumWhiteBold(context).copyWith(
+                  color: Colors.orange,
+                  fontSize: 10.sp,
+                ),
+              ),
+            ],
           ] else
             Center(
-              child: Text(
-                'Unable to load quote',
-                style: Styles.font13GreyBold(context),
+              child: Column(
+                children: [
+                  Text(
+                    LanguageHelper.isArabic(context)
+                        ? 'لا يمكن تحميل القولة'
+                        : 'Unable to load quote',
+                    style: Styles.font13GreyBold(context),
+                  ),
+                  heightBox(8),
+                  GestureDetector(
+                    onTap: _loadQuote,
+                    child: Text(
+                      LanguageHelper.isArabic(context)
+                          ? 'إعادة المحاولة'
+                          : 'Tap to retry',
+                      style: Styles.font13GreyBold(context).copyWith(
+                        color: AppColors.primaryColor,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
         ],
