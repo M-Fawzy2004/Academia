@@ -125,7 +125,7 @@ class AppColors {
         : lightIndicatorInactive;
   }
 
-  // Legacy Methods (للحفاظ على التوافق)
+  // Legacy Methods
   static Color getTextColor(BuildContext context) {
     return getTextPrimaryColor(context);
   }

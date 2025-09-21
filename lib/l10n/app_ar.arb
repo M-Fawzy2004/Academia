@@ -516,9 +516,9 @@
   "@home_text_navigationbar": {
     "description": "نص شريط التنقل لواجهة الرئيسية"
   },
-  "notes_text_navigationbar": "الملاحظات",
-  "@notes_text_navigationbar": {
-    "description": "نص شريط التنقل لواجهة الملاحظات"
+  "subject_text_navigationbar": "المواد",
+  "@subject_text_navigationbar": {
+    "description": "نص شريط التنقل لواجهة المواد"
   },
   "reminders_text_navigationbar": "التذكيرات",
   "@reminders_text_navigationbar": {

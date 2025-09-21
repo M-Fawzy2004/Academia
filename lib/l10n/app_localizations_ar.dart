@@ -427,7 +427,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get home_text_navigationbar => 'الرئيسية';
 
   @override
-  String get notes_text_navigationbar => 'الملاحظات';
+  String get subject_text_navigationbar => 'المواد';
 
   @override
   String get reminders_text_navigationbar => 'التذكيرات';

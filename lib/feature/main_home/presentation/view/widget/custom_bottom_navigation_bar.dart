@@ -40,9 +40,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
           ),
           _buildNavItem(
             1,
-            IconlyLight.paper,
-            IconlyBold.paper,
-            context.tr.notes_text_navigationbar,
+            IconlyLight.document,
+            IconlyBold.document,
+            context.tr.subject_text_navigationbar,
             context,
           ),
           _buildNavItem(

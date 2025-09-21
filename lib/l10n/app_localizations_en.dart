@@ -429,7 +429,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get home_text_navigationbar => 'Home';
 
   @override
-  String get notes_text_navigationbar => 'Notes';
+  String get subject_text_navigationbar => 'Subjects';
 
   @override
   String get reminders_text_navigationbar => 'Reminders';

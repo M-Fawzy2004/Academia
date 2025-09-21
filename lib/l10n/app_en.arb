@@ -516,9 +516,9 @@
   "@home_text_navigationbar": {
     "description": "Navigation bar text for home View"
   },
-  "notes_text_navigationbar": "Notes",
-  "@notes_text_navigationbar": {
-    "description": "Navigation bar text for Notes View"
+  "subject_text_navigationbar": "Subjects",
+  "@subject_text_navigationbar": {
+    "description": "Navigation bar text for Subjects View"
   },
   "reminders_text_navigationbar": "Reminders",
   "@reminders_text_navigationbar": {

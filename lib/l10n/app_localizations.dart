@@ -872,11 +872,11 @@ abstract class AppLocalizations {
   /// **'Home'**
   String get home_text_navigationbar;
 
-  /// Navigation bar text for Notes View
+  /// Navigation bar text for Subjects View
   ///
   /// In en, this message translates to:
-  /// **'Notes'**
-  String get notes_text_navigationbar;
+  /// **'Subjects'**
+  String get subject_text_navigationbar;
 
   /// Navigation bar text for Reminders View
   ///

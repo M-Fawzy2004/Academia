@@ -7,7 +7,8 @@ import 'package:study_box/feature/home/presentation/view/widget/home_shimmer_loa
 import 'package:study_box/feature/home/presentation/view/widget/home_error_widget.dart';
 
 class HomeBlocConsumer extends StatelessWidget {
-  const HomeBlocConsumer({super.key});
+  const HomeBlocConsumer({super.key, this.onNavigateToSubjects});
+  final VoidCallback? onNavigateToSubjects;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +38,7 @@ class HomeBlocConsumer extends StatelessWidget {
         return HomeViewBody(
           courses: loadedState.courses,
           userData: loadedState.userData,
+          onNavigateToSubjects: onNavigateToSubjects,
         );
 
       case const (CoursesNoInternet):

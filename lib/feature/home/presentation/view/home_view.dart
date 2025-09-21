@@ -5,7 +5,8 @@ import 'package:study_box/feature/home/presentation/manager/connection/courses_c
 import 'package:study_box/feature/home/presentation/view/widget/home_bloc_consumer.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  const HomeView({super.key, this.onNavigateToSubjects});
+  final VoidCallback? onNavigateToSubjects;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,9 @@ class HomeView extends StatelessWidget {
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w),
-            child: const HomeBlocConsumer(),
+            child: HomeBlocConsumer(
+              onNavigateToSubjects: onNavigateToSubjects,
+            ),
           ),
         ),
       ),

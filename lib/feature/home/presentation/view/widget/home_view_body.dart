@@ -16,11 +16,13 @@ import 'package:study_box/feature/home/presentation/view/widget/motivational_quo
 class HomeViewBody extends StatelessWidget {
   final List<dynamic> courses;
   final Map<String, dynamic> userData;
+  final VoidCallback? onNavigateToSubjects;
 
   const HomeViewBody({
     super.key,
     required this.courses,
     required this.userData,
+    this.onNavigateToSubjects,
   });
 
   @override
@@ -53,8 +55,10 @@ class HomeViewBody extends StatelessWidget {
             child: UpcomingTasksWidget(),
           ),
           SliverToBoxAdapter(child: heightBox(25)),
-          const SliverToBoxAdapter(
-            child: SubjectsHeader(),
+          SliverToBoxAdapter(
+            child: SubjectsHeader(
+              onViewAllPressed: onNavigateToSubjects,
+            ),
           ),
           SliverToBoxAdapter(child: heightBox(15)),
           const SliverToBoxAdapter(

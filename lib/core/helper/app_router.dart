@@ -10,6 +10,7 @@ import 'package:study_box/feature/home/data/model/quote_provider.dart';
 import 'package:study_box/feature/home/presentation/view/home_view.dart';
 import 'package:study_box/feature/main_home/presentation/view/main_view.dart';
 import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
+import 'package:study_box/feature/subject/presentation/view/subject_view.dart';
 import 'package:study_box/feature/welcome/presentation/view/welcome_view.dart';
 import 'package:study_box/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:study_box/feature/splash/presentation/view/splash_view.dart';
@@ -27,6 +28,7 @@ abstract class AppRouter {
   static const homeView = '/homeView';
   static const profileView = '/profileView';
   static const addSubjectView = '/addSubjectView';
+  static const subjectView = '/subjectView';
 
   static var router = GoRouter(
     routes: [
@@ -102,6 +104,12 @@ abstract class AppRouter {
         path: addSubjectView,
         builder: (BuildContext context, GoRouterState state) {
           return const AddSubjectView();
+        },
+      ),
+      GoRoute(
+        path: subjectView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SubjectView();
         },
       ),
     ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:study_box/feature/home/presentation/view/home_view.dart';
 import 'package:study_box/feature/main_home/presentation/view/widget/custom_bottom_navigation_bar.dart';
 import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
+import 'package:study_box/feature/subject/presentation/view/subject_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -13,12 +14,18 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   int currentIndex = 0;
 
-  List<Widget> getScreens = [
-    const HomeView(),
-    const Center(child: Text('NotesView')),
-    const Center(child: Text('ReminderView')),
-    const ProfileView(),
-  ];
+  void changeIndex(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
+  List<Widget> get getScreens => [
+        HomeView(onNavigateToSubjects: () => changeIndex(1)), 
+        const SubjectView(),
+        const Center(child: Text('ReminderView')),
+        const ProfileView(),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +36,7 @@ class _MainViewState extends State<MainView> {
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
+        onTap: changeIndex,
       ),
     );
   }
