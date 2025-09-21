@@ -8,6 +8,7 @@ import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/core/widget/icon_back.dart';
 import 'package:study_box/feature/add_subject/data/model/resource_item.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/add_subject_form.dart';
+import 'package:study_box/feature/add_subject/presentation/view/widget/color_options_row.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/lecture_days_selector.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/resources_widget.dart'; // استيراد الـ widget الجديد
 
@@ -58,6 +59,8 @@ class _AddSubjectViewBodyState extends State<AddSubjectViewBody> {
             style: Styles.font13GreyBold(context),
           ),
           heightBox(25),
+          const ColorOptionsRow(),
+          heightBox(10),
           const AddSubjectForm(),
           heightBox(10),
           LectureDaysSelector(
