@@ -1,4 +1,8 @@
 import 'package:get_it/get_it.dart';
+import 'package:study_box/feature/add_subject/data/repos/subject_repository_impl.dart';
+import 'package:study_box/feature/add_subject/data/service/subject_service.dart';
+import 'package:study_box/feature/add_subject/domain/repos/subject_repository.dart';
+import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service_impl.dart';
@@ -14,22 +18,41 @@ Future<void> initDependencies() async {
     () => Supabase.instance.client,
   );
 
-  // uth Service
+  /////////////// Services ////////////////////////
+  // Auth Service
   getIt.registerLazySingleton<SupabaseAuthService>(
     () => SupabaseAuthServiceImpl(),
   );
 
+  // Subject Service
+  getIt.registerLazySingleton<SubjectService>(
+    () => SubjectService(supabaseClient: getIt()),
+  );
+
+  /////////////// Repositories ///////////////////////
   // Auth Repository
   getIt.registerLazySingleton<AuthRepository>(
     () => AuthRepositoryImpl(getIt()),
   );
 
+  // Subject Repository
+  getIt.registerLazySingleton<SubjectRepository>(
+    () => SubjectRepositoryImpl(subjectService: getIt()),
+  );
+
+  /////////////// Cubits ///////////////////////
   // Auth Cubit
   getIt.registerFactory<AuthCubit>(
     () => AuthCubit(getIt()),
   );
+
+  // subject Cubit
+  getIt.registerFactory<SubjectCubit>(
+    () => SubjectCubit(subjectRepository: getIt()),
+  );
 }
 
-void resetDependencies() {
-  getIt.reset();
+Future<void> resetDependencies() async {
+  await getIt.reset();
+  await initDependencies();
 }

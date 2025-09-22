@@ -33,17 +33,23 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return Left(ServerFailure(LocalizationManager.l.failed_to_create_account));
+        return Left(
+          ServerFailure(
+              message: LocalizationManager.l.failed_to_create_account),
+        );
       }
 
       await _ensureProfileExists(response.user!);
 
-      final authModel = AuthModel.fromUser(response.user!, profile: {'name': name});
+      final authModel =
+          AuthModel.fromUser(response.user!, profile: {'name': name});
       return Right(authModel);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.unexpected_error_occurred));
+      return Left(
+        ServerFailure(message: LocalizationManager.l.unexpected_error_occurred),
+      );
     }
   }
 
@@ -59,16 +65,20 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return Left(ServerFailure(LocalizationManager.l.invalid_credentials));
+        return Left(
+          ServerFailure(message: LocalizationManager.l.invalid_credentials),
+        );
       }
 
       final profile = await _getUserProfile(response.user!.id);
       final authModel = AuthModel.fromUser(response.user!, profile: profile);
       return Right(authModel);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.unexpected_error_occurred));
+      return Left(
+        ServerFailure(message: LocalizationManager.l.unexpected_error_occurred),
+      );
     }
   }
 
@@ -79,7 +89,9 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
 
       final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) {
-        return Left(ServerFailure(LocalizationManager.l.google_signin_cancelled));
+        return Left(
+          ServerFailure(message: LocalizationManager.l.google_signin_cancelled),
+        );
       }
 
       final googleAuth = await googleUser.authentication;
@@ -91,7 +103,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return Left(ServerFailure(LocalizationManager.l.failed_authenticate_google));
+        return Left(
+          ServerFailure(
+              message: LocalizationManager.l.failed_authenticate_google),
+        );
       }
 
       await _ensureProfileExists(response.user!);
@@ -99,9 +114,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       final authModel = AuthModel.fromUser(response.user!, profile: profile);
       return Right(authModel);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.google_signin_failed));
+      return Left(
+        ServerFailure(message: LocalizationManager.l.google_signin_failed),
+      );
     }
   }
 
@@ -121,7 +138,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
 
       if (response.user == null) {
-        return Left(ServerFailure(LocalizationManager.l.failed_authenticate_apple));
+        return Left(
+          ServerFailure(
+              message: LocalizationManager.l.failed_authenticate_apple),
+        );
       }
 
       await _ensureProfileExists(response.user!);
@@ -129,9 +149,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       final authModel = AuthModel.fromUser(response.user!, profile: profile);
       return Right(authModel);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.apple_signin_failed));
+      return Left(
+        ServerFailure(message: LocalizationManager.l.apple_signin_failed),
+      );
     }
   }
 
@@ -160,9 +182,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       }
       return Right(LocalizationManager.l.email_verified_successfully);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.email_verification_failed));
+      return Left(
+        ServerFailure(message: LocalizationManager.l.email_verification_failed),
+      );
     }
   }
 
@@ -187,14 +211,18 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
 
       return Right(LocalizationManager.l.password_reset_verified_successfully);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.password_reset_verification_failed));
+      return Left(
+        ServerFailure(
+            message: LocalizationManager.l.password_reset_verification_failed),
+      );
     }
   }
 
   @override
-  Future<Either<Failure, String>> resendEmailVerification({required String email}) async {
+  Future<Either<Failure, String>> resendEmailVerification(
+      {required String email}) async {
     try {
       await _supabaseClient.auth.resend(
         type: OtpType.signup,
@@ -202,9 +230,12 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       );
       return Right(LocalizationManager.l.verification_email_sent_successfully);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.failed_send_verification_email));
+      return Left(
+        ServerFailure(
+            message: LocalizationManager.l.failed_send_verification_email),
+      );
     }
   }
 
@@ -215,25 +246,32 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         email,
         redirectTo: 'your-app://reset-password',
       );
-      return Right(LocalizationManager.l.password_reset_email_sent_successfully);
+      return Right(
+          LocalizationManager.l.password_reset_email_sent_successfully);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.failed_send_password_reset_email));
+      return Left(
+        ServerFailure(
+            message: LocalizationManager.l.failed_send_password_reset_email),
+      );
     }
   }
 
   @override
-  Future<Either<Failure, String>> updatePassword({required String password}) async {
+  Future<Either<Failure, String>> updatePassword(
+      {required String password}) async {
     try {
       await _supabaseClient.auth.updateUser(
         UserAttributes(password: password),
       );
       return Right(LocalizationManager.l.password_updated_successfully);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.failed_update_password));
+      return Left(
+        ServerFailure(message: LocalizationManager.l.failed_update_password),
+      );
     }
   }
 
@@ -242,7 +280,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     try {
       final user = _supabaseClient.auth.currentUser;
       if (user == null) {
-        return Left(ServerFailure(LocalizationManager.l.no_authenticated_user_found));
+        return Left(
+          ServerFailure(
+              message: LocalizationManager.l.no_authenticated_user_found),
+        );
       }
 
       Map<String, dynamic>? profile = await _getUserProfile(user.id);
@@ -259,7 +300,9 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       final authModel = AuthModel.fromUser(user, profile: profile);
       return Right(authModel);
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.failed_get_current_user));
+      return Left(
+        ServerFailure(message: LocalizationManager.l.failed_get_current_user),
+      );
     }
   }
 
@@ -273,7 +316,10 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
     try {
       final user = _supabaseClient.auth.currentUser;
       if (user == null) {
-        return Left(ServerFailure(LocalizationManager.l.no_authenticated_user_found));
+        return Left(
+          ServerFailure(
+              message: LocalizationManager.l.no_authenticated_user_found),
+        );
       }
 
       final updateData = <String, dynamic>{};
@@ -293,10 +339,13 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       }
 
       final profile = await _getUserProfile(user.id);
-      final authModel = AuthModel.fromUser(user, profile: profile ?? updateData);
+      final authModel =
+          AuthModel.fromUser(user, profile: profile ?? updateData);
       return Right(authModel);
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.failed_update_profile));
+      return Left(
+        ServerFailure(message: LocalizationManager.l.failed_update_profile),
+      );
     }
   }
 
@@ -306,9 +355,11 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       await _supabaseClient.auth.signOut();
       return const Right(null);
     } on AuthException catch (e) {
-      return Left(ServerFailure(_getAuthErrorMessage(e)));
+      return Left(ServerFailure(message: _getAuthErrorMessage(e)));
     } catch (e) {
-      return Left(ServerFailure(LocalizationManager.l.failed_sign_out));
+      return Left(
+        ServerFailure(message: LocalizationManager.l.failed_sign_out),
+      );
     }
   }
 

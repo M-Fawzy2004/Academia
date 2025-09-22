@@ -19,4 +19,10 @@ class AppConstant {
   // supabase tables
   // user auth tables
   static const String tableAuthUsers = 'user_profiles';
+
+  // subject tables
+  static const String tableSubjects = 'subjects';
+
+  // user profile
+  static const String profileTable = 'profiles';
 }

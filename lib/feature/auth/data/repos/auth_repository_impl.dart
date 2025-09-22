@@ -20,15 +20,17 @@ class AuthRepositoryImpl implements AuthRepository {
     required String name,
   }) async {
     if (!_isValidEmail(email)) {
-      return Left(ServerFailure(_appLocalizations!.please_enter_valid_email));
+      return Left(
+          ServerFailure(message: _appLocalizations!.please_enter_valid_email));
     }
 
     if (password.length < 6) {
-      return Left(ServerFailure(_appLocalizations!.password_min_length));
+      return Left(
+          ServerFailure(message: _appLocalizations!.password_min_length));
     }
 
     if (name.trim().isEmpty) {
-      return Left(ServerFailure(_appLocalizations!.name_is_required));
+      return Left(ServerFailure(message: _appLocalizations!.name_is_required));
     }
 
     return await _authService.signUp(
@@ -45,11 +47,13 @@ class AuthRepositoryImpl implements AuthRepository {
     required String password,
   }) async {
     if (!_isValidEmail(email)) {
-      return Left(ServerFailure(_appLocalizations!.please_enter_valid_email));
+      return Left(
+          ServerFailure(message: _appLocalizations!.please_enter_valid_email));
     }
 
     if (password.isEmpty) {
-      return Left(ServerFailure(_appLocalizations!.password_is_required));
+      return Left(
+          ServerFailure(message: _appLocalizations!.password_is_required));
     }
 
     return await _authService.signIn(
@@ -77,7 +81,8 @@ class AuthRepositoryImpl implements AuthRepository {
     String? email,
   }) async {
     if (token.trim().isEmpty) {
-      return Left(ServerFailure(_appLocalizations!.verification_code_required));
+      return Left(ServerFailure(
+          message: _appLocalizations!.verification_code_required));
     }
 
     return await _authService.verifyEmail(
@@ -93,7 +98,8 @@ class AuthRepositoryImpl implements AuthRepository {
     String? email,
   }) async {
     if (token.trim().isEmpty) {
-      return Left(ServerFailure(_appLocalizations!.verification_code_required));
+      return Left(ServerFailure(
+          message: _appLocalizations!.verification_code_required));
     }
 
     return await _authService.verifyPasswordReset(
@@ -107,7 +113,8 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either<Failure, String>> resendEmailVerification(
       {required String email}) async {
     if (!_isValidEmail(email)) {
-      return Left(ServerFailure(_appLocalizations!.please_enter_valid_email));
+      return Left(
+          ServerFailure(message: _appLocalizations!.please_enter_valid_email));
     }
 
     return await _authService.resendEmailVerification(email: email.trim());
@@ -117,7 +124,8 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Either<Failure, String>> resetPassword({required String email}) async {
     if (!_isValidEmail(email)) {
-      return Left(ServerFailure(_appLocalizations!.please_enter_valid_email));
+      return Left(
+          ServerFailure(message: _appLocalizations!.please_enter_valid_email));
     }
 
     return await _authService.resetPassword(email: email.trim());
@@ -128,7 +136,8 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either<Failure, String>> updatePassword(
       {required String password}) async {
     if (password.length < 6) {
-      return Left(ServerFailure(_appLocalizations!.password_min_length));
+      return Left(
+          ServerFailure(message: _appLocalizations!.password_min_length));
     }
 
     return await _authService.updatePassword(password: password);
@@ -149,7 +158,8 @@ class AuthRepositoryImpl implements AuthRepository {
     String? college,
   }) async {
     if (name != null && name.trim().isEmpty) {
-      return Left(ServerFailure(_appLocalizations!.name_cannot_be_empty));
+      return Left(
+          ServerFailure(message: _appLocalizations!.name_cannot_be_empty));
     }
 
     return await _authService.updateProfile(
