@@ -40,6 +40,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       }
 
       await _ensureProfileExists(response.user!);
+      await _ensureSubscriptionRow(response.user!.id);
 
       final authModel =
           AuthModel.fromUser(response.user!, profile: {'name': name});
@@ -70,6 +71,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
         );
       }
 
+      await _ensureSubscriptionRow(response.user!.id);
       final profile = await _getUserProfile(response.user!.id);
       final authModel = AuthModel.fromUser(response.user!, profile: profile);
       return Right(authModel);
@@ -110,6 +112,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       }
 
       await _ensureProfileExists(response.user!);
+      await _ensureSubscriptionRow(response.user!.id);
       final profile = await _getUserProfile(response.user!.id);
       final authModel = AuthModel.fromUser(response.user!, profile: profile);
       return Right(authModel);
@@ -145,6 +148,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       }
 
       await _ensureProfileExists(response.user!);
+      await _ensureSubscriptionRow(response.user!.id);
       final profile = await _getUserProfile(response.user!.id);
       final authModel = AuthModel.fromUser(response.user!, profile: profile);
       return Right(authModel);
@@ -179,6 +183,7 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       final currentUser = _supabaseClient.auth.currentUser;
       if (currentUser != null) {
         await _ensureProfileExists(currentUser);
+        await _ensureSubscriptionRow(currentUser.id);
       }
       return Right(LocalizationManager.l.email_verified_successfully);
     } on AuthException catch (e) {
@@ -297,6 +302,8 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
             };
       }
 
+      await _ensureSubscriptionRow(user.id);
+
       final authModel = AuthModel.fromUser(user, profile: profile);
       return Right(authModel);
     } catch (e) {
@@ -395,6 +402,29 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       }
     } catch (_) {
       // Ignore backfill failures; not critical to auth flow
+    }
+  }
+
+  Future<void> _ensureSubscriptionRow(String userId) async {
+    try {
+      final existing = await _supabaseClient
+          .from(AppConstant.subscriptionTable)
+          .select('id')
+          .eq('id', userId)
+          .maybeSingle();
+      if (existing == null) {
+        await _supabaseClient
+            .from(AppConstant.subscriptionTable)
+            .upsert({
+              'id': userId,
+              'subscription_tier': 'free',
+              'created_at': DateTime.now().toIso8601String(),
+              'updated_at': DateTime.now().toIso8601String(),
+            })
+            .select();
+      }
+    } catch (_) {
+      // If RLS denies, ignore; app will treat as free in reads
     }
   }
 
