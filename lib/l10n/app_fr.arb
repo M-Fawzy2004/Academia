@@ -1,0 +1,583 @@
+{
+    "@@locale": "fr",
+    "onboarding": "Intégration",
+    "@onboarding": {
+        "description": "Titre principal de l'écran d'intégration"
+    },
+    "onboarding_title1": "StudyBox – Toutes vos études en un seul endroit",
+    "@onboarding_title1": {
+        "description": "Titre du premier écran d'intégration"
+    },
+    "onboarding_desc1": "Rassemblez vos matériaux, fichiers et notes dans une application simple qui vous aide à organiser vos études sans confusion",
+    "@onboarding_desc1": {
+        "description": "Description du premier écran d'intégration"
+    },
+    "onboarding_title2": "Organisez vos matières facilement",
+    "@onboarding_title2": {
+        "description": "Titre du deuxième écran d'intégration"
+    },
+    "onboarding_desc2": "Créez une section pour chaque matière, gardant tous les fichiers, notes et enregistrements ensemble pour un accès rapide",
+    "@onboarding_desc2": {
+        "description": "Description du deuxième écran d'intégration"
+    },
+    "onboarding_title3": "Vos notes et fichiers sont en sécurité",
+    "@onboarding_title3": {
+        "description": "Titre du troisième écran d'intégration"
+    },
+    "onboarding_desc3": "Écrivez vos notes, téléchargez vos fichiers et sauvegardez vos enregistrements audio pour réviser à tout moment, n'importe où",
+    "@onboarding_desc3": {
+        "description": "Description du troisième écran d'intégration"
+    },
+    "onboarding_skip": "Ignorer",
+    "@onboarding_skip": {
+        "description": "Bouton ignorer dans l'écran d'intégration"
+    },
+    "onboarding_next": "Suivant",
+    "@onboarding_next": {
+        "description": "Bouton suivant dans l'écran d'intégration"
+    },
+    "onboarding_start_now": "Commencer maintenant",
+    "@onboarding_start_now": {
+        "description": "Bouton commencer (terminé) dans l'écran d'intégration"
+    },
+    "welcome": "Bienvenue",
+    "@welcome": {
+        "description": "Traduction spéciale de l'écran de bienvenue"
+    },
+    "welcome_title": "Prêt à commencer votre parcours d'études avec StudyBox ?",
+    "@welcome_title": {
+        "description": "Titre de l'écran de bienvenue"
+    },
+    "welcome_desc": "Organisez vos matières, sauvegardez vos fichiers et notes, et gardez vos études structurées comme vous le souhaitez",
+    "@welcome_desc": {
+        "description": "Description dans l'écran de bienvenue"
+    },
+    "welcome_button_login": "Se connecter",
+    "@welcome_button_login": {
+        "description": "Bouton de connexion dans l'écran de bienvenue"
+    },
+    "welcome_button_register": "S'inscrire",
+    "@welcome_button_register": {
+        "description": "Bouton d'inscription dans l'écran de bienvenue"
+    },
+    "login": "Connexion",
+    "@login": {
+        "description": "Traduction de l'écran de connexion"
+    },
+    "login_email": "E-mail",
+    "@login_email": {
+        "description": "Champ e-mail dans l'écran de connexion"
+    },
+    "login_pass": "Mot de passe",
+    "@login_pass": {
+        "description": "Champ mot de passe dans l'écran de connexion"
+    },
+    "login_forgot": "Mot de passe oublié ?",
+    "@login_forgot": {
+        "description": "Bouton mot de passe oublié dans l'écran de connexion"
+    },
+    "login_button": "Se connecter",
+    "@login_button": {
+        "description": "Bouton de connexion dans l'écran de connexion"
+    },
+    "login_register": "S'inscrire",
+    "@login_register": {
+        "description": "Naviguer vers l'écran d'inscription"
+    },
+    "login_not_have_an_account": "Vous n'avez pas de compte ?",
+    "@login_not_have_an_account": {
+        "description": "Texte avant le bouton d'inscription dans l'écran de connexion"
+    },
+    "login_with_google": "Se connecter avec Google",
+    "@login_with_google": {
+        "description": "Bouton de connexion avec Google"
+    },
+    "login_with_apple": "Se connecter avec Apple",
+    "@login_with_apple": {
+        "description": "Bouton de connexion avec Apple"
+    },
+    "login_or": "ou",
+    "@login_or": {
+        "description": "Texte séparateur dans l'écran de connexion"
+    },
+    "register": "Inscription",
+    "@register": {
+        "description": "Traduction de l'écran d'inscription"
+    },
+    "register_username": "Nom d'utilisateur",
+    "@register_username": {
+        "description": "Champ nom d'utilisateur dans l'écran d'inscription"
+    },
+    "register_confirm_pass": "Confirmer le mot de passe",
+    "@register_confirm_pass": {
+        "description": "Champ confirmer le mot de passe dans l'écran d'inscription"
+    },
+    "register_have_an_account": "Vous avez déjà un compte ?",
+    "@register_have_an_account": {
+        "description": "Texte avant le bouton de connexion dans l'écran d'inscription"
+    },
+    "forget": "Mot de passe oublié",
+    "@forget": {
+        "description": "Traduction de l'écran mot de passe oublié"
+    },
+    "forget_reset": "Réinitialiser le mot de passe",
+    "@forget_reset": {
+        "description": "Bouton réinitialiser le mot de passe"
+    },
+    "enter_verfivcation_code": "Envoyer le code de vérification",
+    "@enter_verfivcation_code": {
+        "description": "Bouton envoyer le code de vérification"
+    },
+    "identity_confirmation": "Confirmation d'identité",
+    "@identity_confirmation": {
+        "description": "Bouton confirmation d'identité"
+    },
+    "save_pass": "Sauvegarder le mot de passe",
+    "@save_pass": {
+        "description": "Bouton sauvegarder le mot de passe"
+    },
+    "enter_email": "Veuillez saisir votre e-mail",
+    "@enter_email": {
+        "description": "Texte d'aide pour le champ e-mail"
+    },
+    "resend_code": "Renvoyer le code",
+    "@resend_code": {
+        "description": "Bouton renvoyer le code"
+    },
+    "back_step": "Retour à l'étape précédente",
+    "@back_step": {
+        "description": "Bouton retour à l'étape précédente"
+    },
+    "send_code_with_email": "Code de vérification envoyé à votre e-mail",
+    "@send_code_with_email": {
+        "description": "Texte d'aide pour le code envoyé"
+    },
+    "enter_code": "Veuillez saisir le code à 6 chiffres",
+    "@enter_code": {
+        "description": "Texte d'aide pour le champ code de vérification"
+    },
+    "verf_code": "Code de vérification",
+    "@verf_code": {
+        "description": "Libellé code de vérification"
+    },
+    "confirm_code": "Confirmer le code",
+    "@confirm_code": {
+        "description": "Bouton confirmer le code"
+    },
+    "enter_new_pass": "Veuillez saisir un nouveau mot de passe",
+    "@enter_new_pass": {
+        "description": "Texte d'aide pour le champ nouveau mot de passe"
+    },
+    "new_pass": "Nouveau mot de passe",
+    "@new_pass": {
+        "description": "Libellé champ nouveau mot de passe"
+    },
+    "pass_at_least": "Le mot de passe doit contenir au moins 8 caractères",
+    "@pass_at_least": {
+        "description": "Validation longueur minimale du mot de passe"
+    },
+    "confirm_email": "Confirmer l'e-mail",
+    "@confirm_email": {
+        "description": "Bouton confirmer l'e-mail"
+    },
+    "verf": "Vérifier",
+    "@verf": {
+        "description": "Bouton vérifier"
+    },
+    "back_button": "Retour",
+    "@back_button": {
+        "description": "Texte du bouton retour"
+    },
+    "resend_button": "Renvoyer",
+    "@resend_button": {
+        "description": "Texte du bouton renvoyer"
+    },
+    "waiting_text": "Attente...",
+    "@waiting_text": {
+        "description": "Texte d'attente pendant le compte à rebours"
+    },
+    "successfully_logged_in": "Connexion réussie",
+    "@successfully_logged_in": {
+        "description": "Message de succès de connexion"
+    },
+    "account_verified_created": "Compte vérifié et créé avec succès",
+    "@account_verified_created": {
+        "description": "Message de succès de vérification du compte"
+    },
+    "email_not_found": "E-mail introuvable",
+    "@email_not_found": {
+        "description": "Erreur lorsque l'e-mail n'est pas trouvé"
+    },
+    "verification_code_required": "Le code de vérification est requis",
+    "@verification_code_required": {
+        "description": "Validation pour le code de vérification requis"
+    },
+    "verification_code_6_digits": "Le code de vérification doit contenir 6 chiffres",
+    "@verification_code_6_digits": {
+        "description": "Validation pour la longueur du code de vérification"
+    },
+    "important_notes": "Notes importantes :",
+    "@important_notes": {
+        "description": "Titre de la section notes importantes"
+    },
+    "check_spam_folder": "Vérifiez votre dossier spam si vous n'avez pas reçu l'e-mail",
+    "@check_spam_folder": {
+        "description": "Note à propos du dossier spam"
+    },
+    "code_expires_10_minutes": "Le code de vérification expire dans 10 minutes",
+    "@code_expires_10_minutes": {
+        "description": "Note à propos de l'expiration du code"
+    },
+    "account_created_after_verification": "Votre compte sera créé uniquement après vérification",
+    "@account_created_after_verification": {
+        "description": "Note à propos du timing de création du compte"
+    },
+    "email_required": "L'e-mail est requis",
+    "@email_required": {
+        "description": "Validation pour l'e-mail requis"
+    },
+    "valid_email_required": "Veuillez saisir une adresse e-mail valide",
+    "@valid_email_required": {
+        "description": "Validation pour le format e-mail valide"
+    },
+    "password_required": "Le mot de passe est requis",
+    "@password_required": {
+        "description": "Validation pour le mot de passe requis"
+    },
+    "password_6_characters": "Le mot de passe doit contenir au moins 6 caractères",
+    "@password_6_characters": {
+        "description": "Validation pour la longueur minimale du mot de passe"
+    },
+    "confirm_password_required": "Veuillez confirmer votre mot de passe",
+    "@confirm_password_required": {
+        "description": "Validation pour confirmer le mot de passe"
+    },
+    "passwords_not_match": "Les mots de passe ne correspondent pas",
+    "@passwords_not_match": {
+        "description": "Validation lorsque les mots de passe ne correspondent pas"
+    },
+    "please_enter_username": "Veuillez saisir un nom d'utilisateur",
+    "@please_enter_username": {
+        "description": "Validation pour le nom d'utilisateur requis"
+    },
+    "username_3_characters": "Le nom d'utilisateur doit contenir au moins 3 caractères",
+    "@username_3_characters": {
+        "description": "Validation pour la longueur minimale du nom d'utilisateur"
+    },
+    "username_20_characters": "Le nom d'utilisateur doit contenir moins de 20 caractères",
+    "@username_20_characters": {
+        "description": "Validation pour la longueur maximale du nom d'utilisateur"
+    },
+    "username_letters_numbers_underscores": "Le nom d'utilisateur ne peut contenir que des lettres, chiffres et tirets bas",
+    "@username_letters_numbers_underscores": {
+        "description": "Validation pour le format du nom d'utilisateur"
+    },
+    "please_enter_email": "Veuillez saisir un e-mail",
+    "@please_enter_email": {
+        "description": "Validation pour l'e-mail requis"
+    },
+    "valid_email_address": "Veuillez saisir une adresse e-mail valide",
+    "@valid_email_address": {
+        "description": "Validation pour le format e-mail"
+    },
+    "please_enter_password": "Veuillez saisir un mot de passe",
+    "@please_enter_password": {
+        "description": "Validation pour le mot de passe requis"
+    },
+    "password_6_chars_minimum": "Le mot de passe doit contenir au moins 6 caractères",
+    "@password_6_chars_minimum": {
+        "description": "Validation pour la longueur minimale du mot de passe"
+    },
+    "password_50_chars_maximum": "Le mot de passe doit contenir moins de 50 caractères",
+    "@password_50_chars_maximum": {
+        "description": "Validation pour la longueur maximale du mot de passe"
+    },
+    "password_letter_number": "Le mot de passe doit contenir au moins une lettre et un chiffre",
+    "@password_letter_number": {
+        "description": "Validation pour la complexité du mot de passe"
+    },
+    "please_enter_confirm_password": "Veuillez saisir la confirmation du mot de passe",
+    "@please_enter_confirm_password": {
+        "description": "Validation pour confirmer le mot de passe requis"
+    },
+    "please_enter_field": "Veuillez remplir ce champ",
+    "@please_enter_field": {
+        "description": "Validation générique pour un champ requis"
+    },
+    "please_enter_phone": "Veuillez saisir le numéro de téléphone",
+    "@please_enter_phone": {
+        "description": "Validation pour le numéro de téléphone requis"
+    },
+    "valid_egyptian_phone": "Veuillez saisir un numéro de téléphone égyptien valide",
+    "@valid_egyptian_phone": {
+        "description": "Validation pour le format du numéro de téléphone égyptien"
+    },
+    "please_enter_name": "Veuillez saisir un nom",
+    "@please_enter_name": {
+        "description": "Validation pour le nom requis"
+    },
+    "name_2_characters": "Le nom doit contenir au moins 2 caractères",
+    "@name_2_characters": {
+        "description": "Validation pour la longueur minimale du nom"
+    },
+    "name_50_characters": "Le nom doit contenir moins de 50 caractères",
+    "@name_50_characters": {
+        "description": "Validation pour la longueur maximale du nom"
+    },
+    "name_letters_spaces": "Le nom ne peut contenir que des lettres et des espaces",
+    "@name_letters_spaces": {
+        "description": "Validation pour le format du nom"
+    },
+    "please_enter_age": "Veuillez saisir l'âge",
+    "@please_enter_age": {
+        "description": "Validation pour l'âge requis"
+    },
+    "valid_age": "Veuillez saisir un âge valide",
+    "@valid_age": {
+        "description": "Validation pour le format d'âge valide"
+    },
+    "age_minimum_13": "L'âge doit être d'au moins 13 ans",
+    "@age_minimum_13": {
+        "description": "Validation pour l'âge minimum"
+    },
+    "warning_email_not_found": "Attention : E-mail non trouvé dans la réponse d'inscription",
+    "@warning_email_not_found": {
+        "description": "Attention lorsqu'aucun e-mail n'est trouvé lors de l'inscription"
+    },
+    "sent_to": "Envoyé à :",
+    "@sent_to": {
+        "description": "Libellé pour afficher l'adresse e-mail"
+    },
+    "failed_to_create_account": "Échec de création du compte",
+    "@failed_to_create_account": {
+        "description": "Message d'erreur lorsque la création du compte échoue"
+    },
+    "invalid_credentials": "Identifiants invalides",
+    "@invalid_credentials": {
+        "description": "Message d'erreur lorsque les identifiants de connexion sont invalides"
+    },
+    "google_signin_cancelled": "La connexion Google a été annulée",
+    "@google_signin_cancelled": {
+        "description": "Message lorsque la connexion Google est annulée"
+    },
+    "failed_authenticate_google": "Échec de l'authentification avec Google",
+    "@failed_authenticate_google": {
+        "description": "Message d'erreur lorsque l'authentification Google échoue"
+    },
+    "google_signin_failed": "La connexion Google a échoué",
+    "@google_signin_failed": {
+        "description": "Message d'erreur général pour l'échec de connexion Google"
+    },
+    "failed_authenticate_apple": "Échec de l'authentification avec Apple",
+    "@failed_authenticate_apple": {
+        "description": "Message d'erreur lorsque l'authentification Apple échoue"
+    },
+    "apple_signin_failed": "La connexion Apple a échoué",
+    "@apple_signin_failed": {
+        "description": "Message d'erreur général pour l'échec de connexion Apple"
+    },
+    "email_verified_successfully": "E-mail vérifié avec succès",
+    "@email_verified_successfully": {
+        "description": "Message de succès pour la vérification de l'e-mail"
+    },
+    "email_verification_failed": "La vérification de l'e-mail a échoué",
+    "@email_verification_failed": {
+        "description": "Message d'erreur lorsque la vérification de l'e-mail échoue"
+    },
+    "password_reset_verified_successfully": "Code de réinitialisation du mot de passe vérifié avec succès",
+    "@password_reset_verified_successfully": {
+        "description": "Message de succès pour la vérification du code de réinitialisation du mot de passe"
+    },
+    "password_reset_verification_failed": "La vérification du code de réinitialisation du mot de passe a échoué",
+    "@password_reset_verification_failed": {
+        "description": "Message d'erreur lorsque la vérification du code de réinitialisation du mot de passe échoue"
+    },
+    "verification_email_sent_successfully": "E-mail de vérification envoyé avec succès",
+    "@verification_email_sent_successfully": {
+        "description": "Message de succès pour l'envoi de l'e-mail de vérification"
+    },
+    "failed_send_verification_email": "Échec de l'envoi de l'e-mail de vérification",
+    "@failed_send_verification_email": {
+        "description": "Message d'erreur lorsque l'envoi de l'e-mail de vérification échoue"
+    },
+    "password_reset_email_sent_successfully": "E-mail de réinitialisation du mot de passe envoyé avec succès",
+    "@password_reset_email_sent_successfully": {
+        "description": "Message de succès pour l'envoi de l'e-mail de réinitialisation du mot de passe"
+    },
+    "failed_send_password_reset_email": "Échec de l'envoi de l'e-mail de réinitialisation du mot de passe",
+    "@failed_send_password_reset_email": {
+        "description": "Message d'erreur lorsque l'envoi de l'e-mail de réinitialisation du mot de passe échoue"
+    },
+    "password_updated_successfully": "Mot de passe mis à jour avec succès",
+    "@password_updated_successfully": {
+        "description": "Message de succès pour la mise à jour du mot de passe"
+    },
+    "failed_update_password": "Échec de la mise à jour du mot de passe",
+    "@failed_update_password": {
+        "description": "Message d'erreur lorsque la mise à jour du mot de passe échoue"
+    },
+    "no_authenticated_user_found": "Aucun utilisateur authentifié trouvé",
+    "@no_authenticated_user_found": {
+        "description": "Message d'erreur lorsqu'aucun utilisateur authentifié n'existe"
+    },
+    "failed_get_current_user": "Échec de récupération des données de l'utilisateur actuel",
+    "@failed_get_current_user": {
+        "description": "Message d'erreur lorsque la récupération de l'utilisateur actuel échoue"
+    },
+    "name_cannot_be_empty": "Le nom ne peut pas être vide",
+    "@name_cannot_be_empty": {
+        "description": "Message d'erreur lorsque le nom est vide"
+    },
+    "failed_update_profile": "Échec de la mise à jour du profil",
+    "@failed_update_profile": {
+        "description": "Message d'erreur lorsque la mise à jour du profil échoue"
+    },
+    "failed_sign_out": "Échec de la déconnexion",
+    "@failed_sign_out": {
+        "description": "Message d'erreur lorsque la déconnexion échoue"
+    },
+    "invalid_email_or_password": "E-mail ou mot de passe invalide",
+    "@invalid_email_or_password": {
+        "description": "Message d'erreur pour identifiants de connexion invalides"
+    },
+    "please_verify_email_before_signin": "Veuillez vérifier votre e-mail avant de vous connecter",
+    "@please_verify_email_before_signin": {
+        "description": "Message demandant la vérification de l'e-mail avant la connexion"
+    },
+    "account_already_exists": "Un compte avec cet e-mail existe déjà",
+    "@account_already_exists": {
+        "description": "Message lorsque le compte existe déjà"
+    },
+    "password_must_be_6_characters": "Le mot de passe doit contenir au moins 6 caractères",
+    "@password_must_be_6_characters": {
+        "description": "Message longueur minimale du mot de passe"
+    },
+    "please_enter_valid_email": "Veuillez saisir une adresse e-mail valide",
+    "@please_enter_valid_email": {
+        "description": "Message demandant un e-mail valide"
+    },
+    "signup_disabled": "Les nouvelles inscriptions sont actuellement désactivées",
+    "@signup_disabled": {
+        "description": "Message lorsque les nouvelles inscriptions sont désactivées"
+    },
+    "email_rate_limit_exceeded": "Limite de demandes dépassée. Veuillez réessayer plus tard",
+    "@email_rate_limit_exceeded": {
+        "description": "Message lorsque la limite du taux de demande est dépassée"
+    },
+    "verification_code_expired": "Le code de vérification a expiré. Veuillez en demander un nouveau",
+    "@verification_code_expired": {
+        "description": "Message lorsque le code de vérification est expiré"
+    },
+    "invalid_verification_code": "Code de vérification invalide. Veuillez vérifier et réessayer",
+    "@invalid_verification_code": {
+        "description": "Message lorsque le code de vérification est invalide"
+    },
+    "verification_code_expired_or_invalid": "Le code de vérification est expiré ou invalide. Veuillez en demander un nouveau",
+    "@verification_code_expired_or_invalid": {
+        "description": "Message pour code de vérification expiré ou invalide"
+    },
+    "unexpected_error_occurred": "Une erreur inattendue s'est produite",
+    "@unexpected_error_occurred": {
+        "description": "Message d'erreur inattendue générale"
+    },
+    "name_is_required": "Le nom est requis",
+    "@name_is_required": {
+        "description": "Message demandant la saisie du nom"
+    },
+    "password_is_required": "Le mot de passe est requis",
+    "@password_is_required": {
+        "description": "Message demandant la saisie du mot de passe"
+    },
+    "password_must_be_6_chars": "Le mot de passe doit contenir au moins 6 caractères",
+    "@password_must_be_6_chars": {
+        "description": "Message d'exigence de longueur du mot de passe"
+    },
+    "invalid_login_credentials": "E-mail ou mot de passe invalide",
+    "@invalid_login_credentials": {
+        "description": "Message d'erreur pour identifiants de connexion invalides"
+    },
+    "email_not_confirmed": "Veuillez vérifier votre e-mail avant de vous connecter",
+    "@email_not_confirmed": {
+        "description": "Message lorsque l'e-mail n'est pas vérifié"
+    },
+    "user_already_registered": "Un compte avec cet e-mail existe déjà",
+    "@user_already_registered": {
+        "description": "Message lorsque l'utilisateur est déjà enregistré"
+    },
+    "password_min_length": "Le mot de passe doit contenir au moins 6 caractères",
+    "@password_min_length": {
+        "description": "Message d'exigence de longueur du mot de passe"
+    },
+    "invalid_email": "Veuillez saisir une adresse e-mail valide",
+    "@invalid_email": {
+        "description": "Message lorsque l'e-mail est invalide"
+    },
+    "home_text_navigationbar": "Accueil",
+    "@home_text_navigationbar": {
+        "description": "Texte de la barre de navigation pour la vue Accueil"
+    },
+    "subject_text_navigationbar": "Matières",
+    "@subject_text_navigationbar": {
+        "description": "Texte de la barre de navigation pour la vue Matières"
+    },
+    "reminders_text_navigationbar": "Rappels",
+    "@reminders_text_navigationbar": {
+        "description": "Texte de la barre de navigation pour la vue Rappels"
+    },
+    "profile_text_navigationbar": "Profil",
+    "@profile_text_navigationbar": {
+        "description": "Texte de la barre de navigation pour la vue Profil"
+    },
+    "welcome_back": "Bon retour",
+    "@welcome_back": {
+        "description": "Texte pour bon retour"
+    },
+    "ready_learning": "Prêt à continuer l'apprentissage",
+    "@ready_learning": {
+        "description": "Texte pour prêt à l'apprentissage"
+    },
+    "study_streak": "Série d'études",
+    "@study_streak": {
+        "description": "Texte pour série d'études"
+    },
+    "daily_inspiration": "Inspiration quotidienne",
+    "@daily_inspiration": {
+        "description": "Texte pour inspiration quotidienne"
+    },
+    "total_subject": "Total des matières",
+    "@total_subject": {
+        "description": "Texte pour total des matières"
+    },
+    "tasks": "Tâches",
+    "@tasks": {
+        "description": "Texte pour tâches"
+    },
+    "completed_tasks": "Tâches terminées",
+    "@completed_tasks": {
+        "description": "Texte pour tâches terminées"
+    },
+    "upcoming_tasks": "Tâches à venir",
+    "@upcoming_tasks": {
+        "description": "Texte pour tâches à venir"
+    },
+    "view_all": "Voir tout",
+    "@view_all": {
+        "description": "Texte pour voir tout"
+    },
+    "subject": "Matières",
+    "@subject": {
+        "description": "Texte pour matière"
+    },
+    "add_new_subject": "Ajouter une nouvelle matière",
+    "@add_new_subject": {
+        "description": "Texte pour ajouter une nouvelle matière"
+    },
+    "day_keep": "Jours d'affilée ! Continuez comme ça !",
+    "@day_keep": {
+        "description": "Texte pour maintenir les jours"
+    },
+    "progress": "Progrès",
+    "@progress": {
+        "description": "Texte pour progrès"
+    }
+}

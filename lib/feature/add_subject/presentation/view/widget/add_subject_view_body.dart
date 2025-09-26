@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -322,10 +324,10 @@ class _SavingDialog extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: const [
-            CustomLoadingWidget(height: 28),
-            SizedBox(height: 12),
-            Text('Saving project...'),
+          children: [
+            const CustomLoadingWidget(height: 28),
+            heightBox(12),
+            const Text('Saving project...'),
           ],
         ),
       ),

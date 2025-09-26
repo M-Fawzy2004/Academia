@@ -1,0 +1,496 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for French (`fr`).
+class AppLocalizationsFr extends AppLocalizations {
+  AppLocalizationsFr([String locale = 'fr']) : super(locale);
+
+  @override
+  String get onboarding => 'Intégration';
+
+  @override
+  String get onboarding_title1 =>
+      'StudyBox – Toutes vos études en un seul endroit';
+
+  @override
+  String get onboarding_desc1 =>
+      'Rassemblez vos matériaux, fichiers et notes dans une application simple qui vous aide à organiser vos études sans confusion';
+
+  @override
+  String get onboarding_title2 => 'Organisez vos matières facilement';
+
+  @override
+  String get onboarding_desc2 =>
+      'Créez une section pour chaque matière, gardant tous les fichiers, notes et enregistrements ensemble pour un accès rapide';
+
+  @override
+  String get onboarding_title3 => 'Vos notes et fichiers sont en sécurité';
+
+  @override
+  String get onboarding_desc3 =>
+      'Écrivez vos notes, téléchargez vos fichiers et sauvegardez vos enregistrements audio pour réviser à tout moment, n\'importe où';
+
+  @override
+  String get onboarding_skip => 'Ignorer';
+
+  @override
+  String get onboarding_next => 'Suivant';
+
+  @override
+  String get onboarding_start_now => 'Commencer maintenant';
+
+  @override
+  String get welcome => 'Bienvenue';
+
+  @override
+  String get welcome_title =>
+      'Prêt à commencer votre parcours d\'études avec StudyBox ?';
+
+  @override
+  String get welcome_desc =>
+      'Organisez vos matières, sauvegardez vos fichiers et notes, et gardez vos études structurées comme vous le souhaitez';
+
+  @override
+  String get welcome_button_login => 'Se connecter';
+
+  @override
+  String get welcome_button_register => 'S\'inscrire';
+
+  @override
+  String get login => 'Connexion';
+
+  @override
+  String get login_email => 'E-mail';
+
+  @override
+  String get login_pass => 'Mot de passe';
+
+  @override
+  String get login_forgot => 'Mot de passe oublié ?';
+
+  @override
+  String get login_button => 'Se connecter';
+
+  @override
+  String get login_register => 'S\'inscrire';
+
+  @override
+  String get login_not_have_an_account => 'Vous n\'avez pas de compte ?';
+
+  @override
+  String get login_with_google => 'Se connecter avec Google';
+
+  @override
+  String get login_with_apple => 'Se connecter avec Apple';
+
+  @override
+  String get login_or => 'ou';
+
+  @override
+  String get register => 'Inscription';
+
+  @override
+  String get register_username => 'Nom d\'utilisateur';
+
+  @override
+  String get register_confirm_pass => 'Confirmer le mot de passe';
+
+  @override
+  String get register_have_an_account => 'Vous avez déjà un compte ?';
+
+  @override
+  String get forget => 'Mot de passe oublié';
+
+  @override
+  String get forget_reset => 'Réinitialiser le mot de passe';
+
+  @override
+  String get enter_verfivcation_code => 'Envoyer le code de vérification';
+
+  @override
+  String get identity_confirmation => 'Confirmation d\'identité';
+
+  @override
+  String get save_pass => 'Sauvegarder le mot de passe';
+
+  @override
+  String get enter_email => 'Veuillez saisir votre e-mail';
+
+  @override
+  String get resend_code => 'Renvoyer le code';
+
+  @override
+  String get back_step => 'Retour à l\'étape précédente';
+
+  @override
+  String get send_code_with_email =>
+      'Code de vérification envoyé à votre e-mail';
+
+  @override
+  String get enter_code => 'Veuillez saisir le code à 6 chiffres';
+
+  @override
+  String get verf_code => 'Code de vérification';
+
+  @override
+  String get confirm_code => 'Confirmer le code';
+
+  @override
+  String get enter_new_pass => 'Veuillez saisir un nouveau mot de passe';
+
+  @override
+  String get new_pass => 'Nouveau mot de passe';
+
+  @override
+  String get pass_at_least =>
+      'Le mot de passe doit contenir au moins 8 caractères';
+
+  @override
+  String get confirm_email => 'Confirmer l\'e-mail';
+
+  @override
+  String get verf => 'Vérifier';
+
+  @override
+  String get back_button => 'Retour';
+
+  @override
+  String get resend_button => 'Renvoyer';
+
+  @override
+  String get waiting_text => 'Attente...';
+
+  @override
+  String get successfully_logged_in => 'Connexion réussie';
+
+  @override
+  String get account_verified_created => 'Compte vérifié et créé avec succès';
+
+  @override
+  String get email_not_found => 'E-mail introuvable';
+
+  @override
+  String get verification_code_required => 'Le code de vérification est requis';
+
+  @override
+  String get verification_code_6_digits =>
+      'Le code de vérification doit contenir 6 chiffres';
+
+  @override
+  String get important_notes => 'Notes importantes :';
+
+  @override
+  String get check_spam_folder =>
+      'Vérifiez votre dossier spam si vous n\'avez pas reçu l\'e-mail';
+
+  @override
+  String get code_expires_10_minutes =>
+      'Le code de vérification expire dans 10 minutes';
+
+  @override
+  String get account_created_after_verification =>
+      'Votre compte sera créé uniquement après vérification';
+
+  @override
+  String get email_required => 'L\'e-mail est requis';
+
+  @override
+  String get valid_email_required =>
+      'Veuillez saisir une adresse e-mail valide';
+
+  @override
+  String get password_required => 'Le mot de passe est requis';
+
+  @override
+  String get password_6_characters =>
+      'Le mot de passe doit contenir au moins 6 caractères';
+
+  @override
+  String get confirm_password_required =>
+      'Veuillez confirmer votre mot de passe';
+
+  @override
+  String get passwords_not_match => 'Les mots de passe ne correspondent pas';
+
+  @override
+  String get please_enter_username => 'Veuillez saisir un nom d\'utilisateur';
+
+  @override
+  String get username_3_characters =>
+      'Le nom d\'utilisateur doit contenir au moins 3 caractères';
+
+  @override
+  String get username_20_characters =>
+      'Le nom d\'utilisateur doit contenir moins de 20 caractères';
+
+  @override
+  String get username_letters_numbers_underscores =>
+      'Le nom d\'utilisateur ne peut contenir que des lettres, chiffres et tirets bas';
+
+  @override
+  String get please_enter_email => 'Veuillez saisir un e-mail';
+
+  @override
+  String get valid_email_address => 'Veuillez saisir une adresse e-mail valide';
+
+  @override
+  String get please_enter_password => 'Veuillez saisir un mot de passe';
+
+  @override
+  String get password_6_chars_minimum =>
+      'Le mot de passe doit contenir au moins 6 caractères';
+
+  @override
+  String get password_50_chars_maximum =>
+      'Le mot de passe doit contenir moins de 50 caractères';
+
+  @override
+  String get password_letter_number =>
+      'Le mot de passe doit contenir au moins une lettre et un chiffre';
+
+  @override
+  String get please_enter_confirm_password =>
+      'Veuillez saisir la confirmation du mot de passe';
+
+  @override
+  String get please_enter_field => 'Veuillez remplir ce champ';
+
+  @override
+  String get please_enter_phone => 'Veuillez saisir le numéro de téléphone';
+
+  @override
+  String get valid_egyptian_phone =>
+      'Veuillez saisir un numéro de téléphone égyptien valide';
+
+  @override
+  String get please_enter_name => 'Veuillez saisir un nom';
+
+  @override
+  String get name_2_characters => 'Le nom doit contenir au moins 2 caractères';
+
+  @override
+  String get name_50_characters =>
+      'Le nom doit contenir moins de 50 caractères';
+
+  @override
+  String get name_letters_spaces =>
+      'Le nom ne peut contenir que des lettres et des espaces';
+
+  @override
+  String get please_enter_age => 'Veuillez saisir l\'âge';
+
+  @override
+  String get valid_age => 'Veuillez saisir un âge valide';
+
+  @override
+  String get age_minimum_13 => 'L\'âge doit être d\'au moins 13 ans';
+
+  @override
+  String get warning_email_not_found =>
+      'Attention : E-mail non trouvé dans la réponse d\'inscription';
+
+  @override
+  String get sent_to => 'Envoyé à :';
+
+  @override
+  String get failed_to_create_account => 'Échec de création du compte';
+
+  @override
+  String get invalid_credentials => 'Identifiants invalides';
+
+  @override
+  String get google_signin_cancelled => 'La connexion Google a été annulée';
+
+  @override
+  String get failed_authenticate_google =>
+      'Échec de l\'authentification avec Google';
+
+  @override
+  String get google_signin_failed => 'La connexion Google a échoué';
+
+  @override
+  String get failed_authenticate_apple =>
+      'Échec de l\'authentification avec Apple';
+
+  @override
+  String get apple_signin_failed => 'La connexion Apple a échoué';
+
+  @override
+  String get email_verified_successfully => 'E-mail vérifié avec succès';
+
+  @override
+  String get email_verification_failed =>
+      'La vérification de l\'e-mail a échoué';
+
+  @override
+  String get password_reset_verified_successfully =>
+      'Code de réinitialisation du mot de passe vérifié avec succès';
+
+  @override
+  String get password_reset_verification_failed =>
+      'La vérification du code de réinitialisation du mot de passe a échoué';
+
+  @override
+  String get verification_email_sent_successfully =>
+      'E-mail de vérification envoyé avec succès';
+
+  @override
+  String get failed_send_verification_email =>
+      'Échec de l\'envoi de l\'e-mail de vérification';
+
+  @override
+  String get password_reset_email_sent_successfully =>
+      'E-mail de réinitialisation du mot de passe envoyé avec succès';
+
+  @override
+  String get failed_send_password_reset_email =>
+      'Échec de l\'envoi de l\'e-mail de réinitialisation du mot de passe';
+
+  @override
+  String get password_updated_successfully =>
+      'Mot de passe mis à jour avec succès';
+
+  @override
+  String get failed_update_password =>
+      'Échec de la mise à jour du mot de passe';
+
+  @override
+  String get no_authenticated_user_found =>
+      'Aucun utilisateur authentifié trouvé';
+
+  @override
+  String get failed_get_current_user =>
+      'Échec de récupération des données de l\'utilisateur actuel';
+
+  @override
+  String get name_cannot_be_empty => 'Le nom ne peut pas être vide';
+
+  @override
+  String get failed_update_profile => 'Échec de la mise à jour du profil';
+
+  @override
+  String get failed_sign_out => 'Échec de la déconnexion';
+
+  @override
+  String get invalid_email_or_password => 'E-mail ou mot de passe invalide';
+
+  @override
+  String get please_verify_email_before_signin =>
+      'Veuillez vérifier votre e-mail avant de vous connecter';
+
+  @override
+  String get account_already_exists => 'Un compte avec cet e-mail existe déjà';
+
+  @override
+  String get password_must_be_6_characters =>
+      'Le mot de passe doit contenir au moins 6 caractères';
+
+  @override
+  String get please_enter_valid_email =>
+      'Veuillez saisir une adresse e-mail valide';
+
+  @override
+  String get signup_disabled =>
+      'Les nouvelles inscriptions sont actuellement désactivées';
+
+  @override
+  String get email_rate_limit_exceeded =>
+      'Limite de demandes dépassée. Veuillez réessayer plus tard';
+
+  @override
+  String get verification_code_expired =>
+      'Le code de vérification a expiré. Veuillez en demander un nouveau';
+
+  @override
+  String get invalid_verification_code =>
+      'Code de vérification invalide. Veuillez vérifier et réessayer';
+
+  @override
+  String get verification_code_expired_or_invalid =>
+      'Le code de vérification est expiré ou invalide. Veuillez en demander un nouveau';
+
+  @override
+  String get unexpected_error_occurred =>
+      'Une erreur inattendue s\'est produite';
+
+  @override
+  String get name_is_required => 'Le nom est requis';
+
+  @override
+  String get password_is_required => 'Le mot de passe est requis';
+
+  @override
+  String get password_must_be_6_chars =>
+      'Le mot de passe doit contenir au moins 6 caractères';
+
+  @override
+  String get invalid_login_credentials => 'E-mail ou mot de passe invalide';
+
+  @override
+  String get email_not_confirmed =>
+      'Veuillez vérifier votre e-mail avant de vous connecter';
+
+  @override
+  String get user_already_registered => 'Un compte avec cet e-mail existe déjà';
+
+  @override
+  String get password_min_length =>
+      'Le mot de passe doit contenir au moins 6 caractères';
+
+  @override
+  String get invalid_email => 'Veuillez saisir une adresse e-mail valide';
+
+  @override
+  String get home_text_navigationbar => 'Accueil';
+
+  @override
+  String get subject_text_navigationbar => 'Matières';
+
+  @override
+  String get reminders_text_navigationbar => 'Rappels';
+
+  @override
+  String get profile_text_navigationbar => 'Profil';
+
+  @override
+  String get welcome_back => 'Bon retour';
+
+  @override
+  String get ready_learning => 'Prêt à continuer l\'apprentissage';
+
+  @override
+  String get study_streak => 'Série d\'études';
+
+  @override
+  String get daily_inspiration => 'Inspiration quotidienne';
+
+  @override
+  String get total_subject => 'Total des matières';
+
+  @override
+  String get tasks => 'Tâches';
+
+  @override
+  String get completed_tasks => 'Tâches terminées';
+
+  @override
+  String get upcoming_tasks => 'Tâches à venir';
+
+  @override
+  String get view_all => 'Voir tout';
+
+  @override
+  String get subject => 'Matières';
+
+  @override
+  String get add_new_subject => 'Ajouter une nouvelle matière';
+
+  @override
+  String get day_keep => 'Jours d\'affilée ! Continuez comme ça !';
+
+  @override
+  String get progress => 'Progrès';
+}

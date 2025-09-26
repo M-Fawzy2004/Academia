@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/widget/custom_text_field.dart';
 import 'package:study_box/feature/add_subject/data/model/resource_item.dart';
 
 class LinkDialog extends StatefulWidget {
   final Function(ResourceItem) onAdd;
-  final ResourceItem? initialResource; 
+  final ResourceItem? initialResource;
 
   const LinkDialog({
     super.key,
@@ -60,18 +60,18 @@ class _LinkDialogState extends State<LinkDialog> {
   void _submit() {
     if (_formKey.currentState!.validate()) {
       final resource = ResourceItem(
-        id: widget.initialResource?.id ?? 
+        id: widget.initialResource?.id ??
             DateTime.now().millisecondsSinceEpoch.toString(),
         title: _titleController.text.trim(),
-        description: _descriptionController.text.trim().isEmpty 
-            ? (LanguageHelper.isArabic(context) ? 'رابط ويب' : 'Web Link')
+        description: _descriptionController.text.trim().isEmpty
+            ? 'Web Link'
             : _descriptionController.text.trim(),
         type: ResourceType.link,
         url: _urlController.text.trim(),
         icon: Icons.link,
         color: AppColors.primaryColor,
       );
-      
+
       widget.onAdd(resource);
       Navigator.of(context).pop();
     }
@@ -79,103 +79,144 @@ class _LinkDialogState extends State<LinkDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final isArabic = LanguageHelper.isArabic(context);
     final isEditing = widget.initialResource != null;
-    
-    return AlertDialog(
+
+    return Dialog(
+      backgroundColor: AppColors.getBackgroundColor(context),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.r),
       ),
-      title: Text(
-        isEditing
-            ? (isArabic ? 'تعديل الرابط' : 'Edit Link')
-            : (isArabic ? 'إضافة رابط جديد' : 'Add New Link'),
-        style: Styles.font15MediumGreyBold(context),
+      insetPadding: EdgeInsets.symmetric(
+        horizontal: 16.w,
+        vertical: 24.h,
       ),
-      content: Form(
-        key: _formKey,
+      child: Container(
+        width: double.infinity,
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.height * 0.8,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextFormField(
-              controller: _titleController,
-              decoration: InputDecoration(
-                labelText: isArabic ? 'عنوان الرابط *' : 'Link Title *',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                prefixIcon: const Icon(Icons.title),
+            // Header
+            Padding(
+              padding: EdgeInsets.all(20.w),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      isEditing ? 'Edit Link' : 'Add New Link',
+                      style: Styles.font15MediumGreyBold(context),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: Icon(
+                      Icons.close,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ],
               ),
-              validator: (value) {
-                if (value == null || value.trim().isEmpty) {
-                  return isArabic ? 'يرجى إدخال عنوان الرابط' : 'Please enter link title';
-                }
-                return null;
-              },
             ),
-            
-            heightBox(16),
-            
-            TextFormField(
-              controller: _urlController,
-              decoration: InputDecoration(
-                labelText: isArabic ? 'الرابط *' : 'URL *',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                prefixIcon: const Icon(Icons.link),
-                hintText: 'https://example.com',
-              ),
-              keyboardType: TextInputType.url,
-              validator: (value) {
-                if (value == null || value.trim().isEmpty) {
-                  return isArabic ? 'يرجى إدخال الرابط' : 'Please enter URL';
-                }
-                if (!_isValidUrl(value.trim())) {
-                  return isArabic ? 'يرجى إدخال رابط صحيح' : 'Please enter a valid URL';
-                }
-                return null;
-              },
+
+            // Divider
+            Divider(
+              height: 1,
+              color: Colors.grey[300],
             ),
-            
-            heightBox(16),
-            
-            TextFormField(
-              controller: _descriptionController,
-              decoration: InputDecoration(
-                labelText: isArabic ? 'الوصف (اختياري)' : 'Description (Optional)',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
+
+            // Scrollable Content
+            Flexible(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                padding: EdgeInsets.all(20.w),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CustomTextField(
+                        controller: _titleController,
+                        hintText: 'Link Title',
+                        prefixIcon: Icons.title,
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please enter link title';
+                          }
+                          return null;
+                        },
+                      ),
+                      heightBox(16),
+                      CustomTextField(
+                        controller: _urlController,
+                        hintText: 'https://example.com',
+                        prefixIcon: Icons.link,
+                        keyboardType: TextInputType.url,
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please enter URL';
+                          }
+                          if (!_isValidUrl(value.trim())) {
+                            return 'Please enter a valid URL';
+                          }
+                          return null;
+                        },
+                      ),
+                      heightBox(16),
+                      CustomTextField(
+                        controller: _descriptionController,
+                        hintText: 'Description (Optional)',
+                        prefixIcon: Icons.description,
+                        maxLines: 2,
+                        maxLength: 200,
+                      ),
+                    ],
+                  ),
                 ),
-                prefixIcon: const Icon(Icons.description),
               ),
-              maxLines: 2,
-              maxLength: 200,
+            ),
+
+            // Divider
+            Divider(
+              height: 1,
+              color: Colors.grey[300],
+            ),
+
+            // Actions
+            Padding(
+              padding: EdgeInsets.all(20.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text(
+                      'Cancel',
+                      style: TextStyle(color: Colors.grey[600]),
+                    ),
+                  ),
+                  SizedBox(width: 12.w),
+                  ElevatedButton(
+                    onPressed: _submit,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primaryColor,
+                      foregroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 24.w,
+                        vertical: 12.h,
+                      ),
+                    ),
+                    child: Text(
+                      isEditing ? 'Update' : 'Add',
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(
-            isArabic ? 'إلغاء' : 'Cancel',
-            style: TextStyle(color: Colors.grey[600]),
-          ),
-        ),
-        ElevatedButton(
-          onPressed: _submit,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primaryColor,
-            foregroundColor: Colors.white,
-          ),
-          child: Text(
-            isEditing
-                ? (isArabic ? 'تحديث' : 'Update')
-                : (isArabic ? 'إضافة' : 'Add'),
-          ),
-        ),
-      ],
     );
   }
 }
