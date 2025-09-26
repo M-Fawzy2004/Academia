@@ -85,23 +85,28 @@ class ImagePickerService {
                 title: Text(isArabic ? 'اختيار من المعرض' : 'Choose from Gallery'),
                 onTap: () async {
                   Navigator.of(context).pop();
-                  final image = await pickImage(context);
-                  if (image != null) {
-                    onImagePicked(image);
+                  // Allow multiple selection from gallery
+                  final List<XFile> images = await _imagePicker.pickMultiImage(
+                    maxWidth: 1920,
+                    maxHeight: 1080,
+                    imageQuality: 85,
+                  );
+                  for (final image in images) {
+                    onImagePicked(
+                      ResourceItem(
+                        id: DateTime.now().millisecondsSinceEpoch.toString(),
+                        title: image.name,
+                        description: isArabic ? 'صورة مضافة' : 'Added Image',
+                        type: ResourceType.image,
+                        filePath: image.path,
+                        icon: Icons.image,
+                        color: Colors.green,
+                      ),
+                    );
                   }
                 },
               ),
-              ListTile(
-                leading: const Icon(Icons.photo_camera, color: Colors.green),
-                title: Text(isArabic ? 'التقاط صورة' : 'Take Picture'),
-                onTap: () async {
-                  Navigator.of(context).pop();
-                  final image = await pickImageFromCamera(context);
-                  if (image != null) {
-                    onImagePicked(image);
-                  }
-                },
-              ),
+              // Camera option removed to restrict to gallery uploads only
             ],
           ),
         );

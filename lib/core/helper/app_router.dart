@@ -103,13 +103,17 @@ abstract class AppRouter {
       GoRoute(
         path: addSubjectView,
         builder: (BuildContext context, GoRouterState state) {
-          return const AddSubjectView();
+          return AppProviders.addSubjectView(
+            child: const AddSubjectView(),
+          );
         },
       ),
       GoRoute(
         path: subjectView,
         builder: (BuildContext context, GoRouterState state) {
-          return const SubjectView();
+          return AppProviders.addSubjectView(
+            child: const SubjectView(),
+          );
         },
       ),
     ],

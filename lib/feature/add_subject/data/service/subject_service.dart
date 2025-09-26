@@ -8,12 +8,27 @@ class SubjectService {
 
   SubjectService({required this.supabaseClient});
 
-  /// Add subject to Supabase
+  /// Add subject to Supabase with profile management
   Future<void> addSubject(SubjectModel subject) async {
     try {
+      final userId = supabaseClient.auth.currentUser?.id;
+      if (userId == null) throw Exception('User not authenticated');
+
+      // First, ensure user profile exists
+      await _ensureUserProfileExists(userId);
+
+      final Map<String, dynamic> payload = Map<String, dynamic>.from(subject.toJson());
+      // Let Postgres generate UUID, and attach current user id
+      payload.remove('id');
+      payload['user_id'] = userId;
+      // Ensure color fits int4 (strip alpha just in case)
+      if (payload['color'] is int) {
+        payload['color'] = (payload['color'] as int) & 0x00FFFFFF;
+      }
+
       await supabaseClient
           .from(AppConstant.tableSubjects)
-          .insert(subject.toJson());
+          .insert(payload);
     } catch (e) {
       throw Exception('Failed to add subject: $e');
     }
@@ -115,24 +130,38 @@ class SubjectService {
     }
   }
 
-  /// Get current user's subscription tier
+  /// Get current user's subscription tier with profile creation
   Future<SubscriptionTier> getUserSubscriptionTier() async {
     try {
       final userId = supabaseClient.auth.currentUser?.id;
       if (userId == null) throw Exception('User not authenticated');
 
-      final response = await supabaseClient
-          .from(AppConstant.profileTable)
-          .select('subscription_tier')
-          .eq('id', userId)
-          .single();
+      // Ensure profile exists first
+      await _ensureUserProfileExists(userId);
 
-      final tierString = response['subscription_tier'] as String?;
+      final List<dynamic> rows = await supabaseClient
+          .from(AppConstant.subscriptionTable)
+          .select('id, subscription_tier')
+          .eq('id', userId);
+
+      final row = rows.isNotEmpty ? rows.first as Map<String, dynamic> : {};
+      final tierString = row['subscription_tier'] as String?;
+      
+      if (tierString == null || tierString.isEmpty) {
+        // Update with default tier
+        await supabaseClient.from(AppConstant.subscriptionTable).update({
+          'subscription_tier': SubscriptionTier.free.name,
+          'updated_at': DateTime.now().toIso8601String(),
+        }).eq('id', userId);
+        return SubscriptionTier.free;
+      }
+
       return SubscriptionTier.values.firstWhere(
         (tier) => tier.name == tierString,
         orElse: () => SubscriptionTier.free,
       );
     } catch (e) {
+      print('Error getting subscription tier: $e');
       return SubscriptionTier.free;
     }
   }
@@ -152,6 +181,86 @@ class SubjectService {
       return response.count;
     } catch (e) {
       throw Exception('Failed to count subjects: $e');
+    }
+  }
+
+  /// Ensure user profile exists in profiles table
+  Future<void> _ensureUserProfileExists(String userId) async {
+    try {
+      // Check if profile exists
+      final existingProfile = await supabaseClient
+          .from(AppConstant.subscriptionTable)
+          .select('id')
+          .eq('id', userId)
+          .maybeSingle();
+
+      if (existingProfile == null) {
+        // Create profile if doesn't exist
+        final userMetadata = supabaseClient.auth.currentUser?.userMetadata ?? {};
+        final email = supabaseClient.auth.currentUser?.email ?? '';
+        
+        await supabaseClient.from(AppConstant.subscriptionTable).insert({
+          'id': userId,
+          'email': email,
+          'full_name': userMetadata['full_name'] ?? '',
+          'avatar_url': userMetadata['avatar_url'],
+          'subscription_tier': SubscriptionTier.free.name,
+          'created_at': DateTime.now().toIso8601String(),
+          'updated_at': DateTime.now().toIso8601String(),
+        });
+        
+        print('Profile created for user: $userId');
+      }
+    } catch (e) {
+      print('Error ensuring profile exists: $e');
+      // Continue execution even if profile creation fails
+      // The app should still work for adding subjects
+    }
+  }
+
+  /// Create or update user profile explicitly
+  Future<void> createUserProfile({
+    required String fullName,
+    String? avatarUrl,
+    SubscriptionTier tier = SubscriptionTier.free,
+  }) async {
+    try {
+      final userId = supabaseClient.auth.currentUser?.id;
+      if (userId == null) throw Exception('User not authenticated');
+      
+      final email = supabaseClient.auth.currentUser?.email ?? '';
+
+      await supabaseClient.from(AppConstant.subscriptionTable).upsert({
+        'id': userId,
+        'email': email,
+        'full_name': fullName,
+        'avatar_url': avatarUrl,
+        'subscription_tier': tier.name,
+        'updated_at': DateTime.now().toIso8601String(),
+      });
+    } catch (e) {
+      throw Exception('Failed to create/update profile: $e');
+    }
+  }
+
+  /// Get user profile information
+  Future<Map<String, dynamic>?> getUserProfile() async {
+    try {
+      final userId = supabaseClient.auth.currentUser?.id;
+      if (userId == null) throw Exception('User not authenticated');
+
+      await _ensureUserProfileExists(userId);
+
+      final response = await supabaseClient
+          .from(AppConstant.subscriptionTable)
+          .select()
+          .eq('id', userId)
+          .maybeSingle();
+
+      return response;
+    } catch (e) {
+      print('Error getting user profile: $e');
+      return null;
     }
   }
 }

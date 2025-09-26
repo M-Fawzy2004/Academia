@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:study_box/feature/add_subject/presentation/view/widget/add_subject_view_body.dart';
+import 'package:study_box/feature/add_subject/presentation/view/widget/add_subject_bloc_consumer.dart';
 
 class AddSubjectView extends StatelessWidget {
   const AddSubjectView({super.key});
@@ -11,7 +11,7 @@ class AddSubjectView extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15.w),
-          child: const AddSubjectViewBody(),
+          child: const AddSubjectBlocConsumer(),
         ),
       ),
     );

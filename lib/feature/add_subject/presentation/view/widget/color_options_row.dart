@@ -46,12 +46,10 @@ class _ColorOptionsRowState extends State<ColorOptionsRow> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: availableColors.map((color) {
         final isSelected = selectedColor == color;
-
         return GestureDetector(
           onTap: () => _selectColor(color),
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
-            curve: Curves.easeInOut,
+            duration: const Duration(milliseconds: 300),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: isSelected

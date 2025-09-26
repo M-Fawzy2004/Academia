@@ -24,5 +24,5 @@ class AppConstant {
   static const String tableSubjects = 'subjects';
 
   // user profile
-  static const String profileTable = 'profiles';
+  static const String subscriptionTable = 'subscription';
 }

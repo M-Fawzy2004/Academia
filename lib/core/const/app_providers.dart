@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/dependency_injection.dart';
+import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
 
 class AppProviders {
@@ -48,6 +49,14 @@ class AppProviders {
   static Widget profileView({required Widget child}) {
     return BlocProvider<AuthCubit>(
       create: (_) => getIt<AuthCubit>(),
+      child: child,
+    );
+  }
+
+  /// add subject View Provider
+  static Widget addSubjectView({required Widget child}) {
+    return BlocProvider<SubjectCubit>(
+      create: (_) => getIt<SubjectCubit>(),
       child: child,
     );
   }

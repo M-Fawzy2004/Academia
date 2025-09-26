@@ -165,4 +165,40 @@ class SubjectRepositoryImpl implements SubjectRepository {
       return Left(ServerFailure(message: e.toString()));
     }
   }
+
+  /// Create user profile - add this method
+  Future<Either<Failure, Unit>> createUserProfile({
+    required String fullName,
+    String? avatarUrl,
+    SubscriptionTier tier = SubscriptionTier.free,
+  }) async {
+    try {
+      await subjectService.createUserProfile(
+        fullName: fullName,
+        avatarUrl: avatarUrl,
+        tier: tier,
+      );
+      return const Right(unit);
+    } on PostgrestException catch (e) {
+      return Left(ServerFailure(message: e.message, code: e.code));
+    } on SocketException {
+      return const Left(NetworkFailure(message: 'No internet connection'));
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
+  }
+
+  /// Get user profile - add this method
+  Future<Either<Failure, Map<String, dynamic>?>> getUserProfile() async {
+    try {
+      final profile = await subjectService.getUserProfile();
+      return Right(profile);
+    } on PostgrestException catch (e) {
+      return Left(ServerFailure(message: e.message, code: e.code));
+    } on SocketException {
+      return const Left(NetworkFailure(message: 'No internet connection'));
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
+  }
 }

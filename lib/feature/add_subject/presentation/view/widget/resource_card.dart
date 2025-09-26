@@ -10,6 +10,8 @@ class ResourceCard extends StatelessWidget {
   final VoidCallback? onTap;
   final VoidCallback? onEdit;
   final bool showActions;
+  final String? uploaderName;
+  final String? planLabel;
 
   const ResourceCard({
     super.key,
@@ -18,6 +20,8 @@ class ResourceCard extends StatelessWidget {
     this.onTap,
     this.onEdit,
     this.showActions = true,
+    this.uploaderName,
+    this.planLabel,
   });
 
   @override
@@ -86,6 +90,38 @@ class ResourceCard extends StatelessWidget {
                           ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                      if (uploaderName != null || planLabel != null) ...[
+                        SizedBox(height: 4.h),
+                        Row(
+                          children: [
+                            if (uploaderName != null) ...[
+                              Icon(Icons.person, size: 12.sp, color: Colors.grey[600]),
+                              SizedBox(width: 4.w),
+                              Flexible(
+                                child: Text(
+                                  uploaderName!,
+                                  style: TextStyle(fontSize: 11.sp, color: Colors.grey[700]),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],
+                            if (planLabel != null) ...[
+                              SizedBox(width: 8.w),
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
+                                decoration: BoxDecoration(
+                                  color: Colors.blue.withOpacity(0.08),
+                                  borderRadius: BorderRadius.circular(8.r),
+                                ),
+                                child: Text(
+                                  planLabel!,
+                                  style: TextStyle(fontSize: 10.sp, color: Colors.blue[700]),
+                                ),
+                              ),
+                            ],
+                          ],
                         ),
                       ],
                       if (resource.type != ResourceType.link) ...[
