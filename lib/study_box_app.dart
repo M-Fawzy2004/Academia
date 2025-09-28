@@ -42,6 +42,7 @@ class _StudyBoxAppState extends State<StudyBoxApp> {
           Locale('en'),
           Locale('ar'),
           Locale('fr'),
+          Locale('es'),
         ],
         builder: (context, child) {
           final localizations = AppLocalizations.of(context);

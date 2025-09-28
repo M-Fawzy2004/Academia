@@ -1,0 +1,583 @@
+{
+  "@@locale": "es",
+  "onboarding": "Incorporación",
+  "@onboarding": {
+    "description": "Título principal de la pantalla de Incorporación"
+  },
+  "onboarding_title1": "StudyBox – Todos tus estudios en un lugar",
+  "@onboarding_title1": {
+    "description": "Título de la primera pantalla de incorporación"
+  },
+  "onboarding_desc1": "Reúne tus materiales, archivos y notas en una aplicación simple que te ayuda a organizar tus estudios sin confusión",
+  "@onboarding_desc1": {
+    "description": "Descripción de la primera pantalla de incorporación"
+  },
+  "onboarding_title2": "Organiza tus materias fácilmente",
+  "@onboarding_title2": {
+    "description": "Título de la segunda pantalla de incorporación"
+  },
+  "onboarding_desc2": "Crea una sección para cada materia, manteniendo todos los archivos, notas y grabaciones juntos para acceso rápido",
+  "@onboarding_desc2": {
+    "description": "Descripción de la segunda pantalla de incorporación"
+  },
+  "onboarding_title3": "Tus notas y archivos están seguros",
+  "@onboarding_title3": {
+    "description": "Título de la tercera pantalla de incorporación"
+  },
+  "onboarding_desc3": "Escribe tus notas, sube tus archivos y guarda tus grabaciones de audio para revisar en cualquier momento, en cualquier lugar",
+  "@onboarding_desc3": {
+    "description": "Descripción de la tercera pantalla de incorporación"
+  },
+  "onboarding_skip": "Saltar",
+  "@onboarding_skip": {
+    "description": "Botón saltar en la pantalla de incorporación"
+  },
+  "onboarding_next": "Siguiente",
+  "@onboarding_next": {
+    "description": "Botón siguiente en la pantalla de incorporación"
+  },
+  "onboarding_start_now": "Comenzar Ahora",
+  "@onboarding_start_now": {
+    "description": "Botón Comenzar (Hecho) en la pantalla de incorporación"
+  },
+  "welcome": "Bienvenido",
+  "@welcome": {
+    "description": "Traducción especial de la pantalla de bienvenida"
+  },
+  "welcome_title": "¿Listo para comenzar tu viaje de estudio con StudyBox?",
+  "@welcome_title": {
+    "description": "Título de la pantalla de bienvenida"
+  },
+  "welcome_desc": "Organiza tus materias, guarda tus archivos y notas, y mantén tus estudios estructurados como te gusta",
+  "@welcome_desc": {
+    "description": "Descripción en la pantalla de bienvenida"
+  },
+  "welcome_button_login": "Iniciar Sesión",
+  "@welcome_button_login": {
+    "description": "Botón de iniciar sesión en la pantalla de bienvenida"
+  },
+  "welcome_button_register": "Registrarse",
+  "@welcome_button_register": {
+    "description": "Botón de registro en la pantalla de bienvenida"
+  },
+  "login": "Iniciar Sesión",
+  "@login": {
+    "description": "Traducción de la pantalla de inicio de sesión"
+  },
+  "login_email": "Correo Electrónico",
+  "@login_email": {
+    "description": "Campo de correo electrónico en la pantalla de inicio de sesión"
+  },
+  "login_pass": "Contraseña",
+  "@login_pass": {
+    "description": "Campo de contraseña en la pantalla de inicio de sesión"
+  },
+  "login_forgot": "¿Olvidaste tu contraseña?",
+  "@login_forgot": {
+    "description": "Botón de contraseña olvidada en la pantalla de inicio de sesión"
+  },
+  "login_button": "Iniciar Sesión",
+  "@login_button": {
+    "description": "Botón de iniciar sesión en la pantalla de inicio de sesión"
+  },
+  "login_register": "Registrarse",
+  "@login_register": {
+    "description": "Navegar a la pantalla de registro"
+  },
+  "login_not_have_an_account": "¿No tienes una cuenta?",
+  "@login_not_have_an_account": {
+    "description": "Texto antes del botón de registro en la pantalla de inicio de sesión"
+  },
+  "login_with_google": "Iniciar sesión con Google",
+  "@login_with_google": {
+    "description": "Botón de iniciar sesión con Google"
+  },
+  "login_with_apple": "Iniciar sesión con Apple",
+  "@login_with_apple": {
+    "description": "Botón de iniciar sesión con Apple"
+  },
+  "login_or": "o",
+  "@login_or": {
+    "description": "Texto separador en la pantalla de inicio de sesión"
+  },
+  "register": "Registrarse",
+  "@register": {
+    "description": "Traducción de la pantalla de registro"
+  },
+  "register_username": "Nombre de Usuario",
+  "@register_username": {
+    "description": "Campo de nombre de usuario en la pantalla de registro"
+  },
+  "register_confirm_pass": "Confirmar Contraseña",
+  "@register_confirm_pass": {
+    "description": "Campo de confirmar contraseña en la pantalla de registro"
+  },
+  "register_have_an_account": "¿Ya tienes una cuenta?",
+  "@register_have_an_account": {
+    "description": "Texto antes del botón de inicio de sesión en la pantalla de registro"
+  },
+  "forget": "Olvidé mi Contraseña",
+  "@forget": {
+    "description": "Traducción de la pantalla de contraseña olvidada"
+  },
+  "forget_reset": "Restablecer Contraseña",
+  "@forget_reset": {
+    "description": "Botón de restablecer contraseña"
+  },
+  "enter_verfivcation_code": "Enviar código de verificación",
+  "@enter_verfivcation_code": {
+    "description": "Botón de enviar código de verificación"
+  },
+  "identity_confirmation": "Confirmación de Identidad",
+  "@identity_confirmation": {
+    "description": "Botón de confirmación de identidad"
+  },
+  "save_pass": "Guardar Contraseña",
+  "@save_pass": {
+    "description": "Botón de guardar contraseña"
+  },
+  "enter_email": "Por favor ingresa tu correo electrónico",
+  "@enter_email": {
+    "description": "Texto de ayuda para el campo de correo electrónico"
+  },
+  "resend_code": "Reenviar Código",
+  "@resend_code": {
+    "description": "Botón de reenviar código"
+  },
+  "back_step": "Volver al paso anterior",
+  "@back_step": {
+    "description": "Botón de volver al paso anterior"
+  },
+  "send_code_with_email": "Código de verificación enviado a tu correo electrónico",
+  "@send_code_with_email": {
+    "description": "Texto de ayuda para código enviado"
+  },
+  "enter_code": "Por favor ingresa el código de 6 dígitos",
+  "@enter_code": {
+    "description": "Texto de ayuda para el campo de código de verificación"
+  },
+  "verf_code": "Código de Verificación",
+  "@verf_code": {
+    "description": "Etiqueta del código de verificación"
+  },
+  "confirm_code": "Confirmar Código",
+  "@confirm_code": {
+    "description": "Botón de confirmar código"
+  },
+  "enter_new_pass": "Por favor ingresa una nueva contraseña",
+  "@enter_new_pass": {
+    "description": "Texto de ayuda para el campo de nueva contraseña"
+  },
+  "new_pass": "Nueva Contraseña",
+  "@new_pass": {
+    "description": "Etiqueta del campo de nueva contraseña"
+  },
+  "pass_at_least": "La contraseña debe tener al menos 8 caracteres",
+  "@pass_at_least": {
+    "description": "Validación de longitud mínima de contraseña"
+  },
+  "confirm_email": "Confirmar Correo Electrónico",
+  "@confirm_email": {
+    "description": "Botón de confirmar correo electrónico"
+  },
+  "verf": "Verificar",
+  "@verf": {
+    "description": "Botón de verificar"
+  },
+  "back_button": "Atrás",
+  "@back_button": {
+    "description": "Texto del botón atrás"
+  },
+  "resend_button": "Reenviar",
+  "@resend_button": {
+    "description": "Texto del botón reenviar"
+  },
+  "waiting_text": "Esperando...",
+  "@waiting_text": {
+    "description": "Texto de espera durante la cuenta regresiva"
+  },
+  "successfully_logged_in": "Sesión iniciada exitosamente",
+  "@successfully_logged_in": {
+    "description": "Mensaje de éxito al iniciar sesión"
+  },
+  "account_verified_created": "Cuenta verificada y creada exitosamente",
+  "@account_verified_created": {
+    "description": "Mensaje de éxito de verificación de cuenta"
+  },
+  "email_not_found": "Correo electrónico no encontrado",
+  "@email_not_found": {
+    "description": "Error cuando no se encuentra el correo electrónico"
+  },
+  "verification_code_required": "Se requiere código de verificación",
+  "@verification_code_required": {
+    "description": "Validación para código de verificación requerido"
+  },
+  "verification_code_6_digits": "El código de verificación debe tener 6 dígitos",
+  "@verification_code_6_digits": {
+    "description": "Validación para longitud del código de verificación"
+  },
+  "important_notes": "Notas Importantes:",
+  "@important_notes": {
+    "description": "Título de la sección de notas importantes"
+  },
+  "check_spam_folder": "Revisa tu carpeta de spam si no recibiste el correo",
+  "@check_spam_folder": {
+    "description": "Nota sobre la carpeta de spam"
+  },
+  "code_expires_10_minutes": "El código de verificación expira en 10 minutos",
+  "@code_expires_10_minutes": {
+    "description": "Nota sobre expiración del código"
+  },
+  "account_created_after_verification": "Tu cuenta se creará solo después de la verificación",
+  "@account_created_after_verification": {
+    "description": "Nota sobre el momento de creación de la cuenta"
+  },
+  "email_required": "Se requiere correo electrónico",
+  "@email_required": {
+    "description": "Validación para correo electrónico requerido"
+  },
+  "valid_email_required": "Por favor ingresa una dirección de correo electrónico válida",
+  "@valid_email_required": {
+    "description": "Validación para formato de correo electrónico válido"
+  },
+  "password_required": "Se requiere contraseña",
+  "@password_required": {
+    "description": "Validación para contraseña requerida"
+  },
+  "password_6_characters": "La contraseña debe tener al menos 6 caracteres",
+  "@password_6_characters": {
+    "description": "Validación para longitud mínima de contraseña"
+  },
+  "confirm_password_required": "Por favor confirma tu contraseña",
+  "@confirm_password_required": {
+    "description": "Validación para confirmar contraseña"
+  },
+  "passwords_not_match": "Las contraseñas no coinciden",
+  "@passwords_not_match": {
+    "description": "Validación cuando las contraseñas no coinciden"
+  },
+  "please_enter_username": "Por favor ingresa un nombre de usuario",
+  "@please_enter_username": {
+    "description": "Validación para nombre de usuario requerido"
+  },
+  "username_3_characters": "El nombre de usuario debe tener al menos 3 caracteres",
+  "@username_3_characters": {
+    "description": "Validación para longitud mínima del nombre de usuario"
+  },
+  "username_20_characters": "El nombre de usuario debe tener menos de 20 caracteres",
+  "@username_20_characters": {
+    "description": "Validación para longitud máxima del nombre de usuario"
+  },
+  "username_letters_numbers_underscores": "El nombre de usuario solo puede contener letras, números y guiones bajos",
+  "@username_letters_numbers_underscores": {
+    "description": "Validación para formato del nombre de usuario"
+  },
+  "please_enter_email": "Por favor ingresa un correo electrónico",
+  "@please_enter_email": {
+    "description": "Validación para correo electrónico requerido"
+  },
+  "valid_email_address": "Por favor ingresa una dirección de correo electrónico válida",
+  "@valid_email_address": {
+    "description": "Validación para formato de correo electrónico"
+  },
+  "please_enter_password": "Por favor ingresa una contraseña",
+  "@please_enter_password": {
+    "description": "Validación para contraseña requerida"
+  },
+  "password_6_chars_minimum": "La contraseña debe tener al menos 6 caracteres",
+  "@password_6_chars_minimum": {
+    "description": "Validación para longitud mínima de contraseña"
+  },
+  "password_50_chars_maximum": "La contraseña debe tener menos de 50 caracteres",
+  "@password_50_chars_maximum": {
+    "description": "Validación para longitud máxima de contraseña"
+  },
+  "password_letter_number": "La contraseña debe contener al menos una letra y un número",
+  "@password_letter_number": {
+    "description": "Validación para complejidad de contraseña"
+  },
+  "please_enter_confirm_password": "Por favor ingresa la confirmación de contraseña",
+  "@please_enter_confirm_password": {
+    "description": "Validación para confirmación de contraseña requerida"
+  },
+  "please_enter_field": "Por favor completa este campo",
+  "@please_enter_field": {
+    "description": "Validación genérica para campo requerido"
+  },
+  "please_enter_phone": "Por favor ingresa el número de teléfono",
+  "@please_enter_phone": {
+    "description": "Validación para número de teléfono requerido"
+  },
+  "valid_egyptian_phone": "Por favor ingresa un número de teléfono egipcio válido",
+  "@valid_egyptian_phone": {
+    "description": "Validación para formato de número de teléfono egipcio"
+  },
+  "please_enter_name": "Por favor ingresa un nombre",
+  "@please_enter_name": {
+    "description": "Validación para nombre requerido"
+  },
+  "name_2_characters": "El nombre debe tener al menos 2 caracteres",
+  "@name_2_characters": {
+    "description": "Validación para longitud mínima del nombre"
+  },
+  "name_50_characters": "El nombre debe tener menos de 50 caracteres",
+  "@name_50_characters": {
+    "description": "Validación para longitud máxima del nombre"
+  },
+  "name_letters_spaces": "El nombre solo puede contener letras y espacios",
+  "@name_letters_spaces": {
+    "description": "Validación para formato del nombre"
+  },
+  "please_enter_age": "Por favor ingresa la edad",
+  "@please_enter_age": {
+    "description": "Validación para edad requerida"
+  },
+  "valid_age": "Por favor ingresa una edad válida",
+  "@valid_age": {
+    "description": "Validación para formato de edad válido"
+  },
+  "age_minimum_13": "La edad debe ser al menos 13 años",
+  "@age_minimum_13": {
+    "description": "Validación para edad mínima"
+  },
+  "warning_email_not_found": "Advertencia: Correo electrónico no encontrado en la respuesta de registro",
+  "@warning_email_not_found": {
+    "description": "Advertencia cuando no se encuentra correo durante el registro"
+  },
+  "sent_to": "Enviado a:",
+  "@sent_to": {
+    "description": "Etiqueta para mostrar la dirección de correo electrónico"
+  },
+  "failed_to_create_account": "Error al crear la cuenta",
+  "@failed_to_create_account": {
+    "description": "Mensaje de error cuando falla la creación de cuenta"
+  },
+  "invalid_credentials": "Credenciales inválidas",
+  "@invalid_credentials": {
+    "description": "Mensaje de error cuando las credenciales de inicio de sesión son inválidas"
+  },
+  "google_signin_cancelled": "El inicio de sesión con Google fue cancelado",
+  "@google_signin_cancelled": {
+    "description": "Mensaje cuando se cancela el inicio de sesión con Google"
+  },
+  "failed_authenticate_google": "Error al autenticar con Google",
+  "@failed_authenticate_google": {
+    "description": "Mensaje de error cuando falla la autenticación con Google"
+  },
+  "google_signin_failed": "Error en el inicio de sesión con Google",
+  "@google_signin_failed": {
+    "description": "Mensaje de error general para fallo en inicio de sesión con Google"
+  },
+  "failed_authenticate_apple": "Error al autenticar con Apple",
+  "@failed_authenticate_apple": {
+    "description": "Mensaje de error cuando falla la autenticación con Apple"
+  },
+  "apple_signin_failed": "Error en el inicio de sesión con Apple",
+  "@apple_signin_failed": {
+    "description": "Mensaje de error general para fallo en inicio de sesión con Apple"
+  },
+  "email_verified_successfully": "Correo electrónico verificado exitosamente",
+  "@email_verified_successfully": {
+    "description": "Mensaje de éxito para verificación de correo electrónico"
+  },
+  "email_verification_failed": "Error en la verificación del correo electrónico",
+  "@email_verification_failed": {
+    "description": "Mensaje de error cuando falla la verificación del correo electrónico"
+  },
+  "password_reset_verified_successfully": "Código de restablecimiento de contraseña verificado exitosamente",
+  "@password_reset_verified_successfully": {
+    "description": "Mensaje de éxito para verificación de código de restablecimiento de contraseña"
+  },
+  "password_reset_verification_failed": "Error en la verificación del código de restablecimiento de contraseña",
+  "@password_reset_verification_failed": {
+    "description": "Mensaje de error cuando falla la verificación del código de restablecimiento de contraseña"
+  },
+  "verification_email_sent_successfully": "Correo de verificación enviado exitosamente",
+  "@verification_email_sent_successfully": {
+    "description": "Mensaje de éxito para envío de correo de verificación"
+  },
+  "failed_send_verification_email": "Error al enviar el correo de verificación",
+  "@failed_send_verification_email": {
+    "description": "Mensaje de error cuando falla el envío del correo de verificación"
+  },
+  "password_reset_email_sent_successfully": "Correo de restablecimiento de contraseña enviado exitosamente",
+  "@password_reset_email_sent_successfully": {
+    "description": "Mensaje de éxito para envío de correo de restablecimiento de contraseña"
+  },
+  "failed_send_password_reset_email": "Error al enviar el correo de restablecimiento de contraseña",
+  "@failed_send_password_reset_email": {
+    "description": "Mensaje de error cuando falla el envío del correo de restablecimiento de contraseña"
+  },
+  "password_updated_successfully": "Contraseña actualizada exitosamente",
+  "@password_updated_successfully": {
+    "description": "Mensaje de éxito para actualización de contraseña"
+  },
+  "failed_update_password": "Error al actualizar la contraseña",
+  "@failed_update_password": {
+    "description": "Mensaje de error cuando falla la actualización de contraseña"
+  },
+  "no_authenticated_user_found": "No se encontró usuario autenticado",
+  "@no_authenticated_user_found": {
+    "description": "Mensaje de error cuando no existe usuario autenticado"
+  },
+  "failed_get_current_user": "Error al obtener los datos del usuario actual",
+  "@failed_get_current_user": {
+    "description": "Mensaje de error cuando falla la obtención del usuario actual"
+  },
+  "name_cannot_be_empty": "El nombre no puede estar vacío",
+  "@name_cannot_be_empty": {
+    "description": "Mensaje de error cuando el nombre está vacío"
+  },
+  "failed_update_profile": "Error al actualizar el perfil",
+  "@failed_update_profile": {
+    "description": "Mensaje de error cuando falla la actualización del perfil"
+  },
+  "failed_sign_out": "Error al cerrar sesión",
+  "@failed_sign_out": {
+    "description": "Mensaje de error cuando falla el cierre de sesión"
+  },
+  "invalid_email_or_password": "Correo electrónico o contraseña inválidos",
+  "@invalid_email_or_password": {
+    "description": "Mensaje de error para credenciales de inicio de sesión inválidas"
+  },
+  "please_verify_email_before_signin": "Por favor verifica tu correo electrónico antes de iniciar sesión",
+  "@please_verify_email_before_signin": {
+    "description": "Mensaje solicitando verificación de correo antes de iniciar sesión"
+  },
+  "account_already_exists": "Ya existe una cuenta con este correo electrónico",
+  "@account_already_exists": {
+    "description": "Mensaje cuando la cuenta ya existe"
+  },
+  "password_must_be_6_characters": "La contraseña debe tener al menos 6 caracteres",
+  "@password_must_be_6_characters": {
+    "description": "Mensaje de longitud mínima de contraseña"
+  },
+  "please_enter_valid_email": "Por favor ingresa una dirección de correo electrónico válida",
+  "@please_enter_valid_email": {
+    "description": "Mensaje solicitando un correo válido"
+  },
+  "signup_disabled": "Los nuevos registros están actualmente deshabilitados",
+  "@signup_disabled": {
+    "description": "Mensaje cuando los nuevos registros están deshabilitados"
+  },
+  "email_rate_limit_exceeded": "Límite de solicitudes excedido. Por favor intenta de nuevo más tarde",
+  "@email_rate_limit_exceeded": {
+    "description": "Mensaje cuando se excede el límite de velocidad de solicitudes"
+  },
+  "verification_code_expired": "El código de verificación ha expirado. Por favor solicita uno nuevo",
+  "@verification_code_expired": {
+    "description": "Mensaje cuando el código de verificación ha expirado"
+  },
+  "invalid_verification_code": "Código de verificación inválido. Por favor verifica e intenta de nuevo",
+  "@invalid_verification_code": {
+    "description": "Mensaje cuando el código de verificación es inválido"
+  },
+  "verification_code_expired_or_invalid": "El código de verificación ha expirado o es inválido. Por favor solicita uno nuevo",
+  "@verification_code_expired_or_invalid": {
+    "description": "Mensaje para código de verificación expirado o inválido"
+  },
+  "unexpected_error_occurred": "Ocurrió un error inesperado",
+  "@unexpected_error_occurred": {
+    "description": "Mensaje de error inesperado general"
+  },
+  "name_is_required": "Se requiere el nombre",
+  "@name_is_required": {
+    "description": "Mensaje solicitando entrada de nombre"
+  },
+  "password_is_required": "Se requiere contraseña",
+  "@password_is_required": {
+    "description": "Mensaje solicitando entrada de contraseña"
+  },
+  "password_must_be_6_chars": "La contraseña debe tener al menos 6 caracteres",
+  "@password_must_be_6_chars": {
+    "description": "Mensaje de requisito de longitud de contraseña"
+  },
+  "invalid_login_credentials": "Correo electrónico o contraseña inválidos",
+  "@invalid_login_credentials": {
+    "description": "Mensaje de error para credenciales de inicio de sesión inválidas"
+  },
+  "email_not_confirmed": "Por favor verifica tu correo electrónico antes de iniciar sesión",
+  "@email_not_confirmed": {
+    "description": "Mensaje cuando el correo no está verificado"
+  },
+  "user_already_registered": "Ya existe una cuenta con este correo electrónico",
+  "@user_already_registered": {
+    "description": "Mensaje cuando el usuario ya está registrado"
+  },
+  "password_min_length": "La contraseña debe tener al menos 6 caracteres de longitud",
+  "@password_min_length": {
+    "description": "Mensaje de requisito de longitud de contraseña"
+  },
+  "invalid_email": "Por favor ingresa una dirección de correo electrónico válida",
+  "@invalid_email": {
+    "description": "Mensaje cuando el correo es inválido"
+  },
+  "home_text_navigationbar": "Inicio",
+  "@home_text_navigationbar": {
+    "description": "Texto de la barra de navegación para la vista de Inicio"
+  },
+  "subject_text_navigationbar": "Materias",
+  "@subject_text_navigationbar": {
+    "description": "Texto de la barra de navegación para la vista de Materias"
+  },
+  "reminders_text_navigationbar": "Recordatorios",
+  "@reminders_text_navigationbar": {
+    "description": "Texto de la barra de navegación para la vista de Recordatorios"
+  },
+  "profile_text_navigationbar": "Perfil",
+  "@profile_text_navigationbar": {
+    "description": "Texto de la barra de navegación para la vista de Perfil"
+  },
+  "welcome_back": "Bienvenido de Vuelta",
+  "@welcome_back": {
+    "description": "Texto para bienvenido de vuelta"
+  },
+  "ready_learning": "Listo para Continuar Aprendiendo",
+  "@ready_learning": {
+    "description": "Texto para listo para aprender"
+  },
+  "study_streak": "Racha de Estudio",
+  "@study_streak": {
+    "description": "Texto para racha de estudio"
+  },
+  "daily_inspiration": "Inspiración Diaria",
+  "@daily_inspiration": {
+    "description": "Texto para inspiración diaria"
+  },
+  "total_subject": "Total de Materias",
+  "@total_subject": {
+    "description": "Texto para total de materias"
+  },
+  "tasks": "Tareas",
+  "@tasks": {
+    "description": "Texto para tareas"
+  },
+  "completed_tasks": "Tareas Completadas",
+  "@completed_tasks": {
+    "description": "Texto para tareas completadas"
+  },
+  "upcoming_tasks": "Próximas Tareas",
+  "@upcoming_tasks": {
+    "description": "Texto para próximas tareas"
+  },
+  "view_all": "Ver Todo",
+  "@view_all": {
+    "description": "Texto para ver todo"
+  },
+  "subject": "Materias",
+  "@subject": {
+    "description": "Texto para materia"
+  },
+  "add_new_subject": "Agregar Nueva Materia",
+  "@add_new_subject": {
+    "description": "Texto para agregar nueva materia"
+  },
+  "day_keep": "¡Días seguidos! ¡Sigue así!",
+  "@day_keep": {
+    "description": "Texto para mantener los días"
+  },
+  "progress": "Progreso",
+  "@progress": {
+    "description": "Texto para progreso"
+  }
+}
