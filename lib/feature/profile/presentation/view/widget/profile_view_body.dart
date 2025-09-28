@@ -1,43 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:iconly/iconly.dart';
-import 'package:study_box/core/helper/app_router.dart';
-import 'package:study_box/core/helper/custom_snack_bar.dart';
-import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
+import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/feature/profile/presentation/view/widget/about_setting_section.dart';
+import 'package:study_box/feature/profile/presentation/view/widget/account_settings_section.dart';
+import 'package:study_box/feature/profile/presentation/view/widget/general_settings_section.dart';
+import 'package:study_box/feature/profile/presentation/view/widget/notification_settings_section.dart';
+import 'package:study_box/feature/profile/presentation/view/widget/premium_upgrade_card.dart';
+import 'package:study_box/feature/profile/presentation/view/widget/profile_header_sction.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BlocConsumer<AuthCubit, AuthState>(
-            listener: (context, state) {
-              if (state is AuthError) {
-                CustomSnackBar.showError(context, state.message);
-              }
-
-              if (state is AuthUnauthenticated) {
-                context.go(AppRouter.welcomeView);
-              }
-            },
-            builder: (context, state) {
-              return IconButton(
-                onPressed: () {
-                  context.read<AuthCubit>().signOut();
-                },
-                icon: Icon(
-                  IconlyLight.logout,
-                  size: 50.sp,
-                ),
-              );
-            },
-          )
+          heightBox(10),
+          // Profile Header Section
+          const ProfileHeaderSction(),
+          heightBox(20),
+          // Premium Upgrade Card
+          const PremiumUpgradeCard(),
+          heightBox(25),
+          // General Settings Section
+          const GeneralSettingsSection(),
+          heightBox(20),
+          // Notification Settings Section
+          const NotificationSettingsSection(),
+          heightBox(20),
+          // Account Settings Section
+          const AccountSettingsSection(),
+          heightBox(20),
+          // About Settings Section
+          const AboutSettingsSection(),
+          heightBox(30),
         ],
       ),
     );

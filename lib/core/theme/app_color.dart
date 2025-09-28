@@ -18,9 +18,9 @@ class AppColors {
 
   // Dark Theme Colors
   static const Color darkPrimaryColor = Color(0xFF667EEA);
-  static const Color darkBackgroundColor = Color(0xFF0F172A);
-  static const Color darkSurfaceColor = Color(0xFF1E293B);
-  static const Color darkCardColor = Color(0xFF334155);
+  static const Color darkBackgroundColor = Color.fromARGB(255, 30, 30, 30);
+  static const Color darkSurfaceColor = Color.fromARGB(255, 37, 37, 38);
+  static const Color darkCardColor = Color.fromARGB(255, 27, 33, 43);
   static const Color darkTextPrimary = Color(0xFFF8FAFC);
   static const Color darkTextSecondary = Color(0xFF94A3B8);
   static const Color darkBorderColor = Color(0xFF475569);
@@ -80,6 +80,12 @@ class AppColors {
   static Color getCardColor(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
         ? darkBackgroundColor
+        : lightCardColor;
+  }
+
+  static Color getCardColorTwo(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? darkSurfaceColor
         : lightCardColor;
   }
 

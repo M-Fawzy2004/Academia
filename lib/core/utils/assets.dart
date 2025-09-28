@@ -34,6 +34,10 @@ class Assets {
   /// assets/images/png/logo_app.png
   static const String imagesPngLogoApp = "assets/images/png/logo_app.png";
 
+  /// Assets for imagesPngMofawzy
+  /// assets/images/png/mofawzy.png
+  static const String imagesPngMofawzy = "assets/images/png/mofawzy.png";
+
   /// Assets for imagesPngSplashView
   /// assets/images/png/splash_view.png
   static const String imagesPngSplashView = "assets/images/png/splash_view.png";

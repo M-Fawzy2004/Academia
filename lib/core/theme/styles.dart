@@ -80,10 +80,25 @@ class Styles {
         fontWeight: FontWeightHelper.extraBold,
         color: AppColors.getTextColor(context),
       );
+
+  static TextStyle font15PrimaryColorTextBold(BuildContext context) =>
+      TextStyle(
+        fontSize: 15.sp,
+        fontWeight: FontWeight.bold,
+        color: AppColors.getTextPrimaryColor(context),
+      );
+
   static TextStyle font16PrimaryColorTextBold(BuildContext context) =>
       TextStyle(
         fontSize: 16.sp,
         fontWeight: FontWeight.bold,
+        color: AppColors.getTextPrimaryColor(context),
+      );
+
+  static TextStyle font18PrimaryColorTextBold(BuildContext context) =>
+      TextStyle(
+        fontSize: 18.sp,
+        fontWeight: FontWeightHelper.extraBold,
         color: AppColors.getTextPrimaryColor(context),
       );
 }
