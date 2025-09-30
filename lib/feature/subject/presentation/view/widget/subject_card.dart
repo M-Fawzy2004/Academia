@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
-import 'package:study_box/core/theme/app_color.dart';
-import 'package:study_box/feature/subject/data/model/subject_model.dart';
+import 'package:study_box/core/theme/styles.dart';
+import 'package:study_box/core/widget/custom_button.dart';
+import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
 
 class SubjectCard extends StatelessWidget {
-  final SubjectModel subject;
+  final SubjectEntity subject;
 
   const SubjectCard({
     super.key,
@@ -14,78 +15,82 @@ class SubjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final subjectColor = Color(subject.color);
+
     return Container(
+      margin: EdgeInsets.only(bottom: 15.h),
       decoration: BoxDecoration(
-        color: AppColors.getBackgroundColor(context),
-        borderRadius: BorderRadius.circular(12.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        color: subjectColor,
+        borderRadius: BorderRadius.circular(20.r),
         border: Border.all(
-          color: subject.color.withOpacity(0.2),
-          width: 1,
+          color: subjectColor.withOpacity(0.6),
+          width: 1.2,
         ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildCardHeader(),
-          _buildCardBody(context),
+          _buildHeader(subjectColor, context),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                heightBox(18),
+                _buildAvailableContent(subjectColor, context),
+                heightBox(20),
+                _buildOpenButton(subjectColor),
+                heightBox(20),
+              ],
+            ),
+          )
         ],
       ),
     );
   }
 
-  Widget _buildCardHeader() {
+  Widget _buildHeader(Color subjectColor, BuildContext context) {
     return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: subject.color.withOpacity(0.1),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(12.r),
-          topRight: Radius.circular(12.r),
-        ),
-      ),
+      padding: EdgeInsets.all(15.w),
+      color: subjectColor.withOpacity(0.05),
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(14.w),
             decoration: BoxDecoration(
-              color: subject.color.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(12.r),
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                colors: [
+                  subjectColor.withOpacity(0.9),
+                  subjectColor.withOpacity(0.5),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
             ),
             child: Icon(
-              subject.icon,
-              color: subject.color,
-              size: 24,
+              _getSubjectIcon(),
+              color: Colors.white,
+              size: 26.sp,
             ),
           ),
-          widthBox(12),
+          widthBox(16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  subject.title,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: subject.color,
+                  subject.name,
+                  style: Styles.font16PrimaryColorTextBold(context).copyWith(
+                    fontSize: 18.sp,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                heightBox(5),
+                heightBox(3),
                 Text(
-                  '${subject.grade} • ${subject.semester}',
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: subject.color.withOpacity(0.7),
-                    fontWeight: FontWeight.w500,
-                  ),
+                  'Year ${subject.year} • Semester ${subject.semester}',
+                  style: Styles.font13GreyBold(context),
                 ),
               ],
             ),
@@ -95,81 +100,126 @@ class SubjectCard extends StatelessWidget {
     );
   }
 
-  Widget _buildCardBody(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Available content:',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: AppColors.getTextPrimaryColor(context),
-            ),
+  Widget _buildAvailableContent(Color subjectColor, BuildContext context) {
+    final resourcesByType = <ResourceType, int>{};
+    for (var resource in subject.resources) {
+      resourcesByType[resource.type] =
+          (resourcesByType[resource.type] ?? 0) + 1;
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Available Content : ',
+          style: Styles.font16PrimaryColorTextBold(context),
+        ),
+        heightBox(10),
+        if (resourcesByType.isEmpty)
+          _buildResourceChip(
+            'No resources yet',
+            subjectColor,
+            Icons.info_outline,
+            context,
+          )
+        else
+          Wrap(
+            spacing: 10.w,
+            runSpacing: 10.h,
+            children: resourcesByType.entries.map((entry) {
+              final info = _getResourceInfo(entry.key);
+              return _buildResourceChip(
+                info['label'],
+                subjectColor,
+                info['icon'],
+                context,
+              );
+            }).toList(),
           ),
-          heightBox(12),
-          _buildResourcesList(context),
-          heightBox(16),
-          _buildActionButton(),
+      ],
+    );
+  }
+
+  Widget _buildResourceChip(
+      String label, Color subjectColor, IconData icon, BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
+      decoration: BoxDecoration(
+        color: subjectColor.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(10.r),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: subjectColor.withOpacity(0.8), size: 15.sp),
+          widthBox(6),
+          Text(
+            label,
+            style: Styles.font12MediumBold(context),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildResourcesList(BuildContext context) {
-    return Wrap(
-      spacing: 8,
-      runSpacing: 8,
-      children: subject.resources.map((resource) {
-        return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          decoration: BoxDecoration(
-            color: subject.color.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(7.r),
-            border: Border.all(
-              color: subject.color.withOpacity(0.3),
-              width: 1,
-            ),
-          ),
-          child: Text(
-            resource,
-            style: TextStyle(
-              fontSize: 12,
-              color: subject.color,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        );
-      }).toList(),
+  Widget _buildOpenButton(Color subjectColor) {
+    return CustomButton(
+      height: 45.h,
+      borderRadius: 12.r,
+      text: 'Open Subject',
+      backgroundColor: subjectColor.withOpacity(0.8),
+      onPressed: () {},
     );
   }
 
-  Widget _buildActionButton() {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: () {
-          // Handle subject tap
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: subject.color,
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          elevation: 2,
-        ),
-        child: const Text(
-          'OPEN SUBJECT',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
-    );
+  IconData _getSubjectIcon() {
+    final subjectName = subject.name.toLowerCase();
+
+    if (subjectName.contains('math') || subjectName.contains('رياضيات')) {
+      return Icons.calculate_rounded;
+    } else if (subjectName.contains('physics') ||
+        subjectName.contains('فيزياء')) {
+      return Icons.science_rounded;
+    } else if (subjectName.contains('chemistry') ||
+        subjectName.contains('كيمياء')) {
+      return Icons.biotech_rounded;
+    } else if (subjectName.contains('biology') ||
+        subjectName.contains('أحياء')) {
+      return Icons.eco_rounded;
+    } else if (subjectName.contains('history') ||
+        subjectName.contains('تاريخ')) {
+      return Icons.history_edu_rounded;
+    } else if (subjectName.contains('language') ||
+        subjectName.contains('لغة')) {
+      return Icons.translate_rounded;
+    } else if (subjectName.contains('computer') ||
+        subjectName.contains('حاسب')) {
+      return Icons.computer_rounded;
+    } else if (subjectName.contains('art') || subjectName.contains('فن')) {
+      return Icons.palette_rounded;
+    }
+
+    return Icons.book_rounded;
+  }
+
+  Map<String, dynamic> _getResourceInfo(ResourceType type) {
+    switch (type) {
+      case ResourceType.image:
+        return {'label': 'Images', 'icon': Icons.image_rounded};
+      case ResourceType.pdf:
+        return {'label': 'PDF Summaries', 'icon': Icons.picture_as_pdf_rounded};
+      case ResourceType.youtubeLink:
+        return {
+          'label': 'Video Lectures',
+          'icon': Icons.play_circle_fill_rounded
+        };
+      case ResourceType.bookLink:
+        return {'label': 'Textbook', 'icon': Icons.menu_book_rounded};
+      case ResourceType.record:
+        return {
+          'label': 'Past Exams',
+          'icon': Icons.assignment_turned_in_rounded
+        };
+    }
   }
 }

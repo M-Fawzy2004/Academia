@@ -1,108 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
-import 'package:study_box/feature/subject/data/model/subject_model.dart';
+import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/subject/presentation/view/widget/custom_search_widget.dart';
-import 'package:study_box/feature/subject/presentation/view/widget/subject_card.dart';
+import 'package:study_box/feature/subject/presentation/view/widget/subjects_bloc_builder.dart';
 
-class SubjectViewBody extends StatelessWidget {
+class SubjectViewBody extends StatefulWidget {
   const SubjectViewBody({super.key});
 
   @override
+  State<SubjectViewBody> createState() => _SubjectViewBodyState();
+}
+
+class _SubjectViewBodyState extends State<SubjectViewBody> {
+  String searchQuery = '';
+  String? selectedGrade;
+  String? selectedSemester;
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<SubjectCubit>().getAllSubjects();
+  }
+
+  void onSearchChanged(String query, String? grade, String? semester) {
+    setState(() {
+      searchQuery = query.toLowerCase();
+      selectedGrade = grade;
+      selectedSemester = semester;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          heightBox(30),
-          Text(
-            'Study Subjects',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: AppColors.getTextPrimaryColor(context),
+    return RefreshIndicator(
+      onRefresh: () async {
+        context.read<SubjectCubit>().getAllSubjects();
+      },
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                heightBox(30),
+                Text(
+                  'Study Subjects',
+                  style: TextStyle(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.getTextPrimaryColor(context),
+                  ),
+                ),
+                heightBox(20),
+                CustomSearchWidget(
+                  showGradeFilter: true,
+                  showSemesterFilter: true,
+                  onSearchChanged: onSearchChanged,
+                ),
+                heightBox(10),
+              ],
             ),
           ),
-          heightBox(20),
-          CustomSearchWidget(
-            showGradeFilter: true,
-            showSemesterFilter: true,
-            onSearchChanged: (query, grade, semester) {},
+          SubjectsBlocBuilder(
+            searchQuery: searchQuery,
+            selectedGrade: selectedGrade,
+            selectedSemester: selectedSemester,
           ),
-          heightBox(5),
-          _buildSubjectsList(context),
         ],
       ),
     );
-  }
-
-  Widget _buildSubjectsList(BuildContext context) {
-    final subjects = _getDummySubjects(context);
-
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: subjects.length,
-      separatorBuilder: (context, index) => heightBox(16),
-      itemBuilder: (context, index) {
-        return SubjectCard(subject: subjects[index]);
-      },
-    );
-  }
-
-  List<SubjectModel> _getDummySubjects(BuildContext context) {
-    return [
-      const SubjectModel(
-        title: 'Mathematics',
-        grade: 'First Grade',
-        semester: 'First Semester',
-        resources: [
-          'Textbook',
-          'PDF Summaries',
-          'Video Lectures',
-          'Past Exams'
-        ],
-        color: AppColors.primaryColor,
-        icon: Icons.calculate_rounded,
-      ),
-      const SubjectModel(
-        title: 'Physics',
-        grade: 'Second Grade',
-        semester: 'Second Semester',
-        resources: ['Textbook', 'Lab Experiments', 'PDF Summaries'],
-        color: Color(0xFF7B68EE),
-        icon: Icons.science_rounded,
-      ),
-      const SubjectModel(
-        title: 'Chemistry',
-        grade: 'First Grade',
-        semester: 'First Semester',
-        resources: [
-          'Textbook',
-          'Periodic Tables',
-          'Chemical Reactions',
-          'Videos'
-        ],
-        color: Color(0xFF50C878),
-        icon: Icons.biotech_rounded,
-      ),
-      const SubjectModel(
-        title: 'Arabic Language',
-        grade: 'Third Grade',
-        semester: 'First Semester',
-        resources: ['Literature Book', 'Grammar Rules', 'Poetry Texts'],
-        color: Color(0xFFFF6B6B),
-        icon: Icons.book_rounded,
-      ),
-      const SubjectModel(
-        title: 'History',
-        grade: 'Second Grade',
-        semester: 'Second Semester',
-        resources: ['History Book', 'Historical Maps', 'Documents'],
-        color: Color(0xFFFFB347),
-        icon: Icons.history_edu_rounded,
-      ),
-    ];
   }
 }
