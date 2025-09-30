@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:study_box/core/helper/extension.dart';
+import 'package:study_box/feature/profile/presentation/view/theme_selector_view.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_card.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_divider.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_navigation.dart';
@@ -44,9 +46,12 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h),
               child: SettingsNavigation(
-                icon: Icons.brightness_4_rounded,
-                title: 'Dark Mode',
-                onTap: () {},
+                icon: Icons.color_lens_rounded,
+                title: 'Appearance',
+                onTap: () {
+                  context
+                      .navigateWithSlideTransition(const ThemeSelectorView());
+                },
               ),
             ),
             const SettingsDivider(),

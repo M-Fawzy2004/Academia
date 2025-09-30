@@ -58,6 +58,13 @@ class Styles {
         color: AppColors.getDarkGreyColor(context),
       );
 
+  static TextStyle font20PrimaryColorTextBold(BuildContext context) =>
+      TextStyle(
+        fontSize: 20.sp,
+        fontWeight: FontWeightHelper.extraBold,
+        color: AppColors.getTextPrimaryColor(context),
+      );
+
   static TextStyle font15MediumBold(BuildContext context) => TextStyle(
         fontSize: 15.sp,
         fontWeight: FontWeightHelper.extraBold,

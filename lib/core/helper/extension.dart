@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_box/core/helper/language_helper.dart';
 
 extension Navigation on BuildContext {
   void pushNamedAndRemoveUntil(String routeName, {Object? arguments}) {
@@ -23,7 +24,10 @@ extension Navigation on BuildContext {
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => page,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          const begin = Offset(-1.0, 0.0);
+          final bool isArabic = LanguageHelper.isArabic(this);
+
+          final begin =
+              isArabic ? const Offset(-1.0, 0.0) : const Offset(1.0, 0.0);
           const end = Offset.zero;
           const curve = Curves.ease;
 
