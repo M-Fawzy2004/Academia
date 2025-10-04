@@ -52,12 +52,12 @@ dependencies:
   iconly: ^1.0.1
   image_picker: ^1.2.0
   intl: any
+  load_switch: ^2.2.0
   loading_animation_widget: ^1.3.0
   shared_preferences: ^2.5.3
   shimmer: ^3.0.0
   sign_in_with_apple: ^7.0.1
   supabase_flutter: ^2.10.0
-  load_switch: ^2.2.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0

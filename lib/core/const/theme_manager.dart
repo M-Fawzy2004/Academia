@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:study_box/core/theme/app_color.dart';
 
 enum AppThemeMode {
@@ -14,9 +15,49 @@ class ThemeManager extends ChangeNotifier {
   ThemeManager._internal();
 
   AppThemeMode currentTheme = AppThemeMode.light;
+  static const String _themeKey = 'selected_theme';
 
-  void setTheme(AppThemeMode theme) {
+  // تحميل الثيم المحفوظ عند بدء التطبيق
+  Future<void> loadSavedTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedTheme = prefs.getString(_themeKey);
+
+    if (savedTheme != null) {
+      switch (savedTheme) {
+        case 'light':
+          currentTheme = AppThemeMode.light;
+          break;
+        case 'dark':
+          currentTheme = AppThemeMode.dark;
+          break;
+        case 'dark2':
+          currentTheme = AppThemeMode.dark2;
+          break;
+      }
+      notifyListeners();
+    }
+  }
+
+  // حفظ الثيم عند تغييره
+  Future<void> setTheme(AppThemeMode theme) async {
     currentTheme = theme;
+
+    final prefs = await SharedPreferences.getInstance();
+    String themeString;
+
+    switch (theme) {
+      case AppThemeMode.light:
+        themeString = 'light';
+        break;
+      case AppThemeMode.dark:
+        themeString = 'dark';
+        break;
+      case AppThemeMode.dark2:
+        themeString = 'dark2';
+        break;
+    }
+
+    await prefs.setString(_themeKey, themeString);
     notifyListeners();
   }
 
