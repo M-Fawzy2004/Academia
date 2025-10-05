@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
@@ -23,6 +25,7 @@ class CompactSubjectCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.read<SubjectCubit>().updateLastAccessed(subject.id);
+        context.push(AppRouter.subjectDetailsView, extra: subject);
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 12.h),

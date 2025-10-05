@@ -49,13 +49,27 @@ class _SubjectViewBodyState extends State<SubjectViewBody> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 heightBox(15),
-                Text(
-                  'Study Subjects',
-                  style: TextStyle(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.getTextPrimaryColor(context),
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      'Study Subjects',
+                      style: TextStyle(
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.getTextPrimaryColor(context),
+                      ),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () {
+                        context.read<SubjectCubit>().getAllSubjects();
+                      },
+                      icon: const Icon(
+                        Icons.refresh,
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+                  ],
                 ),
                 heightBox(10),
                 CustomSearchWidget(

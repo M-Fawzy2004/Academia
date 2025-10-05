@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/subject/presentation/view/widget/empty_subjects_widget.dart';
@@ -23,13 +24,7 @@ class SubjectsBlocBuilder extends StatelessWidget {
     return BlocConsumer<SubjectCubit, SubjectState>(
       listener: (context, state) {
         if (state is SubjectError) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.message),
-              backgroundColor: Colors.red,
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
+          CustomSnackBar.showError(context, state.message);
         }
       },
       builder: (context, state) {

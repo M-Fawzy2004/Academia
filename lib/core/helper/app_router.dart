@@ -11,6 +11,7 @@ import 'package:study_box/feature/home/presentation/view/home_view.dart';
 import 'package:study_box/feature/main_home/presentation/view/main_view.dart';
 import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
 import 'package:study_box/feature/subject/presentation/view/subject_view.dart';
+import 'package:study_box/feature/subject_details/presentation/view/subject_details_view.dart';
 import 'package:study_box/feature/welcome/presentation/view/welcome_view.dart';
 import 'package:study_box/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:study_box/feature/splash/presentation/view/splash_view.dart';
@@ -29,6 +30,7 @@ abstract class AppRouter {
   static const profileView = '/profileView';
   static const addSubjectView = '/addSubjectView';
   static const subjectView = '/subjectView';
+  static const subjectDetailsView = '/subjectDetailsView';
 
   static var router = GoRouter(
     routes: [
@@ -113,6 +115,14 @@ abstract class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return AppProviders.addSubjectView(
             child: const SubjectView(),
+          );
+        },
+      ),
+      GoRoute(
+        path: subjectDetailsView,
+        builder: (BuildContext context, GoRouterState state) {
+          return AppProviders.addSubjectView(
+            child: const SubjectDetailsView(),
           );
         },
       ),

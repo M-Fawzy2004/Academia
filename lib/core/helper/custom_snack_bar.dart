@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 enum SnackBarType {
   success,
@@ -76,12 +77,10 @@ class CustomSnackBar {
               message,
               style: TextStyle(
                 color: textColor,
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
-                height: 1.3,
+                height: 1.3.h,
               ),
-              textAlign: TextAlign.right,
-              textDirection: TextDirection.rtl,
             ),
           ),
           if (actionLabel != null && onActionPressed != null) ...[
@@ -109,10 +108,10 @@ class CustomSnackBar {
       behavior: SnackBarBehavior.floating,
       margin: const EdgeInsets.all(16),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12.r),
         side: BorderSide(
           color: borderColor,
-          width: 1,
+          width: 1.w,
         ),
       ),
       elevation: 8,
