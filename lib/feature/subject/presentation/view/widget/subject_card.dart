@@ -20,13 +20,13 @@ class SubjectCard extends StatelessWidget {
     final subjectColor = Color(subject.color);
 
     return Container(
-      margin: EdgeInsets.only(bottom: 15.h),
+      margin: EdgeInsets.only(bottom: 10.h),
       decoration: BoxDecoration(
         color: subjectColor,
-        borderRadius: BorderRadius.circular(20.r),
+        borderRadius: BorderRadius.circular(25.r),
         border: Border.all(
           color: subjectColor.withOpacity(0.6),
-          width: 1.2,
+          width: 1.2.w,
         ),
       ),
       child: Column(
@@ -38,11 +38,11 @@ class SubjectCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                heightBox(18),
+                heightBox(10),
                 _buildAvailableContent(subjectColor, context),
-                heightBox(20),
+                heightBox(13),
                 _buildOpenButton(subjectColor, context),
-                heightBox(20),
+                heightBox(10),
               ],
             ),
           )
@@ -54,11 +54,17 @@ class SubjectCard extends StatelessWidget {
   Widget _buildHeader(Color subjectColor, BuildContext context) {
     return Container(
       padding: EdgeInsets.all(15.w),
-      color: subjectColor.withOpacity(0.05),
+      decoration: BoxDecoration(
+        color: subjectColor.withOpacity(0.05),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(25.r),
+          topRight: Radius.circular(25.r),
+        ),
+      ),
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(14.w),
+            padding: EdgeInsets.all(10.w),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: LinearGradient(
@@ -126,7 +132,7 @@ class SubjectCard extends StatelessWidget {
           )
         else
           Wrap(
-            spacing: 10.w,
+            spacing: 5.w,
             runSpacing: 10.h,
             children: resourcesByType.entries.map((entry) {
               final info = _getResourceInfo(entry.key);
@@ -143,9 +149,13 @@ class SubjectCard extends StatelessWidget {
   }
 
   Widget _buildResourceChip(
-      String label, Color subjectColor, IconData icon, BuildContext context) {
+    String label,
+    Color subjectColor,
+    IconData icon,
+    BuildContext context,
+  ) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       decoration: BoxDecoration(
         color: subjectColor.withOpacity(0.15),
         borderRadius: BorderRadius.circular(10.r),

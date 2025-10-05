@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
-import 'package:study_box/feature/subject/presentation/view/widget/subject_card.dart';
+import 'package:study_box/feature/home/presentation/view/widget/compact_subject_card.dart';
 
 class RecentSubjectsWidget extends StatelessWidget {
   final int maxSubjects;
@@ -50,7 +50,7 @@ class RecentSubjectsWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ...subjects.map((subject) => SubjectCard(subject: subject)),
+        ...subjects.map((subject) => CompactSubjectCard(subject: subject)),
       ],
     );
   }
