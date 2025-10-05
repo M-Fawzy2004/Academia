@@ -14,6 +14,7 @@ class SubjectEntity extends Equatable {
   final int color;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final DateTime? lastAccessedAt;
 
   const SubjectEntity({
     required this.id,
@@ -29,7 +30,43 @@ class SubjectEntity extends Equatable {
     required this.color,
     required this.createdAt,
     required this.updatedAt,
+    this.lastAccessedAt,
   });
+
+  // copyWith method
+  SubjectEntity copyWith({
+    String? id,
+    String? name,
+    String? code,
+    int? year,
+    int? semester,
+    String? doctorName,
+    int? creditHours,
+    String? notes,
+    List<ResourceItem>? resources,
+    List<LectureSchedule>? lectures,
+    int? color,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    DateTime? lastAccessedAt,
+  }) {
+    return SubjectEntity(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      code: code ?? this.code,
+      year: year ?? this.year,
+      semester: semester ?? this.semester,
+      doctorName: doctorName ?? this.doctorName,
+      creditHours: creditHours ?? this.creditHours,
+      notes: notes ?? this.notes,
+      resources: resources ?? this.resources,
+      lectures: lectures ?? this.lectures,
+      color: color ?? this.color,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      lastAccessedAt: lastAccessedAt ?? this.lastAccessedAt,
+    );
+  }
 
   @override
   List<Object?> get props => [
@@ -46,6 +83,7 @@ class SubjectEntity extends Equatable {
         color,
         createdAt,
         updatedAt,
+        lastAccessedAt,
       ];
 }
 
@@ -140,21 +178,21 @@ class SubscriptionLimits {
 
   static const Map<SubscriptionTier, SubscriptionLimits> limits = {
     SubscriptionTier.free: SubscriptionLimits(
-      maxSubjects: 5,
-      maxImagesPerSubject: 15,
+      maxSubjects: 6,
+      maxImagesPerSubject: 20,
       maxPdfsPerSubject: 5,
       maxPdfSizeMB: 15,
       maxLinksPerSubject: 20,
     ),
     SubscriptionTier.medium: SubscriptionLimits(
-      maxSubjects: 15,
-      maxImagesPerSubject: 30,
+      maxSubjects: 20,
+      maxImagesPerSubject: 40,
       maxPdfsPerSubject: 15,
       maxPdfSizeMB: 25,
       maxLinksPerSubject: 20,
     ),
     SubscriptionTier.pro: SubscriptionLimits(
-      maxSubjects: 999999,
+      maxSubjects: 40,
       maxImagesPerSubject: 999999,
       maxPdfsPerSubject: 999999,
       maxPdfSizeMB: 999999,

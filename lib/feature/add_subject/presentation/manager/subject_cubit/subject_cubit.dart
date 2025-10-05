@@ -10,11 +10,34 @@ class SubjectCubit extends Cubit<SubjectState> {
 
   final SubjectRepository subjectRepository;
 
+  /// Update last accessed
+  Future<void> updateLastAccessed(String subjectId) async {
+    if (state is SubjectsLoaded) {
+      final subjects = (state as SubjectsLoaded).subjects;
+
+      final updatedSubjects = subjects.map((subject) {
+        if (subject.id == subjectId) {
+          return subject.copyWith(
+            lastAccessedAt: DateTime.now(),
+            updatedAt: DateTime.now(),
+          );
+        }
+        return subject;
+      }).toList();
+
+      emit(SubjectsLoaded(updatedSubjects));
+
+      final updatedSubject = updatedSubjects.firstWhere(
+        (s) => s.id == subjectId,
+      );
+      await subjectRepository.updateSubject(updatedSubject);
+    }
+  }
+
   /// Add subject
   Future<void> addSubject(SubjectEntity subject) async {
     emit(SubjectLoading());
 
-    // Check subscription limits first
     final tierResult = await subjectRepository.getUserSubscriptionTier();
     await tierResult.fold(
       (failure) async => emit(SubjectError(failure.message)),
@@ -104,12 +127,10 @@ class SubjectCubit extends Cubit<SubjectState> {
   ) async {
     emit(SubjectLoading());
 
-    // Get current subject
     final subjectResult = await subjectRepository.getSubjectById(subjectId);
     await subjectResult.fold(
       (failure) async => emit(SubjectError(failure.message)),
       (subject) async {
-        // Check subscription limits
         final tierResult = await subjectRepository.getUserSubscriptionTier();
         await tierResult.fold(
           (failure) async => emit(SubjectError(failure.message)),
@@ -127,7 +148,6 @@ class SubjectCubit extends Cubit<SubjectState> {
             await limitCheck.fold(
               (failure) async => emit(SubjectError(failure.message)),
               (_) async {
-                // Add resource to subject
                 final updatedResources = [...subject.resources, resource];
                 final updatedSubject = SubjectEntity(
                   id: subject.id,
@@ -143,6 +163,7 @@ class SubjectCubit extends Cubit<SubjectState> {
                   color: subject.color,
                   createdAt: subject.createdAt,
                   updatedAt: DateTime.now(),
+                  lastAccessedAt: subject.lastAccessedAt,
                 );
 
                 final updateResult =
@@ -188,6 +209,7 @@ class SubjectCubit extends Cubit<SubjectState> {
           color: subject.color,
           createdAt: subject.createdAt,
           updatedAt: DateTime.now(),
+          lastAccessedAt: subject.lastAccessedAt,
         );
 
         final updateResult =
@@ -226,6 +248,7 @@ class SubjectCubit extends Cubit<SubjectState> {
           color: subject.color,
           createdAt: subject.createdAt,
           updatedAt: DateTime.now(),
+          lastAccessedAt: subject.lastAccessedAt,
         );
 
         final updateResult =
@@ -266,6 +289,7 @@ class SubjectCubit extends Cubit<SubjectState> {
           color: subject.color,
           createdAt: subject.createdAt,
           updatedAt: DateTime.now(),
+          lastAccessedAt: subject.lastAccessedAt,
         );
 
         final updateResult =

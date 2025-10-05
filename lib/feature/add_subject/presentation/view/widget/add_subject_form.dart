@@ -97,6 +97,7 @@ class AddSubjectForm extends StatelessWidget {
             controller: subjectNotesController,
             hintText: 'Notes (Optional)',
             suffixIcon: Icons.note_add,
+            maxLines: 5,
           ),
         ],
       ),

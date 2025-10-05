@@ -37,10 +37,17 @@ class AppProviders {
     );
   }
 
-  /// Home View Provider
+  /// Main View Provider
   static Widget mainView({required Widget child}) {
-    return BlocProvider<AuthCubit>(
-      create: (_) => getIt<AuthCubit>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthCubit>(
+          create: (_) => getIt<AuthCubit>(),
+        ),
+        BlocProvider<SubjectCubit>(
+          create: (_) => getIt<SubjectCubit>()..getAllSubjects(),
+        ),
+      ],
       child: child,
     );
   }

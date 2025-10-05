@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
+import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 
 class SubjectCard extends StatelessWidget {
   final SubjectEntity subject;
@@ -39,7 +41,7 @@ class SubjectCard extends StatelessWidget {
                 heightBox(18),
                 _buildAvailableContent(subjectColor, context),
                 heightBox(20),
-                _buildOpenButton(subjectColor),
+                _buildOpenButton(subjectColor, context),
                 heightBox(20),
               ],
             ),
@@ -162,13 +164,15 @@ class SubjectCard extends StatelessWidget {
     );
   }
 
-  Widget _buildOpenButton(Color subjectColor) {
+  Widget _buildOpenButton(Color subjectColor, BuildContext context) {
     return CustomButton(
       height: 45.h,
       borderRadius: 12.r,
       text: 'Open Subject',
       backgroundColor: subjectColor.withOpacity(0.8),
-      onPressed: () {},
+      onPressed: () {
+        context.read<SubjectCubit>().updateLastAccessed(subject.id);
+      },
     );
   }
 

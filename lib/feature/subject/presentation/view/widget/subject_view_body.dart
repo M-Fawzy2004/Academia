@@ -36,6 +36,8 @@ class _SubjectViewBodyState extends State<SubjectViewBody> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
+      color: AppColors.primaryColor,
+      backgroundColor: AppColors.getNavigationBar(context),
       onRefresh: () async {
         context.read<SubjectCubit>().getAllSubjects();
       },
@@ -46,7 +48,7 @@ class _SubjectViewBodyState extends State<SubjectViewBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                heightBox(30),
+                heightBox(15),
                 Text(
                   'Study Subjects',
                   style: TextStyle(
@@ -55,7 +57,7 @@ class _SubjectViewBodyState extends State<SubjectViewBody> {
                     color: AppColors.getTextPrimaryColor(context),
                   ),
                 ),
-                heightBox(20),
+                heightBox(10),
                 CustomSearchWidget(
                   showGradeFilter: true,
                   showSemesterFilter: true,
@@ -70,6 +72,7 @@ class _SubjectViewBodyState extends State<SubjectViewBody> {
             selectedGrade: selectedGrade,
             selectedSemester: selectedSemester,
           ),
+          SliverToBoxAdapter(child: heightBox(35)),
         ],
       ),
     );

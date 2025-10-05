@@ -15,6 +15,7 @@ class SubjectModel extends SubjectEntity {
     required super.color,
     required super.createdAt,
     required super.updatedAt,
+    super.lastAccessedAt,
   });
 
   factory SubjectModel.fromJson(Map<String, dynamic> json) {
@@ -42,6 +43,9 @@ class SubjectModel extends SubjectEntity {
       color: json['color'] as int,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
+      lastAccessedAt: json['last_accessed_at'] != null
+          ? DateTime.parse(json['last_accessed_at'] as String)
+          : null,
     );
   }
 
@@ -62,6 +66,8 @@ class SubjectModel extends SubjectEntity {
       'color': color,
       'created_at': createdAt.toIso8601String(),
       'updated_at': updatedAt.toIso8601String(),
+      if (lastAccessedAt != null)
+        'last_accessed_at': lastAccessedAt!.toIso8601String(),
     };
   }
 
@@ -83,6 +89,7 @@ class SubjectModel extends SubjectEntity {
       color: entity.color,
       createdAt: entity.createdAt,
       updatedAt: entity.updatedAt,
+      lastAccessedAt: entity.lastAccessedAt,
     );
   }
 }
