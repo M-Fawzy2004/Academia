@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/resource_type_card.dart';
-import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart' as domain;
+import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart'
+    as domain;
 
 class ResourcesSection extends StatelessWidget {
   const ResourcesSection({super.key, required this.subject});
@@ -66,30 +67,40 @@ class ResourcesSection extends StatelessWidget {
         ),
         heightBox(12),
         ResourceTypeCard(
-          title: 'Link Books',
+          title: 'Book Links',
           icon: Icons.menu_book_rounded,
           gradient: const LinearGradient(
             colors: [Color(0xFF3B82F6), Color(0xFF2563EB)],
           ),
-          count: 3,
-          items: const [
-            {'name': 'كتاب المادة الرسمي'},
-            {'name': 'مصادر إضافية'},
-          ],
+          count: subject.resources
+              .where((r) => r.type == domain.ResourceType.bookLink)
+              .length,
+          items: subject.resources
+              .where((r) => r.type == domain.ResourceType.bookLink)
+              .map((r) => {
+                    'name': r.title,
+                    'url': r.url,
+                  })
+              .toList(),
           onViewAll: () {},
         ),
         heightBox(12),
         ResourceTypeCard(
-          title: 'Video Lectures',
+          title: 'Video Links',
           icon: Icons.play_circle_rounded,
           gradient: const LinearGradient(
             colors: [Color(0xFFA855F7), Color(0xFF9333EA)],
           ),
-          count: 8,
-          items: const [
-            {'name': 'شرح المحاضرة الأولى', 'duration': '45:30'},
-            {'name': 'شرح المحاضرة الثانية', 'duration': '52:15'},
-          ],
+          count: subject.resources
+              .where((r) => r.type == domain.ResourceType.youtubeLink)
+              .length,
+          items: subject.resources
+              .where((r) => r.type == domain.ResourceType.youtubeLink)
+              .map((r) => {
+                    'name': r.title,
+                    'url': r.url,
+                  })
+              .toList(),
           onViewAll: () {},
         ),
         heightBox(12),

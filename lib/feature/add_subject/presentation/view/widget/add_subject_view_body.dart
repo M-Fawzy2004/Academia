@@ -1,8 +1,10 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/feature/add_subject/data/model/resource_item.dart';
@@ -100,7 +102,7 @@ class _AddSubjectViewBodyState extends State<AddSubjectViewBody> {
           ),
           heightBox(20),
           CustomButton(
-            text: 'Save Subject',
+            text: 'Add Subject',
             onPressed: _onSavePressed,
           ),
           heightBox(20),
@@ -115,16 +117,18 @@ extension on _AddSubjectViewBodyState {
     if (!_formKey.currentState!.validate()) return;
 
     if (selectedYear == null || selectedSemester == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please select year and semester')),
+      CustomSnackBar.showError(
+        context,
+        'Please select year and semester',
       );
       return;
     }
 
     final parsedCredits = int.tryParse(_subjectCreditsController.text.trim());
     if (parsedCredits == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Credit hours must be a number')),
+      CustomSnackBar.showError(
+        context,
+        'Credit hours must be a number',
       );
       return;
     }
@@ -157,7 +161,7 @@ extension on _AddSubjectViewBodyState {
     // Delay 2 seconds before attempting save
     () async {
       final cubit = context.read<SubjectCubit>();
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 3));
 
       final completer = Completer<void>();
       final sub = cubit.stream.listen((state) {
@@ -175,13 +179,10 @@ extension on _AddSubjectViewBodyState {
       try {
         await completer.future.timeout(const Duration(minutes: 2));
       } on TimeoutException {
-        // Dismiss loading then show internet error
         if (Navigator.of(context, rootNavigator: true).canPop()) {
           Navigator.of(context, rootNavigator: true).pop();
         }
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Check your internet connection.')),
-        );
+        CustomSnackBar.showInfo(context, 'Check your internet connection.');
       } finally {
         await sub.cancel();
       }
@@ -225,12 +226,15 @@ extension on _AddSubjectViewBodyState {
     return items.map((r) {
       final mappedType = _mapResourceType(r.type);
       final String url = r.url ?? r.filePath ?? '';
+      final int? sizeMb = (r.type == ResourceType.pdf && r.filePath != null)
+          ? _tryComputeFileSizeMB(r.filePath!)
+          : null;
       return domain.ResourceItem(
         id: r.id,
         type: mappedType,
         title: r.title,
         url: url,
-        fileSizeMB: null,
+        fileSizeMB: sizeMb,
         createdAt: DateTime.now(),
       );
     }).toList();
@@ -243,11 +247,24 @@ extension on _AddSubjectViewBodyState {
       case ResourceType.pdf:
         return domain.ResourceType.pdf;
       case ResourceType.book:
+        return domain.ResourceType.bookLink;
       case ResourceType.link:
         return domain.ResourceType.bookLink;
       case ResourceType.video:
+        return domain.ResourceType.youtubeLink;
       case ResourceType.audio:
         return domain.ResourceType.record;
+    }
+  }
+
+  int? _tryComputeFileSizeMB(String path) {
+    try {
+      final file = File(path);
+      if (!file.existsSync()) return null;
+      final bytes = file.lengthSync();
+      return (bytes / (1024 * 1024)).ceil();
+    } catch (_) {
+      return null;
     }
   }
 
@@ -324,10 +341,14 @@ class _SavingDialog extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const CustomLoadingWidget(height: 28),
             heightBox(12),
             const Text('Saving project...'),
+            heightBox(12),
+            const Text('Please wait, files and images are being uploaded....'),
           ],
         ),
       ),

@@ -50,17 +50,24 @@ class SubjectModel extends SubjectEntity {
   }
 
   Map<String, dynamic> toJson() {
+    List<Map<String, dynamic>> sanitizedResources = resources
+        .map((e) => (e as ResourceItemModel).toJson())
+        .map((m) {
+      m['title'] = (m['title'] as String).replaceAll(RegExp('[\u0000]'), '');
+      m['url'] = (m['url'] as String).replaceAll(RegExp('[\u0000]'), '');
+      return m;
+    }).toList();
+
     return {
       'id': id,
-      'name': name,
-      'code': code,
+      'name': name.replaceAll(RegExp('[\u0000]'), ''),
+      'code': code.replaceAll(RegExp('[\u0000]'), ''),
       'year': year,
       'semester': semester,
-      'doctor_name': doctorName,
+      'doctor_name': doctorName.replaceAll(RegExp('[\u0000]'), ''),
       'credit_hours': creditHours,
-      'notes': notes,
-      'resources':
-          resources.map((e) => (e as ResourceItemModel).toJson()).toList(),
+      'notes': notes.replaceAll(RegExp('[\u0000]'), ''),
+      'resources': sanitizedResources,
       'lectures':
           lectures.map((e) => (e as LectureScheduleModel).toJson()).toList(),
       'color': color,

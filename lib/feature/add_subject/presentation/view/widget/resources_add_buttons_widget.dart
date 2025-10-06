@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/spacing.dart';
-import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/resources_cubit/resources_cubit.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/resources_cubit/resources_state.dart';
-import 'package:study_box/feature/add_subject/presentation/view/widget/book_dialog.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/link_dialog.dart';
 import 'add_button.dart';
+import 'package:study_box/feature/add_subject/data/model/resource_item.dart';
 
 class ResourcesAddButtonsWidget extends StatelessWidget {
   final ResourcesLoaded state;
@@ -69,9 +68,9 @@ class ResourcesLinkButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AddButton(
-      icon: Icons.link,
-      label: isArabic ? 'رابط' : 'Link',
-      color: AppColors.primaryColor,
+      icon: Icons.play_circle_outline,
+      label: isArabic ? 'رابط فيديو' : 'Video Link',
+      color: Colors.purple,
       onTap: () => _showLinkDialog(context),
       isLoading: isLoading,
     );
@@ -81,6 +80,7 @@ class ResourcesLinkButtonWidget extends StatelessWidget {
     showDialog(
       context: context,
       builder: (dialogContext) => LinkDialog(
+        forcedType: ResourceType.video,
         onAdd: cubit.addResource,
       ),
     );
@@ -159,7 +159,8 @@ class ResourcesBookButtonWidget extends StatelessWidget {
   void _showBookDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (dialogContext) => BookDialog(
+      builder: (dialogContext) => LinkDialog(
+        forcedType: ResourceType.book,
         onAdd: cubit.addResource,
       ),
     );

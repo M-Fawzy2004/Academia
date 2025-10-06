@@ -18,6 +18,13 @@ class SubjectService {
       await _ensureUserProfileExists(userId);
 
       final Map<String, dynamic> payload = Map<String, dynamic>.from(subject.toJson());
+      // Remove any accidental null-bytes in text fields to avoid 22P05
+      for (final key in ['name', 'code', 'doctor_name', 'notes']) {
+        final value = payload[key];
+        if (value is String) {
+          payload[key] = value.replaceAll(RegExp('[\u0000]'), '');
+        }
+      }
       // Let Postgres generate UUID, and attach current user id
       payload.remove('id');
       payload['user_id'] = userId;
@@ -89,9 +96,17 @@ class SubjectService {
       final userId = supabaseClient.auth.currentUser?.id;
       if (userId == null) throw Exception('User not authenticated');
 
+      final payload = Map<String, dynamic>.from(subject.toJson());
+      for (final key in ['name', 'code', 'doctor_name', 'notes']) {
+        final value = payload[key];
+        if (value is String) {
+          payload[key] = value.replaceAll(RegExp('[\u0000]'), '');
+        }
+      }
+
       await supabaseClient
           .from(AppConstant.tableSubjects)
-          .update(subject.toJson())
+          .update(payload)
           .eq('id', subject.id)
           .eq('user_id', userId);
     } catch (e) {

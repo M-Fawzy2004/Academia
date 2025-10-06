@@ -167,6 +167,7 @@ class SubscriptionLimits {
   final int maxPdfsPerSubject;
   final int maxPdfSizeMB;
   final int maxLinksPerSubject;
+  final int maxStorageMB;
 
   const SubscriptionLimits({
     required this.maxSubjects,
@@ -174,29 +175,33 @@ class SubscriptionLimits {
     required this.maxPdfsPerSubject,
     required this.maxPdfSizeMB,
     required this.maxLinksPerSubject,
+    required this.maxStorageMB,
   });
 
   static const Map<SubscriptionTier, SubscriptionLimits> limits = {
     SubscriptionTier.free: SubscriptionLimits(
-      maxSubjects: 6,
-      maxImagesPerSubject: 20,
-      maxPdfsPerSubject: 5,
-      maxPdfSizeMB: 15,
-      maxLinksPerSubject: 20,
+      maxSubjects: 5,
+      maxImagesPerSubject: 10,
+      maxPdfsPerSubject: 3,
+      maxPdfSizeMB: 10,
+      maxLinksPerSubject: 10,
+      maxStorageMB: 500,
     ),
     SubscriptionTier.medium: SubscriptionLimits(
-      maxSubjects: 20,
-      maxImagesPerSubject: 40,
-      maxPdfsPerSubject: 15,
+      maxSubjects: 15,
+      maxImagesPerSubject: 30,
+      maxPdfsPerSubject: 10,
       maxPdfSizeMB: 25,
       maxLinksPerSubject: 20,
+      maxStorageMB: 2000,
     ),
     SubscriptionTier.pro: SubscriptionLimits(
       maxSubjects: 40,
-      maxImagesPerSubject: 999999,
-      maxPdfsPerSubject: 999999,
-      maxPdfSizeMB: 999999,
-      maxLinksPerSubject: 999999,
+      maxImagesPerSubject: 200,
+      maxPdfsPerSubject: 100,
+      maxPdfSizeMB: 100,
+      maxLinksPerSubject: 50,
+      maxStorageMB: 5000,
     ),
   };
 }

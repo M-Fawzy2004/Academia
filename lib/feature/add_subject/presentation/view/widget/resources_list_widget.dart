@@ -137,6 +137,8 @@ class ResourcesListItemWidget extends StatelessWidget {
 
     if (resource.type == ResourceType.link) {
       ResourcesEditLinkDialogWidget.show(context, resource, cubit);
+    } else if (resource.type == ResourceType.video) {
+      ResourcesEditLinkDialogWidget.show(context, resource, cubit);
     } else if (resource.type == ResourceType.book) {
       ResourcesEditBookDialogWidget.show(context, resource, cubit);
     }

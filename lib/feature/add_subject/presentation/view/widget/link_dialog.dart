@@ -9,11 +9,14 @@ import 'package:study_box/feature/add_subject/data/model/resource_item.dart';
 class LinkDialog extends StatefulWidget {
   final Function(ResourceItem) onAdd;
   final ResourceItem? initialResource;
+  /// If provided, forces the created/edited resource type (e.g., video or book)
+  final ResourceType? forcedType;
 
   const LinkDialog({
     super.key,
     required this.onAdd,
     this.initialResource,
+    this.forcedType,
   });
 
   @override
@@ -57,19 +60,41 @@ class _LinkDialogState extends State<LinkDialog> {
     }
   }
 
+  bool _isVideoUrl(String url) {
+    final u = url.toLowerCase();
+    return u.contains('youtube.com/watch') ||
+        u.contains('youtu.be/') ||
+        u.contains('vimeo.com/') ||
+        u.contains('dailymotion.com/') ||
+        u.contains('video');
+  }
+
   void _submit() {
     if (_formKey.currentState!.validate()) {
+      final url = _urlController.text.trim();
+      final isVideo = widget.forcedType != null
+          ? widget.forcedType == ResourceType.video
+          : _isVideoUrl(url);
+      final bool isBook = widget.forcedType == ResourceType.book;
       final resource = ResourceItem(
         id: widget.initialResource?.id ??
             DateTime.now().millisecondsSinceEpoch.toString(),
         title: _titleController.text.trim(),
         description: _descriptionController.text.trim().isEmpty
-            ? 'Web Link'
+            ? (isVideo
+                ? 'Video Link'
+                : (isBook ? 'Book Link' : 'Web Link'))
             : _descriptionController.text.trim(),
-        type: ResourceType.link,
-        url: _urlController.text.trim(),
-        icon: Icons.link,
-        color: AppColors.primaryColor,
+        type: isVideo
+            ? ResourceType.video
+            : (isBook ? ResourceType.book : ResourceType.link),
+        url: url,
+        icon: isVideo
+            ? Icons.play_circle_outline_rounded
+            : (isBook ? Icons.menu_book_rounded : Icons.link),
+        color: isVideo
+            ? Colors.purple
+            : (isBook ? Colors.blue : AppColors.primaryColor),
       );
 
       widget.onAdd(resource);
@@ -80,6 +105,11 @@ class _LinkDialogState extends State<LinkDialog> {
   @override
   Widget build(BuildContext context) {
     final isEditing = widget.initialResource != null;
+    final titleText = widget.forcedType == ResourceType.video
+        ? (isEditing ? 'Edit Video Link' : 'Add Video Link')
+        : widget.forcedType == ResourceType.book
+            ? (isEditing ? 'Edit Book Link' : 'Add Book Link')
+            : (isEditing ? 'Edit Link' : 'Add New Link');
 
     return Dialog(
       backgroundColor: AppColors.getBackgroundColor(context),
@@ -105,7 +135,7 @@ class _LinkDialogState extends State<LinkDialog> {
                 children: [
                   Expanded(
                     child: Text(
-                      isEditing ? 'Edit Link' : 'Add New Link',
+                      titleText,
                       style: Styles.font15MediumGreyBold(context),
                     ),
                   ),

@@ -13,7 +13,6 @@ class AddSubjectBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is SubjectError) {
           CustomSnackBar.showError(context, state.message);
-          // Log the error for debugging
           print('Subject Error: ${state.message}');
         }
 
@@ -27,9 +26,8 @@ class AddSubjectBlocConsumer extends StatelessWidget {
         if (state is SubjectSuccess) {
           CustomSnackBar.showSuccess(
             context,
-            state.message, // Use the actual success message
+            state.message, 
           );
-          // Optionally navigate back or clear form
           Navigator.of(context).pop();
         }
       },

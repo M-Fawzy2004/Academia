@@ -30,7 +30,7 @@ class ThemeOptionCard extends StatelessWidget {
           AnimatedContainer(
             duration: const Duration(milliseconds: 400),
             curve: Curves.easeOutCubic,
-            margin: EdgeInsets.only(right: isSelected ? 0 : 60.w),
+            margin: EdgeInsets.only(right: isSelected ? 0 : 40.w),
             decoration: BoxDecoration(
               color: AppColors.getCardColor(context),
               borderRadius: BorderRadius.circular(25.r),
@@ -99,10 +99,10 @@ class ThemeOptionCard extends StatelessWidget {
               turns: isSelected ? 0 : 0.2,
               child: AnimatedScale(
                 duration: const Duration(milliseconds: 400),
-                scale: isSelected ? 1.1 : 1.0,
+                scale: isSelected ? 1.0 : 1.0,
                 child: Container(
-                  width: 70.w,
-                  height: 70.h,
+                  width: 65.w,
+                  height: 65.h,
                   decoration: BoxDecoration(
                     gradient: gradient,
                     shape: BoxShape.circle,
@@ -111,7 +111,7 @@ class ThemeOptionCard extends StatelessWidget {
                     child: Icon(
                       icon,
                       color: Colors.white,
-                      size: 32.sp,
+                      size: 20.sp,
                     ),
                   ),
                 ),

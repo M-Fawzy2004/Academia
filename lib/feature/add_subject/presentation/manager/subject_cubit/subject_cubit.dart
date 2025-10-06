@@ -57,6 +57,38 @@ class SubjectCubit extends Cubit<SubjectState> {
               return;
             }
 
+            // Validate resource counts and sizes against limits BEFORE creating subject
+            final int imagesCount = subject.resources
+                .where((r) => r.type == ResourceType.image)
+                .length;
+            final int pdfsCount = subject.resources
+                .where((r) => r.type == ResourceType.pdf)
+                .length;
+            final int linksCount = subject.resources
+                .where((r) => r.type == ResourceType.youtubeLink || r.type == ResourceType.bookLink)
+                .length;
+
+            if (imagesCount > limits.maxImagesPerSubject) {
+              emit(SubjectError('Image limit exceeded for ${tier.name} plan'));
+              return;
+            }
+            if (pdfsCount > limits.maxPdfsPerSubject) {
+              emit(SubjectError('PDF limit exceeded for ${tier.name} plan'));
+              return;
+            }
+            if (linksCount > limits.maxLinksPerSubject) {
+              emit(SubjectError('Link limit exceeded for ${tier.name} plan'));
+              return;
+            }
+
+            for (final r in subject.resources.where((r) => r.type == ResourceType.pdf)) {
+              final size = r.fileSizeMB;
+              if (size != null && size > limits.maxPdfSizeMB) {
+                emit(SubjectError('PDF size exceeds ${limits.maxPdfSizeMB}MB limit for ${tier.name} plan'));
+                return;
+              }
+            }
+
             final result = await subjectRepository.addSubject(subject);
             await result.fold(
               (failure) async => emit(SubjectError(failure.message)),
