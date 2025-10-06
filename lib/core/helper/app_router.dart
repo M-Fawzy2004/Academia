@@ -121,8 +121,20 @@ abstract class AppRouter {
       GoRoute(
         path: subjectDetailsView,
         builder: (BuildContext context, GoRouterState state) {
-          return AppProviders.addSubjectView(
-            child: const SubjectDetailsView(),
+          // Get subjectId from query parameters
+          final String? subjectId = state.uri.queryParameters['subjectId'];
+          
+          if (subjectId == null) {
+            // Handle missing subjectId - you can navigate back or show error
+            return const Scaffold(
+              body: Center(
+                child: Text('Subject ID is required'),
+              ),
+            );
+          }
+
+          return AppProviders.subjectDetailsView(
+            child: SubjectDetailsView(subjectId: subjectId),
           );
         },
       ),

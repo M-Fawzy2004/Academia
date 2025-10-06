@@ -187,8 +187,13 @@ class _AddNoteDialogState extends State<AddNoteDialog> {
 
 // Helper function to show the dialog
 void showAddNoteDialog(BuildContext context, String subjectId) {
+  final existingCubit = context.read<AdditionalNotesCubit>();
   showDialog(
     context: context,
-    builder: (context) => AddNoteDialog(subjectId: subjectId),
+    useRootNavigator: false,
+    builder: (dialogContext) => BlocProvider.value(
+      value: existingCubit,
+      child: AddNoteDialog(subjectId: subjectId),
+    ),
   );
 }

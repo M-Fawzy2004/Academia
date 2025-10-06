@@ -25,7 +25,7 @@ class CompactSubjectCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         context.read<SubjectCubit>().updateLastAccessed(subject.id);
-        context.push(AppRouter.subjectDetailsView, extra: subject);
+        context.push('${AppRouter.subjectDetailsView}?subjectId=${subject.id}');
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 12.h),

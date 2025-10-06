@@ -184,7 +184,7 @@ class SubjectCard extends StatelessWidget {
       backgroundColor: subjectColor.withOpacity(0.8),
       onPressed: () {
         context.read<SubjectCubit>().updateLastAccessed(subject.id);
-        context.push(AppRouter.subjectDetailsView, extra: subject);
+        context.push('${AppRouter.subjectDetailsView}?subjectId=${subject.id}');
       },
     );
   }

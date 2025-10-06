@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/dependency_injection.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
+import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
 
 class AppProviders {
   /// Register View Provider
@@ -52,7 +53,7 @@ class AppProviders {
     );
   }
 
-  /// profile View Provider
+  /// Profile View Provider
   static Widget profileView({required Widget child}) {
     return BlocProvider<AuthCubit>(
       create: (_) => getIt<AuthCubit>(),
@@ -60,10 +61,25 @@ class AppProviders {
     );
   }
 
-  /// add subject View Provider
+  /// Add Subject View Provider
   static Widget addSubjectView({required Widget child}) {
     return BlocProvider<SubjectCubit>(
       create: (_) => getIt<SubjectCubit>(),
+      child: child,
+    );
+  }
+
+  /// Subject Details View Provider
+  static Widget subjectDetailsView({required Widget child}) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<SubjectCubit>(
+          create: (_) => getIt<SubjectCubit>(),
+        ),
+        BlocProvider<AdditionalNotesCubit>(
+          create: (_) => getIt<AdditionalNotesCubit>(),
+        ),
+      ],
       child: child,
     );
   }

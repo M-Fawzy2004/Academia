@@ -1,21 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
+import 'package:study_box/feature/subject_details/domain/entities/additional_note_entity.dart';
+import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
+import 'package:study_box/feature/subject_details/presentation/view/widget/add_note_dialog.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/note_card.dart';
 
-class NotesSection extends StatelessWidget {
+class NotesSection extends StatefulWidget {
   const NotesSection({
     super.key,
     required this.notes,
-    required this.isExpanded,
-    required this.onToggle,
+    required this.subjectId,
+    this.isLoading = false,
+    this.errorMessage,
   });
 
-  final List<String> notes;
-  final bool isExpanded;
-  final VoidCallback onToggle;
+  final List<AdditionalNote> notes;
+  final String subjectId;
+  final bool isLoading;
+  final String? errorMessage;
+
+  @override
+  State<NotesSection> createState() => _NotesSectionState();
+}
+
+class _NotesSectionState extends State<NotesSection> {
+  bool isExpanded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +40,11 @@ class NotesSection extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
-            onTap: onToggle,
+            onTap: () {
+              setState(() {
+                isExpanded = !isExpanded;
+              });
+            },
             borderRadius: BorderRadius.circular(12.r),
             child: Padding(
               padding: EdgeInsets.all(15.w),
@@ -61,7 +78,7 @@ class NotesSection extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20.r),
                     ),
                     child: Text(
-                      '${notes.length}',
+                      '${widget.notes.length}',
                       style: TextStyle(
                         color: const Color(0xFF6366F1),
                         fontSize: 13.sp,
@@ -70,6 +87,14 @@ class NotesSection extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
+                  IconButton(
+                    onPressed: () => showAddNoteDialog(context, widget.subjectId),
+                    icon: Icon(
+                      Icons.add_circle_outline,
+                      color: const Color(0xFF6366F1),
+                      size: 24.sp,
+                    ),
+                  ),
                   Icon(
                     isExpanded
                         ? Icons.keyboard_arrow_up_rounded
@@ -81,14 +106,93 @@ class NotesSection extends StatelessWidget {
               ),
             ),
           ),
-          if (isExpanded)
-            Padding(
-              padding: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 20.h),
-              child: Column(
-                children: notes.map((note) => NoteCard(note: note)).toList(),
-              ),
-            ),
+          if (isExpanded) _buildExpandedContent(context),
         ],
+      ),
+    );
+  }
+
+  Widget _buildExpandedContent(BuildContext context) {
+    if (widget.isLoading) {
+      return Padding(
+        padding: EdgeInsets.all(20.w),
+        child: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
+    if (widget.errorMessage != null) {
+      return Padding(
+        padding: EdgeInsets.all(20.w),
+        child: Center(
+          child: Column(
+            children: [
+              Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 48.sp,
+              ),
+              heightBox(12),
+              Text(
+                widget.errorMessage!,
+                style: Styles.font13GreyBold(context),
+                textAlign: TextAlign.center,
+              ),
+              heightBox(12),
+              ElevatedButton(
+                onPressed: () {
+                  context.read<AdditionalNotesCubit>().loadNotes(widget.subjectId);
+                },
+                child: const Text('Retry'),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    if (widget.notes.isEmpty) {
+      return Padding(
+        padding: EdgeInsets.all(20.w),
+        child: Center(
+          child: Column(
+            children: [
+              Icon(
+                Icons.note_add_outlined,
+                color: const Color(0xFF9CA3AF),
+                size: 48.sp,
+              ),
+              heightBox(12),
+              Text(
+                'No notes yet',
+                style: Styles.font13GreyBold(context),
+              ),
+              heightBox(8),
+              Text(
+                'Add your first note to get started',
+                style: TextStyle(
+                  color: const Color(0xFF9CA3AF),
+                  fontSize: 12.sp,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return Padding(
+      padding: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 20.h),
+      child: Column(
+        children: widget.notes
+            .map(
+              (note) => NoteCard(
+                note: note,
+                subjectId: widget.subjectId,
+              ),
+            )
+            .toList(),
       ),
     );
   }
