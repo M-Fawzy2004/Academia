@@ -88,7 +88,8 @@ class _NotesSectionState extends State<NotesSection> {
                   ),
                   const Spacer(),
                   IconButton(
-                    onPressed: () => showAddNoteDialog(context, widget.subjectId),
+                    onPressed: () =>
+                        showAddNoteDialog(context, widget.subjectId),
                     icon: Icon(
                       Icons.add_circle_outline,
                       color: const Color(0xFF6366F1),
@@ -142,7 +143,9 @@ class _NotesSectionState extends State<NotesSection> {
               heightBox(12),
               ElevatedButton(
                 onPressed: () {
-                  context.read<AdditionalNotesCubit>().loadNotes(widget.subjectId);
+                  context
+                      .read<AdditionalNotesCubit>()
+                      .loadNotes(widget.subjectId);
                 },
                 child: const Text('Retry'),
               ),

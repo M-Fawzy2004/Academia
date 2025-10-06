@@ -40,11 +40,12 @@ class _SubjectDetailsViewBodyState extends State<SubjectDetailsViewBody> {
           ),
           heightBox(15),
           QuickActionsSection(
-            onAiSuggestion: () {},
+            onAiSuggestion: () {
+              CustomSnackBar.showInfo(context, 'Soon');
+            },
             onAddReminder: () {
               CustomSnackBar.showInfo(context, 'Soon');
             },
-            onAddExternalNote: () {},
           ),
           heightBox(15),
           NotesSectionBlocConsumer(subjectId: widget.subjectId),

@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
+import 'package:study_box/core/widget/custom_button.dart';
+import 'package:study_box/core/widget/custom_text_field.dart';
 import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
 
 class AddNoteDialog extends StatefulWidget {
@@ -18,13 +20,39 @@ class AddNoteDialog extends StatefulWidget {
   State<AddNoteDialog> createState() => _AddNoteDialogState();
 }
 
-class _AddNoteDialogState extends State<AddNoteDialog> {
+class _AddNoteDialogState extends State<AddNoteDialog>
+    with SingleTickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
   final _titleController = TextEditingController();
   final _detailsController = TextEditingController();
+  late AnimationController _animationController;
+  late Animation<double> _scaleAnimation;
+  late Animation<double> _fadeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+
+    _scaleAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeOutBack,
+    );
+
+    _fadeAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeIn,
+    );
+
+    _animationController.forward();
+  }
 
   @override
   void dispose() {
+    _animationController.dispose();
     _titleController.dispose();
     _detailsController.dispose();
     super.dispose();
@@ -43,141 +71,99 @@ class _AddNoteDialogState extends State<AddNoteDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      backgroundColor: AppColors.getCardColorTwo(context),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.r),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(20.w),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // Header
-              Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(10.w),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF6366F1).withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(12.r),
+    return FadeTransition(
+      opacity: _fadeAnimation,
+      child: ScaleTransition(
+        scale: _scaleAnimation,
+        child: Dialog(
+          backgroundColor: AppColors.getBackgroundColor(context),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(15.w),
+            child: Form(
+              key: _formKey,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // Header
+                    Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(10.w),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF6366F1).withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                          child: Icon(
+                            Icons.note_add_outlined,
+                            color: const Color(0xFF6366F1),
+                            size: 24.sp,
+                          ),
+                        ),
+                        widthBox(12),
+                        Text(
+                          'Add Note',
+                          style: Styles.font18PrimaryColorTextBold(context),
+                        ),
+                        const Spacer(),
+                        IconButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          icon: Icon(
+                            Icons.close_rounded,
+                            size: 24.sp,
+                            color: const Color(0xFF9CA3AF),
+                          ),
+                        ),
+                      ],
                     ),
-                    child: Icon(
-                      Icons.note_add_outlined,
-                      color: const Color(0xFF6366F1),
-                      size: 24.sp,
+                    heightBox(20),
+                    // Title Field
+                    Text(
+                      'Title',
+                      style: Styles.font13GreyBold(context),
                     ),
-                  ),
-                  widthBox(12),
-                  Text(
-                    'Add Note',
-                    style: Styles.font18PrimaryColorTextBold(context),
-                  ),
-                  const Spacer(),
-                  IconButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    icon: Icon(
-                      Icons.close_rounded,
-                      size: 24.sp,
-                      color: const Color(0xFF9CA3AF),
+                    heightBox(8),
+                    CustomTextField(
+                      controller: _titleController,
+                      hintText: 'Enter note title',
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return 'Please enter a title';
+                        }
+                        return null;
+                      },
                     ),
-                  ),
-                ],
-              ),
-              heightBox(20),
-
-              // Title Field
-              Text(
-                'Title',
-                style: Styles.font13GreyBold(context),
-              ),
-              heightBox(8),
-              TextFormField(
-                controller: _titleController,
-                decoration: InputDecoration(
-                  hintText: 'Enter note title',
-                  hintStyle: TextStyle(
-                    color: const Color(0xFF9CA3AF),
-                    fontSize: 14.sp,
-                  ),
-                  filled: true,
-                  fillColor: AppColors.getCardColor(context),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                    borderSide: BorderSide.none,
-                  ),
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 16.w,
-                    vertical: 14.h,
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return 'Please enter a title';
-                  }
-                  return null;
-                },
-              ),
-              heightBox(16),
-
-              // Details Field
-              Text(
-                'Details',
-                style: Styles.font13GreyBold(context),
-              ),
-              heightBox(8),
-              TextFormField(
-                controller: _detailsController,
-                maxLines: 5,
-                decoration: InputDecoration(
-                  hintText: 'Enter note details',
-                  hintStyle: TextStyle(
-                    color: const Color(0xFF9CA3AF),
-                    fontSize: 14.sp,
-                  ),
-                  filled: true,
-                  fillColor: AppColors.getCardColor(context),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                    borderSide: BorderSide.none,
-                  ),
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 16.w,
-                    vertical: 14.h,
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return 'Please enter details';
-                  }
-                  return null;
-                },
-              ),
-              heightBox(24),
-
-              // Add Button
-              ElevatedButton(
-                onPressed: _handleAddNote,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF6366F1),
-                  padding: EdgeInsets.symmetric(vertical: 14.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                ),
-                child: Text(
-                  'Add Note',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
+                    heightBox(16),
+                    // Details Field
+                    Text(
+                      'Details',
+                      style: Styles.font13GreyBold(context),
+                    ),
+                    heightBox(8),
+                    CustomTextField(
+                      controller: _detailsController,
+                      maxLines: 5,
+                      hintText: 'Enter note details',
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return 'Please enter details';
+                        }
+                        return null;
+                      },
+                    ),
+                    heightBox(24),
+                    CustomButton(
+                      text: 'Add Note',
+                      onPressed: _handleAddNote,
+                    ),
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
         ),
       ),

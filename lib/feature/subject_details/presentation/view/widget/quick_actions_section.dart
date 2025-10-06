@@ -8,12 +8,10 @@ class QuickActionsSection extends StatelessWidget {
     super.key,
     required this.onAiSuggestion,
     required this.onAddReminder,
-    required this.onAddExternalNote,
   });
 
   final VoidCallback onAiSuggestion;
   final VoidCallback onAddReminder;
-  final VoidCallback onAddExternalNote;
 
   @override
   Widget build(BuildContext context) {
@@ -31,33 +29,16 @@ class QuickActionsSection extends StatelessWidget {
           onTap: onAiSuggestion,
         ),
         heightBox(12),
-        Row(
-          children: [
-            Expanded(
-              child: QuickActionButton(
-                icon: Icons.notifications_outlined,
-                label: 'Add Reminder',
-                gradient: const LinearGradient(
-                  colors: [Color(0xFF10B981), Color(0xFF14B8A6)],
-                ),
-                onTap: onAddReminder,
-              ),
-            ),
-            widthBox(12),
-            Expanded(
-              child: QuickActionButton(
-                icon: Icons.note_add_outlined,
-                label: 'Add Note',
-                gradient: const LinearGradient(
-                  colors: [
-                    AppColors.lightTextSecondary,
-                    AppColors.darkTextSecondary,
-                  ],
-                ),
-                onTap: onAddExternalNote,
-              ),
-            ),
-          ],
+        QuickActionButton(
+          icon: Icons.notifications_outlined,
+          label: 'Add Reminder',
+          gradient: const LinearGradient(
+            colors: [
+              AppColors.secondaryColor,
+              AppColors.primaryColor,
+            ],
+          ),
+          onTap: onAddReminder,
         ),
       ],
     );

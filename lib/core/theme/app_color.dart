@@ -22,7 +22,7 @@ class AppColors {
   static const Color lightGreyBackground = Color(0xFFF1F5F9);
   static const Color lightIndicatorInactive = Color(0xFFE2E8F0);
 
-  // Dark Theme Colors (الوضع الداكن الأول)
+  // Dark Theme Colors 
   static const Color darkPrimaryColor = Color(0xFF667EEA);
   static const Color darkBackgroundColor = Color.fromARGB(255, 30, 30, 30);
   static const Color darkSurfaceColor = Color.fromARGB(255, 37, 37, 38);
@@ -33,7 +33,7 @@ class AppColors {
   static const Color darkGreyBackground = Color(0xFF374151);
   static const Color darkIndicatorInactive = Color(0xFF475569);
 
-  // Dark Theme 2 Colors (الوضع الداكن الثاني - الجديد)
+  // Dark Theme 2 Colors 
   static const Color dark2PrimaryColor = Color(0xFF667EEA);
   static const Color dark2BackgroundColor = Color(0xFF0F172A);
   static const Color dark2SurfaceColor = Color(0xFF1E293B);

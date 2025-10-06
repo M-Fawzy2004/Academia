@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_card.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_divider.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_navigation.dart';
@@ -63,7 +65,9 @@ class AccountSettingsSection extends StatelessWidget {
               icon: IconlyLight.logout,
               title: 'Sign Out',
               subtitle: 'Sign out of your account',
-              onTap: () {},
+              onTap: () {
+                context.read<AuthCubit>().signOut();
+              },
               trailing: Icon(
                 IconlyLight.logout,
                 color: Colors.red,
