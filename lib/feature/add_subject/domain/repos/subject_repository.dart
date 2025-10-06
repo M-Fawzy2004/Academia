@@ -3,8 +3,8 @@ import 'package:study_box/core/error/failure.dart';
 import '../entities/subject_entity.dart';
 
 abstract class SubjectRepository {
-  /// Add new subject to database
-  Future<Either<Failure, Unit>> addSubject(SubjectEntity subject);
+  /// Add new subject to database and return created subject ID
+  Future<Either<Failure, String>> addSubject(SubjectEntity subject);
 
   /// Get subjects by year and semester
   Future<Either<Failure, List<SubjectEntity>>> getSubjects(int year, int semester);

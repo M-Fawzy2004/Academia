@@ -3,9 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/resource_type_card.dart';
+import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart' as domain;
 
 class ResourcesSection extends StatelessWidget {
-  const ResourcesSection({super.key});
+  const ResourcesSection({super.key, required this.subject});
+
+  final domain.SubjectEntity subject;
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +51,17 @@ class ResourcesSection extends StatelessWidget {
           gradient: const LinearGradient(
             colors: [Color(0xFFEF4444), Color(0xFFDC2626)],
           ),
-          count: 5,
-          items: const [
-            {'name': 'شرح الفصل الأول.pdf', 'size': '2.5 MB'},
-            {'name': 'ملخص المنهج.pdf', 'size': '1.8 MB'},
-          ],
+          count: subject.resources
+              .where((r) => r.type == domain.ResourceType.pdf)
+              .length,
+          items: subject.resources
+              .where((r) => r.type == domain.ResourceType.pdf)
+              .map((r) => {
+                    'name': r.title,
+                    'url': r.url,
+                    'size': (r.fileSizeMB ?? 0).toString(),
+                  })
+              .toList(),
           onViewAll: () {},
         ),
         heightBox(12),
@@ -90,11 +99,16 @@ class ResourcesSection extends StatelessWidget {
           gradient: const LinearGradient(
             colors: [Color(0xFF10B981), Color(0xFF059669)],
           ),
-          count: 12,
-          items: const [
-            {'name': 'رسم توضيحي 1'},
-            {'name': 'رسم توضيحي 2'},
-          ],
+          count: subject.resources
+              .where((r) => r.type == domain.ResourceType.image)
+              .length,
+          items: subject.resources
+              .where((r) => r.type == domain.ResourceType.image)
+              .map((r) => {
+                    'name': r.title,
+                    'url': r.url,
+                  })
+              .toList(),
           onViewAll: () {},
         ),
       ],

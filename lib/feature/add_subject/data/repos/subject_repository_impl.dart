@@ -13,11 +13,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
   SubjectRepositoryImpl({required this.subjectService});
 
   @override
-  Future<Either<Failure, Unit>> addSubject(SubjectEntity subject) async {
+  Future<Either<Failure, String>> addSubject(SubjectEntity subject) async {
     try {
       final subjectModel = SubjectModel.fromEntity(subject);
-      await subjectService.addSubject(subjectModel);
-      return const Right(unit);
+      final id = await subjectService.addSubject(subjectModel);
+      return Right(id);
     } on PostgrestException catch (e) {
       return Left(ServerFailure(message: e.message, code: e.code));
     } on SocketException {

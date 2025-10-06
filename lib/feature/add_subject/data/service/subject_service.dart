@@ -8,8 +8,8 @@ class SubjectService {
 
   SubjectService({required this.supabaseClient});
 
-  /// Add subject to Supabase with profile management
-  Future<void> addSubject(SubjectModel subject) async {
+  /// Add subject to Supabase with profile management and return its ID
+  Future<String> addSubject(SubjectModel subject) async {
     try {
       final userId = supabaseClient.auth.currentUser?.id;
       if (userId == null) throw Exception('User not authenticated');
@@ -26,9 +26,13 @@ class SubjectService {
         payload['color'] = (payload['color'] as int) & 0x00FFFFFF;
       }
 
-      await supabaseClient
+      final inserted = await supabaseClient
           .from(AppConstant.tableSubjects)
-          .insert(payload);
+          .insert(payload)
+          .select('id')
+          .single();
+
+      return inserted['id'] as String;
     } catch (e) {
       throw Exception('Failed to add subject: $e');
     }

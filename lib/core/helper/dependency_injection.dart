@@ -5,6 +5,7 @@ import 'package:study_box/feature/add_subject/domain/repos/subject_repository.da
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/subject_details/data/service/additional_notes_service.dart';
 import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
+import 'package:study_box/feature/add_subject/data/service/storage_resource_service.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service_impl.dart';
@@ -29,6 +30,11 @@ Future<void> initDependencies() async {
   // Subject Service
   getIt.registerLazySingleton<SubjectService>(
     () => SubjectService(supabaseClient: getIt()),
+  );
+
+  // Storage Resource Service
+  getIt.registerLazySingleton<StorageResourceService>(
+    () => StorageResourceService(supabaseClient: getIt<SupabaseClient>()),
   );
 
   getIt.registerLazySingleton<AdditionalNotesService>(
@@ -56,7 +62,10 @@ Future<void> initDependencies() async {
 
   // subject Cubit
   getIt.registerFactory<SubjectCubit>(
-    () => SubjectCubit(subjectRepository: getIt()),
+    () => SubjectCubit(
+      subjectRepository: getIt(),
+      storageService: getIt<StorageResourceService>(),
+    ),
   );
 
   // Additional Notes Cubit

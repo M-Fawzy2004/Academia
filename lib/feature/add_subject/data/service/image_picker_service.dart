@@ -15,14 +15,13 @@ class ImagePickerService {
         maxHeight: 1080,
         imageQuality: 85,
       );
-      
+
       if (image != null) {
         return ResourceItem(
           id: DateTime.now().millisecondsSinceEpoch.toString(),
           title: image.name,
-          description: LanguageHelper.isArabic(context) 
-              ? 'صورة مضافة' 
-              : 'Added Image',
+          description:
+              LanguageHelper.isArabic(context) ? 'صورة مضافة' : 'Added Image',
           type: ResourceType.image,
           filePath: image.path,
           icon: Icons.image,
@@ -44,13 +43,13 @@ class ImagePickerService {
         maxHeight: 1080,
         imageQuality: 85,
       );
-      
+
       if (image != null) {
         return ResourceItem(
           id: DateTime.now().millisecondsSinceEpoch.toString(),
           title: image.name,
-          description: LanguageHelper.isArabic(context) 
-              ? 'صورة من الكاميرا' 
+          description: LanguageHelper.isArabic(context)
+              ? 'صورة من الكاميرا'
               : 'Camera Image',
           type: ResourceType.image,
           filePath: image.path,
@@ -70,7 +69,7 @@ class ImagePickerService {
     Function(ResourceItem) onImagePicked,
   ) async {
     final isArabic = LanguageHelper.isArabic(context);
-    
+
     showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -82,7 +81,8 @@ class ImagePickerService {
             children: [
               ListTile(
                 leading: const Icon(Icons.photo_library, color: Colors.blue),
-                title: Text(isArabic ? 'اختيار من المعرض' : 'Choose from Gallery'),
+                title:
+                    Text(isArabic ? 'اختيار من المعرض' : 'Choose from Gallery'),
                 onTap: () async {
                   Navigator.of(context).pop();
                   // Allow multiple selection from gallery
@@ -118,10 +118,10 @@ class ImagePickerService {
     if (filePath == null) return false;
     final extension = filePath.toLowerCase();
     return extension.endsWith('.jpg') ||
-           extension.endsWith('.jpeg') ||
-           extension.endsWith('.png') ||
-           extension.endsWith('.gif') ||
-           extension.endsWith('.webp') ||
-           extension.endsWith('.bmp');
+        extension.endsWith('.jpeg') ||
+        extension.endsWith('.png') ||
+        extension.endsWith('.gif') ||
+        extension.endsWith('.webp') ||
+        extension.endsWith('.bmp');
   }
 }

@@ -2,13 +2,16 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
 import 'package:study_box/feature/add_subject/domain/repos/subject_repository.dart';
+import 'package:study_box/feature/add_subject/data/service/storage_resource_service.dart';
 
 part 'subject_state.dart';
 
 class SubjectCubit extends Cubit<SubjectState> {
-  SubjectCubit({required this.subjectRepository}) : super(SubjectInitial());
+  SubjectCubit({required this.subjectRepository, required this.storageService})
+      : super(SubjectInitial());
 
   final SubjectRepository subjectRepository;
+  final StorageResourceService storageService;
 
   /// Update last accessed
   Future<void> updateLastAccessed(String subjectId) async {
@@ -55,9 +58,74 @@ class SubjectCubit extends Cubit<SubjectState> {
             }
 
             final result = await subjectRepository.addSubject(subject);
-            result.fold(
-              (failure) => emit(SubjectError(failure.message)),
-              (_) => emit(const SubjectSuccess('Subject added successfully')),
+            await result.fold(
+              (failure) async => emit(SubjectError(failure.message)),
+              (createdSubjectId) async {
+                // Upload local image/pdf files to storage and replace URLs
+                final List<ResourceItem> updatedResources = [];
+                for (final r in subject.resources) {
+                  final isFileType = r.type == ResourceType.image || r.type == ResourceType.pdf;
+                  final looksLikeHttp = r.url.startsWith('http://') || r.url.startsWith('https://');
+                  if (isFileType && !looksLikeHttp) {
+                    try {
+                      final publicUrl = await storageService.uploadSubjectFile(
+                        subjectId: createdSubjectId,
+                        filePath: r.url,
+                        overrideFileName: r.title,
+                      );
+
+                      // Optionally insert a row into resources table for centralized listing
+                      await storageService.insertResourceRow(
+                        subjectId: createdSubjectId,
+                        type: r.type.name,
+                        title: r.title,
+                        url: publicUrl,
+                        fileSizeMB: r.fileSizeMB,
+                      );
+
+                      updatedResources.add(
+                        ResourceItem(
+                          id: r.id,
+                          type: r.type,
+                          title: r.title,
+                          url: publicUrl,
+                          fileSizeMB: r.fileSizeMB,
+                          createdAt: r.createdAt,
+                        ),
+                      );
+                    } catch (e) {
+                      emit(SubjectError('Failed to upload file: $e'));
+                      return;
+                    }
+                  } else {
+                    updatedResources.add(r);
+                  }
+                }
+
+                // Persist updated resources back to subject row
+                final updatedSubject = SubjectEntity(
+                  id: createdSubjectId,
+                  name: subject.name,
+                  code: subject.code,
+                  year: subject.year,
+                  semester: subject.semester,
+                  doctorName: subject.doctorName,
+                  creditHours: subject.creditHours,
+                  notes: subject.notes,
+                  resources: updatedResources,
+                  lectures: subject.lectures,
+                  color: subject.color,
+                  createdAt: subject.createdAt,
+                  updatedAt: DateTime.now(),
+                  lastAccessedAt: subject.lastAccessedAt,
+                );
+
+                final updateResult = await subjectRepository.updateSubject(updatedSubject);
+                updateResult.fold(
+                  (failure) => emit(SubjectError(failure.message)),
+                  (_) => emit(const SubjectSuccess('Subject added successfully')),
+                );
+              },
             );
           },
         );
