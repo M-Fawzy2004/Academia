@@ -13,14 +13,12 @@ class SubjectHeaderCard extends StatelessWidget {
     required this.instructorName,
     required this.hours,
     required this.onDelete,
-    required this.onEdit,
   });
 
   final String subjectName;
   final String instructorName;
   final int hours;
   final VoidCallback onDelete;
-  final VoidCallback onEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -77,20 +75,10 @@ class SubjectHeaderCard extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 8.w),
-              Column(
-                children: [
-                  ActionButton(
-                    icon: Icons.edit_rounded,
-                    color: const Color(0xFF3B82F6),
-                    onTap: onEdit,
-                  ),
-                  heightBox(10),
-                  ActionButton(
-                    icon: Icons.delete_outline_rounded,
-                    color: const Color(0xFFEF4444),
-                    onTap: onDelete,
-                  ),
-                ],
+              ActionButton(
+                icon: Icons.delete_outline_rounded,
+                color: const Color(0xFFEF4444),
+                onTap: onDelete,
               ),
             ],
           ),
