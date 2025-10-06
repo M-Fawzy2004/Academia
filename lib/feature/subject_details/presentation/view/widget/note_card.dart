@@ -56,7 +56,7 @@ class NoteCard extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.fromLTRB(16.w, 12.h, 8.w, 12.h),
+            padding: EdgeInsets.only(left: 15.w),
             child: Row(
               children: [
                 Expanded(

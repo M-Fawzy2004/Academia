@@ -50,14 +50,7 @@ class _SubjectDetailsViewBodyState extends State<SubjectDetailsViewBody> {
           heightBox(15),
           NotesSectionBlocConsumer(subjectId: widget.subjectId),
           heightBox(15),
-          ResourcesSection(
-            isExpanded: showResources,
-            onToggle: () {
-              setState(() {
-                showResources = !showResources;
-              });
-            },
-          ),
+          const ResourcesSection(),
           heightBox(20),
         ],
       ),

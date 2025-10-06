@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
+import 'package:study_box/core/widget/custom_button.dart';
+import 'package:study_box/core/widget/custom_text_field.dart';
 import 'package:study_box/feature/subject_details/domain/entities/additional_note_entity.dart';
 import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
 
@@ -131,21 +133,9 @@ class _EditNoteDialogState extends State<EditNoteDialog>
                       style: Styles.font13GreyBold(context),
                     ),
                     heightBox(8),
-                    TextFormField(
+                    CustomTextField(
                       controller: _titleController,
-                      decoration: InputDecoration(
-                        hintText: 'Enter note title',
-                        filled: true,
-                        fillColor: AppColors.getCardColor(context),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12.r),
-                          borderSide: BorderSide.none,
-                        ),
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 14.h,
-                        ),
-                      ),
+                      hintText: 'Enter note title',
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
                           return 'Please enter a title';
@@ -159,47 +149,20 @@ class _EditNoteDialogState extends State<EditNoteDialog>
                       style: Styles.font13GreyBold(context),
                     ),
                     heightBox(8),
-                    TextFormField(
-                      controller: _detailsController,
-                      maxLines: 5,
-                      decoration: InputDecoration(
+                    CustomTextField(
+                        controller: _detailsController,
                         hintText: 'Enter note details',
-                        filled: true,
-                        fillColor: AppColors.getCardColor(context),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12.r),
-                          borderSide: BorderSide.none,
-                        ),
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 16.w,
-                          vertical: 14.h,
-                        ),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          return 'Please enter details';
-                        }
-                        return null;
-                      },
-                    ),
+                        maxLines: 5,
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please enter details';
+                          }
+                          return null;
+                        }),
                     heightBox(24),
-                    ElevatedButton(
+                    CustomButton(
+                      text: 'Update Note',
                       onPressed: _handleUpdateNote,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF6366F1),
-                        padding: EdgeInsets.symmetric(vertical: 14.h),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.r),
-                        ),
-                      ),
-                      child: Text(
-                        'Update Note',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
                     ),
                   ],
                 ),
