@@ -10,7 +10,7 @@ class RegisterView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          padding: EdgeInsets.symmetric(horizontal: 15.w),
           child: const RegisterViewBody(),
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/widget/icon_back.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/auth_redirect_text.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/register_form_wrapper.dart';
 
@@ -17,17 +18,22 @@ class RegisterViewBody extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
-          heightBox(80),
+          heightBox(20),
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: IconBack(),
+          ),
+          heightBox(20),
           Icon(
             Icons.school,
             size: 80.sp,
-            color: AppColors.darkLightGrey,
+            color: AppColors.primaryColor,
           ),
           heightBox(5),
           Text(
             "StudyBox",
             style: TextStyle(
-              color: AppColors.darkLightGrey,
+              color: AppColors.primaryColor,
               fontWeight: FontWeight.bold,
               fontSize: 24.sp,
             ),

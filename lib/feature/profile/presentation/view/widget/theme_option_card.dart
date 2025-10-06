@@ -33,7 +33,7 @@ class ThemeOptionCard extends StatelessWidget {
             margin: EdgeInsets.only(right: isSelected ? 0 : 60.w),
             decoration: BoxDecoration(
               color: AppColors.getCardColor(context),
-              borderRadius: BorderRadius.circular(24.r),
+              borderRadius: BorderRadius.circular(25.r),
               border: Border.all(
                 color: isSelected
                     ? gradient.colors.first
@@ -96,7 +96,7 @@ class ThemeOptionCard extends StatelessWidget {
             bottom: 0,
             child: AnimatedRotation(
               duration: const Duration(milliseconds: 600),
-              turns: isSelected ? 0 : 0.15,
+              turns: isSelected ? 0 : 0.2,
               child: AnimatedScale(
                 duration: const Duration(milliseconds: 400),
                 scale: isSelected ? 1.1 : 1.0,
@@ -105,33 +105,14 @@ class ThemeOptionCard extends StatelessWidget {
                   height: 70.h,
                   decoration: BoxDecoration(
                     gradient: gradient,
-                    borderRadius: BorderRadius.circular(20.r),
-                    boxShadow: [
-                      BoxShadow(
-                        color: gradient.colors.first.withOpacity(
-                          isSelected ? 0.5 : 0.25,
-                        ),
-                        blurRadius: isSelected ? 24 : 16,
-                        offset: Offset(0, isSelected ? 8 : 4),
-                      ),
-                    ],
+                    shape: BoxShape.circle,
                   ),
-                  child: Stack(
-                    children: [
-                      if (isSelected)
-                        Positioned.fill(
-                          child: CustomPaint(
-                            painter: _DecorLinePainter(),
-                          ),
-                        ),
-                      Center(
-                        child: Icon(
-                          icon,
-                          color: Colors.white,
-                          size: 32.sp,
-                        ),
-                      ),
-                    ],
+                  child: Center(
+                    child: Icon(
+                      icon,
+                      color: Colors.white,
+                      size: 32.sp,
+                    ),
                   ),
                 ),
               ),
@@ -141,29 +122,4 @@ class ThemeOptionCard extends StatelessWidget {
       ),
     );
   }
-}
-
-class _DecorLinePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white.withOpacity(0.15)
-      ..strokeWidth = 1.5
-      ..style = PaintingStyle.stroke;
-
-    canvas.drawLine(
-      Offset(size.width * 0.3, 0),
-      Offset(size.width * 0.7, size.height),
-      paint,
-    );
-
-    canvas.drawLine(
-      Offset(size.width * 0.6, 0),
-      Offset(size.width, size.height * 0.7),
-      paint,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

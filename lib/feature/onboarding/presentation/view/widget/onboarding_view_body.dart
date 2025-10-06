@@ -6,6 +6,8 @@ import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/feature/onboarding/presentation/manager/cubit/onboarding_cubit.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_bottom_section.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_page.dart';
+import 'package:study_box/feature/onboarding/presentation/view/widget/theme_selector_bottom_sheet.dart';
+import 'package:study_box/feature/onboarding/presentation/view/widget/theme_selector_button.dart';
 
 class OnboardingViewBody extends StatefulWidget {
   const OnboardingViewBody({super.key});
@@ -23,7 +25,14 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
       context.read<OnboardingCubit>().initializeAnimations(this, context);
     });
   }
-  
+
+  void _showThemeSelector(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const ThemeSelectorBottomSheet(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,34 +52,47 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
           );
         }
         return Scaffold(
-          body: Column(
+          body: Stack(
             children: [
-              Expanded(
-                child: PageView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  controller: cubit.pageController,
-                  onPageChanged: cubit.onPageChanged,
-                  itemCount: cubit.onboardingData.length,
-                  itemBuilder: (context, index) {
-                    return OnboardingPage(
-                      data: cubit.onboardingData[index],
-                      fadeAnimation: cubit.fadeAnimation,
-                      slideAnimation: cubit.slideAnimation,
-                      currentIndex: cubit.currentIndex,
-                      totalPages: cubit.onboardingData.length,
-                      onSkip: cubit.skipToEnd,
-                    );
-                  },
-                ),
+              Column(
+                children: [
+                  Expanded(
+                    child: PageView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      controller: cubit.pageController,
+                      onPageChanged: cubit.onPageChanged,
+                      itemCount: cubit.onboardingData.length,
+                      itemBuilder: (context, index) {
+                        return OnboardingPage(
+                          data: cubit.onboardingData[index],
+                          fadeAnimation: cubit.fadeAnimation,
+                          slideAnimation: cubit.slideAnimation,
+                          currentIndex: cubit.currentIndex,
+                          totalPages: cubit.onboardingData.length,
+                          onSkip: cubit.skipToEnd,
+                        );
+                      },
+                    ),
+                  ),
+                  SafeArea(
+                    child: Padding(
+                      padding: EdgeInsets.all(24.w),
+                      child: OnboardingBottomSection(
+                        currentIndex: cubit.currentIndex,
+                        totalPages: cubit.onboardingData.length,
+                        onNext: cubit.nextPage,
+                        onGetStarted: cubit.getStarted,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              SafeArea(
-                child: Padding(
-                  padding: EdgeInsets.all(24.w),
-                  child: OnboardingBottomSection(
-                    currentIndex: cubit.currentIndex,
-                    totalPages: cubit.onboardingData.length,
-                    onNext: cubit.nextPage,
-                    onGetStarted: cubit.getStarted,
+              Positioned(
+                top: MediaQuery.of(context).padding.top + 10.h,
+                right: 20.w,
+                child: SafeArea(
+                  child: ThemeSelectorButton(
+                    onTap: () => _showThemeSelector(context),
                   ),
                 ),
               ),
