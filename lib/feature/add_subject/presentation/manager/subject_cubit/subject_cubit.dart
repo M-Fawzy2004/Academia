@@ -43,13 +43,13 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final tierResult = await subjectRepository.getUserSubscriptionTier();
     await tierResult.fold(
-      (failure) async => emit(SubjectError(failure.message)),
+      (failure) async => emit(SubjectError(failure.formattedMessage)),
       (tier) async {
         final limits = SubscriptionLimits.limits[tier]!;
         final allSubjectsResult = await subjectRepository.getAllSubjects();
 
         await allSubjectsResult.fold(
-          (failure) async => emit(SubjectError(failure.message)),
+          (failure) async => emit(SubjectError(failure.formattedMessage)),
           (allSubjects) async {
             if (allSubjects.length >= limits.maxSubjects) {
               emit(
@@ -91,7 +91,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
             final result = await subjectRepository.addSubject(subject);
             await result.fold(
-              (failure) async => emit(SubjectError(failure.message)),
+              (failure) async => emit(SubjectError(failure.formattedMessage)),
               (createdSubjectId) async {
                 // Upload local image/pdf files to storage and replace URLs
                 final List<ResourceItem> updatedResources = [];
@@ -154,7 +154,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
                 final updateResult = await subjectRepository.updateSubject(updatedSubject);
                 updateResult.fold(
-                  (failure) => emit(SubjectError(failure.message)),
+                  (failure) => emit(SubjectError(failure.formattedMessage)),
                   (_) => emit(const SubjectSuccess('Subject added successfully')),
                 );
               },
@@ -171,7 +171,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final result = await subjectRepository.getSubjects(year, semester);
     result.fold(
-      (failure) => emit(SubjectError(failure.message)),
+      (failure) => emit(SubjectError(failure.formattedMessage)),
       (subjects) => emit(SubjectsLoaded(subjects)),
     );
   }
@@ -182,7 +182,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final result = await subjectRepository.getAllSubjects();
     result.fold(
-      (failure) => emit(SubjectError(failure.message)),
+      (failure) => emit(SubjectError(failure.formattedMessage)),
       (subjects) => emit(SubjectsLoaded(subjects)),
     );
   }
@@ -193,7 +193,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final result = await subjectRepository.updateSubject(subject);
     result.fold(
-      (failure) => emit(SubjectError(failure.message)),
+      (failure) => emit(SubjectError(failure.formattedMessage)),
       (_) => emit(const SubjectSuccess('Subject updated successfully')),
     );
   }
@@ -204,7 +204,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final result = await subjectRepository.deleteSubject(id);
     result.fold(
-      (failure) => emit(SubjectError(failure.message)),
+      (failure) => emit(SubjectError(failure.formattedMessage)),
       (_) => emit(const SubjectSuccess('Subject deleted successfully')),
     );
   }
@@ -215,7 +215,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final result = await subjectRepository.getSubjectById(id);
     result.fold(
-      (failure) => emit(SubjectError(failure.message)),
+      (failure) => emit(SubjectError(failure.formattedMessage)),
       (subject) => emit(SubjectLoaded(subject)),
     );
   }
@@ -229,11 +229,11 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final subjectResult = await subjectRepository.getSubjectById(subjectId);
     await subjectResult.fold(
-      (failure) async => emit(SubjectError(failure.message)),
+      (failure) async => emit(SubjectError(failure.formattedMessage)),
       (subject) async {
         final tierResult = await subjectRepository.getUserSubscriptionTier();
         await tierResult.fold(
-          (failure) async => emit(SubjectError(failure.message)),
+          (failure) async => emit(SubjectError(failure.formattedMessage)),
           (tier) async {
             final currentCount =
                 subject.resources.where((r) => r.type == resource.type).length;
@@ -246,7 +246,7 @@ class SubjectCubit extends Cubit<SubjectState> {
             );
 
             await limitCheck.fold(
-              (failure) async => emit(SubjectError(failure.message)),
+              (failure) async => emit(SubjectError(failure.formattedMessage)),
               (_) async {
                 final updatedResources = [...subject.resources, resource];
                 final updatedSubject = SubjectEntity(
@@ -269,7 +269,7 @@ class SubjectCubit extends Cubit<SubjectState> {
                 final updateResult =
                     await subjectRepository.updateSubject(updatedSubject);
                 updateResult.fold(
-                  (failure) => emit(SubjectError(failure.message)),
+                  (failure) => emit(SubjectError(failure.formattedMessage)),
                   (_) =>
                       emit(const SubjectSuccess('Resource added successfully')),
                 );
@@ -290,7 +290,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final subjectResult = await subjectRepository.getSubjectById(subjectId);
     await subjectResult.fold(
-      (failure) async => emit(SubjectError(failure.message)),
+      (failure) async => emit(SubjectError(failure.formattedMessage)),
       (subject) async {
         final updatedResources =
             subject.resources.where((r) => r.id != resourceId).toList();
@@ -315,7 +315,7 @@ class SubjectCubit extends Cubit<SubjectState> {
         final updateResult =
             await subjectRepository.updateSubject(updatedSubject);
         updateResult.fold(
-          (failure) => emit(SubjectError(failure.message)),
+          (failure) => emit(SubjectError(failure.formattedMessage)),
           (_) => emit(const SubjectSuccess('Resource removed successfully')),
         );
       },
@@ -331,7 +331,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final subjectResult = await subjectRepository.getSubjectById(subjectId);
     await subjectResult.fold(
-      (failure) async => emit(SubjectError(failure.message)),
+      (failure) async => emit(SubjectError(failure.formattedMessage)),
       (subject) async {
         final updatedLectures = [...subject.lectures, lecture];
         final updatedSubject = SubjectEntity(
@@ -354,7 +354,7 @@ class SubjectCubit extends Cubit<SubjectState> {
         final updateResult =
             await subjectRepository.updateSubject(updatedSubject);
         updateResult.fold(
-          (failure) => emit(SubjectError(failure.message)),
+          (failure) => emit(SubjectError(failure.formattedMessage)),
           (_) => emit(const SubjectSuccess('Lecture added successfully')),
         );
       },
@@ -370,7 +370,7 @@ class SubjectCubit extends Cubit<SubjectState> {
 
     final subjectResult = await subjectRepository.getSubjectById(subjectId);
     await subjectResult.fold(
-      (failure) async => emit(SubjectError(failure.message)),
+      (failure) async => emit(SubjectError(failure.formattedMessage)),
       (subject) async {
         final updatedLectures =
             subject.lectures.where((l) => l.id != lectureId).toList();
@@ -395,7 +395,7 @@ class SubjectCubit extends Cubit<SubjectState> {
         final updateResult =
             await subjectRepository.updateSubject(updatedSubject);
         updateResult.fold(
-          (failure) => emit(SubjectError(failure.message)),
+          (failure) => emit(SubjectError(failure.formattedMessage)),
           (_) => emit(const SubjectSuccess('Lecture removed successfully')),
         );
       },

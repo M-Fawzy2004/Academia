@@ -148,13 +148,14 @@ class CustomSnackBar {
   static void showError(
     BuildContext context,
     String message, {
-    Duration duration = const Duration(seconds: 3),
+    Duration duration = const Duration(seconds: 4),
     String? actionLabel,
     VoidCallback? onActionPressed,
   }) {
+    final String display = formatForBuild(message);
     show(
       context: context,
-      message: message,
+      message: display,
       type: SnackBarType.error,
       duration: duration,
       actionLabel: actionLabel,
@@ -169,9 +170,10 @@ class CustomSnackBar {
     String? actionLabel,
     VoidCallback? onActionPressed,
   }) {
+    final String display = formatForBuild(message);
     show(
       context: context,
-      message: message,
+      message: display,
       type: SnackBarType.info,
       duration: duration,
       actionLabel: actionLabel,
@@ -186,13 +188,32 @@ class CustomSnackBar {
     String? actionLabel,
     VoidCallback? onActionPressed,
   }) {
+    final String display = formatForBuild(message);
     show(
       context: context,
-      message: message,
+      message: display,
       type: SnackBarType.warning,
       duration: duration,
       actionLabel: actionLabel,
       onActionPressed: onActionPressed,
     );
+  }
+
+  static String formatForBuild(String message) {
+    const bool isRelease = bool.fromEnvironment('dart.vm.product');
+    if (isRelease) {
+      // Hide internal details from end users
+      if (message.toLowerCase().contains('exception') ||
+          message.toLowerCase().contains('postgrest') ||
+          message.toLowerCase().contains('storageexception')) {
+        return 'An error occurred';
+      }
+      if (message.toLowerCase().contains('network')) {
+        return 'Network error';
+      }
+      return 'Something went wrong';
+    }
+    // In debug/dev, show the raw error for developer visibility
+    return message;
   }
 }

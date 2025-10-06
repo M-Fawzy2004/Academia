@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:study_box/core/error/failure.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/feature/add_subject/data/model/subject_model.dart';
 import 'package:study_box/feature/add_subject/data/service/subject_service.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
@@ -19,11 +20,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
       final id = await subjectService.addSubject(subjectModel);
       return Right(id);
     } on PostgrestException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.message), code: e.code));
     } on SocketException {
-      return const Left(NetworkFailure(message: 'No internet connection'));
+      return Left(NetworkFailure(message: CustomSnackBar.formatForBuild('Network error')));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -39,11 +40,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
       );
       return Right(subjects);
     } on PostgrestException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.message), code: e.code));
     } on SocketException {
-      return const Left(NetworkFailure(message: 'No internet connection'));
+      return Left(NetworkFailure(message: CustomSnackBar.formatForBuild('Network error')));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -53,11 +54,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
       final subjects = await subjectService.getAllSubjects();
       return Right(subjects);
     } on PostgrestException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.message), code: e.code));
     } on SocketException {
-      return const Left(NetworkFailure(message: 'No internet connection'));
+      return Left(NetworkFailure(message: CustomSnackBar.formatForBuild('Network error')));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -68,11 +69,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
       await subjectService.updateSubject(subjectModel);
       return const Right(unit);
     } on PostgrestException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.message), code: e.code));
     } on SocketException {
-      return const Left(NetworkFailure(message: 'No internet connection'));
+      return Left(NetworkFailure(message: CustomSnackBar.formatForBuild('Network error')));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -82,11 +83,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
       await subjectService.deleteSubject(id);
       return const Right(unit);
     } on PostgrestException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.message), code: e.code));
     } on SocketException {
-      return const Left(NetworkFailure(message: 'No internet connection'));
+      return Left(NetworkFailure(message: CustomSnackBar.formatForBuild('Network error')));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -96,11 +97,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
       final subject = await subjectService.getSubjectById(id);
       return Right(subject);
     } on PostgrestException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.message), code: e.code));
     } on SocketException {
-      return const Left(NetworkFailure(message: 'No internet connection'));
+      return Left(NetworkFailure(message: CustomSnackBar.formatForBuild('Network error')));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -148,7 +149,7 @@ class SubjectRepositoryImpl implements SubjectRepository {
 
       return const Right(true);
     } catch (e) {
-      return Left(ValidationFailure(message: e.toString()));
+      return Left(ValidationFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -158,11 +159,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
       final tier = await subjectService.getUserSubscriptionTier();
       return Right(tier);
     } on PostgrestException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.message), code: e.code));
     } on SocketException {
-      return const Left(NetworkFailure(message: 'No internet connection'));
+      return Left(NetworkFailure(message: CustomSnackBar.formatForBuild('Network error')));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -180,11 +181,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
       );
       return const Right(unit);
     } on PostgrestException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.message), code: e.code));
     } on SocketException {
-      return const Left(NetworkFailure(message: 'No internet connection'));
+      return Left(NetworkFailure(message: CustomSnackBar.formatForBuild('No internet connection')));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -194,11 +195,11 @@ class SubjectRepositoryImpl implements SubjectRepository {
       final profile = await subjectService.getUserProfile();
       return Right(profile);
     } on PostgrestException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.message), code: e.code));
     } on SocketException {
-      return const Left(NetworkFailure(message: 'No internet connection'));
+      return Left(NetworkFailure(message: CustomSnackBar.formatForBuild('No internet connection')));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 }

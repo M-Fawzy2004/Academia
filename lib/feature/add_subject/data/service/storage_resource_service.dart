@@ -34,14 +34,18 @@ class StorageResourceService {
     final String storagePath = '$subjectId/$uniqueName';
     final String mimeType = _guessMimeFromExtension(ext);
 
-    await supabaseClient.storage.from(bucketName).upload(
-      storagePath,
-      file,
-      fileOptions: FileOptions(
-        contentType: mimeType,
-        upsert: false,
-      ),
-    );
+    try {
+      await supabaseClient.storage.from(bucketName).upload(
+        storagePath,
+        file,
+        fileOptions: FileOptions(
+          contentType: mimeType,
+          upsert: false,
+        ),
+      );
+    } on SocketException {
+      throw Exception('Network error');
+    }
 
     final String publicUrl = supabaseClient.storage.from(bucketName).getPublicUrl(storagePath);
     return publicUrl;
@@ -63,9 +67,13 @@ class StorageResourceService {
         'url': url,
         if (fileSizeMB != null) 'file_size_mb': fileSizeMB,
       });
+    } on SocketException {
+      print('Network error inserting resource row');
+      // Continue execution even if insert fails
+      // The file was uploaded successfully
     } on PostgrestException catch (e) {
       if (e.code == 'PGRST205') {
-        // Table not in schema cache or doesn’t exist: ignore and continue
+        // Table not in schema cache or doesn't exist: ignore and continue
         return;
       }
       rethrow;

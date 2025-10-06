@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:study_box/feature/subject_details/data/model/additional_note_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -22,6 +23,8 @@ class AdditionalNotesService {
         'title': title,
         'details': details,
       });
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to add note: $e');
     }
@@ -48,6 +51,8 @@ class AdditionalNotesService {
                 AdditionalNoteModel.fromJson(json as Map<String, dynamic>),
           )
           .toList();
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to get notes: $e');
     }
@@ -72,6 +77,8 @@ class AdditionalNotesService {
           })
           .eq('id', noteId)
           .eq('user_id', userId);
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to update note: $e');
     }
@@ -88,6 +95,8 @@ class AdditionalNotesService {
           .delete()
           .eq('id', noteId)
           .eq('user_id', userId);
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to delete note: $e');
     }

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:study_box/core/const/app_constant.dart';
 import 'package:study_box/feature/add_subject/data/model/subject_model.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
@@ -40,6 +41,8 @@ class SubjectService {
           .single();
 
       return inserted['id'] as String;
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to add subject: $e');
     }
@@ -65,6 +68,8 @@ class SubjectService {
       return (response as List)
           .map((json) => SubjectModel.fromJson(json as Map<String, dynamic>))
           .toList();
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to get subjects: $e');
     }
@@ -85,6 +90,8 @@ class SubjectService {
       return (response as List)
           .map((json) => SubjectModel.fromJson(json as Map<String, dynamic>))
           .toList();
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to get all subjects: $e');
     }
@@ -109,6 +116,8 @@ class SubjectService {
           .update(payload)
           .eq('id', subject.id)
           .eq('user_id', userId);
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to update subject: $e');
     }
@@ -125,6 +134,8 @@ class SubjectService {
           .delete()
           .eq('id', id)
           .eq('user_id', userId);
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to delete subject: $e');
     }
@@ -144,6 +155,8 @@ class SubjectService {
           .single();
 
       return SubjectModel.fromJson(response);
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to get subject: $e');
     }
@@ -179,6 +192,9 @@ class SubjectService {
         (tier) => tier.name == tierString,
         orElse: () => SubscriptionTier.free,
       );
+    } on SocketException {
+      print('Network error getting subscription tier');
+      return SubscriptionTier.free;
     } catch (e) {
       print('Error getting subscription tier: $e');
       return SubscriptionTier.free;
@@ -198,6 +214,8 @@ class SubjectService {
           .count(CountOption.exact);
 
       return response.count;
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to count subjects: $e');
     }
@@ -230,6 +248,10 @@ class SubjectService {
         
         print('Profile created for user: $userId');
       }
+    } on SocketException {
+      print('Network error ensuring profile exists');
+      // Continue execution even if profile creation fails
+      // The app should still work for adding subjects
     } catch (e) {
       print('Error ensuring profile exists: $e');
       // Continue execution even if profile creation fails
@@ -257,6 +279,8 @@ class SubjectService {
         'subscription_tier': tier.name,
         'updated_at': DateTime.now().toIso8601String(),
       });
+    } on SocketException {
+      throw Exception('Network error');
     } catch (e) {
       throw Exception('Failed to create/update profile: $e');
     }
@@ -277,6 +301,9 @@ class SubjectService {
           .maybeSingle();
 
       return response;
+    } on SocketException {
+      print('Network error getting user profile');
+      return null;
     } catch (e) {
       print('Error getting user profile: $e');
       return null;

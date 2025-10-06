@@ -1,10 +1,13 @@
 import 'package:equatable/equatable.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 
 abstract class Failure extends Equatable {
   final String message;
   final String? code;
 
   const Failure({required this.message, this.code});
+
+  String get formattedMessage => CustomSnackBar.formatForBuild(message);
 
   @override
   List<Object?> get props => [message, code];

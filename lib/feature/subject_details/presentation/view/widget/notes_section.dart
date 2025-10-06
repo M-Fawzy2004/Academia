@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/feature/subject_details/domain/entities/additional_note_entity.dart';
 import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/add_note_dialog.dart';
@@ -136,7 +137,7 @@ class _NotesSectionState extends State<NotesSection> {
               ),
               heightBox(12),
               Text(
-                widget.errorMessage!,
+                CustomSnackBar.formatForBuild(widget.errorMessage!),
                 style: Styles.font13GreyBold(context),
                 textAlign: TextAlign.center,
               ),

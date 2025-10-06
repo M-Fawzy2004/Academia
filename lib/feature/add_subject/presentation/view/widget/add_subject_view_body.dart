@@ -182,7 +182,7 @@ extension on _AddSubjectViewBodyState {
         if (Navigator.of(context, rootNavigator: true).canPop()) {
           Navigator.of(context, rootNavigator: true).pop();
         }
-        CustomSnackBar.showInfo(context, 'Check your internet connection.');
+      CustomSnackBar.showError(context, 'Network error');
       } finally {
         await sub.cancel();
       }

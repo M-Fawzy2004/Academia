@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/feature/subject_details/data/service/additional_notes_service.dart';
 import 'package:study_box/feature/subject_details/domain/entities/additional_note_entity.dart';
 
@@ -17,7 +18,7 @@ class AdditionalNotesCubit extends Cubit<AdditionalNotesState> {
       final notes = await _notesService.getNotesBySubjectId(subjectId);
       emit(AdditionalNotesLoaded(notes: notes));
     } catch (e) {
-      emit(AdditionalNotesError(message: e.toString()));
+      emit(AdditionalNotesError(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -38,7 +39,7 @@ class AdditionalNotesCubit extends Cubit<AdditionalNotesState> {
       // Reload notes after adding
       await loadNotes(subjectId);
     } catch (e) {
-      emit(AdditionalNotesError(message: e.toString()));
+      emit(AdditionalNotesError(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -60,7 +61,7 @@ class AdditionalNotesCubit extends Cubit<AdditionalNotesState> {
       // Reload notes after updating
       await loadNotes(subjectId);
     } catch (e) {
-      emit(AdditionalNotesError(message: e.toString()));
+      emit(AdditionalNotesError(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
@@ -76,7 +77,7 @@ class AdditionalNotesCubit extends Cubit<AdditionalNotesState> {
       // Reload notes after deleting
       await loadNotes(subjectId);
     } catch (e) {
-      emit(AdditionalNotesError(message: e.toString()));
+      emit(AdditionalNotesError(message: CustomSnackBar.formatForBuild(e.toString())));
     }
   }
 
