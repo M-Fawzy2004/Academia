@@ -58,6 +58,9 @@ dependencies:
   shimmer: ^3.0.0
   sign_in_with_apple: ^7.0.1
   supabase_flutter: ^2.10.0
+  path_provider: ^2.1.5
+  syncfusion_flutter_pdfviewer: ^31.1.23
+  pdf_render: ^1.4.12
 
 dev_dependencies:
   flutter_lints: ^5.0.0

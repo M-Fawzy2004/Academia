@@ -60,6 +60,7 @@ class PdfFileGrid extends StatelessWidget {
             subtitle: pdf.fileSizeMB != null 
                 ? '${pdf.fileSizeMB} MB' 
                 : 'Unknown size',
+            pdfUrl: pdf.url,
           );
         },
       ),

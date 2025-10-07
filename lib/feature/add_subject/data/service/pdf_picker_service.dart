@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/feature/add_subject/data/model/resource_item.dart';
 
 class PdfPickerService {
@@ -19,9 +18,7 @@ class PdfPickerService {
         return ResourceItem(
           id: DateTime.now().millisecondsSinceEpoch.toString(),
           title: file.name,
-          description: LanguageHelper.isArabic(context)
-              ? 'ملف PDF - $sizeInMB ميجا'
-              : 'PDF File - $sizeInMB MB',
+          description: 'PDF File - $sizeInMB MB',
           type: ResourceType.pdf,
           filePath: file.path,
           icon: Icons.picture_as_pdf,

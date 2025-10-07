@@ -1,23 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/helper/extension.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
+import 'package:study_box/feature/pdf_details/presentation/view/pdf_viewer.dart';
 
 class PdfFileCard extends StatelessWidget {
   final String fileName;
   final String subtitle;
+  final String pdfUrl;
 
   const PdfFileCard({
     super.key,
     required this.fileName,
     required this.subtitle,
+    required this.pdfUrl,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.navigateWithSlideTransition(
+          PdfViewer(
+            pdfUrl: pdfUrl,
+            fileName: fileName,
+          ),
+        );
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
