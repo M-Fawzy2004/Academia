@@ -83,4 +83,12 @@ class AppProviders {
       child: child,
     );
   }
+
+  /// PDF Details View Provider
+  static Widget pdfDetailsView({required Widget child}) {
+    return BlocProvider<SubjectCubit>(
+      create: (_) => getIt<SubjectCubit>(),
+      child: child,
+    );
+  }
 }

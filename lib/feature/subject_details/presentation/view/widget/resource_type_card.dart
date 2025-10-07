@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
-import 'package:study_box/feature/subject_details/presentation/view/widget/resource_item.dart';
 
 class ResourceTypeCard extends StatelessWidget {
   const ResourceTypeCard({
@@ -106,33 +105,6 @@ class ResourceTypeCard extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-          ),
-          Container(
-            height: 2,
-            margin: EdgeInsets.symmetric(horizontal: 16.w),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.transparent,
-                  gradient.colors.first.withOpacity(0.5),
-                  Colors.transparent,
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(16.w),
-            child: Column(
-              children: items.map((item) {
-                return ResourceItem(
-                  name: item['name']!,
-                  subtitle: item['size'] ?? item['duration'],
-                  gradient: gradient,
-                  icon: icon,
-                  isLast: items.last == item,
-                );
-              }).toList(),
             ),
           ),
         ],

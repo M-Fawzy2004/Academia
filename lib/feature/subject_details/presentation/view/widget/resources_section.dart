@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/helper/extension.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/styles.dart';
+import 'package:study_box/feature/pdf_details/presentation/view/pdf_detials_view.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/resource_type_card.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart'
     as domain;
@@ -63,7 +65,11 @@ class ResourcesSection extends StatelessWidget {
                     'size': (r.fileSizeMB ?? 0).toString(),
                   })
               .toList(),
-          onViewAll: () {},
+          onViewAll: () {
+            context.navigateWithSlideTransition(
+              PdfDetialsView(subjectId: subject.id),
+            );
+          },
         ),
         heightBox(12),
         ResourceTypeCard(

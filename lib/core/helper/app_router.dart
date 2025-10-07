@@ -9,6 +9,7 @@ import 'package:study_box/feature/auth/presentation/view/verf_email_view.dart';
 import 'package:study_box/feature/home/data/model/quote_provider.dart';
 import 'package:study_box/feature/home/presentation/view/home_view.dart';
 import 'package:study_box/feature/main_home/presentation/view/main_view.dart';
+import 'package:study_box/feature/pdf_details/presentation/view/pdf_detials_view.dart';
 import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
 import 'package:study_box/feature/subject/presentation/view/subject_view.dart';
 import 'package:study_box/feature/subject_details/presentation/view/subject_details_view.dart';
@@ -31,6 +32,7 @@ abstract class AppRouter {
   static const addSubjectView = '/addSubjectView';
   static const subjectView = '/subjectView';
   static const subjectDetailsView = '/subjectDetailsView';
+  static const pdfDetialsView = '/pdfDetialsView';
 
   static var router = GoRouter(
     routes: [
@@ -121,11 +123,9 @@ abstract class AppRouter {
       GoRoute(
         path: subjectDetailsView,
         builder: (BuildContext context, GoRouterState state) {
-          // Get subjectId from query parameters
           final String? subjectId = state.uri.queryParameters['subjectId'];
-          
+
           if (subjectId == null) {
-            // Handle missing subjectId - you can navigate back or show error
             return const Scaffold(
               body: Center(
                 child: Text('Subject ID is required'),
@@ -136,6 +136,22 @@ abstract class AppRouter {
           return AppProviders.subjectDetailsView(
             child: SubjectDetailsView(subjectId: subjectId),
           );
+        },
+      ),
+      GoRoute(
+        path: pdfDetialsView,
+        builder: (BuildContext context, GoRouterState state) {
+          final String? subjectId = state.uri.queryParameters['subjectId'];
+
+          if (subjectId == null) {
+            return const Scaffold(
+              body: Center(
+                child: Text('Subject ID is required'),
+              ),
+            );
+          }
+
+          return PdfDetialsView(subjectId: subjectId);
         },
       ),
     ],

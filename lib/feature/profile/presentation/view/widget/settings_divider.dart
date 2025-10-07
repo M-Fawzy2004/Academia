@@ -8,7 +8,7 @@ class SettingsDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       color: Colors.grey.shade300,
-      thickness: 0.5,
+      thickness: 1.h,
       height: 1.h,
     );
   }

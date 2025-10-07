@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/dependency_injection.dart';
 import 'package:study_box/core/theme/app_color.dart';
@@ -23,10 +22,28 @@ class SubjectView extends StatelessWidget {
             child: const SubjectViewBody(),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: AppColors.primaryColor,
-          onPressed: () => context.push(AppRouter.addSubjectView),
-          child: const Icon(IconlyBold.plus),
+        floatingActionButton: Container(
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              colors: [
+                AppColors.secondaryColor,
+                AppColors.primaryColor,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: FloatingActionButton(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            onPressed: () => context.push(AppRouter.addSubjectView),
+            child: Icon(
+              Icons.add_rounded,
+              size: 28.sp,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );
