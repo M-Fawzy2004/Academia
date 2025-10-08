@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/pdf_details/presentation/view/widget/pdf_file_grid.dart';
-import 'package:study_box/feature/pdf_details/presentation/view/widget/pdf_file_grid_shimmer.dart';
+import 'package:study_box/feature/pdf_details/presentation/view/widget/pdf_file_grid_skeleltonizer.dart';
 
 class PdfFileGridBlocConsumer extends StatelessWidget {
   const PdfFileGridBlocConsumer({super.key});
@@ -18,7 +18,7 @@ class PdfFileGridBlocConsumer extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is SubjectLoading) {
-          return const PdfFileGridShimmer();
+          return const PdfFileGridSkeletonizer();
         }
 
         if (state is SubjectLoaded) {

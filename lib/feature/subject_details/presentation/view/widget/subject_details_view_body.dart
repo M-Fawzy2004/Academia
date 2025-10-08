@@ -8,7 +8,7 @@ import 'package:study_box/feature/subject_details/presentation/view/widget/heade
 import 'package:study_box/feature/subject_details/presentation/view/widget/notes_section_bloc_consumer.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/quick_actions_section.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/resources_section.dart';
-import 'package:study_box/feature/subject_details/presentation/view/widget/subject_details_shimmer.dart';
+import 'package:study_box/feature/subject_details/presentation/view/widget/subject_details_skeletonizer.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/subject_header_card.dart';
 
 class SubjectDetailsViewBody extends StatefulWidget {
@@ -45,7 +45,7 @@ class _SubjectDetailsViewBodyState extends State<SubjectDetailsViewBody> {
           BlocBuilder<SubjectCubit, SubjectState>(
             builder: (context, state) {
               if (state is SubjectLoading) {
-                return const SubjectDetailsShimmer();
+                return const SubjectDetailsSkeletonizer();
               }
               if (state is SubjectLoaded) {
                 final s = state.subject;
