@@ -6,9 +6,9 @@ part 'welcome_state.dart';
 class WelcomeCubit extends Cubit<WelcomeState> {
   WelcomeCubit() : super(WelcomeInitial());
 
-  late AnimationController slideController;
-  late AnimationController fadeController;
-  late AnimationController buttonController;
+  AnimationController? slideController;
+  AnimationController? fadeController;
+  AnimationController? buttonController;
 
   late Animation<Offset> slideAnimation;
   late Animation<double> fadeAnimation;
@@ -41,7 +41,7 @@ class WelcomeCubit extends Cubit<WelcomeState> {
       begin: const Offset(0, 0.8),
       end: Offset.zero,
     ).animate(CurvedAnimation(
-      parent: slideController,
+      parent: slideController!,
       curve: Curves.easeOutQuart,
     ));
 
@@ -50,7 +50,7 @@ class WelcomeCubit extends Cubit<WelcomeState> {
       begin: 0.0,
       end: 1.0,
     ).animate(CurvedAnimation(
-      parent: fadeController,
+      parent: fadeController!,
       curve: const Interval(0.0, 0.7, curve: Curves.easeInOut),
     ));
 
@@ -59,7 +59,7 @@ class WelcomeCubit extends Cubit<WelcomeState> {
       begin: 0.0,
       end: 1.0,
     ).animate(CurvedAnimation(
-      parent: fadeController,
+      parent: fadeController!,
       curve: const Interval(0.2, 0.8, curve: Curves.easeOut),
     ));
 
@@ -68,7 +68,7 @@ class WelcomeCubit extends Cubit<WelcomeState> {
       begin: 0.0,
       end: 1.0,
     ).animate(CurvedAnimation(
-      parent: fadeController,
+      parent: fadeController!,
       curve: const Interval(0.4, 1.0, curve: Curves.easeOut),
     ));
 
@@ -77,7 +77,7 @@ class WelcomeCubit extends Cubit<WelcomeState> {
       begin: const Offset(0, 0.3),
       end: Offset.zero,
     ).animate(CurvedAnimation(
-      parent: buttonController,
+      parent: buttonController!,
       curve: Curves.easeOutBack,
     ));
 
@@ -86,7 +86,7 @@ class WelcomeCubit extends Cubit<WelcomeState> {
       begin: 0.0,
       end: 1.0,
     ).animate(CurvedAnimation(
-      parent: buttonController,
+      parent: buttonController!,
       curve: Curves.easeInOut,
     ));
 
@@ -95,13 +95,13 @@ class WelcomeCubit extends Cubit<WelcomeState> {
 
   void startAnimations() async {
     // Start all animations with smoother delays
-    slideController.forward();
+    slideController?.forward();
 
     await Future.delayed(const Duration(milliseconds: 300));
-    fadeController.forward();
+    fadeController?.forward();
 
     await Future.delayed(const Duration(milliseconds: 1000));
-    buttonController.forward();
+    buttonController?.forward();
 
     emit(WelcomeAnimationsStarted());
   }
@@ -116,9 +116,9 @@ class WelcomeCubit extends Cubit<WelcomeState> {
 
   @override
   Future<void> close() {
-    slideController.dispose();
-    fadeController.dispose();
-    buttonController.dispose();
+    slideController?.dispose();
+    fadeController?.dispose();
+    buttonController?.dispose();
     return super.close();
   }
 }

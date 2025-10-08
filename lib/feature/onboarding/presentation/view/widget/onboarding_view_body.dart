@@ -6,7 +6,6 @@ import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/feature/onboarding/presentation/manager/cubit/onboarding_cubit.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_bottom_section.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_page.dart';
-import 'package:study_box/feature/onboarding/presentation/view/widget/theme_selector_bottom_sheet.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/theme_selector_button.dart';
 
 class OnboardingViewBody extends StatefulWidget {
@@ -18,22 +17,22 @@ class OnboardingViewBody extends StatefulWidget {
 
 class _OnboardingViewBodyState extends State<OnboardingViewBody>
     with SingleTickerProviderStateMixin {
+  late final OnboardingCubit cubit;
+
   @override
   void initState() {
     super.initState();
+    cubit = context.read<OnboardingCubit>();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<OnboardingCubit>().initializeAnimations(this, context);
+      cubit.initializeAnimations(this, context);
     });
   }
 
-  void _showThemeSelector(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      builder: (context) => const ThemeSelectorBottomSheet(),
-    );
+  @override
+  void dispose() {
+    cubit.disposeAnimations();
+    super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<OnboardingCubit, OnboardingState>(
@@ -44,13 +43,19 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
       },
       builder: (context, state) {
         final cubit = context.read<OnboardingCubit>();
-        if (state is OnboardingInitial || cubit.onboardingData.isEmpty) {
+
+        // ✅ التحقق من أن الـ animations جاهزة
+        if (state is OnboardingInitial ||
+            cubit.onboardingData.isEmpty ||
+            cubit.fadeAnimation == null ||
+            cubit.slideAnimation == null) {
           return const Scaffold(
             body: Center(
               child: CircularProgressIndicator(),
             ),
           );
         }
+
         return Scaffold(
           body: Stack(
             children: [
@@ -65,8 +70,10 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
                       itemBuilder: (context, index) {
                         return OnboardingPage(
                           data: cubit.onboardingData[index],
-                          fadeAnimation: cubit.fadeAnimation,
-                          slideAnimation: cubit.slideAnimation,
+                          fadeAnimation:
+                              cubit.fadeAnimation!, // ✅ استخدم ! بأمان
+                          slideAnimation:
+                              cubit.slideAnimation!, // ✅ استخدم ! بأمان
                           currentIndex: cubit.currentIndex,
                           totalPages: cubit.onboardingData.length,
                           onSkip: cubit.skipToEnd,
@@ -90,10 +97,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
               Positioned(
                 top: MediaQuery.of(context).padding.top + 10.h,
                 right: 20.w,
-                child: SafeArea(
-                  child: ThemeSelectorButton(
-                    onTap: () => _showThemeSelector(context),
-                  ),
+                child: const SafeArea(
+                  child: ThemeSelectorButton(),
                 ),
               ),
             ],

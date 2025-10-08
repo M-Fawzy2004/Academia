@@ -25,7 +25,7 @@ class SubjectCard extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10.h),
       decoration: BoxDecoration(
         color: subjectColor,
-        borderRadius: BorderRadius.circular(25.r),
+        borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
           color: subjectColor.withOpacity(0.6),
           width: 1.2.w,
@@ -55,12 +55,12 @@ class SubjectCard extends StatelessWidget {
 
   Widget _buildHeader(Color subjectColor, BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15.w),
+      padding: EdgeInsets.all(13.w),
       decoration: BoxDecoration(
         color: subjectColor.withOpacity(0.05),
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(25.r),
-          topRight: Radius.circular(25.r),
+          topLeft: Radius.circular(12.r),
+          topRight: Radius.circular(12.r),
         ),
       ),
       child: Row(

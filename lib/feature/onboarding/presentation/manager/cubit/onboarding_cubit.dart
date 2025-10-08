@@ -10,37 +10,46 @@ class OnboardingCubit extends Cubit<OnboardingState> {
   OnboardingCubit() : super(OnboardingInitial());
 
   final PageController pageController = PageController();
-  late AnimationController animationController;
-  late Animation<double> fadeAnimation;
-  late Animation<Offset> slideAnimation;
+  AnimationController? animationController;
+  Animation<double>? fadeAnimation;
+  Animation<Offset>? slideAnimation;
 
   List<OnboardingModel> onboardingData = [];
   int currentIndex = 0;
 
   void initializeAnimations(
       TickerProvider tickerProvider, BuildContext context) {
+    // ✅ تأكد من التخلص من الـ controller القديم أولاً
+    animationController?.dispose();
+
     animationController = AnimationController(
       duration: const Duration(milliseconds: 800),
       vsync: tickerProvider,
     );
 
     fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: animationController, curve: Curves.easeInOut),
+      CurvedAnimation(parent: animationController!, curve: Curves.easeInOut),
     );
 
     slideAnimation = Tween<Offset>(
       begin: const Offset(0, 0.3),
       end: Offset.zero,
     ).animate(CurvedAnimation(
-      parent: animationController,
+      parent: animationController!,
       curve: Curves.easeOutBack,
     ));
 
-    // Build onboarding data with localized strings
     _buildOnboardingData(context);
-
-    animationController.forward();
+    animationController?.forward();
     emit(OnboardingAnimationInitialized());
+  }
+
+  // ✅ دالة منفصلة للتخلص من الـ animations
+  void disposeAnimations() {
+    animationController?.dispose();
+    animationController = null;
+    fadeAnimation = null;
+    slideAnimation = null;
   }
 
   void _buildOnboardingData(BuildContext context) {
@@ -65,8 +74,8 @@ class OnboardingCubit extends Cubit<OnboardingState> {
 
   void onPageChanged(int index) {
     currentIndex = index;
-    animationController.reset();
-    animationController.forward();
+    animationController?.reset();
+    animationController?.forward();
     emit(OnboardingPageChanged(index));
   }
 
@@ -93,8 +102,8 @@ class OnboardingCubit extends Cubit<OnboardingState> {
 
   @override
   Future<void> close() {
+    disposeAnimations();
     pageController.dispose();
-    animationController.dispose();
     return super.close();
   }
 }

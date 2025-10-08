@@ -63,8 +63,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
                 scale: _scaleAnimation.value,
                 child: Image.asset(
                   Assets.imagesPngSplashView,
-                  width: 200.w,
-                  height: 200.h,
+                  width: 180.w,
+                  height: 180.h,
                 ),
               );
             },

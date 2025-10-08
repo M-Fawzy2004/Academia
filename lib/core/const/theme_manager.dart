@@ -17,7 +17,7 @@ class ThemeManager extends ChangeNotifier {
   AppThemeMode currentTheme = AppThemeMode.light;
   static const String _themeKey = 'selected_theme';
 
-  // تحميل الثيم المحفوظ عند بدء التطبيق
+  // load Theme
   Future<void> loadSavedTheme() async {
     final prefs = await SharedPreferences.getInstance();
     final savedTheme = prefs.getString(_themeKey);
@@ -38,7 +38,7 @@ class ThemeManager extends ChangeNotifier {
     }
   }
 
-  // حفظ الثيم عند تغييره
+  // set Theme
   Future<void> setTheme(AppThemeMode theme) async {
     currentTheme = theme;
 
