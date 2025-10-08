@@ -7,6 +7,7 @@ import 'package:study_box/feature/pdf_details/presentation/view/pdf_detials_view
 import 'package:study_box/feature/subject_details/presentation/view/widget/resource_type_card.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart'
     as domain;
+import 'package:study_box/feature/video_details/presentation/view/video_details_view.dart';
 
 class ResourcesSection extends StatelessWidget {
   const ResourcesSection({super.key, required this.subject});
@@ -107,7 +108,11 @@ class ResourcesSection extends StatelessWidget {
                     'url': r.url,
                   })
               .toList(),
-          onViewAll: () {},
+          onViewAll: () {
+            context.navigateWithSlideTransition(
+              VideoDetailsView(subjectId: subject.id),
+            );
+          },
         ),
         heightBox(12),
         ResourceTypeCard(

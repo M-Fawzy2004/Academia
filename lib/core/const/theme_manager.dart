@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:study_box/core/theme/app_color.dart';
 
 enum AppThemeMode {
+  system,
   light,
   dark,
   dark2,
@@ -14,8 +15,13 @@ class ThemeManager extends ChangeNotifier {
   factory ThemeManager() => instance;
   ThemeManager._internal();
 
-  AppThemeMode currentTheme = AppThemeMode.light;
+  AppThemeMode currentTheme = AppThemeMode.system;
   static const String _themeKey = 'selected_theme';
+
+  // Check if the system is in dark mode
+  bool isSystemDarkMode(BuildContext context) {
+    return MediaQuery.of(context).platformBrightness == Brightness.dark;
+  }
 
   // load Theme
   Future<void> loadSavedTheme() async {
@@ -24,6 +30,9 @@ class ThemeManager extends ChangeNotifier {
 
     if (savedTheme != null) {
       switch (savedTheme) {
+        case 'system':
+          currentTheme = AppThemeMode.system;
+          break;
         case 'light':
           currentTheme = AppThemeMode.light;
           break;
@@ -34,8 +43,11 @@ class ThemeManager extends ChangeNotifier {
           currentTheme = AppThemeMode.dark2;
           break;
       }
-      notifyListeners();
+    } else {
+      // لو مفيش theme محفوظ، استخدم System
+      currentTheme = AppThemeMode.system;
     }
+    notifyListeners();
   }
 
   // set Theme
@@ -46,6 +58,9 @@ class ThemeManager extends ChangeNotifier {
     String themeString;
 
     switch (theme) {
+      case AppThemeMode.system:
+        themeString = 'system';
+        break;
       case AppThemeMode.light:
         themeString = 'light';
         break;
@@ -116,13 +131,25 @@ class ThemeManager extends ChangeNotifier {
   }
 
   ThemeData getCurrentTheme() {
+    return getLightTheme();
+  }
+
+  ThemeData getCurrentDarkTheme() {
+    if (currentTheme == AppThemeMode.dark2) {
+      return getDark2Theme();
+    }
+    return getDarkTheme();
+  }
+
+  ThemeMode getThemeMode() {
     switch (currentTheme) {
+      case AppThemeMode.system:
+        return ThemeMode.system; 
       case AppThemeMode.light:
-        return getLightTheme();
+        return ThemeMode.light; 
       case AppThemeMode.dark:
-        return getDarkTheme();
       case AppThemeMode.dark2:
-        return getDark2Theme();
+        return ThemeMode.dark; 
     }
   }
 }

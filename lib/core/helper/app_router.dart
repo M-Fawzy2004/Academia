@@ -13,6 +13,7 @@ import 'package:study_box/feature/pdf_details/presentation/view/pdf_detials_view
 import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
 import 'package:study_box/feature/subject/presentation/view/subject_view.dart';
 import 'package:study_box/feature/subject_details/presentation/view/subject_details_view.dart';
+import 'package:study_box/feature/video_details/presentation/view/video_details_view.dart';
 import 'package:study_box/feature/welcome/presentation/view/welcome_view.dart';
 import 'package:study_box/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:study_box/feature/splash/presentation/view/splash_view.dart';
@@ -33,6 +34,7 @@ abstract class AppRouter {
   static const subjectView = '/subjectView';
   static const subjectDetailsView = '/subjectDetailsView';
   static const pdfDetialsView = '/pdfDetialsView';
+  static const videoDetailsView = '/videoDetailsView';
 
   static var router = GoRouter(
     routes: [
@@ -152,6 +154,22 @@ abstract class AppRouter {
           }
 
           return PdfDetialsView(subjectId: subjectId);
+        },
+      ),
+      GoRoute(
+        path: videoDetailsView,
+        builder: (BuildContext context, GoRouterState state) {
+          final String? subjectId = state.uri.queryParameters['subjectId'];
+
+          if (subjectId == null) {
+            return const Scaffold(
+              body: Center(
+                child: Text('Subject ID is required'),
+              ),
+            );
+          }
+
+          return VideoDetailsView(subjectId: subjectId);
         },
       ),
     ],

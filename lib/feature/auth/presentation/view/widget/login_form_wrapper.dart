@@ -24,6 +24,7 @@ class LoginFormWrapper extends StatelessWidget {
           CustomSnackBar.showSuccess(
             context,
             context.tr.successfully_logged_in,
+            
           );
         }
       },

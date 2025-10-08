@@ -22,11 +22,19 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
       selectedTheme = theme;
     });
     ThemeManager.instance.setTheme(theme);
-    AppColors.setThemeMode(theme == AppThemeMode.light
-        ? ThemeMode2.light
-        : theme == AppThemeMode.dark
-            ? ThemeMode2.dark
-            : ThemeMode2.dark2);
+
+    if (theme == AppThemeMode.system) {
+      final brightness = MediaQuery.of(context).platformBrightness;
+      AppColors.setThemeMode(
+        brightness == Brightness.dark ? ThemeMode2.dark : ThemeMode2.light,
+      );
+    } else if (theme == AppThemeMode.light) {
+      AppColors.setThemeMode(ThemeMode2.light);
+    } else if (theme == AppThemeMode.dark) {
+      AppColors.setThemeMode(ThemeMode2.dark);
+    } else if (theme == AppThemeMode.dark2) {
+      AppColors.setThemeMode(ThemeMode2.dark2);
+    }
   }
 
   @override
@@ -43,6 +51,17 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
           ],
         ),
         heightBox(40),
+        ThemeOptionCard(
+          title: 'System Default',
+          subtitle: 'Follow device settings',
+          icon: Icons.brightness_auto_rounded,
+          gradient: LinearGradient(
+            colors: [Colors.blue.shade300, Colors.blue.shade600],
+          ),
+          isSelected: selectedTheme == AppThemeMode.system,
+          onTap: () => onThemeSelected(AppThemeMode.system),
+        ),
+        SizedBox(height: 16.h),
         ThemeOptionCard(
           title: 'Light Mode',
           subtitle: 'Bright and clean interface',

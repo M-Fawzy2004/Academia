@@ -13,23 +13,37 @@ class StudyBoxApp extends StatefulWidget {
   State<StudyBoxApp> createState() => _StudyBoxAppState();
 }
 
-class _StudyBoxAppState extends State<StudyBoxApp> {
+class _StudyBoxAppState extends State<StudyBoxApp> with WidgetsBindingObserver {
   Locale _locale = const Locale('en');
 
   @override
   void initState() {
     super.initState();
     ThemeManager.instance.addListener(onThemeChanged);
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
   void dispose() {
     ThemeManager.instance.removeListener(onThemeChanged);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
+  // عشان نعرف لو المستخدم غير theme الجهاز
+  @override
+  void didChangePlatformBrightness() {
+    super.didChangePlatformBrightness();
+    // لو المستخدم مختار System، نعمل rebuild
+    if (ThemeManager.instance.currentTheme == AppThemeMode.system) {
+      setState(() {});
+    }
+  }
+
   void onThemeChanged() {
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   void setLocale(Locale locale) {
@@ -67,8 +81,9 @@ class _StudyBoxAppState extends State<StudyBoxApp> {
           return child!;
         },
         locale: _locale,
-        theme: ThemeManager.instance.getCurrentTheme(),
-        themeMode: ThemeMode.light, 
+        theme: ThemeManager.instance.getCurrentTheme(), // Light Theme
+        darkTheme: ThemeManager.instance.getCurrentDarkTheme(), // Dark Theme
+        themeMode: ThemeManager.instance.getThemeMode(), // System/Light/Dark
       ),
     );
   }

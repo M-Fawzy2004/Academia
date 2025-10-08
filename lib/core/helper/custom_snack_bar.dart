@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/theme/app_color.dart';
 
 enum SnackBarType {
   success,
@@ -27,8 +28,8 @@ class CustomSnackBar {
 
     switch (type) {
       case SnackBarType.success:
-        backgroundColor = const Color(0xFF4CAF50);
-        borderColor = const Color(0xFF66BB6A);
+        backgroundColor = AppColors.primaryColor;
+        borderColor = AppColors.primaryColor.withOpacity(0.5);
         icon = Icons.check_circle_outline;
         iconColor = Colors.white;
         textColor = Colors.white;
@@ -41,8 +42,8 @@ class CustomSnackBar {
         textColor = Colors.white;
         break;
       case SnackBarType.info:
-        backgroundColor = const Color(0xFF2196F3);
-        borderColor = const Color(0xFF42A5F5);
+        backgroundColor = AppColors.secondaryColor;
+        borderColor = AppColors.secondaryColor.withOpacity(0.5);
         icon = Icons.info_outline;
         iconColor = Colors.white;
         textColor = Colors.white;
