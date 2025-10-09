@@ -5,6 +5,7 @@ import 'package:study_box/core/helper/youtube_helper.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
 import 'package:study_box/feature/video_details/presentation/view/widget/video_info.dart';
 import 'package:study_box/feature/video_details/presentation/view/widget/video_thumbnail.dart';
+import 'package:study_box/feature/video_details/presentation/view/video_player_view.dart';
 
 class VideoCardItem extends StatelessWidget {
   const VideoCardItem({super.key, required this.subject});
@@ -26,25 +27,55 @@ class VideoCardItem extends StatelessWidget {
       quality: ThumbnailQuality.high,
     );
 
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.getBackgroundColor(context),
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(
-          color: AppColors.getCardColorTwo(context),
-          width: 2.w,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => VideoPlayerView(
+              videoUrl: videoResource.url,
+              videoTitle: videoResource.title,
+            ),
+          ),
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.getBackgroundColor(context),
+          borderRadius: BorderRadius.circular(12.r),
+          border: Border.all(
+            color: AppColors.getCardColorTwo(context),
+            width: 2.w,
+          ),
         ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          VideoThumbnail(
-            thumbnailUrl: thumbnailUrl,
-          ),
-          VideoInfo(
-            title: videoResource.title,
-          ),
-        ],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                VideoThumbnail(
+                  thumbnailUrl: thumbnailUrl,
+                ),
+                Container(
+                  padding: EdgeInsets.all(16.r),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.6),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    Icons.play_arrow_rounded,
+                    color: Colors.white,
+                    size: 40.r,
+                  ),
+                ),
+              ],
+            ),
+            VideoInfo(
+              title: videoResource.title,
+            ),
+          ],
+        ),
       ),
     );
   }
