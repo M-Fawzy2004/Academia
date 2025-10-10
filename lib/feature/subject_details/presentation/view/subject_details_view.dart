@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
+import 'package:study_box/feature/subject_details/presentation/manager/additional_note_cubit/additional_notes_cubit.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/subject_details_view_body.dart';
 
 class SubjectDetailsView extends StatefulWidget {

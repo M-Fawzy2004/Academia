@@ -4,7 +4,7 @@ import 'package:study_box/feature/add_subject/data/service/subject_service.dart'
 import 'package:study_box/feature/add_subject/domain/repos/subject_repository.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/subject_details/data/service/additional_notes_service.dart';
-import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
+import 'package:study_box/feature/subject_details/presentation/manager/additional_note_cubit/additional_notes_cubit.dart';
 import 'package:study_box/feature/add_subject/data/service/storage_resource_service.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:study_box/feature/auth/data/Services/supabase_auth_service.dart';

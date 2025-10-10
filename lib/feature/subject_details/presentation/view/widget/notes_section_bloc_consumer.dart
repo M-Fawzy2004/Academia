@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/custom_snack_bar.dart';
-import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
+import 'package:study_box/feature/subject_details/presentation/manager/additional_note_cubit/additional_notes_cubit.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/notes_section.dart';
 
 class NotesSectionBlocConsumer extends StatelessWidget {

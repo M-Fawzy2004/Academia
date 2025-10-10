@@ -7,7 +7,7 @@ import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
 import 'package:study_box/feature/subject_details/domain/entities/additional_note_entity.dart';
-import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
+import 'package:study_box/feature/subject_details/presentation/manager/additional_note_cubit/additional_notes_cubit.dart';
 
 class EditNoteDialog extends StatefulWidget {
   final String subjectId;

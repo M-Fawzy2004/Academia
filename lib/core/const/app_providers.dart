@@ -6,7 +6,7 @@ import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
 import 'package:study_box/feature/image_details/data/service/image_gallery_service.dart';
 import 'package:study_box/feature/image_details/presentation/manager/cubit/image_gallery_cubit.dart';
-import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
+import 'package:study_box/feature/subject_details/presentation/manager/additional_note_cubit/additional_notes_cubit.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AppProviders {
