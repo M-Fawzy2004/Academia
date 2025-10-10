@@ -3,7 +3,6 @@ import 'package:skeletonizer/skeletonizer.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/feature/add_subject/data/model/subject_model.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
-import 'package:study_box/feature/image_details/presentation/view/widget/image_details_header.dart';
 import 'package:study_box/feature/image_details/presentation/view/widget/main_image_view.dart';
 import 'package:study_box/feature/image_details/presentation/view/widget/thumbnails_grid.dart';
 
@@ -29,12 +28,7 @@ class GalleryLoadingSkeleton extends StatelessWidget {
       enableSwitchAnimation: true,
       child: Column(
         children: [
-          heightBox(10),
-          // Header Skeleton
-          ImageDetailsHeader(
-            onAddImages: () {},
-          ),
-          heightBox(20),
+          heightBox(50),
           // Main Image Skeleton
           Expanded(
             flex: 2,

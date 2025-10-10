@@ -22,7 +22,7 @@ class PdfFileGridSkeletonizer extends StatelessWidget {
           ),
           itemCount: 6,
           itemBuilder: (context, index) {
-            return const PdfFileCardShimmer();
+            return const PdfFileCardSkeletonizer();
           },
         ),
       ),
@@ -30,8 +30,8 @@ class PdfFileGridSkeletonizer extends StatelessWidget {
   }
 }
 
-class PdfFileCardShimmer extends StatelessWidget {
-  const PdfFileCardShimmer({super.key});
+class PdfFileCardSkeletonizer extends StatelessWidget {
+  const PdfFileCardSkeletonizer({super.key});
 
   @override
   Widget build(BuildContext context) {
