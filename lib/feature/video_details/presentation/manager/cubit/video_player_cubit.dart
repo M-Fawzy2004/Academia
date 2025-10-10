@@ -27,6 +27,7 @@ class VideoPlayerCubit extends Cubit<VideoPlayerState> {
         autoPlay: false,
         params: const YoutubePlayerParams(
           showControls: true,
+          captionLanguage: 'ar',
           mute: false,
           showFullscreenButton: true,
           loop: false,

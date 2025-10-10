@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/feature/add_subject/data/model/resource_item.dart';
 
 class ImagePickerService {
@@ -20,8 +19,7 @@ class ImagePickerService {
         return ResourceItem(
           id: DateTime.now().millisecondsSinceEpoch.toString(),
           title: image.name,
-          description:
-              LanguageHelper.isArabic(context) ? 'صورة مضافة' : 'Added Image',
+          description: 'Added Image',
           type: ResourceType.image,
           filePath: image.path,
           icon: Icons.image,
@@ -48,9 +46,7 @@ class ImagePickerService {
         return ResourceItem(
           id: DateTime.now().millisecondsSinceEpoch.toString(),
           title: image.name,
-          description: LanguageHelper.isArabic(context)
-              ? 'صورة من الكاميرا'
-              : 'Camera Image',
+          description: 'Camera Image',
           type: ResourceType.image,
           filePath: image.path,
           icon: Icons.camera_alt,
@@ -68,7 +64,6 @@ class ImagePickerService {
     BuildContext context,
     Function(ResourceItem) onImagePicked,
   ) async {
-    final isArabic = LanguageHelper.isArabic(context);
 
     showModalBottomSheet(
       context: context,
@@ -81,8 +76,7 @@ class ImagePickerService {
             children: [
               ListTile(
                 leading: const Icon(Icons.photo_library, color: Colors.blue),
-                title:
-                    Text(isArabic ? 'اختيار من المعرض' : 'Choose from Gallery'),
+                title: const Text('Choose from Gallery'),
                 onTap: () async {
                   Navigator.of(context).pop();
                   // Allow multiple selection from gallery
@@ -96,7 +90,7 @@ class ImagePickerService {
                       ResourceItem(
                         id: DateTime.now().millisecondsSinceEpoch.toString(),
                         title: image.name,
-                        description: isArabic ? 'صورة مضافة' : 'Added Image',
+                        description: 'Added Image',
                         type: ResourceType.image,
                         filePath: image.path,
                         icon: Icons.image,

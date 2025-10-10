@@ -19,7 +19,7 @@ class VideoPlayerErrorWidget extends StatelessWidget {
             Icon(
               Icons.error_outline_rounded,
               color: Colors.red,
-              size: 64.r,
+              size: 70.r,
             ),
             heightBox(20),
             Text(

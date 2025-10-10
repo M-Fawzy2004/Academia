@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/helper/extension.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/helper/youtube_helper.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
@@ -29,13 +30,10 @@ class VideoCardItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => VideoPlayerView(
-              videoUrl: videoResource.url,
-              videoTitle: videoResource.title,
-            ),
+        context.navigateWithSlideTransition(
+          VideoPlayerView(
+            videoUrl: videoResource.url,
+            videoTitle: videoResource.title,
           ),
         );
       },

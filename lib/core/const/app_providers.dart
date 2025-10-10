@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/dependency_injection.dart';
+import 'package:study_box/feature/add_subject/data/service/storage_resource_service.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
+import 'package:study_box/feature/image_details/data/service/image_gallery_service.dart';
+import 'package:study_box/feature/image_details/presentation/manager/cubit/image_gallery_cubit.dart';
 import 'package:study_box/feature/subject_details/presentation/manager/cubit/additional_notes_cubit.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AppProviders {
   /// Register View Provider
@@ -88,6 +92,32 @@ class AppProviders {
   static Widget pdfDetailsView({required Widget child}) {
     return BlocProvider<SubjectCubit>(
       create: (_) => getIt<SubjectCubit>(),
+      child: child,
+    );
+  }
+
+  /// Image Details View Provider
+  static Widget imageDetailsView({
+    required String subjectId,
+    required Widget child,
+  }) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ImageGalleryCubit>(
+          create: (_) => ImageGalleryCubit(
+            imageGalleryService: ImageGalleryService(
+              supabaseClient: Supabase.instance.client,
+            ),
+            storageService: StorageResourceService(
+              supabaseClient: Supabase.instance.client,
+            ),
+            subjectId: subjectId,
+          )..loadImages(),
+        ),
+        BlocProvider<SubjectCubit>(
+          create: (_) => getIt<SubjectCubit>(),
+        ),
+      ],
       child: child,
     );
   }

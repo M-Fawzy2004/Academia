@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/theme/styles.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
@@ -24,10 +25,10 @@ class VideoPlayerContent extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12.r),
             child: AspectRatio(
-              aspectRatio: 16 / 9,
+              aspectRatio: 16 / 12,
               child: YoutubePlayer(
                 controller: controller,
-                aspectRatio: 16 / 9,
+                aspectRatio: 16 / 12,
               ),
             ),
           ),
@@ -61,11 +62,7 @@ class VideoPlayerContent extends StatelessWidget {
         children: [
           Text(
             'Video Information',
-            style: TextStyle(
-              color: AppColors.getTextColor(context),
-              fontSize: 16.sp,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Styles.font16PrimaryColorTextBold(context),
           ),
           heightBox(12),
           Row(
@@ -79,10 +76,7 @@ class VideoPlayerContent extends StatelessWidget {
               Expanded(
                 child: Text(
                   'Use the playback controls below to play, pause, or skip forward/backward.',
-                  style: TextStyle(
-                    color: AppColors.getTextColor(context).withOpacity(0.7),
-                    fontSize: 14.sp,
-                  ),
+                  style: Styles.font13GreyBold(context),
                 ),
               ),
             ],

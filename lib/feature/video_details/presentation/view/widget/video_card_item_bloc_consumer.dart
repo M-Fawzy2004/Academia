@@ -13,7 +13,7 @@ class VideoCardItemBlocConsumer extends StatelessWidget {
     return BlocConsumer<SubjectCubit, SubjectState>(
       listener: (context, state) {
         if (state is SubjectError) {
-          CustomSnackBar.showError(context, state.message);
+          CustomSnackBar.showError(context, "Please try again");
         }
       },
       builder: (context, state) {
@@ -36,9 +36,14 @@ class VideoCardItemBlocConsumer extends StatelessWidget {
         }
 
         return Center(
-          child: Text(
-            'No videos found',
-            style: Theme.of(context).textTheme.bodyLarge,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'No videos found',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ],
           ),
         );
       },
