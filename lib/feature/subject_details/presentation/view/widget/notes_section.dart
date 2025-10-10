@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/helper/custom_loading_widget.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
@@ -48,7 +49,7 @@ class _NotesSectionState extends State<NotesSection> {
             },
             borderRadius: BorderRadius.circular(12.r),
             child: Padding(
-              padding: EdgeInsets.all(15.w),
+              padding: EdgeInsets.all(10.w),
               child: Row(
                 children: [
                   Container(
@@ -119,7 +120,7 @@ class _NotesSectionState extends State<NotesSection> {
       return Padding(
         padding: EdgeInsets.all(20.w),
         child: const Center(
-          child: CircularProgressIndicator(),
+          child: CustomLoadingWidget(),
         ),
       );
     }
@@ -186,18 +187,18 @@ class _NotesSectionState extends State<NotesSection> {
       );
     }
 
-    return Padding(
-      padding: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 20.h),
-      child: Column(
-        children: widget.notes
-            .map(
-              (note) => NoteCard(
+    return Column(
+      children: widget.notes
+          .map(
+            (note) => Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.h, vertical: 10.h),
+              child: NoteCard(
                 note: note,
                 subjectId: widget.subjectId,
               ),
-            )
-            .toList(),
-      ),
+            ),
+          )
+          .toList(),
     );
   }
 }

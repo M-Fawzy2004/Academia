@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide TimeOfDay;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
+import 'package:study_box/feature/subject_details/presentation/view/widget/lecture_schedule_section.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/quick_actions_section.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/resources_section.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/subject_header_card.dart';
@@ -13,6 +14,31 @@ class SubjectDetailsSkeletonizer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
+
+    // Create dummy lectures for skeleton
+    final dummyLectures = [
+      const LectureSchedule(
+        id: 'skeleton_1',
+        day: DayOfWeek.sunday,
+        startTime: TimeOfDay(hour: 9, minute: 0),
+        endTime: TimeOfDay(hour: 11, minute: 0),
+        location: 'Loading Room',
+      ),
+      const LectureSchedule(
+        id: 'skeleton_2',
+        day: DayOfWeek.tuesday,
+        startTime: TimeOfDay(hour: 14, minute: 0),
+        endTime: TimeOfDay(hour: 16, minute: 0),
+        location: 'Loading Hall',
+      ),
+      const LectureSchedule(
+        id: 'skeleton_3',
+        day: DayOfWeek.thursday,
+        startTime: TimeOfDay(hour: 10, minute: 30),
+        endTime: TimeOfDay(hour: 12, minute: 30),
+      ),
+    ];
+
     final dummySubject = SubjectEntity(
       id: 'skeleton_id',
       name: 'Loading Subject Name Here',
@@ -21,9 +47,10 @@ class SubjectDetailsSkeletonizer extends StatelessWidget {
       year: 1,
       semester: 1,
       creditHours: 3,
-      notes: 'This is a loading note text that will be displayed in the skeleton view',
+      notes:
+          'This is a loading note text that will be displayed in the skeleton view',
       resources: const [],
-      lectures: const [],
+      lectures: dummyLectures,
       color: Colors.grey.value,
       createdAt: now,
       updatedAt: now,
@@ -104,6 +131,9 @@ class SubjectDetailsSkeletonizer extends StatelessWidget {
               ],
             ),
           ),
+          heightBox(15),
+          // Lecture Schedule Section with dummy data
+          LectureScheduleSection(subject: dummySubject),
           heightBox(15),
           ResourcesSection(subject: dummySubject),
           heightBox(20),

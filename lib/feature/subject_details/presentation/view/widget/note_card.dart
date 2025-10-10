@@ -24,7 +24,7 @@ class NoteCard extends StatelessWidget {
     return Dismissible(
       key: Key(note.id),
       direction: DismissDirection.endToStart,
-      background: _buildDeleteBackground(context),
+      background: _buildDeleteBackground(),
       confirmDismiss: (direction) async {
         final shouldDelete = await _confirmDelete(context);
         if (shouldDelete == true) {
@@ -39,45 +39,61 @@ class NoteCard extends StatelessWidget {
         onTap: () => _showDetailsDialog(context),
         borderRadius: BorderRadius.circular(12.r),
         child: Container(
-          margin: EdgeInsets.only(bottom: 12.h),
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                const Color(0xFF6366F1).withOpacity(0.08),
-                const Color(0xFF8B5CF6).withOpacity(0.08),
-              ],
-            ),
+            color: const Color(0xFF6366F1).withOpacity(0.06),
             borderRadius: BorderRadius.circular(12.r),
-            border: Border(
-              left: BorderSide(
-                color: const Color(0xFF6366F1),
-                width: 5.w,
-              ),
+            border: Border.all(
+              color: const Color(0xFF6366F1).withOpacity(0.2),
             ),
           ),
-          child: Padding(
-            padding: EdgeInsets.only(left: 15.w),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    note.title,
-                    style: Styles.font18PrimaryColorTextBold(context),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(8.w),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF6366F1).withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
-                IconButton(
-                  onPressed: () => showEditNoteDialog(context, subjectId, note),
-                  icon: Icon(
-                    Icons.edit_outlined,
-                    size: 20.sp,
-                    color: const Color(0xFF6366F1),
-                  ),
-                  tooltip: 'Edit',
+                child: Icon(
+                  Icons.note_outlined,
+                  color: const Color(0xFF6366F1),
+                  size: 20.sp,
                 ),
-              ],
-            ),
+              ),
+              widthBox(12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      note.title,
+                      style: Styles.font15PrimaryColorTextBold(context),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    heightBox(4),
+                    Text(
+                      _formatDate(note.updatedAt),
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: Colors.grey[600],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              IconButton(
+                onPressed: () => showEditNoteDialog(context, subjectId, note),
+                icon: Icon(
+                  Icons.edit_outlined,
+                  size: 20.sp,
+                  color: const Color(0xFF6366F1),
+                ),
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+              ),
+            ],
           ),
         ),
       ),
@@ -90,19 +106,17 @@ class NoteCard extends StatelessWidget {
 
     if (difference.inDays == 0) {
       if (difference.inHours == 0) {
-        if (difference.inMinutes == 0) {
-          return 'Just now';
-        }
-        return '${difference.inMinutes}m ago';
+        return difference.inMinutes == 0
+            ? 'Just now'
+            : '${difference.inMinutes}m ago';
       }
       return '${difference.inHours}h ago';
     } else if (difference.inDays == 1) {
       return 'Yesterday';
     } else if (difference.inDays < 7) {
       return '${difference.inDays}d ago';
-    } else {
-      return '${date.day}/${date.month}/${date.year}';
     }
+    return '${date.day}/${date.month}/${date.year}';
   }
 
   void _showDetailsDialog(BuildContext context) {
@@ -111,44 +125,78 @@ class NoteCard extends StatelessWidget {
       useRootNavigator: false,
       builder: (dialogContext) => AlertDialog(
         backgroundColor: AppColors.getBackgroundColor(context),
-        title: Text(note.title),
-        content: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
-                decoration: BoxDecoration(
-                  color: AppColors.getCardColorTwo(context),
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                child: Text(
-                  note.details,
-                  style: Styles.font15PrimaryColorTextBold(context),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.r),
+        ),
+        contentPadding: EdgeInsets.all(20.w),
+        title: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.all(8.w),
+              decoration: BoxDecoration(
+                color: const Color(0xFF6366F1).withOpacity(0.1),
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              child: Icon(
+                Icons.note_outlined,
+                color: const Color(0xFF6366F1),
+                size: 20.sp,
+              ),
+            ),
+            widthBox(12),
+            Expanded(
+              child: Text(
+                note.title,
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              heightBox(12),
-              Row(
-                children: [
-                  Icon(
-                    Icons.access_time,
-                    size: 14.sp,
-                    color: const Color(0xFF9CA3AF),
-                  ),
-                  widthBox(6),
-                  Text(
-                    _formatDate(note.updatedAt),
-                    style: Styles.font13GreyBold(context),
-                  ),
-                ],
+            ),
+          ],
+        ),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(14.w),
+              decoration: BoxDecoration(
+                color: AppColors.getCardColorTwo(context),
+                borderRadius: BorderRadius.circular(12.r),
               ),
-            ],
-          ),
+              child: Text(
+                note.details,
+                style: Styles.font13GreyBold(context),
+              ),
+            ),
+            heightBox(12),
+            Row(
+              children: [
+                Icon(
+                  Icons.access_time,
+                  size: 14.sp,
+                  color: Colors.grey[600],
+                ),
+                widthBox(6),
+                Text(
+                  _formatDate(note.updatedAt),
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    color: Colors.grey[600],
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
+            style: TextButton.styleFrom(
+              foregroundColor: const Color(0xFF6366F1),
+            ),
             child: const Text('Close'),
           ),
         ],
@@ -156,13 +204,18 @@ class NoteCard extends StatelessWidget {
     );
   }
 
-  Widget _buildDeleteBackground(BuildContext context) {
+  Widget _buildDeleteBackground() {
     return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       margin: EdgeInsets.only(bottom: 12.h),
       decoration: BoxDecoration(
-        color: Colors.red.withOpacity(0.15),
+        gradient: LinearGradient(
+          colors: [
+            Colors.red.withOpacity(0.1),
+            Colors.red.withOpacity(0.2),
+          ],
+        ),
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: Row(

@@ -6,7 +6,6 @@ import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/feature/onboarding/presentation/manager/cubit/onboarding_cubit.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_bottom_section.dart';
 import 'package:study_box/feature/onboarding/presentation/view/widget/onboarding_page.dart';
-import 'package:study_box/feature/onboarding/presentation/view/widget/theme_selector_button.dart';
 
 class OnboardingViewBody extends StatefulWidget {
   const OnboardingViewBody({super.key});
@@ -44,7 +43,6 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
       builder: (context, state) {
         final cubit = context.read<OnboardingCubit>();
 
-        // ✅ التحقق من أن الـ animations جاهزة
         if (state is OnboardingInitial ||
             cubit.onboardingData.isEmpty ||
             cubit.fadeAnimation == null ||
@@ -71,9 +69,9 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
                         return OnboardingPage(
                           data: cubit.onboardingData[index],
                           fadeAnimation:
-                              cubit.fadeAnimation!, // ✅ استخدم ! بأمان
+                              cubit.fadeAnimation!,
                           slideAnimation:
-                              cubit.slideAnimation!, // ✅ استخدم ! بأمان
+                              cubit.slideAnimation!,
                           currentIndex: cubit.currentIndex,
                           totalPages: cubit.onboardingData.length,
                           onSkip: cubit.skipToEnd,
@@ -94,13 +92,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
                   ),
                 ],
               ),
-              Positioned(
-                top: MediaQuery.of(context).padding.top + 10.h,
-                right: 20.w,
-                child: const SafeArea(
-                  child: ThemeSelectorButton(),
-                ),
-              ),
+              
             ],
           ),
         );
