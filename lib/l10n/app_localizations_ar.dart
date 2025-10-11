@@ -868,4 +868,64 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get please_wait_upload =>
       'الرجاء الانتظار، جاري رفع الملفات والصور....';
+
+  @override
+  String get study_subject => 'المواد الدراسية';
+
+  @override
+  String get search_subject => 'البحث عن المواد...';
+
+  @override
+  String get filter_results => 'تصفية النتائج';
+
+  @override
+  String get year => 'السنة : ';
+
+  @override
+  String get semester => 'الفصل الدراسي : ';
+
+  @override
+  String get first => 'الأول';
+
+  @override
+  String get second => 'الثاني';
+
+  @override
+  String get third => 'الثالث';
+
+  @override
+  String get fourth => 'الرابع';
+
+  @override
+  String get fifth => 'الخامس';
+
+  @override
+  String get sixth => 'السادس';
+
+  @override
+  String get seventh => 'السابع';
+
+  @override
+  String get year_title => 'السنة';
+
+  @override
+  String get semester_title => 'الفصل الدراسي';
+
+  @override
+  String get available => 'المحتوى المتاح : ';
+
+  @override
+  String get open_subject => 'فتح المادة';
+
+  @override
+  String get pdf_summaries => 'ملخصات PDF';
+
+  @override
+  String get video_lecture => 'محاضرات فيديو';
+
+  @override
+  String get text_book => 'الكتاب المقرر';
+
+  @override
+  String get past_exam => 'امتحانات سابقة';
 }

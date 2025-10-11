@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
@@ -112,7 +113,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
           child: CustomTextField(
             controller: _searchController,
             onChanged: (value) => _onSearchChanged(),
-            hintText: 'Search subjects...',
+            hintText: context.tr.search_subject,
             prefixIcon: IconlyLight.search,
             height: 45.h,
             fillColor: AppColors.primaryColor.withOpacity(0.1),
@@ -217,7 +218,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
                 ),
                 SizedBox(width: 8.w),
                 Text(
-                  'Filter Results',
+                  context.tr.filter_results,
                   style: Styles.font16PrimaryColorTextBold(context),
                 ),
               ],
@@ -243,7 +244,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Grade:',
+          context.tr.year_title,
           style: TextStyle(
             fontSize: 14.sp,
             fontWeight: FontWeight.w600,
@@ -299,7 +300,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Semester:',
+          context.tr.semester_title,
           style: TextStyle(
             fontSize: 14.sp,
             fontWeight: FontWeight.w600,
@@ -352,20 +353,20 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
 
   List<FilterOption> _getDefaultGradeOptions() {
     return [
-      const FilterOption(value: '1', label: 'First'),
-      const FilterOption(value: '2', label: 'Second'),
-      const FilterOption(value: '3', label: 'Third'),
-      const FilterOption(value: '4', label: 'Fourth'),
-      const FilterOption(value: '5', label: 'Fifth'),
-      const FilterOption(value: '6', label: 'Sixth'),
-      const FilterOption(value: '7', label: 'Seventh'),
+      FilterOption(value: '1', label: context.tr.first),
+      FilterOption(value: '2', label: context.tr.second),
+      FilterOption(value: '3', label: context.tr.third),
+      FilterOption(value: '4', label: context.tr.fourth),
+      FilterOption(value: '5', label: context.tr.fifth),
+      FilterOption(value: '6', label: context.tr.sixth),
+      FilterOption(value: '7', label: context.tr.seventh),
     ];
   }
 
   List<FilterOption> _getDefaultSemesterOptions() {
     return [
-      const FilterOption(value: '1', label: 'First Semester'),
-      const FilterOption(value: '2', label: 'Second Semester'),
+      FilterOption(value: '1', label: context.tr.first_semester),
+      FilterOption(value: '2', label: context.tr.second_semester),
     ];
   }
 

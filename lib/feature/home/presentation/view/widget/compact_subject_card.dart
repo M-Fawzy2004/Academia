@@ -20,7 +20,6 @@ class CompactSubjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final subjectColor = Color(subject.color);
-    final progress = _calculateProgress();
 
     return GestureDetector(
       onTap: () {
@@ -79,27 +78,7 @@ class CompactSubjectCard extends StatelessWidget {
                               fontSize: 11.sp,
                             ),
                           ),
-                          Text(
-                            '${(progress * 100).toInt()}%',
-                            style: Styles.font13GreyBold(context).copyWith(
-                              fontSize: 11.sp,
-                              color: subjectColor.withOpacity(0.8),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
                         ],
-                      ),
-                      heightBox(6),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10.r),
-                        child: LinearProgressIndicator(
-                          value: progress,
-                          backgroundColor: AppColors.getCardColorTwo(context),
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            subjectColor.withOpacity(0.8),
-                          ),
-                          minHeight: 5.h,
-                        ),
                       ),
                     ],
                   ),
@@ -124,18 +103,6 @@ class CompactSubjectCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  double _calculateProgress() {
-    if (subject.resources.isEmpty) return 0.0;
-
-    final resourceTypes = <ResourceType>{};
-    for (var resource in subject.resources) {
-      resourceTypes.add(resource.type);
-    }
-
-    const totalTypes = 3;
-    return resourceTypes.length / totalTypes;
   }
 
   String _getProgressText() {

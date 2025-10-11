@@ -893,4 +893,64 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get please_wait_upload =>
       'Por favor espere, los archivos e imágenes se están subiendo....';
+
+  @override
+  String get study_subject => 'Materias de estudio';
+
+  @override
+  String get search_subject => 'Buscar materias...';
+
+  @override
+  String get filter_results => 'Filtrar resultados';
+
+  @override
+  String get year => 'Año : ';
+
+  @override
+  String get semester => 'Semestre : ';
+
+  @override
+  String get first => 'Primero';
+
+  @override
+  String get second => 'Segundo';
+
+  @override
+  String get third => 'Tercero';
+
+  @override
+  String get fourth => 'Cuarto';
+
+  @override
+  String get fifth => 'Quinto';
+
+  @override
+  String get sixth => 'Sexto';
+
+  @override
+  String get seventh => 'Séptimo';
+
+  @override
+  String get year_title => 'Año';
+
+  @override
+  String get semester_title => 'Semestre';
+
+  @override
+  String get available => 'Contenido disponible : ';
+
+  @override
+  String get open_subject => 'Abrir materia';
+
+  @override
+  String get pdf_summaries => 'Resúmenes PDF';
+
+  @override
+  String get video_lecture => 'Clases en video';
+
+  @override
+  String get text_book => 'Libro de texto';
+
+  @override
+  String get past_exam => 'Exámenes anteriores';
 }

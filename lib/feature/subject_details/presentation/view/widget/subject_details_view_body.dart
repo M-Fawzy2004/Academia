@@ -67,7 +67,7 @@ class _SubjectDetailsViewBodyState extends State<SubjectDetailsViewBody> {
       value: _scrollCubit,
       child: Column(
         children: [
-          // Animated Header مع السكرول
+          // Animated Header
           BlocBuilder<ScrollCubit, ScrollState>(
             builder: (context, scrollState) {
               return ClipRect(

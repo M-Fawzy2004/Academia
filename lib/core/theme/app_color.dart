@@ -34,15 +34,15 @@ class AppColors {
   static const Color darkIndicatorInactive = Color(0xFF475569);
 
   // Dark Theme 2 Colors
-  static const Color dark2PrimaryColor = Color(0xFF667EEA);
-  static const Color dark2BackgroundColor = Color(0xFF0F172A);
-  static const Color dark2SurfaceColor = Color(0xFF1E293B);
-  static const Color dark2CardColor = Color(0xFF334155);
-  static const Color dark2TextPrimary = Color(0xFFF8FAFC);
-  static const Color dark2TextSecondary = Color(0xFF94A3B8);
-  static const Color dark2BorderColor = Color(0xFF475569);
-  static const Color dark2GreyBackground = Color(0xFF374151);
-  static const Color dark2IndicatorInactive = Color(0xFF475569);
+  static const Color dark2PrimaryColor = Color(0xFF4A7FA7);
+  static const Color dark2BackgroundColor = Color(0xFF0A1931);
+  static const Color dark2SurfaceColor = Color(0xFF1A3D63);
+  static const Color dark2CardColor = Color(0xFFB3CFE5);
+  static const Color dark2TextPrimary = Color(0xFFF6FAFD);
+  static const Color dark2TextSecondary = Color(0xFFB3CFE5);
+  static const Color dark2BorderColor = Color(0xFF4A7FA7);
+  static const Color dark2GreyBackground = Color(0xFF1A3D63);
+  static const Color dark2IndicatorInactive = Color(0xFF4A7FA7);
 
   // Common Colors
   static const Color white = Color(0xFFFFFFFF);

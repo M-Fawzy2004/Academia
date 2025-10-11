@@ -1088,20 +1088,100 @@
   "@required_year_and_semester": {
     "description": "Text for required year and semester"
   },
-  "feild_credit_hours" : "Credit hours must be a number",
+  "feild_credit_hours": "Credit hours must be a number",
   "@feild_credit_hours": {
     "description": "Text for feild credit hours"
   },
-  "network_error" : "Network Error, Please try again",
+  "network_error": "Network Error, Please try again",
   "@network_error": {
     "description": "Text for network error"
   },
-  "saving_project" : "Saving project...",
+  "saving_project": "Saving project...",
   "@saving_project": {
     "description": "Text for saving project"
   },
-  "please_wait_upload" : "Please wait, files and images are being uploaded....",
+  "please_wait_upload": "Please wait, files and images are being uploaded....",
   "@please_wait_upload": {
     "description": "Text for please wait upload"
+  },
+  "study_subject": "Study Subjects",
+  "@study_subject": {
+    "description": "Text for study subject"
+  },
+  "search_subject": "Search subjects...",
+  "@search_subject": {
+    "description": "Text for search subject"
+  },
+  "filter_results": "Filter Results",
+  "@filter_results": {
+    "description": "Text for filter results"
+  },
+  "year": "Year : ",
+  "@year": {
+    "description": "Text for year"
+  },
+  "semester": "Semester : ",
+  "@semester": {
+    "description": "Text for semester"
+  },
+  "first": "First",
+  "@first": {
+    "description": "Text for first"
+  },
+  "second": "Second",
+  "@second": {
+    "description": "Text for second"
+  },
+  "third": "Third",
+  "@third": {
+    "description": "Text for third"
+  },
+  "fourth": "Fourth",
+  "@fourth": {
+    "description": "Text for fourth"
+  },
+  "fifth": "Fifth",
+  "@fifth": {
+    "description": "Text for fifth"
+  },
+  "sixth": "Sixth",
+  "@sixth": {
+    "description": "Text for sixth"
+  },
+  "seventh": "Seventh",
+  "@seventh": {
+    "description": "Text for seventh"
+  },
+  "year_title": "Year",
+  "@year_title": {
+    "description": "Text for year title"
+  },
+  "semester_title": "Semester",
+  "@semester_title": {
+    "description": "Text for semester title"
+  },
+  "available": "Available Content : ",
+  "@available": {
+    "description": "Text for available"
+  },
+  "open_subject": "Open Subject",
+  "@open_subject": {
+    "description": "Text for open subject"
+  },
+  "pdf_summaries": "PDF Summaries",
+  "@pdf_summaries": {
+    "description": "Text for pdf summaries"
+  },
+  "video_lecture": "Video Lectures",
+  "@video_lecture": {
+    "description": "Text for video lecture"
+  },
+  "text_book": "Textbook",
+  "@text_book": {
+    "description": "Text for text book"
+  },
+  "past_exam": "Past Exams",
+  "@past_exam": {
+    "description": "Text for past exam"
   }
 }

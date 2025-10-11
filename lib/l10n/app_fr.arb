@@ -1103,5 +1103,85 @@
     "please_wait_upload": "Veuillez patienter, les fichiers et images sont en cours de téléchargement....",
     "@please_wait_upload": {
         "description": "Text for please wait upload"
+    },
+    "study_subject": "Matières d'étude",
+    "@study_subject": {
+        "description": "Text for study subject"
+    },
+    "search_subject": "Rechercher des matières...",
+    "@search_subject": {
+        "description": "Text for search subject"
+    },
+    "filter_results": "Filtrer les résultats",
+    "@filter_results": {
+        "description": "Text for filter results"
+    },
+    "year": "Année : ",
+    "@year": {
+        "description": "Text for year"
+    },
+    "semester": "Semestre : ",
+    "@semester": {
+        "description": "Text for semester"
+    },
+    "first": "Premier",
+    "@first": {
+        "description": "Text for first"
+    },
+    "second": "Deuxième",
+    "@second": {
+        "description": "Text for second"
+    },
+    "third": "Troisième",
+    "@third": {
+        "description": "Text for third"
+    },
+    "fourth": "Quatrième",
+    "@fourth": {
+        "description": "Text for fourth"
+    },
+    "fifth": "Cinquième",
+    "@fifth": {
+        "description": "Text for fifth"
+    },
+    "sixth": "Sixième",
+    "@sixth": {
+        "description": "Text for sixth"
+    },
+    "seventh": "Septième",
+    "@seventh": {
+        "description": "Text for seventh"
+    },
+    "year_title": "Année",
+    "@year_title": {
+        "description": "Text for year title"
+    },
+    "semester_title": "Semestre",
+    "@semester_title": {
+        "description": "Text for semester title"
+    },
+    "available": "Contenu disponible : ",
+    "@available": {
+        "description": "Text for available"
+    },
+    "open_subject": "Ouvrir la matière",
+    "@open_subject": {
+        "description": "Text for open subject"
+    },
+    "pdf_summaries": "Résumés PDF",
+    "@pdf_summaries": {
+        "description": "Text for pdf summaries"
+    },
+    "video_lecture": "Cours vidéo",
+    "@video_lecture": {
+        "description": "Text for video lecture"
+    },
+    "text_book": "Manuel scolaire",
+    "@text_book": {
+        "description": "Text for text book"
+    },
+    "past_exam": "Examens antérieurs",
+    "@past_exam": {
+        "description": "Text for past exam"
     }
 }

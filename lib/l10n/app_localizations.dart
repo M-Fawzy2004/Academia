@@ -1757,6 +1757,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please wait, files and images are being uploaded....'**
   String get please_wait_upload;
+
+  /// Text for study subject
+  ///
+  /// In en, this message translates to:
+  /// **'Study Subjects'**
+  String get study_subject;
+
+  /// Text for search subject
+  ///
+  /// In en, this message translates to:
+  /// **'Search subjects...'**
+  String get search_subject;
+
+  /// Text for filter results
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Results'**
+  String get filter_results;
+
+  /// Text for year
+  ///
+  /// In en, this message translates to:
+  /// **'Year : '**
+  String get year;
+
+  /// Text for semester
+  ///
+  /// In en, this message translates to:
+  /// **'Semester : '**
+  String get semester;
+
+  /// Text for first
+  ///
+  /// In en, this message translates to:
+  /// **'First'**
+  String get first;
+
+  /// Text for second
+  ///
+  /// In en, this message translates to:
+  /// **'Second'**
+  String get second;
+
+  /// Text for third
+  ///
+  /// In en, this message translates to:
+  /// **'Third'**
+  String get third;
+
+  /// Text for fourth
+  ///
+  /// In en, this message translates to:
+  /// **'Fourth'**
+  String get fourth;
+
+  /// Text for fifth
+  ///
+  /// In en, this message translates to:
+  /// **'Fifth'**
+  String get fifth;
+
+  /// Text for sixth
+  ///
+  /// In en, this message translates to:
+  /// **'Sixth'**
+  String get sixth;
+
+  /// Text for seventh
+  ///
+  /// In en, this message translates to:
+  /// **'Seventh'**
+  String get seventh;
+
+  /// Text for year title
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get year_title;
+
+  /// Text for semester title
+  ///
+  /// In en, this message translates to:
+  /// **'Semester'**
+  String get semester_title;
+
+  /// Text for available
+  ///
+  /// In en, this message translates to:
+  /// **'Available Content : '**
+  String get available;
+
+  /// Text for open subject
+  ///
+  /// In en, this message translates to:
+  /// **'Open Subject'**
+  String get open_subject;
+
+  /// Text for pdf summaries
+  ///
+  /// In en, this message translates to:
+  /// **'PDF Summaries'**
+  String get pdf_summaries;
+
+  /// Text for video lecture
+  ///
+  /// In en, this message translates to:
+  /// **'Video Lectures'**
+  String get video_lecture;
+
+  /// Text for text book
+  ///
+  /// In en, this message translates to:
+  /// **'Textbook'**
+  String get text_book;
+
+  /// Text for past exam
+  ///
+  /// In en, this message translates to:
+  /// **'Past Exams'**
+  String get past_exam;
 }
 
 class _AppLocalizationsDelegate

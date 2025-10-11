@@ -1103,5 +1103,85 @@
   "please_wait_upload": "الرجاء الانتظار، جاري رفع الملفات والصور....",
   "@please_wait_upload": {
     "description": "Text for please wait upload"
+  },
+  "study_subject": "المواد الدراسية",
+  "@study_subject": {
+    "description": "Text for study subject"
+  },
+  "search_subject": "البحث عن المواد...",
+  "@search_subject": {
+    "description": "Text for search subject"
+  },
+  "filter_results": "تصفية النتائج",
+  "@filter_results": {
+    "description": "Text for filter results"
+  },
+  "year": "السنة : ",
+  "@year": {
+    "description": "Text for year"
+  },
+  "semester": "الفصل الدراسي : ",
+  "@semester": {
+    "description": "Text for semester"
+  },
+  "first": "الأول",
+  "@first": {
+    "description": "Text for first"
+  },
+  "second": "الثاني",
+  "@second": {
+    "description": "Text for second"
+  },
+  "third": "الثالث",
+  "@third": {
+    "description": "Text for third"
+  },
+  "fourth": "الرابع",
+  "@fourth": {
+    "description": "Text for fourth"
+  },
+  "fifth": "الخامس",
+  "@fifth": {
+    "description": "Text for fifth"
+  },
+  "sixth": "السادس",
+  "@sixth": {
+    "description": "Text for sixth"
+  },
+  "seventh": "السابع",
+  "@seventh": {
+    "description": "Text for seventh"
+  },
+  "year_title": "السنة",
+  "@year_title": {
+    "description": "Text for year title"
+  },
+  "semester_title": "الفصل الدراسي",
+  "@semester_title": {
+    "description": "Text for semester title"
+  },
+  "available": "المحتوى المتاح : ",
+  "@available": {
+    "description": "Text for available"
+  },
+  "open_subject": "فتح المادة",
+  "@open_subject": {
+    "description": "Text for open subject"
+  },
+  "pdf_summaries": "ملخصات PDF",
+  "@pdf_summaries": {
+    "description": "Text for pdf summaries"
+  },
+  "video_lecture": "محاضرات فيديو",
+  "@video_lecture": {
+    "description": "Text for video lecture"
+  },
+  "text_book": "الكتاب المقرر",
+  "@text_book": {
+    "description": "Text for text book"
+  },
+  "past_exam": "امتحانات سابقة",
+  "@past_exam": {
+    "description": "Text for past exam"
   }
 }

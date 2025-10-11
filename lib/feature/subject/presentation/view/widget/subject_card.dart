@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
@@ -99,7 +100,7 @@ class SubjectCard extends StatelessWidget {
                 ),
                 heightBox(3),
                 Text(
-                  'Year ${subject.year} • Semester ${subject.semester}',
+                  '${context.tr.year_title} ${subject.year} • ${context.tr.semester_title}  ${subject.semester}',
                   style: Styles.font13GreyBold(context),
                 ),
               ],
@@ -121,13 +122,13 @@ class SubjectCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Available Content : ',
+          context.tr.available,
           style: Styles.font16PrimaryColorTextBold(context),
         ),
         heightBox(10),
         if (resourcesByType.isEmpty)
           _buildResourceChip(
-            'No resources yet',
+            context.tr.no_resources,
             subjectColor,
             Icons.info_outline,
             context,
@@ -137,7 +138,7 @@ class SubjectCard extends StatelessWidget {
             spacing: 5.w,
             runSpacing: 10.h,
             children: resourcesByType.entries.map((entry) {
-              final info = _getResourceInfo(entry.key);
+              final info = _getResourceInfo(entry.key, context);
               return _buildResourceChip(
                 info['label'],
                 subjectColor,
@@ -180,7 +181,7 @@ class SubjectCard extends StatelessWidget {
     return CustomButton(
       height: 45.h,
       borderRadius: 12.r,
-      text: 'Open Subject',
+      text: context.tr.open_subject,
       backgroundColor: subjectColor.withOpacity(0.8),
       onPressed: () {
         context.read<SubjectCubit>().updateLastAccessed(subject.id);
@@ -219,23 +220,33 @@ class SubjectCard extends StatelessWidget {
     return Icons.book_rounded;
   }
 
-  Map<String, dynamic> _getResourceInfo(ResourceType type) {
+  Map<String, dynamic> _getResourceInfo(
+      ResourceType type, BuildContext context) {
     switch (type) {
       case ResourceType.image:
-        return {'label': 'Images', 'icon': Icons.image_rounded};
+        return {
+          'label': context.tr.image,
+          'icon': Icons.image_rounded,
+        };
       case ResourceType.pdf:
-        return {'label': 'PDF Summaries', 'icon': Icons.picture_as_pdf_rounded};
+        return {
+          'label': context.tr.pdf_summaries,
+          'icon': Icons.picture_as_pdf_rounded,
+        };
       case ResourceType.youtubeLink:
         return {
-          'label': 'Video Lectures',
-          'icon': Icons.play_circle_fill_rounded
+          'label': context.tr.video_lecture,
+          'icon': Icons.play_circle_fill_rounded,
         };
       case ResourceType.bookLink:
-        return {'label': 'Textbook', 'icon': Icons.menu_book_rounded};
+        return {
+          'label': context.tr.text_book,
+          'icon': Icons.menu_book_rounded,
+        };
       case ResourceType.record:
         return {
-          'label': 'Past Exams',
-          'icon': Icons.assignment_turned_in_rounded
+          'label': context.tr.past_exam,
+          'icon': Icons.assignment_turned_in_rounded,
         };
     }
   }
