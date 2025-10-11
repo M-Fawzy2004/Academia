@@ -30,10 +30,6 @@ class Assets {
   /// assets/images/jpg/welcome_view_image.jpg
   static const String imagesJpgWelcomeViewImage = "assets/images/jpg/welcome_view_image.jpg";
 
-  /// Assets for imagesPngLogoApp
-  /// assets/images/png/logo_app.png
-  static const String imagesPngLogoApp = "assets/images/png/logo_app.png";
-
   /// Assets for imagesPngMofawzy
   /// assets/images/png/mofawzy.png
   static const String imagesPngMofawzy = "assets/images/png/mofawzy.png";

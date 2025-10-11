@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
-import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/utils/assets.dart';
 import 'package:study_box/core/widget/icon_back.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/auth_redirect_text.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/login_form_wrapper.dart';
@@ -25,22 +25,11 @@ class LoginViewBody extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: IconBack(),
           ),
-          heightBox(20),
-          Icon(
-            Icons.school,
-            size: 80.sp,
-            color: AppColors.primaryColor,
+          Image.asset(
+            Assets.imagesPngSplashView,
+            height: 200.h,
+            width: 300.w,
           ),
-          heightBox(5),
-          Text(
-            "StudyBox",
-            style: TextStyle(
-              color: AppColors.primaryColor,
-              fontWeight: FontWeight.bold,
-              fontSize: 24.sp,
-            ),
-          ),
-          heightBox(50),
           const LoginFormWrapper(),
           heightBox(15),
           const OrDivider(),
