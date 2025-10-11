@@ -65,6 +65,7 @@ dependencies:
   youtube_player_iframe: ^5.2.2
   webview_flutter: ^4.13.0
   cached_network_image: ^3.4.1
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -103,6 +104,8 @@ flutter:
         - asset: assets/fonts/Cairo.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+## flutter_assets ##
 flutter_assets:
   assets_path: assets/images/
   output_path: lib/core/utils/
@@ -110,3 +113,10 @@ flutter_assets:
   field_prefix: null
 
   generate: true
+
+## flutter_launcher_icons ##
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/png/app_logo.png"
+  remove_alpha_ios: true
