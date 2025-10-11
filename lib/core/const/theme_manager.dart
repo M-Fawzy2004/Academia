@@ -55,6 +55,7 @@ class ThemeManager extends ChangeNotifier {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
+      fontFamily: 'fontApp',
       primaryColor: AppColors.primaryColor,
       scaffoldBackgroundColor: AppColors.lightBackgroundColor,
       cardColor: AppColors.lightCardColor,
@@ -97,8 +98,9 @@ class ThemeManager extends ChangeNotifier {
   ThemeData getCurrentDarkTheme() {
     if (_currentTheme == AppThemeMode.dark2) {
       return ThemeData(
-        useMaterial3: false,
+        useMaterial3: true,
         brightness: Brightness.dark,
+        fontFamily: 'fontApp',
         primaryColor: AppColors.dark2PrimaryColor,
         scaffoldBackgroundColor: AppColors.dark2BackgroundColor,
         cardColor: AppColors.dark2CardColor,
@@ -141,6 +143,7 @@ class ThemeManager extends ChangeNotifier {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
+      fontFamily: 'fontApp',
       primaryColor: AppColors.darkPrimaryColor,
       scaffoldBackgroundColor: AppColors.darkBackgroundColor,
       cardColor: AppColors.darkCardColor,
