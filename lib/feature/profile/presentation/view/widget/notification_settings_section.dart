@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_card.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_divider.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_navigation.dart';
@@ -24,15 +25,15 @@ class _NotificationSettingsSectionState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SettingsSectionHeader(
-          title: 'Notification Settings',
+        SettingsSectionHeader(
+          title: context.tr.notification_settings,
           icon: IconlyLight.notification,
         ),
         SettingsCard(
           children: [
             SettingsSwitch(
               icon: IconlyLight.volume_up,
-              title: 'Sound',
+              title: context.tr.sound,
               value: soundEnabled,
               onChanged: (value) {
                 setState(() {
@@ -43,7 +44,7 @@ class _NotificationSettingsSectionState
             const SettingsDivider(),
             SettingsSwitch(
               icon: Icons.vibration,
-              title: 'Vibration',
+              title: context.tr.vibration,
               value: vibrationEnabled,
               onChanged: (value) {
                 setState(() {
@@ -54,7 +55,7 @@ class _NotificationSettingsSectionState
             const SettingsDivider(),
             SettingsNavigation(
               icon: IconlyLight.time_circle,
-              title: 'Study Reminders',
+              title: context.tr.study_reminders,
               subtitle: 'Daily at 8:00 PM',
               onTap: () {
                 print('Study reminders pressed');
@@ -63,7 +64,7 @@ class _NotificationSettingsSectionState
             const SettingsDivider(),
             SettingsNavigation(
               icon: IconlyLight.calendar,
-              title: 'Exam Alerts',
+              title: context.tr.exam_alerts,
               subtitle: 'Enabled',
               onTap: () {
                 print('Exam alerts pressed');

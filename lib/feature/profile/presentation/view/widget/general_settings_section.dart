@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/extension.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/feature/profile/presentation/view/theme_selector_view.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_card.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_divider.dart';
@@ -26,15 +27,15 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SettingsSectionHeader(
-          title: 'General Settings',
+        SettingsSectionHeader(
+          title: context.tr.general_settings,
           icon: IconlyLight.setting,
         ),
         SettingsCard(
           children: [
             SettingsSwitch(
               icon: IconlyLight.notification,
-              title: 'Notifications',
+              title: context.tr.notfication,
               value: notificationsEnabled,
               onChanged: (value) {
                 setState(() {
@@ -47,7 +48,7 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
               padding: EdgeInsets.symmetric(vertical: 8.h),
               child: SettingsNavigation(
                 icon: Icons.color_lens_rounded,
-                title: 'Appearance',
+                title: context.tr.appearance,
                 onTap: () {
                   context
                       .navigateWithSlideTransition(const ThemeSelectorView());
@@ -57,14 +58,14 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
             const SettingsDivider(),
             SettingsNavigation(
               icon: Icons.language_rounded,
-              title: 'Language',
+              title: context.tr.language,
               subtitle: selectedLanguage,
               onTap: () {},
             ),
             const SettingsDivider(),
             SettingsNavigation(
               icon: Icons.emoji_events_rounded,
-              title: 'Achievements',
+              title: context.tr.achievements,
               onTap: () {},
             ),
           ],

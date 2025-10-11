@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -10,6 +12,8 @@ class PremiumUpgradeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = LanguageHelper.isArabic(context);
+
     return InkWell(
       onTap: () {
         print('Premium upgrade pressed');
@@ -53,14 +57,14 @@ class PremiumUpgradeCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Upgrade to Premium',
+                    context.tr.upgrade_to_premium,
                     style: Styles.font16PrimaryColorTextBold(context).copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    'Unlock all features',
+                    context.tr.unlock_all_features,
                     style: Styles.font12MediumBold(context).copyWith(
                       color: Colors.white.withOpacity(0.8),
                     ),
@@ -69,7 +73,7 @@ class PremiumUpgradeCard extends StatelessWidget {
               ),
             ),
             Icon(
-              IconlyLight.arrow_right_2,
+              isArabic ? IconlyLight.arrow_left_2 : IconlyLight.arrow_right_2,
               color: Colors.white,
               size: 20.sp,
             ),

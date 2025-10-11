@@ -579,5 +579,197 @@
     "progress": "Progrès",
     "@progress": {
         "description": "Texte pour progrès"
+    },
+    "edit_profile": "Modifier le profil",
+    "@edit_profile": {
+        "description": "Text for edit profile"
+    },
+    "edit_profile_desc": "Mettez à jour vos informations personnelles et académiques.",
+    "@edit_profile_desc": {
+        "description": "Text for edit profile description"
+    },
+    "personal_info": "Informations personnelles",
+    "@personal_info": {
+        "description": "Text for personal information"
+    },
+    "academic_information": "Informations académiques",
+    "@academic_information": {
+        "description": "Text for academic information"
+    },
+    "save_changes": "Enregistrer les modifications",
+    "@save_changes": {
+        "description": "Text for save changes"
+    },
+    "manage_subscriptions": "Gérer les abonnements",
+    "@manage_subscriptions": {
+        "description": "Text for manage subscriptions"
+    },
+    "subscriptions_desc": "Vous pouvez gérer vos abonnements ici",
+    "@subscriptions_desc": {
+        "description": "Text for subscriptions description"
+    },
+    "edit_account": "Modifier le compte",
+    "@edit_account": {
+        "description": "Text for edit account"
+    },
+    "upgrade_to_premium": "Passer à Premium",
+    "@upgrade_to_premium": {
+        "description": "Text for upgrade to premium"
+    },
+    "unlock_all_features": "Débloquer toutes les fonctionnalités",
+    "@unlock_all_features": {
+        "description": "Text for unlock all features"
+    },
+    "general_settings": "Paramètres généraux",
+    "@general_settings": {
+        "description": "Text for general settings"
+    },
+    "notfication": "Notifications",
+    "@notfication": {
+        "description": "Text for notifications"
+    },
+    "appearance": "Apparence",
+    "@appearance": {
+        "description": "Text for appearance"
+    },
+    "language": "Langue",
+    "@language": {
+        "description": "Text for language"
+    },
+    "achievements": "Réalisations",
+    "@achievements": {
+        "description": "Text for Achievements"
+    },
+    "notification_settings": "Paramètres de notification",
+    "@notification_settings": {
+        "description": "Text for notification settings"
+    },
+    "sound": "Son",
+    "@sound": {
+        "description": "Text for Sound"
+    },
+    "vibration": "Vibration",
+    "@vibration": {
+        "description": "Text for Vibration"
+    },
+    "study_reminders": "Rappels d'étude",
+    "@study_reminders": {
+        "description": "Text for study reminders"
+    },
+    "exam_alerts": "Alertes d'examen",
+    "@exam_alerts": {
+        "description": "Text for Reminders"
+    },
+    "account": "Compte",
+    "@account": {
+        "description": "Text for account"
+    },
+    "privacy_security_title": "Confidentialité et sécurité",
+    "@privacy_security_title": {
+        "description": "Text for privacy security title"
+    },
+    "privacy_security_desc": "Mot de passe, 2FA",
+    "@privacy_security_desc": {
+        "description": "Text for privacy security description"
+    },
+    "study_progress_title": "Progrès d'étude",
+    "@study_progress_title": {
+        "description": "Text for study progress"
+    },
+    "study_progress_desc": "85% complété ce mois-ci",
+    "@study_progress_desc": {
+        "description": "Text for study progress description"
+    },
+    "delete_account_title": "Supprimer le compte",
+    "@delete_account_title": {
+        "description": "Text for delete account"
+    },
+    "delete_account_desc": "Supprimer définitivement votre compte",
+    "@delete_account_desc": {
+        "description": "Text for delete account description"
+    },
+    "sign_out_title": "Se déconnecter",
+    "@sign_out_title": {
+        "description": "Text for sign out"
+    },
+    "sign_out_desc": "Déconnectez-vous de votre compte",
+    "@sign_out_desc": {
+        "description": "Text for sign out description"
+    },
+    "about": "À propos",
+    "@about": {
+        "description": "Text for about"
+    },
+    "term_and_conditions": "Conditions générales",
+    "@term_and_conditions": {
+        "description": "Text for terms and conditions"
+    },
+    "privacy_policy": "Politique de confidentialité",
+    "@privacy_policy": {
+        "description": "Text for privacy policy"
+    },
+    "learn_more": "En savoir plus",
+    "@learn_more": {
+        "description": "Text for learn more"
+    },
+    "contact_us_title": "Contacter le support",
+    "@contact_us_title": {
+        "description": "Text for contact us"
+    },
+    "contact_us_desc": "Email, Téléphone",
+    "@contact_us_desc": {
+        "description": "Text for contact us description"
+    },
+    "help_center": "Centre d'aide",
+    "@help_center": {
+        "description": "Text for help center"
+    },
+    "rate_app": "Évaluer l'application",
+    "@rate_app": {
+        "description": "Text for rate app"
+    },
+    "app_version": "Version de l'application",
+    "@app_version": {
+        "description": "Text for app version"
+    },
+    "system_default_title": "Par défaut du système",
+    "@system_default_title": {
+        "description": "Text for system default"
+    },
+    "system_default_desc": "Suivre les paramètres de l'appareil",
+    "@system_default_desc": {
+        "description": "Text for system default description"
+    },
+    "light_mode_title": "Mode clair",
+    "@light_mode_title": {
+        "description": "Text for light mode"
+    },
+    "light_mode_desc": "Interface lumineuse et épurée",
+    "@light_mode_desc": {
+        "description": "Text for light mode description"
+    },
+    "dark_mode_title": "Mode sombre",
+    "@dark_mode_title": {
+        "description": "Text for dark mode"
+    },
+    "dark_mode_desc": "Facile pour les yeux",
+    "@dark_mode_desc": {
+        "description": "Text for dark mode description"
+    },
+    "dark_mode_two_title": "Mode sombre 2",
+    "@dark_mode_two_title": {
+        "description": "Text for dark mode 2"
+    },
+    "dark_mode_two_desc": "Interface lumineuse et épurée",
+    "@dark_mode_two_desc": {
+        "description": "Text for dark mode 2 description"
+    },
+    "theme_setting": "Paramètres de thème",
+    "@theme_setting": {
+        "description": "Text for theme settings"
+    },
+    "theme_setting_desc": "Choisissez votre thème préféré",
+    "@theme_setting_desc": {
+        "description": "Text for theme settings description"
     }
 }

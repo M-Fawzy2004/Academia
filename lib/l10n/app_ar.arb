@@ -579,5 +579,197 @@
   "progress": "التقدم",
   "@progress": {
     "description": "نص للتقدم"
+  },
+  "edit_profile": "تعديل الملف الشخصي",
+  "@edit_profile": {
+    "description": "Text for edit profile"
+  },
+  "edit_profile_desc": "قم بتحديث معلوماتك الشخصية والأكاديمية.",
+  "@edit_profile_desc": {
+    "description": "Text for edit profile description"
+  },
+  "personal_info": "المعلومات الشخصية",
+  "@personal_info": {
+    "description": "Text for personal information"
+  },
+  "academic_information": "المعلومات الأكاديمية",
+  "@academic_information": {
+    "description": "Text for academic information"
+  },
+  "save_changes": "حفظ التغييرات",
+  "@save_changes": {
+    "description": "Text for save changes"
+  },
+  "manage_subscriptions": "إدارة الاشتراكات",
+  "@manage_subscriptions": {
+    "description": "Text for manage subscriptions"
+  },
+  "subscriptions_desc": "يمكنك إدارة اشتراكاتك هنا",
+  "@subscriptions_desc": {
+    "description": "Text for subscriptions description"
+  },
+  "edit_account": "تعديل الحساب",
+  "@edit_account": {
+    "description": "Text for edit account"
+  },
+  "upgrade_to_premium": "الترقية إلى بريميوم",
+  "@upgrade_to_premium": {
+    "description": "Text for upgrade to premium"
+  },
+  "unlock_all_features": "فتح جميع الميزات",
+  "@unlock_all_features": {
+    "description": "Text for unlock all features"
+  },
+  "general_settings": "الإعدادات العامة",
+  "@general_settings": {
+    "description": "Text for general settings"
+  },
+  "notfication": "الإشعارات",
+  "@notfication": {
+    "description": "Text for notifications"
+  },
+  "appearance": "المظهر",
+  "@appearance": {
+    "description": "Text for appearance"
+  },
+  "language": "اللغة",
+  "@language": {
+    "description": "Text for language"
+  },
+  "achievements": "الإنجازات",
+  "@achievements": {
+    "description": "Text for Achievements"
+  },
+  "notification_settings": "إعدادات الإشعارات",
+  "@notification_settings": {
+    "description": "Text for notification settings"
+  },
+  "sound": "الصوت",
+  "@sound": {
+    "description": "Text for Sound"
+  },
+  "vibration": "الاهتزاز",
+  "@vibration": {
+    "description": "Text for Vibration"
+  },
+  "study_reminders": "تذكيرات الدراسة",
+  "@study_reminders": {
+    "description": "Text for study reminders"
+  },
+  "exam_alerts": "تنبيهات الامتحانات",
+  "@exam_alerts": {
+    "description": "Text for Reminders"
+  },
+  "account": "الحساب",
+  "@account": {
+    "description": "Text for account"
+  },
+  "privacy_security_title": "الخصوصية والأمان",
+  "@privacy_security_title": {
+    "description": "Text for privacy security title"
+  },
+  "privacy_security_desc": "كلمة المرور، المصادقة الثنائية",
+  "@privacy_security_desc": {
+    "description": "Text for privacy security description"
+  },
+  "study_progress_title": "تقدم الدراسة",
+  "@study_progress_title": {
+    "description": "Text for study progress"
+  },
+  "study_progress_desc": "تم إكمال 85% هذا الشهر",
+  "@study_progress_desc": {
+    "description": "Text for study progress description"
+  },
+  "delete_account_title": "حذف الحساب",
+  "@delete_account_title": {
+    "description": "Text for delete account"
+  },
+  "delete_account_desc": "حذف حسابك نهائياً",
+  "@delete_account_desc": {
+    "description": "Text for delete account description"
+  },
+  "sign_out_title": "تسجيل الخروج",
+  "@sign_out_title": {
+    "description": "Text for sign out"
+  },
+  "sign_out_desc": "تسجيل الخروج من حسابك",
+  "@sign_out_desc": {
+    "description": "Text for sign out description"
+  },
+  "about": "حول",
+  "@about": {
+    "description": "Text for about"
+  },
+  "term_and_conditions": "الشروط والأحكام",
+  "@term_and_conditions": {
+    "description": "Text for terms and conditions"
+  },
+  "privacy_policy": "سياسة الخصوصية",
+  "@privacy_policy": {
+    "description": "Text for privacy policy"
+  },
+  "learn_more": "اعرف المزيد",
+  "@learn_more": {
+    "description": "Text for learn more"
+  },
+  "contact_us_title": "اتصل بالدعم",
+  "@contact_us_title": {
+    "description": "Text for contact us"
+  },
+  "contact_us_desc": "البريد الإلكتروني، الهاتف",
+  "@contact_us_desc": {
+    "description": "Text for contact us description"
+  },
+  "help_center": "مركز المساعدة",
+  "@help_center": {
+    "description": "Text for help center"
+  },
+  "rate_app": "قيّم التطبيق",
+  "@rate_app": {
+    "description": "Text for rate app"
+  },
+  "app_version": "إصدار التطبيق",
+  "@app_version": {
+    "description": "Text for app version"
+  },
+  "system_default_title": "إعدادات النظام",
+  "@system_default_title": {
+    "description": "Text for system default"
+  },
+  "system_default_desc": "اتبع إعدادات الجهاز",
+  "@system_default_desc": {
+    "description": "Text for system default description"
+  },
+  "light_mode_title": "الوضع النهاري",
+  "@light_mode_title": {
+    "description": "Text for light mode"
+  },
+  "light_mode_desc": "واجهة مشرقة ونظيفة",
+  "@light_mode_desc": {
+    "description": "Text for light mode description"
+  },
+  "dark_mode_title": "الوضع الليلي",
+  "@dark_mode_title": {
+    "description": "Text for dark mode"
+  },
+  "dark_mode_desc": "مريح للعينين",
+  "@dark_mode_desc": {
+    "description": "Text for dark mode description"
+  },
+  "dark_mode_two_title": "الوضع الليلي 2",
+  "@dark_mode_two_title": {
+    "description": "Text for dark mode 2"
+  },
+  "dark_mode_two_desc": "واجهة مشرقة ونظيفة",
+  "@dark_mode_two_desc": {
+    "description": "Text for dark mode 2 description"
+  },
+  "theme_setting": "إعدادات المظهر",
+  "@theme_setting": {
+    "description": "Text for theme settings"
+  },
+  "theme_setting_desc": "اختر المظهر المفضل لديك",
+  "@theme_setting_desc": {
+    "description": "Text for theme settings description"
   }
 }

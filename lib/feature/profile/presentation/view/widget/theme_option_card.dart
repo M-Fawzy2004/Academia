@@ -23,6 +23,8 @@ class ThemeOptionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isRTL = Directionality.of(context) == TextDirection.rtl;
+
     return GestureDetector(
       onTap: onTap,
       child: Stack(
@@ -30,7 +32,10 @@ class ThemeOptionCard extends StatelessWidget {
           AnimatedContainer(
             duration: const Duration(milliseconds: 400),
             curve: Curves.easeOutCubic,
-            margin: EdgeInsets.only(right: isSelected ? 0 : 40.w),
+            margin: EdgeInsets.only(
+              right: isRTL ? 0 : (isSelected ? 0 : 40.w),
+              left: isRTL ? (isSelected ? 0 : 40.w) : 0,
+            ),
             decoration: BoxDecoration(
               color: AppColors.getCardColor(context),
               borderRadius: BorderRadius.circular(25.r),
@@ -73,7 +78,10 @@ class ThemeOptionCard extends StatelessWidget {
                   ),
                   heightBox(8),
                   Padding(
-                    padding: EdgeInsets.only(left: 16.w),
+                    padding: EdgeInsets.only(
+                      left: isRTL ? 0 : 16.w,
+                      right: isRTL ? 16.w : 0,
+                    ),
                     child: Text(
                       subtitle,
                       style: TextStyle(
@@ -91,12 +99,13 @@ class ThemeOptionCard extends StatelessWidget {
           AnimatedPositioned(
             duration: const Duration(milliseconds: 400),
             curve: Curves.easeOutCubic,
-            right: isSelected ? 16.w : 0,
+            right: isRTL ? null : (isSelected ? 16.w : 0),
+            left: isRTL ? (isSelected ? 16.w : 0) : null,
             top: 0,
             bottom: 0,
             child: AnimatedRotation(
               duration: const Duration(milliseconds: 600),
-              turns: isSelected ? 0 : 0.2,
+              turns: isSelected ? 0 : (isRTL ? -0.2 : 0.2),
               child: AnimatedScale(
                 duration: const Duration(milliseconds: 400),
                 scale: isSelected ? 1.0 : 1.0,

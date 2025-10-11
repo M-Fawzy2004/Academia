@@ -21,7 +21,7 @@ class _MainViewState extends State<MainView> {
   }
 
   List<Widget> get getScreens => [
-        HomeView(onNavigateToSubjects: () => changeIndex(1)), 
+        HomeView(onNavigateToSubjects: () => changeIndex(1)),
         const SubjectView(),
         const Center(child: Text('ReminderView')),
         const ProfileView(),

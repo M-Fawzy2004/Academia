@@ -971,6 +971,294 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Progress'**
   String get progress;
+
+  /// Text for edit profile
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get edit_profile;
+
+  /// Text for edit profile description
+  ///
+  /// In en, this message translates to:
+  /// **'Update your personal and academic information.'**
+  String get edit_profile_desc;
+
+  /// Text for personal information
+  ///
+  /// In en, this message translates to:
+  /// **'Personal information'**
+  String get personal_info;
+
+  /// Text for academic information
+  ///
+  /// In en, this message translates to:
+  /// **'Academic Information'**
+  String get academic_information;
+
+  /// Text for save changes
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get save_changes;
+
+  /// Text for manage subscriptions
+  ///
+  /// In en, this message translates to:
+  /// **'Manage Subscriptions'**
+  String get manage_subscriptions;
+
+  /// Text for subscriptions description
+  ///
+  /// In en, this message translates to:
+  /// **'You can manage your subscriptions here'**
+  String get subscriptions_desc;
+
+  /// Text for edit account
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Account'**
+  String get edit_account;
+
+  /// Text for upgrade to premium
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade to Premium'**
+  String get upgrade_to_premium;
+
+  /// Text for unlock all features
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock all features'**
+  String get unlock_all_features;
+
+  /// Text for general settings
+  ///
+  /// In en, this message translates to:
+  /// **'General Settings'**
+  String get general_settings;
+
+  /// Text for notifications
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notfication;
+
+  /// Text for appearance
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get appearance;
+
+  /// Text for language
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// Text for Achievements
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get achievements;
+
+  /// Text for notification settings
+  ///
+  /// In en, this message translates to:
+  /// **'Notification Settings'**
+  String get notification_settings;
+
+  /// Text for Sound
+  ///
+  /// In en, this message translates to:
+  /// **'Sound'**
+  String get sound;
+
+  /// Text for Vibration
+  ///
+  /// In en, this message translates to:
+  /// **'Vibration'**
+  String get vibration;
+
+  /// Text for study reminders
+  ///
+  /// In en, this message translates to:
+  /// **'Study Reminders'**
+  String get study_reminders;
+
+  /// Text for Reminders
+  ///
+  /// In en, this message translates to:
+  /// **'Exam Alerts'**
+  String get exam_alerts;
+
+  /// Text for account
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get account;
+
+  /// Text for privacy security title
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & Security'**
+  String get privacy_security_title;
+
+  /// Text for privacy security description
+  ///
+  /// In en, this message translates to:
+  /// **'Password, 2FA'**
+  String get privacy_security_desc;
+
+  /// Text for study progress
+  ///
+  /// In en, this message translates to:
+  /// **'Study Progress'**
+  String get study_progress_title;
+
+  /// Text for study progress description
+  ///
+  /// In en, this message translates to:
+  /// **'85% completed this month'**
+  String get study_progress_desc;
+
+  /// Text for delete account
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get delete_account_title;
+
+  /// Text for delete account description
+  ///
+  /// In en, this message translates to:
+  /// **'Permanently delete your account'**
+  String get delete_account_desc;
+
+  /// Text for sign out
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Out'**
+  String get sign_out_title;
+
+  /// Text for sign out description
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out of your account'**
+  String get sign_out_desc;
+
+  /// Text for about
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// Text for terms and conditions
+  ///
+  /// In en, this message translates to:
+  /// **'Terms & Conditions'**
+  String get term_and_conditions;
+
+  /// Text for privacy policy
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacy_policy;
+
+  /// Text for learn more
+  ///
+  /// In en, this message translates to:
+  /// **'Learn More'**
+  String get learn_more;
+
+  /// Text for contact us
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Support'**
+  String get contact_us_title;
+
+  /// Text for contact us description
+  ///
+  /// In en, this message translates to:
+  /// **'Email, Phone'**
+  String get contact_us_desc;
+
+  /// Text for help center
+  ///
+  /// In en, this message translates to:
+  /// **'Help Center'**
+  String get help_center;
+
+  /// Text for rate app
+  ///
+  /// In en, this message translates to:
+  /// **'Rate App'**
+  String get rate_app;
+
+  /// Text for app version
+  ///
+  /// In en, this message translates to:
+  /// **'App Version'**
+  String get app_version;
+
+  /// Text for system default
+  ///
+  /// In en, this message translates to:
+  /// **'System Default'**
+  String get system_default_title;
+
+  /// Text for system default description
+  ///
+  /// In en, this message translates to:
+  /// **'Follow device settings'**
+  String get system_default_desc;
+
+  /// Text for light mode
+  ///
+  /// In en, this message translates to:
+  /// **'Light Mode'**
+  String get light_mode_title;
+
+  /// Text for light mode description
+  ///
+  /// In en, this message translates to:
+  /// **'Bright and clean interface'**
+  String get light_mode_desc;
+
+  /// Text for dark mode
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get dark_mode_title;
+
+  /// Text for dark mode description
+  ///
+  /// In en, this message translates to:
+  /// **'Easy on the eyes'**
+  String get dark_mode_desc;
+
+  /// Text for dark mode 2
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode 2'**
+  String get dark_mode_two_title;
+
+  /// Text for dark mode 2 description
+  ///
+  /// In en, this message translates to:
+  /// **'Bright and clean interface'**
+  String get dark_mode_two_desc;
+
+  /// Text for theme settings
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Settings'**
+  String get theme_setting;
+
+  /// Text for theme settings description
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your preferred theme'**
+  String get theme_setting_desc;
 }
 
 class _AppLocalizationsDelegate

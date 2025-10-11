@@ -21,6 +21,8 @@ class SettingsSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isRTL = Directionality.of(context) == TextDirection.rtl;
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20.h),
       child: Row(
@@ -32,22 +34,26 @@ class SettingsSwitch extends StatelessWidget {
             style: Styles.font16PrimaryColorTextBold(context),
           ),
           const Spacer(),
-          LoadSwitch(
-            value: value,
-            future: () => getFuture(),
-            onChange: onChanged,
-            onTap: (val) {},
-            width: 45,
-            height: 25,
-            style: SpinStyle.material,
-            thumbSizeRatio: 0.8.sp,
-            switchDecoration: (val, isFocus) => BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: val ? AppColors.primaryColor : Colors.grey.shade400,
-            ),
-            thumbDecoration: (val, isFocus) => const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
+          Transform(
+            alignment: Alignment.center,
+            transform: Matrix4.rotationY(isRTL ? 3.14159 : 0),
+            child: LoadSwitch(
+              value: value,
+              future: () => getFuture(),
+              onChange: onChanged,
+              onTap: (val) {},
+              width: 43.w,
+              height: 23.h,
+              style: SpinStyle.material,
+              thumbSizeRatio: 0.8.sp,
+              switchDecoration: (val, isFocus) => BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: val ? AppColors.primaryColor : Colors.grey.shade400,
+              ),
+              thumbDecoration: (val, isFocus) => const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+              ),
             ),
           ),
         ],

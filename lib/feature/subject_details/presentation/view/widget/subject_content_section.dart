@@ -32,7 +32,7 @@ class SubjectContentSection extends StatelessWidget {
           hours: s.creditHours,
           onDelete: () async {
             await context.read<SubjectCubit>().deleteSubject(s.id);
-            if (mounted) Navigator.of(context).pop();
+            Navigator.of(context).pop();
           },
         ),
         heightBox(15),

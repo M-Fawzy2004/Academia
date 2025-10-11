@@ -14,7 +14,7 @@ class StudyBoxApp extends StatefulWidget {
 }
 
 class _StudyBoxAppState extends State<StudyBoxApp> with WidgetsBindingObserver {
-  Locale _locale = const Locale('en');
+  Locale _locale = const Locale('ar');
 
   @override
   void initState() {
@@ -30,11 +30,9 @@ class _StudyBoxAppState extends State<StudyBoxApp> with WidgetsBindingObserver {
     super.dispose();
   }
 
-  // عشان نعرف لو المستخدم غير theme الجهاز
   @override
   void didChangePlatformBrightness() {
     super.didChangePlatformBrightness();
-    // لو المستخدم مختار System، نعمل rebuild
     if (ThemeManager.instance.currentTheme == AppThemeMode.system) {
       setState(() {});
     }

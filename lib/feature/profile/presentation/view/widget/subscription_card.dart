@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/styles.dart';
 
 class SubscriptionCard extends StatelessWidget {
   final VoidCallback onPressed;
@@ -28,19 +30,13 @@ class SubscriptionCard extends StatelessWidget {
             size: 24,
           ),
         ),
-        title: const Text(
-          'Manage subscriptions',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+        title: Text(
+          context.tr.manage_subscriptions,
+          style: Styles.font16PrimaryColorTextBold(context),
         ),
-        subtitle: const Text(
-          'You can manage your subscriptions here.',
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 13,
-          ),
+        subtitle: Text(
+          context.tr.subscriptions_desc,
+          style: Styles.font13GreyBold(context),
         ),
         trailing: Container(
           padding: const EdgeInsets.all(8),

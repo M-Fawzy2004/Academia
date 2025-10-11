@@ -475,4 +475,149 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get progress => 'Progress';
+
+  @override
+  String get edit_profile => 'Edit Profile';
+
+  @override
+  String get edit_profile_desc =>
+      'Update your personal and academic information.';
+
+  @override
+  String get personal_info => 'Personal information';
+
+  @override
+  String get academic_information => 'Academic Information';
+
+  @override
+  String get save_changes => 'Save changes';
+
+  @override
+  String get manage_subscriptions => 'Manage Subscriptions';
+
+  @override
+  String get subscriptions_desc => 'You can manage your subscriptions here';
+
+  @override
+  String get edit_account => 'Edit Account';
+
+  @override
+  String get upgrade_to_premium => 'Upgrade to Premium';
+
+  @override
+  String get unlock_all_features => 'Unlock all features';
+
+  @override
+  String get general_settings => 'General Settings';
+
+  @override
+  String get notfication => 'Notifications';
+
+  @override
+  String get appearance => 'Appearance';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get achievements => 'Achievements';
+
+  @override
+  String get notification_settings => 'Notification Settings';
+
+  @override
+  String get sound => 'Sound';
+
+  @override
+  String get vibration => 'Vibration';
+
+  @override
+  String get study_reminders => 'Study Reminders';
+
+  @override
+  String get exam_alerts => 'Exam Alerts';
+
+  @override
+  String get account => 'Account';
+
+  @override
+  String get privacy_security_title => 'Privacy & Security';
+
+  @override
+  String get privacy_security_desc => 'Password, 2FA';
+
+  @override
+  String get study_progress_title => 'Study Progress';
+
+  @override
+  String get study_progress_desc => '85% completed this month';
+
+  @override
+  String get delete_account_title => 'Delete Account';
+
+  @override
+  String get delete_account_desc => 'Permanently delete your account';
+
+  @override
+  String get sign_out_title => 'Sign Out';
+
+  @override
+  String get sign_out_desc => 'Sign out of your account';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get term_and_conditions => 'Terms & Conditions';
+
+  @override
+  String get privacy_policy => 'Privacy Policy';
+
+  @override
+  String get learn_more => 'Learn More';
+
+  @override
+  String get contact_us_title => 'Contact Support';
+
+  @override
+  String get contact_us_desc => 'Email, Phone';
+
+  @override
+  String get help_center => 'Help Center';
+
+  @override
+  String get rate_app => 'Rate App';
+
+  @override
+  String get app_version => 'App Version';
+
+  @override
+  String get system_default_title => 'System Default';
+
+  @override
+  String get system_default_desc => 'Follow device settings';
+
+  @override
+  String get light_mode_title => 'Light Mode';
+
+  @override
+  String get light_mode_desc => 'Bright and clean interface';
+
+  @override
+  String get dark_mode_title => 'Dark Mode';
+
+  @override
+  String get dark_mode_desc => 'Easy on the eyes';
+
+  @override
+  String get dark_mode_two_title => 'Dark Mode 2';
+
+  @override
+  String get dark_mode_two_desc => 'Bright and clean interface';
+
+  @override
+  String get theme_setting => 'Theme Settings';
+
+  @override
+  String get theme_setting_desc => 'Choose your preferred theme';
 }

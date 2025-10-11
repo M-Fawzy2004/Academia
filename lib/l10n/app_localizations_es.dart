@@ -495,4 +495,149 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get progress => 'Progreso';
+
+  @override
+  String get edit_profile => 'Editar perfil';
+
+  @override
+  String get edit_profile_desc =>
+      'Actualiza tu información personal y académica.';
+
+  @override
+  String get personal_info => 'Información personal';
+
+  @override
+  String get academic_information => 'Información académica';
+
+  @override
+  String get save_changes => 'Guardar cambios';
+
+  @override
+  String get manage_subscriptions => 'Gestionar suscripciones';
+
+  @override
+  String get subscriptions_desc => 'Puedes gestionar tus suscripciones aquí';
+
+  @override
+  String get edit_account => 'Editar cuenta';
+
+  @override
+  String get upgrade_to_premium => 'Actualizar a Premium';
+
+  @override
+  String get unlock_all_features => 'Desbloquear todas las funciones';
+
+  @override
+  String get general_settings => 'Configuración general';
+
+  @override
+  String get notfication => 'Notificaciones';
+
+  @override
+  String get appearance => 'Apariencia';
+
+  @override
+  String get language => 'Idioma';
+
+  @override
+  String get achievements => 'Logros';
+
+  @override
+  String get notification_settings => 'Configuración de notificaciones';
+
+  @override
+  String get sound => 'Sonido';
+
+  @override
+  String get vibration => 'Vibración';
+
+  @override
+  String get study_reminders => 'Recordatorios de estudio';
+
+  @override
+  String get exam_alerts => 'Alertas de examen';
+
+  @override
+  String get account => 'Cuenta';
+
+  @override
+  String get privacy_security_title => 'Privacidad y seguridad';
+
+  @override
+  String get privacy_security_desc => 'Contraseña, 2FA';
+
+  @override
+  String get study_progress_title => 'Progreso de estudio';
+
+  @override
+  String get study_progress_desc => '85% completado este mes';
+
+  @override
+  String get delete_account_title => 'Eliminar cuenta';
+
+  @override
+  String get delete_account_desc => 'Eliminar permanentemente tu cuenta';
+
+  @override
+  String get sign_out_title => 'Cerrar sesión';
+
+  @override
+  String get sign_out_desc => 'Cerrar sesión de tu cuenta';
+
+  @override
+  String get about => 'Acerca de';
+
+  @override
+  String get term_and_conditions => 'Términos y condiciones';
+
+  @override
+  String get privacy_policy => 'Política de privacidad';
+
+  @override
+  String get learn_more => 'Más información';
+
+  @override
+  String get contact_us_title => 'Contactar con soporte';
+
+  @override
+  String get contact_us_desc => 'Correo electrónico, Teléfono';
+
+  @override
+  String get help_center => 'Centro de ayuda';
+
+  @override
+  String get rate_app => 'Calificar aplicación';
+
+  @override
+  String get app_version => 'Versión de la aplicación';
+
+  @override
+  String get system_default_title => 'Predeterminado del sistema';
+
+  @override
+  String get system_default_desc => 'Seguir configuración del dispositivo';
+
+  @override
+  String get light_mode_title => 'Modo claro';
+
+  @override
+  String get light_mode_desc => 'Interfaz brillante y limpia';
+
+  @override
+  String get dark_mode_title => 'Modo oscuro';
+
+  @override
+  String get dark_mode_desc => 'Fácil para la vista';
+
+  @override
+  String get dark_mode_two_title => 'Modo oscuro 2';
+
+  @override
+  String get dark_mode_two_desc => 'Interfaz brillante y limpia';
+
+  @override
+  String get theme_setting => 'Configuración de tema';
+
+  @override
+  String get theme_setting_desc => 'Elige tu tema preferido';
 }

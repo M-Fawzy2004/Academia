@@ -4,7 +4,6 @@ import 'package:skeletonizer/skeletonizer.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/lecture_schedule_section.dart';
-import 'package:study_box/feature/subject_details/presentation/view/widget/quick_actions_section.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/resources_section.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/subject_header_card.dart';
 
@@ -67,11 +66,6 @@ class SubjectDetailsSkeletonizer extends StatelessWidget {
             instructorName: dummySubject.doctorName,
             hours: dummySubject.creditHours,
             onDelete: () {},
-          ),
-          heightBox(15),
-          QuickActionsSection(
-            onAiSuggestion: () {},
-            onAddReminder: () {},
           ),
           heightBox(15),
           // Notes Section Skeleton

@@ -473,4 +473,148 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get progress => 'التقدم';
+
+  @override
+  String get edit_profile => 'تعديل الملف الشخصي';
+
+  @override
+  String get edit_profile_desc => 'قم بتحديث معلوماتك الشخصية والأكاديمية.';
+
+  @override
+  String get personal_info => 'المعلومات الشخصية';
+
+  @override
+  String get academic_information => 'المعلومات الأكاديمية';
+
+  @override
+  String get save_changes => 'حفظ التغييرات';
+
+  @override
+  String get manage_subscriptions => 'إدارة الاشتراكات';
+
+  @override
+  String get subscriptions_desc => 'يمكنك إدارة اشتراكاتك هنا';
+
+  @override
+  String get edit_account => 'تعديل الحساب';
+
+  @override
+  String get upgrade_to_premium => 'الترقية إلى بريميوم';
+
+  @override
+  String get unlock_all_features => 'فتح جميع الميزات';
+
+  @override
+  String get general_settings => 'الإعدادات العامة';
+
+  @override
+  String get notfication => 'الإشعارات';
+
+  @override
+  String get appearance => 'المظهر';
+
+  @override
+  String get language => 'اللغة';
+
+  @override
+  String get achievements => 'الإنجازات';
+
+  @override
+  String get notification_settings => 'إعدادات الإشعارات';
+
+  @override
+  String get sound => 'الصوت';
+
+  @override
+  String get vibration => 'الاهتزاز';
+
+  @override
+  String get study_reminders => 'تذكيرات الدراسة';
+
+  @override
+  String get exam_alerts => 'تنبيهات الامتحانات';
+
+  @override
+  String get account => 'الحساب';
+
+  @override
+  String get privacy_security_title => 'الخصوصية والأمان';
+
+  @override
+  String get privacy_security_desc => 'كلمة المرور، المصادقة الثنائية';
+
+  @override
+  String get study_progress_title => 'تقدم الدراسة';
+
+  @override
+  String get study_progress_desc => 'تم إكمال 85% هذا الشهر';
+
+  @override
+  String get delete_account_title => 'حذف الحساب';
+
+  @override
+  String get delete_account_desc => 'حذف حسابك نهائياً';
+
+  @override
+  String get sign_out_title => 'تسجيل الخروج';
+
+  @override
+  String get sign_out_desc => 'تسجيل الخروج من حسابك';
+
+  @override
+  String get about => 'حول';
+
+  @override
+  String get term_and_conditions => 'الشروط والأحكام';
+
+  @override
+  String get privacy_policy => 'سياسة الخصوصية';
+
+  @override
+  String get learn_more => 'اعرف المزيد';
+
+  @override
+  String get contact_us_title => 'اتصل بالدعم';
+
+  @override
+  String get contact_us_desc => 'البريد الإلكتروني، الهاتف';
+
+  @override
+  String get help_center => 'مركز المساعدة';
+
+  @override
+  String get rate_app => 'قيّم التطبيق';
+
+  @override
+  String get app_version => 'إصدار التطبيق';
+
+  @override
+  String get system_default_title => 'إعدادات النظام';
+
+  @override
+  String get system_default_desc => 'اتبع إعدادات الجهاز';
+
+  @override
+  String get light_mode_title => 'الوضع النهاري';
+
+  @override
+  String get light_mode_desc => 'واجهة مشرقة ونظيفة';
+
+  @override
+  String get dark_mode_title => 'الوضع الليلي';
+
+  @override
+  String get dark_mode_desc => 'مريح للعينين';
+
+  @override
+  String get dark_mode_two_title => 'الوضع الليلي 2';
+
+  @override
+  String get dark_mode_two_desc => 'واجهة مشرقة ونظيفة';
+
+  @override
+  String get theme_setting => 'إعدادات المظهر';
+
+  @override
+  String get theme_setting_desc => 'اختر المظهر المفضل لديك';
 }

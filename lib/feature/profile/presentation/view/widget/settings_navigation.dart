@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -22,11 +23,13 @@ class SettingsNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = LanguageHelper.isArabic(context);
+
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(8.r),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 12.h),
+        padding: EdgeInsets.symmetric(vertical: 10.h),
         child: Row(
           children: [
             Icon(icon),
@@ -53,7 +56,9 @@ class SettingsNavigation extends StatelessWidget {
             ),
             trailing ??
                 Icon(
-                  IconlyLight.arrow_right_2,
+                  isArabic
+                      ? IconlyLight.arrow_left_2
+                      : IconlyLight.arrow_right_2,
                   color: Colors.grey[600],
                   size: 20.sp,
                 ),

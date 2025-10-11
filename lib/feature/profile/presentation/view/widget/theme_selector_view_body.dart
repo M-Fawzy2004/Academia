@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/const/theme_manager.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/widget/icon_back.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/theme_option_card.dart';
@@ -52,8 +52,8 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
         ),
         heightBox(40),
         ThemeOptionCard(
-          title: 'System Default',
-          subtitle: 'Follow device settings',
+          title: context.tr.system_default_title,
+          subtitle: context.tr.system_default_desc,
           icon: Icons.brightness_auto_rounded,
           gradient: LinearGradient(
             colors: [Colors.blue.shade300, Colors.blue.shade600],
@@ -61,10 +61,10 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
           isSelected: selectedTheme == AppThemeMode.system,
           onTap: () => onThemeSelected(AppThemeMode.system),
         ),
-        SizedBox(height: 16.h),
+        heightBox(16),
         ThemeOptionCard(
-          title: 'Light Mode',
-          subtitle: 'Bright and clean interface',
+          title: context.tr.light_mode_title,
+          subtitle: context.tr.light_mode_desc,
           icon: Icons.light_mode_rounded,
           gradient: LinearGradient(
             colors: [Colors.orange.shade300, Colors.orange.shade500],
@@ -72,10 +72,10 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
           isSelected: selectedTheme == AppThemeMode.light,
           onTap: () => onThemeSelected(AppThemeMode.light),
         ),
-        SizedBox(height: 16.h),
+        heightBox(16),
         ThemeOptionCard(
-          title: 'Dark Mode',
-          subtitle: 'Easy on the eyes',
+          title: context.tr.dark_mode_title,
+          subtitle: context.tr.dark_mode_desc,
           icon: Icons.dark_mode_rounded,
           gradient: LinearGradient(
             colors: [Colors.indigo.shade400, Colors.indigo.shade700],
@@ -83,10 +83,10 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
           isSelected: selectedTheme == AppThemeMode.dark,
           onTap: () => onThemeSelected(AppThemeMode.dark),
         ),
-        SizedBox(height: 16.h),
+        heightBox(16),
         ThemeOptionCard(
-          title: 'Dark Mode 2',
-          subtitle: 'Deep dark theme',
+          title: context.tr.dark_mode_two_title,
+          subtitle: context.tr.dark_mode_two_desc,
           icon: Icons.nightlight_round,
           gradient: LinearGradient(
             colors: [Colors.purple.shade700, Colors.deepPurple.shade900],
