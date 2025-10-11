@@ -1,155 +1,217 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:study_box/core/theme/app_color.dart';
 
 enum AppThemeMode {
-  system,
   light,
   dark,
   dark2,
+  system,
 }
 
 class ThemeManager extends ChangeNotifier {
-  static final ThemeManager instance = ThemeManager._internal();
-  factory ThemeManager() => instance;
+  static final ThemeManager _instance = ThemeManager._internal();
+  static ThemeManager get instance => _instance;
+
   ThemeManager._internal();
 
-  AppThemeMode currentTheme = AppThemeMode.system;
-  static const String _themeKey = 'selected_theme';
+  AppThemeMode _currentTheme = AppThemeMode.light;
+  AppThemeMode get currentTheme => _currentTheme;
 
-  // Check if the system is in dark mode
-  bool isSystemDarkMode(BuildContext context) {
-    return MediaQuery.of(context).platformBrightness == Brightness.dark;
-  }
-
-  // load Theme
-  Future<void> loadSavedTheme() async {
-    final prefs = await SharedPreferences.getInstance();
-    final savedTheme = prefs.getString(_themeKey);
-
-    if (savedTheme != null) {
-      switch (savedTheme) {
-        case 'system':
-          currentTheme = AppThemeMode.system;
-          break;
-        case 'light':
-          currentTheme = AppThemeMode.light;
-          break;
-        case 'dark':
-          currentTheme = AppThemeMode.dark;
-          break;
-        case 'dark2':
-          currentTheme = AppThemeMode.dark2;
-          break;
-      }
-    } else {
-      // لو مفيش theme محفوظ، استخدم System
-      currentTheme = AppThemeMode.system;
+  AppThemeMode getEffectiveTheme(BuildContext context) {
+    if (_currentTheme == AppThemeMode.system) {
+      final brightness = MediaQuery.of(context).platformBrightness;
+      return brightness == Brightness.dark
+          ? AppThemeMode.dark
+          : AppThemeMode.light;
     }
-    notifyListeners();
+    return _currentTheme;
   }
 
-  // set Theme
-  Future<void> setTheme(AppThemeMode theme) async {
-    currentTheme = theme;
-
-    final prefs = await SharedPreferences.getInstance();
-    String themeString;
-
-    switch (theme) {
-      case AppThemeMode.system:
-        themeString = 'system';
-        break;
-      case AppThemeMode.light:
-        themeString = 'light';
-        break;
-      case AppThemeMode.dark:
-        themeString = 'dark';
-        break;
-      case AppThemeMode.dark2:
-        themeString = 'dark2';
-        break;
-    }
-
-    await prefs.setString(_themeKey, themeString);
-    notifyListeners();
+  bool isDark2Theme(BuildContext context) {
+    return getEffectiveTheme(context) == AppThemeMode.dark2;
   }
 
-  ThemeData getLightTheme() {
-    return ThemeData(
-      fontFamily: 'fontApp',
-      brightness: Brightness.light,
-      primaryColor: AppColors.primaryColor,
-      scaffoldBackgroundColor: AppColors.grey,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.grey,
-        foregroundColor: AppColors.black,
-        elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarIconBrightness: Brightness.dark,
-        ),
-      ),
-    );
-  }
-
-  ThemeData getDarkTheme() {
-    return ThemeData(
-      fontFamily: 'fontApp',
-      brightness: Brightness.dark,
-      primaryColor: AppColors.darkPrimaryColor,
-      scaffoldBackgroundColor: AppColors.darkBackgroundColor,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.darkBackgroundColor,
-        foregroundColor: AppColors.white,
-        elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarIconBrightness: Brightness.light,
-        ),
-      ),
-    );
-  }
-
-  ThemeData getDark2Theme() {
-    return ThemeData(
-      fontFamily: 'fontApp',
-      brightness: Brightness.dark,
-      primaryColor: AppColors.dark2PrimaryColor,
-      scaffoldBackgroundColor: AppColors.dark2BackgroundColor,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.dark2BackgroundColor,
-        foregroundColor: AppColors.white,
-        elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarIconBrightness: Brightness.light,
-        ),
-      ),
-    );
-  }
-
-  ThemeData getCurrentTheme() {
-    return getLightTheme();
-  }
-
-  ThemeData getCurrentDarkTheme() {
-    if (currentTheme == AppThemeMode.dark2) {
-      return getDark2Theme();
-    }
-    return getDarkTheme();
+  bool isDarkTheme(BuildContext context) {
+    final theme = getEffectiveTheme(context);
+    return theme == AppThemeMode.dark || theme == AppThemeMode.dark2;
   }
 
   ThemeMode getThemeMode() {
-    switch (currentTheme) {
-      case AppThemeMode.system:
-        return ThemeMode.system; 
+    switch (_currentTheme) {
       case AppThemeMode.light:
-        return ThemeMode.light; 
+        return ThemeMode.light;
       case AppThemeMode.dark:
+        return ThemeMode.dark;
       case AppThemeMode.dark2:
-        return ThemeMode.dark; 
+        return ThemeMode.dark;
+      case AppThemeMode.system:
+        return ThemeMode.system;
     }
+  }
+
+  //  Light Theme
+  ThemeData getCurrentTheme() {
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.light,
+      primaryColor: AppColors.primaryColor,
+      scaffoldBackgroundColor: AppColors.lightBackgroundColor,
+      cardColor: AppColors.lightCardColor,
+
+      // AppBar Theme
+      appBarTheme: const AppBarTheme(
+        backgroundColor: AppColors.lightSurfaceColor,
+        foregroundColor: AppColors.lightTextPrimary,
+        elevation: 0,
+      ),
+
+      // Text Theme
+      textTheme: const TextTheme(
+        bodyLarge: TextStyle(color: AppColors.lightTextPrimary),
+        bodyMedium: TextStyle(color: AppColors.lightTextSecondary),
+        titleLarge: TextStyle(color: AppColors.lightTextPrimary),
+      ),
+
+      // Icon Theme
+      iconTheme: const IconThemeData(
+        color: AppColors.lightTextPrimary,
+      ),
+
+      // Bottom Navigation Bar
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: AppColors.white,
+        selectedItemColor: AppColors.primaryColor,
+        unselectedItemColor: AppColors.lightTextSecondary,
+      ),
+
+      colorScheme: const ColorScheme.light(
+        primary: AppColors.primaryColor,
+        secondary: AppColors.secondaryColor,
+        surface: AppColors.lightSurfaceColor,
+        error: AppColors.error,
+      ),
+    );
+  }
+
+  ThemeData getCurrentDarkTheme() {
+    if (_currentTheme == AppThemeMode.dark2) {
+      return ThemeData(
+        useMaterial3: false,
+        brightness: Brightness.dark,
+        primaryColor: AppColors.dark2PrimaryColor,
+        scaffoldBackgroundColor: AppColors.dark2BackgroundColor,
+        cardColor: AppColors.dark2CardColor,
+
+        // AppBar Theme
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.dark2SurfaceColor,
+          foregroundColor: AppColors.dark2TextPrimary,
+          elevation: 0,
+        ),
+
+        // Text Theme
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: AppColors.dark2TextPrimary),
+          bodyMedium: TextStyle(color: AppColors.dark2TextSecondary),
+          titleLarge: TextStyle(color: AppColors.dark2TextPrimary),
+        ),
+
+        // Icon Theme
+        iconTheme: const IconThemeData(
+          color: AppColors.dark2TextPrimary,
+        ),
+
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: AppColors.dark2SurfaceColor,
+          selectedItemColor: AppColors.dark2PrimaryColor,
+          unselectedItemColor: AppColors.dark2TextSecondary,
+        ),
+
+        colorScheme: const ColorScheme.dark(
+          primary: AppColors.dark2PrimaryColor,
+          secondary: AppColors.dark2PrimaryColor,
+          surface: AppColors.dark2SurfaceColor,
+          error: AppColors.error,
+        ),
+      );
+    }
+
+    // Dark Theme
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      primaryColor: AppColors.darkPrimaryColor,
+      scaffoldBackgroundColor: AppColors.darkBackgroundColor,
+      cardColor: AppColors.darkCardColor,
+
+      // AppBar Theme
+      appBarTheme: const AppBarTheme(
+        backgroundColor: AppColors.darkSurfaceColor,
+        foregroundColor: AppColors.darkTextPrimary,
+        elevation: 0,
+      ),
+
+      // Text Theme
+      textTheme: const TextTheme(
+        bodyLarge: TextStyle(color: AppColors.darkTextPrimary),
+        bodyMedium: TextStyle(color: AppColors.darkTextSecondary),
+        titleLarge: TextStyle(color: AppColors.darkTextPrimary),
+      ),
+
+      // Icon Theme
+      iconTheme: const IconThemeData(
+        color: AppColors.darkTextPrimary,
+      ),
+
+      // Bottom Navigation Bar
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: AppColors.darkSurfaceColor,
+        selectedItemColor: AppColors.darkPrimaryColor,
+        unselectedItemColor: AppColors.darkTextSecondary,
+      ),
+
+      colorScheme: const ColorScheme.dark(
+        primary: AppColors.darkPrimaryColor,
+        secondary: AppColors.secondaryColor,
+        surface: AppColors.darkSurfaceColor,
+        error: AppColors.error,
+      ),
+    );
+  }
+
+  Future<void> setTheme(AppThemeMode theme) async {
+    _currentTheme = theme;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('theme_mode', theme.name);
+  }
+
+  Future<void> loadSavedTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedTheme = prefs.getString('theme_mode');
+
+    if (savedTheme != null) {
+      switch (savedTheme) {
+        case 'light':
+          _currentTheme = AppThemeMode.light;
+          break;
+        case 'dark':
+          _currentTheme = AppThemeMode.dark;
+          break;
+        case 'dark2':
+          _currentTheme = AppThemeMode.dark2;
+          break;
+        case 'system':
+          _currentTheme = AppThemeMode.system;
+          break;
+        default:
+          _currentTheme = AppThemeMode.system;
+      }
+    } else {
+      _currentTheme = AppThemeMode.system;
+    }
+
+    notifyListeners();
   }
 }

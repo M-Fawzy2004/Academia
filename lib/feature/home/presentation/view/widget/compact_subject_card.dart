@@ -31,9 +31,9 @@ class CompactSubjectCard extends StatelessWidget {
         padding: EdgeInsets.all(16.w),
         decoration: BoxDecoration(
           color: AppColors.getBackgroundColor(context),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(12.r),
           border: Border.all(
-            color: subjectColor.withOpacity(0.3),
+            color: subjectColor.withOpacity(0.1),
             width: 1,
           ),
         ),

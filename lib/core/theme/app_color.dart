@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_box/core/const/theme_manager.dart'; 
 
 enum ThemeMode2 {
   light,
@@ -61,8 +62,6 @@ class AppColors {
   static const Color lightBlueGrey = Color(0xFFF0F2FC);
   static const Color darkLightGrey = Color(0xFF8E8E93);
 
-  static ThemeMode2 currentThemeMode = ThemeMode2.light;
-
   // Gradient Methods
   static LinearGradient getPrimaryGradient() {
     return const LinearGradient(
@@ -94,104 +93,70 @@ class AppColors {
     );
   }
 
+  static bool _isDark2(BuildContext context) {
+    return ThemeManager.instance.isDark2Theme(context);
+  }
+
+  static bool _isDark(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark;
+  }
+
   // Dynamic Color Methods
   static Color getBackgroundColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2BackgroundColor;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkBackgroundColor
-        : lightBackgroundColor;
+    if (_isDark2(context)) return dark2BackgroundColor;
+    return _isDark(context) ? darkBackgroundColor : lightBackgroundColor;
   }
 
   static Color getSurfaceColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2SurfaceColor;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? const Color.fromRGBO(30, 41, 59, 1)
+    if (_isDark2(context)) return dark2SurfaceColor;
+    return _isDark(context) 
+        ? const Color.fromRGBO(30, 41, 59, 1) 
         : lightSurfaceColor;
   }
 
   static Color getCardColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2BackgroundColor;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkBackgroundColor
-        : lightCardColor;
+    if (_isDark2(context)) return dark2BackgroundColor;
+    return _isDark(context) ? darkBackgroundColor : lightCardColor;
   }
 
   static Color getCardColorTwo(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2SurfaceColor;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkSurfaceColor
-        : lightCardColor;
+    if (_isDark2(context)) return dark2SurfaceColor;
+    return _isDark(context) ? darkSurfaceColor : lightCardColor;
   }
 
   static Color getFieldColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2SurfaceColor;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkSurfaceColor
-        : lightCardColor;
+    if (_isDark2(context)) return dark2SurfaceColor;
+    return _isDark(context) ? darkSurfaceColor : lightCardColor;
   }
 
   static Color getNavigationBar(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2SurfaceColor;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkSurfaceColor
-        : white;
+    if (_isDark2(context)) return dark2SurfaceColor;
+    return _isDark(context) ? darkSurfaceColor : white;
   }
 
   static Color getTextPrimaryColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2TextPrimary;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkTextPrimary
-        : lightTextPrimary;
+    if (_isDark2(context)) return dark2TextPrimary;
+    return _isDark(context) ? darkTextPrimary : lightTextPrimary;
   }
 
   static Color getTextSecondaryColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2TextSecondary;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkTextSecondary
-        : lightTextSecondary;
+    if (_isDark2(context)) return dark2TextSecondary;
+    return _isDark(context) ? darkTextSecondary : lightTextSecondary;
   }
 
   static Color getBorderColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2BorderColor;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkBorderColor
-        : lightBorderColor;
+    if (_isDark2(context)) return dark2BorderColor;
+    return _isDark(context) ? darkBorderColor : lightBorderColor;
   }
 
   static Color getGreyBackgroundColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2GreyBackground;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkGreyBackground
-        : lightGreyBackground;
+    if (_isDark2(context)) return dark2GreyBackground;
+    return _isDark(context) ? darkGreyBackground : lightGreyBackground;
   }
 
   static Color getIndicatorInactiveColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2IndicatorInactive;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkIndicatorInactive
-        : lightIndicatorInactive;
+    if (_isDark2(context)) return dark2IndicatorInactive;
+    return _isDark(context) ? darkIndicatorInactive : lightIndicatorInactive;
   }
 
   // Legacy Methods
@@ -200,18 +165,12 @@ class AppColors {
   }
 
   static Color getGreyColor(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return dark2GreyBackground;
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkGreyBackground
-        : grey;
+    if (_isDark2(context)) return dark2GreyBackground;
+    return _isDark(context) ? darkGreyBackground : grey;
   }
 
   static Color getLightGreyColor(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? darkLightGrey
-        : lightGrey;
+    return _isDark(context) ? darkLightGrey : lightGrey;
   }
 
   static Color getPrimaryColor(BuildContext context) {
@@ -219,47 +178,35 @@ class AppColors {
   }
 
   static Color getDarkGreyColor(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
+    return _isDark(context)
         ? const Color.fromARGB(255, 156, 154, 154)
         : darkGrey;
   }
 
   static Color getGreyShade600(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
+    return _isDark(context)
         ? const Color.fromARGB(255, 156, 154, 154)
         : const Color(0xFF757575);
   }
 
-  // Skip Button Colors for Onboarding
   static Color getSkipButtonBackground(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
+    return _isDark(context)
         ? white.withOpacity(0.15)
         : white.withOpacity(0.2);
   }
 
   static Color getSkipButtonForeground(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark ? white : white;
+    return white;
   }
 
-  // Onboarding Gradient
   static LinearGradient getOnboardingGradient(BuildContext context) {
-    if (currentThemeMode == ThemeMode2.dark2) {
-      return getDark2PrimaryGradient();
-    }
-    return Theme.of(context).brightness == Brightness.dark
-        ? getDarkPrimaryGradient()
-        : getPrimaryGradient();
+    if (_isDark2(context)) return getDark2PrimaryGradient();
+    return _isDark(context) ? getDarkPrimaryGradient() : getPrimaryGradient();
   }
 
-  // Onboarding Background Shapes
   static Color getOnboardingShapeColor(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
+    return _isDark(context)
         ? white.withOpacity(0.08)
         : white.withOpacity(0.1);
-  }
-
-  // Method لتغيير الوضع
-  static void setThemeMode(ThemeMode2 mode) {
-    currentThemeMode = mode;
   }
 }

@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:study_box/core/const/theme_manager.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
-import 'package:study_box/core/theme/app_color.dart';
-import 'package:study_box/core/widget/icon_back.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/theme_option_card.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/theme_selector_header.dart';
+import 'package:study_box/core/widget/icon_back.dart';
 
 class ThemeSelectorViewBody extends StatefulWidget {
   const ThemeSelectorViewBody({super.key});
@@ -17,23 +16,33 @@ class ThemeSelectorViewBody extends StatefulWidget {
 class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
   AppThemeMode selectedTheme = ThemeManager.instance.currentTheme;
 
-  void onThemeSelected(AppThemeMode theme) {
+  @override
+  void initState() {
+    super.initState();
+    ThemeManager.instance.addListener(_onThemeChanged);
+  }
+
+  @override
+  void dispose() {
+    ThemeManager.instance.removeListener(_onThemeChanged);
+    super.dispose();
+  }
+
+  void _onThemeChanged() {
+    if (mounted) {
+      setState(() {
+        selectedTheme = ThemeManager.instance.currentTheme;
+      });
+    }
+  }
+
+  Future<void> onThemeSelected(AppThemeMode theme) async {
     setState(() {
       selectedTheme = theme;
     });
-    ThemeManager.instance.setTheme(theme);
-
-    if (theme == AppThemeMode.system) {
-      final brightness = MediaQuery.of(context).platformBrightness;
-      AppColors.setThemeMode(
-        brightness == Brightness.dark ? ThemeMode2.dark : ThemeMode2.light,
-      );
-    } else if (theme == AppThemeMode.light) {
-      AppColors.setThemeMode(ThemeMode2.light);
-    } else if (theme == AppThemeMode.dark) {
-      AppColors.setThemeMode(ThemeMode2.dark);
-    } else if (theme == AppThemeMode.dark2) {
-      AppColors.setThemeMode(ThemeMode2.dark2);
+    await ThemeManager.instance.setTheme(theme);
+    if (mounted) {
+      setState(() {});
     }
   }
 
@@ -51,6 +60,7 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
           ],
         ),
         heightBox(40),
+        // System Default
         ThemeOptionCard(
           title: context.tr.system_default_title,
           subtitle: context.tr.system_default_desc,
@@ -62,6 +72,7 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
           onTap: () => onThemeSelected(AppThemeMode.system),
         ),
         heightBox(16),
+        // Light Mode
         ThemeOptionCard(
           title: context.tr.light_mode_title,
           subtitle: context.tr.light_mode_desc,
@@ -73,6 +84,7 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
           onTap: () => onThemeSelected(AppThemeMode.light),
         ),
         heightBox(16),
+        // Dark Mode
         ThemeOptionCard(
           title: context.tr.dark_mode_title,
           subtitle: context.tr.dark_mode_desc,
@@ -84,6 +96,7 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
           onTap: () => onThemeSelected(AppThemeMode.dark),
         ),
         heightBox(16),
+        // Dark Mode 2
         ThemeOptionCard(
           title: context.tr.dark_mode_two_title,
           subtitle: context.tr.dark_mode_two_desc,

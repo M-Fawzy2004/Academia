@@ -52,6 +52,9 @@ class _StudyBoxAppState extends State<StudyBoxApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    final themeMode = ThemeManager.instance.getThemeMode();
+    final lightTheme = ThemeManager.instance.getCurrentTheme();
+    final darkTheme = ThemeManager.instance.getCurrentDarkTheme();
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -79,9 +82,12 @@ class _StudyBoxAppState extends State<StudyBoxApp> with WidgetsBindingObserver {
           return child!;
         },
         locale: _locale,
-        theme: ThemeManager.instance.getCurrentTheme(), // Light Theme
-        darkTheme: ThemeManager.instance.getCurrentDarkTheme(), // Dark Theme
-        themeMode: ThemeManager.instance.getThemeMode(), // System/Light/Dark
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        themeMode: themeMode,
+        key: ValueKey(
+          themeMode.toString() + ThemeManager.instance.currentTheme.toString(),
+        ),
       ),
     );
   }
