@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/resources_cubit/resources_cubit.dart';
@@ -87,9 +88,7 @@ class _ResourcesBlocConsumerState extends State<ResourcesBlocConsumer>
           }
         }
         if (state is ResourcesError) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message)),
-          );
+          CustomSnackBar.showError(context, state.message);
         }
       },
       builder: (context, state) {

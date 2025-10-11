@@ -20,7 +20,7 @@ class SubjectDataHeader extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
           color: Theme.of(context).primaryColor.withOpacity(0.3),
-          width: 1,
+          width: 1.w,
         ),
       ),
       child: Row(
@@ -31,12 +31,12 @@ class SubjectDataHeader extends StatelessWidget {
             size: 20,
           ),
           widthBox(8),
-          const Text(
+          Text(
             'Material Data',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: AppColors.primaryColor,
-              fontSize: 16,
+              fontSize: 16.sp,
             ),
           ),
         ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
@@ -9,6 +10,7 @@ import 'package:study_box/feature/add_subject/data/model/resource_item.dart';
 class LinkDialog extends StatefulWidget {
   final Function(ResourceItem) onAdd;
   final ResourceItem? initialResource;
+
   /// If provided, forces the created/edited resource type (e.g., video or book)
   final ResourceType? forcedType;
 
@@ -82,8 +84,8 @@ class _LinkDialogState extends State<LinkDialog> {
         title: _titleController.text.trim(),
         description: _descriptionController.text.trim().isEmpty
             ? (isVideo
-                ? 'Video Link'
-                : (isBook ? 'Book Link' : 'Web Link'))
+                ? context.tr.video_link
+                : (isBook ? context.tr.book_link : context.tr.web_link))
             : _descriptionController.text.trim(),
         type: isVideo
             ? ResourceType.video
@@ -106,10 +108,10 @@ class _LinkDialogState extends State<LinkDialog> {
   Widget build(BuildContext context) {
     final isEditing = widget.initialResource != null;
     final titleText = widget.forcedType == ResourceType.video
-        ? (isEditing ? 'Edit Video Link' : 'Add Video Link')
+        ? (isEditing ? context.tr.edit_video_link : context.tr.add_video_link)
         : widget.forcedType == ResourceType.book
-            ? (isEditing ? 'Edit Book Link' : 'Add Book Link')
-            : (isEditing ? 'Edit Link' : 'Add New Link');
+            ? (isEditing ? context.tr.edit_book_link : context.tr.add_book_link)
+            : (isEditing ? context.tr.edit_link : context.tr.add_book_link);
 
     return Dialog(
       backgroundColor: AppColors.getBackgroundColor(context),
@@ -168,11 +170,11 @@ class _LinkDialogState extends State<LinkDialog> {
                     children: [
                       CustomTextField(
                         controller: _titleController,
-                        hintText: 'Link Title',
+                        hintText: context.tr.link_title,
                         prefixIcon: Icons.title,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter link title';
+                            return context.tr.required_link_title;
                           }
                           return null;
                         },
@@ -180,15 +182,15 @@ class _LinkDialogState extends State<LinkDialog> {
                       heightBox(16),
                       CustomTextField(
                         controller: _urlController,
-                        hintText: 'https://example.com',
+                        hintText: 'https://youtube.com',
                         prefixIcon: Icons.link,
                         keyboardType: TextInputType.url,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter URL';
+                            return context.tr.required_link_url;
                           }
                           if (!_isValidUrl(value.trim())) {
-                            return 'Please enter a valid URL';
+                            return context.tr.valid_link_url;
                           }
                           return null;
                         },
@@ -196,7 +198,7 @@ class _LinkDialogState extends State<LinkDialog> {
                       heightBox(16),
                       CustomTextField(
                         controller: _descriptionController,
-                        hintText: 'Description (Optional)',
+                        hintText: context.tr.link_desc,
                         prefixIcon: Icons.description,
                         maxLines: 2,
                         maxLength: 200,
@@ -222,7 +224,7 @@ class _LinkDialogState extends State<LinkDialog> {
                   TextButton(
                     onPressed: () => Navigator.of(context).pop(),
                     child: Text(
-                      'Cancel',
+                      context.tr.cancel,
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                   ),
@@ -238,7 +240,7 @@ class _LinkDialogState extends State<LinkDialog> {
                       ),
                     ),
                     child: Text(
-                      isEditing ? 'Update' : 'Add',
+                      isEditing ? context.tr.update : context.tr.add,
                     ),
                   ),
                 ],

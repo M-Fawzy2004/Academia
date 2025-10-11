@@ -771,5 +771,337 @@
   "theme_setting_desc": "اختر المظهر المفضل لديك",
   "@theme_setting_desc": {
     "description": "Text for theme settings description"
+  },
+  "success_snack_bar": "تم تحميل المواد بنجاح",
+  "@success_snack_bar": {
+    "description": "Text for success snack bar"
+  },
+  "error_snack_bar": "خطأ => حاول مرة أخرى",
+  "@error_snack_bar": {
+    "description": "Text for error snack bar"
+  },
+  "header_subject_Desc": "نظم دراستك واجعل التعلم أكثر متعة.",
+  "@header_subject_Desc": {
+    "description": "Text for header subject description"
+  },
+  "free": "مجاني",
+  "@free": {
+    "description": "Text for free"
+  },
+  "medium": "متوسط",
+  "@medium": {
+    "description": "Text for medium"
+  },
+  "pro": "احترافي",
+  "@pro": {
+    "description": "Text for pro"
+  },
+  "first_year": "السنة الأولى",
+  "@first_year": {
+    "description": "Text for first year"
+  },
+  "second_year": "السنة الثانية",
+  "@second_year": {
+    "description": "Text for second year"
+  },
+  "third_year": "السنة الثالثة",
+  "@third_year": {
+    "description": "Text for third year"
+  },
+  "fourth_year": "السنة الرابعة",
+  "@fourth_year": {
+    "description": "Text for fourth year"
+  },
+  "fifth_year": "السنة الخامسة",
+  "@fifth_year": {
+    "description": "Text for fifth year"
+  },
+  "sixth_year": "السنة السادسة",
+  "@sixth_year": {
+    "description": "Text for sixth year"
+  },
+  "seventh_year": "السنة السابعة",
+  "@seventh_year": {
+    "description": "Text for seventh year"
+  },
+  "first_semester": "الفصل الدراسي الأول",
+  "@first_semester": {
+    "description": "Text for first semester"
+  },
+  "second_semester": "الفصل الدراسي الثاني",
+  "@second_semester": {
+    "description": "Text for second semester"
+  },
+  "info_year_and_semester": "معلومات السنة والفصل الدراسي",
+  "@info_year_and_semester": {
+    "description": "Text for info year"
+  },
+  "select_year": "اختر السنة",
+  "@select_year": {
+    "description": "Text for select year"
+  },
+  "select_semester": "اختر الفصل الدراسي",
+  "@select_semester": {
+    "description": "Text for select semester"
+  },
+  "current_selection": "الاختيار الحالي: ",
+  "@current_selection": {
+    "description": "Text for current selection"
+  },
+  "material_data": "بيانات المادة",
+  "@material_data": {
+    "description": "Text for material data"
+  },
+  "subject_name": "اسم المادة",
+  "@subject_name": {
+    "description": "Text for subject name"
+  },
+  "required_subjectt_name": "اسم المادة مطلوب",
+  "@required_subjectt_name": {
+    "description": "Text for required subject name"
+  },
+  "subject_code": "كود المادة (اختياري)",
+  "@subject_code": {
+    "description": "Text for subject code"
+  },
+  "dr_name": "اسم الدكتور",
+  "@dr_name": {
+    "description": "Text for Doctor Name"
+  },
+  "required_dr_name": "اسم الدكتور مطلوب",
+  "@required_dr_name": {
+    "description": "Text for required Doctor name"
+  },
+  "credit_hours": "الساعات المعتمدة",
+  "@credit_hours": {
+    "description": "Text for credit hours"
+  },
+  "required_credit_hours": "الساعات المعتمدة مطلوبة",
+  "@required_credit_hours": {
+    "description": "Text for required credit hours"
+  },
+  "required_credit_hours_between": "يجب أن تكون الساعات المعتمدة بين 1 و 10",
+  "@required_credit_hours_between": {
+    "description": "Text for required credit hours between"
+  },
+  "note": "ملاحظات (اختياري)",
+  "@note": {
+    "description": "Text for note"
+  },
+  "lecture_days": "أيام المحاضرات:",
+  "@lecture_days": {
+    "description": "Text for lecture days"
+  },
+  "saturday": "السبت",
+  "@saturday": {
+    "description": "Text for saturday"
+  },
+  "sunday": "الأحد",
+  "@sunday": {
+    "description": "Text for sunday"
+  },
+  "monday": "الاثنين",
+  "@monday": {
+    "description": "Text for monday"
+  },
+  "tuesday": "الثلاثاء",
+  "@tuesday": {
+    "description": "Text for tuesday"
+  },
+  "wednesday": "الأربعاء",
+  "@wednesday": {
+    "description": "Text for wednesday"
+  },
+  "thursday": "الخميس",
+  "@thursday": {
+    "description": "Text for thursday"
+  },
+  "friday": "الجمعة",
+  "@friday": {
+    "description": "Text for friday"
+  },
+  "from": "من",
+  "@from": {
+    "description": "Text for from"
+  },
+  "to": "إلى",
+  "@to": {
+    "description": "Text for to"
+  },
+  "set_time": "تحديد الوقت لـ ",
+  "@set_time": {
+    "description": "Text for set time"
+  },
+  "resources": "المصادر",
+  "@resources": {
+    "description": "Text for resources"
+  },
+  "save": "حفظ",
+  "@save": {
+    "description": "Text for save"
+  },
+  "cancel": "إلغاء",
+  "@cancel": {
+    "description": "Text for cancel"
+  },
+  "link": "رابط",
+  "@link": {
+    "description": "Text for link"
+  },
+  "image": "صورة",
+  "@image": {
+    "description": "Text for image"
+  },
+  "book": "كتاب",
+  "@book": {
+    "description": "Text for book"
+  },
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "Text for pdf"
+  },
+  "audio": "صوت",
+  "@audio": {
+    "description": "Text for audio"
+  },
+  "video_link": "رابط فيديو",
+  "@video_link": {
+    "description": "Text for video link"
+  },
+  "video": "فيديو",
+  "@video": {
+    "description": "Text for video"
+  },
+  "edit_book": "تعديل الكتاب",
+  "@edit_book": {
+    "description": "Text for edit book"
+  },
+  "edit_link": "تعديل الرابط",
+  "@edit_link": {
+    "description": "Text for edit link"
+  },
+  "edit_video": "تعديل الفيديو",
+  "@edit_video": {
+    "description": "Text for edit video"
+  },
+  "edit_audio": "تعديل الصوت",
+  "@edit_audio": {
+    "description": "Text for edit audio"
+  },
+  "edit_pdf": "تعديل PDF",
+  "@edit_pdf": {
+    "description": "Text for edit pdf"
+  },
+  "edit_image": "تعديل الصورة",
+  "@edit_image": {
+    "description": "Text for edit image"
+  },
+  "add_new_book": "إضافة كتاب جديد",
+  "@add_new_book": {
+    "description": "Text for add new book"
+  },
+  "book_title": "عنوان الكتاب",
+  "@book_title": {
+    "description": "Text for book title"
+  },
+  "book_author": "اسم المؤلف",
+  "@book_author": {
+    "description": "Text for book author"
+  },
+  "required_book_title": "الرجاء إدخال عنوان الكتاب",
+  "@required_book_title": {
+    "description": "Text for required book title"
+  },
+  "required_book_author": "الرجاء إدخال اسم المؤلف",
+  "@required_book_author": {
+    "description": "Text for required book author"
+  },
+  "book_desc": "وصف الكتاب (اختياري)",
+  "@book_desc": {
+    "description": "Text for book description"
+  },
+  "update": "تحديث",
+  "@update": {
+    "description": "Text for update"
+  },
+  "add": "إضافة",
+  "@add": {
+    "description": "Text for add"
+  },
+  "web_link": "رابط ويب",
+  "@web_link": {
+    "description": "Text for web link"
+  },
+  "book_link": "رابط الكتاب",
+  "@book_link": {
+    "description": "Text for book link"
+  },
+  "edit_video_link": "تعديل رابط الفيديو",
+  "@edit_video_link": {
+    "description": "Text for edit video link"
+  },
+  "add_video_link": "إضافة رابط فيديو",
+  "@add_video_link": {
+    "description": "Text for add video link"
+  },
+  "edit_book_link": "تعديل رابط الكتاب",
+  "@edit_book_link": {
+    "description": "Text for edit book link"
+  },
+  "add_book_link": "إضافة رابط كتاب",
+  "@add_book_link": {
+    "description": "Text for add book link"
+  },
+  "add_new_link": "إضافة رابط جديد",
+  "@add_new_link": {
+    "description": "Text for add new link"
+  },
+  "link_title": "عنوان الرابط",
+  "@link_title": {
+    "description": "Text for link title"
+  },
+  "required_link_title": "الرجاء إدخال عنوان الرابط",
+  "@required_link_title": {
+    "description": "Text for required link title"
+  },
+  "required_link_url": "الرجاء إدخال عنوان URL للرابط",
+  "@required_link_url": {
+    "description": "Text for required link url"
+  },
+  "valid_link_url": "الرجاء إدخال عنوان URL صحيح",
+  "@valid_link_url": {
+    "description": "Text for link url"
+  },
+  "link_desc": "وصف الرابط (اختياري)",
+  "@link_desc": {
+    "description": "Text for link description"
+  },
+  "no_resources": "لا توجد مصادر بعد",
+  "@no_resources": {
+    "description": "Text for no resources"
+  },
+  "tap_button": "اضغط على الأزرار أعلاه لإضافة المصادر",
+  "@tap_button": {
+    "description": "Text for tap button"
+  },
+  "required_year_and_semester": "الرجاء اختيار السنة والفصل الدراسي",
+  "@required_year_and_semester": {
+    "description": "Text for required year and semester"
+  },
+  "feild_credit_hours": "يجب أن تكون الساعات المعتمدة رقمًا",
+  "@feild_credit_hours": {
+    "description": "Text for feild credit hours"
+  },
+  "network_error": "خطأ في الشبكة، حاول مرة أخرى",
+  "@network_error": {
+    "description": "Text for network error"
+  },
+  "saving_project": "جاري حفظ المشروع...",
+  "@saving_project": {
+    "description": "Text for saving project"
+  },
+  "please_wait_upload": "الرجاء الانتظار، جاري رفع الملفات والصور....",
+  "@please_wait_upload": {
+    "description": "Text for please wait upload"
   }
 }

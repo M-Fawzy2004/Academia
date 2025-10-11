@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
-import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 
 class ScheduleItem extends StatelessWidget {
@@ -22,7 +21,6 @@ class ScheduleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isArabic = LanguageHelper.isArabic(context);
     return Container(
       margin: EdgeInsets.only(bottom: 6.h),
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
@@ -44,9 +42,7 @@ class ScheduleItem extends StatelessWidget {
                 ),
                 widthBox(8),
                 Text(
-                  isArabic
-                      ? 'من $timeFrom إلى $timeTo'
-                      : 'From $timeFrom to $timeTo',
+                  '${context.tr.from} $timeFrom ${context.tr.to} $timeTo',
                   style: TextStyle(
                     fontSize: 12.sp,
                     color: Colors.grey[600],

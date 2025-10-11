@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 
 class ResourcesEmptyStateWidget extends StatelessWidget {
@@ -53,7 +54,7 @@ class ResourcesEmptyTitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      isArabic ? 'لا توجد مصادر حتى الآن' : 'No resources yet',
+      context.tr.no_resources,
       style: Styles.font13GreyBold(context).copyWith(
         color: Colors.grey.withOpacity(0.7),
       ),
@@ -72,9 +73,7 @@ class ResourcesEmptyDescriptionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      isArabic
-          ? 'اضغط على الأزرار أعلاه لإضافة المصادر'
-          : 'Tap the buttons above to add resources',
+      context.tr.tap_button,
       style: TextStyle(
         fontSize: 11.sp,
         color: Colors.grey.withOpacity(0.6),

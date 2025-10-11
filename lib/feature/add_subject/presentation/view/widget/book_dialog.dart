@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
@@ -115,7 +116,9 @@ class _BookDialogState extends State<BookDialog> {
                 children: [
                   Expanded(
                     child: Text(
-                      isEditing ? 'Edit Book' : 'Add New Book',
+                      isEditing
+                          ? context.tr.edit_book
+                          : context.tr.add_new_book,
                       style: Styles.font15MediumGreyBold(context),
                     ),
                   ),
@@ -149,10 +152,10 @@ class _BookDialogState extends State<BookDialog> {
                       CustomTextField(
                         controller: _titleController,
                         prefixIcon: Icons.book,
-                        hintText: 'Book Title',
+                        hintText: context.tr.book_title,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter book title';
+                            return context.tr.required_book_title;
                           }
                           return null;
                         },
@@ -160,11 +163,11 @@ class _BookDialogState extends State<BookDialog> {
                       heightBox(16),
                       CustomTextField(
                         controller: _authorController,
-                        hintText: 'Author Name',
+                        hintText: context.tr.book_author,
                         prefixIcon: Icons.person,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter author name';
+                            return context.tr.required_book_author;
                           }
                           return null;
                         },
@@ -172,7 +175,7 @@ class _BookDialogState extends State<BookDialog> {
                       heightBox(16),
                       CustomTextField(
                         controller: _descriptionController,
-                        hintText: 'Book Description (Optional)',
+                        hintText: context.tr.book_desc,
                         maxLines: 3,
                         maxLength: 300,
                         prefixIcon: Icons.description,
@@ -198,11 +201,11 @@ class _BookDialogState extends State<BookDialog> {
                   TextButton(
                     onPressed: () => Navigator.of(context).pop(),
                     child: Text(
-                      'Cancel',
+                      context.tr.cancel,
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                   ),
-                  SizedBox(width: 12.w),
+                  widthBox(12),
                   ElevatedButton(
                     onPressed: _submit,
                     style: ElevatedButton.styleFrom(
@@ -214,7 +217,7 @@ class _BookDialogState extends State<BookDialog> {
                       ),
                     ),
                     child: Text(
-                      isEditing ? 'Update' : 'Add',
+                      isEditing ? context.tr.update : context.tr.add,
                     ),
                   ),
                 ],

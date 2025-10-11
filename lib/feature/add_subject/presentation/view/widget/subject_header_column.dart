@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/icon_back.dart';
@@ -37,11 +38,11 @@ class SubjectHeaderColumn extends StatelessWidget {
         ),
         heightBox(5),
         Text(
-          'Add New Subject',
+          context.tr.add_new_subject,
           style: Styles.font18MediumBold(context),
         ),
         Text(
-          'Organize your studies and make learning more fun.',
+          context.tr.header_subject_Desc,
           style: Styles.font13GreyBold(context),
         ),
         heightBox(6),

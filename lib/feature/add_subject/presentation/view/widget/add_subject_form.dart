@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/subject_data_header.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/year_semester_selector.dart';
@@ -49,11 +50,11 @@ class AddSubjectForm extends StatelessWidget {
           heightBox(15),
           CustomTextField(
             controller: subjectNameController,
-            hintText: 'Subject Name',
+            hintText: context.tr.subject_name,
             suffixIcon: Icons.subject,
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
-                return 'Subject name is required';
+                return context.tr.required_subjectt_name;
               }
               return null;
             },
@@ -61,17 +62,17 @@ class AddSubjectForm extends StatelessWidget {
           heightBox(12),
           CustomTextField(
             controller: subjectCodeController,
-            hintText: 'Subject Code (Optional)',
+            hintText: context.tr.subject_code,
             suffixIcon: Icons.code,
           ),
           heightBox(12),
           CustomTextField(
             controller: subjectDrNameController,
-            hintText: 'Doctor Name',
+            hintText: context.tr.dr_name,
             suffixIcon: Icons.person,
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
-                return 'Doctor name is required';
+                return context.tr.required_dr_name;
               }
               return null;
             },
@@ -79,15 +80,15 @@ class AddSubjectForm extends StatelessWidget {
           heightBox(12),
           CustomTextField(
             controller: subjectCreditsController,
-            hintText: 'Credit Hours',
+            hintText: context.tr.credit_hours,
             suffixIcon: Icons.access_time_outlined,
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
-                return 'Credit hours is required';
+                return context.tr.required_credit_hours;
               }
               final hours = int.tryParse(value);
               if (hours == null || hours <= 0 || hours > 10) {
-                return 'Credit hours must be between 1 and 10';
+                return context.tr.required_credit_hours_between;
               }
               return null;
             },
@@ -95,7 +96,7 @@ class AddSubjectForm extends StatelessWidget {
           heightBox(12),
           CustomTextField(
             controller: subjectNotesController,
-            hintText: 'Notes (Optional)',
+            hintText: context.tr.note,
             suffixIcon: Icons.note_add,
             maxLines: 5,
           ),

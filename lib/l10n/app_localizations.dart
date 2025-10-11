@@ -1259,6 +1259,504 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Choose your preferred theme'**
   String get theme_setting_desc;
+
+  /// Text for success snack bar
+  ///
+  /// In en, this message translates to:
+  /// **'Subjects loaded successfully'**
+  String get success_snack_bar;
+
+  /// Text for error snack bar
+  ///
+  /// In en, this message translates to:
+  /// **'Error => Please try again'**
+  String get error_snack_bar;
+
+  /// Text for header subject description
+  ///
+  /// In en, this message translates to:
+  /// **'Organize your studies and make learning more fun.'**
+  String get header_subject_Desc;
+
+  /// Text for free
+  ///
+  /// In en, this message translates to:
+  /// **'Free'**
+  String get free;
+
+  /// Text for medium
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get medium;
+
+  /// Text for pro
+  ///
+  /// In en, this message translates to:
+  /// **'Pro'**
+  String get pro;
+
+  /// Text for first year
+  ///
+  /// In en, this message translates to:
+  /// **'First Year'**
+  String get first_year;
+
+  /// Text for second year
+  ///
+  /// In en, this message translates to:
+  /// **'Second Year'**
+  String get second_year;
+
+  /// Text for third year
+  ///
+  /// In en, this message translates to:
+  /// **'Third Year'**
+  String get third_year;
+
+  /// Text for fourth year
+  ///
+  /// In en, this message translates to:
+  /// **'Fourth Year'**
+  String get fourth_year;
+
+  /// Text for fifth year
+  ///
+  /// In en, this message translates to:
+  /// **'Fifth Year'**
+  String get fifth_year;
+
+  /// Text for sixth year
+  ///
+  /// In en, this message translates to:
+  /// **'Sixth Year'**
+  String get sixth_year;
+
+  /// Text for seventh year
+  ///
+  /// In en, this message translates to:
+  /// **'Seventh Year'**
+  String get seventh_year;
+
+  /// Text for first semester
+  ///
+  /// In en, this message translates to:
+  /// **'First Semester'**
+  String get first_semester;
+
+  /// Text for second semester
+  ///
+  /// In en, this message translates to:
+  /// **'Second Semester'**
+  String get second_semester;
+
+  /// Text for info year
+  ///
+  /// In en, this message translates to:
+  /// **'Year and Semester Information'**
+  String get info_year_and_semester;
+
+  /// Text for select year
+  ///
+  /// In en, this message translates to:
+  /// **'Select Year'**
+  String get select_year;
+
+  /// Text for select semester
+  ///
+  /// In en, this message translates to:
+  /// **'Select Semester'**
+  String get select_semester;
+
+  /// Text for current selection
+  ///
+  /// In en, this message translates to:
+  /// **'Current selection: '**
+  String get current_selection;
+
+  /// Text for material data
+  ///
+  /// In en, this message translates to:
+  /// **'Material Data'**
+  String get material_data;
+
+  /// Text for subject name
+  ///
+  /// In en, this message translates to:
+  /// **'Subject Name'**
+  String get subject_name;
+
+  /// Text for required subject name
+  ///
+  /// In en, this message translates to:
+  /// **'Subject name is required'**
+  String get required_subjectt_name;
+
+  /// Text for subject code
+  ///
+  /// In en, this message translates to:
+  /// **'Subject Code (Optional)'**
+  String get subject_code;
+
+  /// Text for Doctor Name
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor Name'**
+  String get dr_name;
+
+  /// Text for required Doctor name
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor name is required'**
+  String get required_dr_name;
+
+  /// Text for credit hours
+  ///
+  /// In en, this message translates to:
+  /// **'Credit Hours'**
+  String get credit_hours;
+
+  /// Text for required credit hours
+  ///
+  /// In en, this message translates to:
+  /// **'Credit hours is required'**
+  String get required_credit_hours;
+
+  /// Text for required credit hours between
+  ///
+  /// In en, this message translates to:
+  /// **'Credit hours must be between 1 and 10'**
+  String get required_credit_hours_between;
+
+  /// Text for note
+  ///
+  /// In en, this message translates to:
+  /// **'Notes (Optional)'**
+  String get note;
+
+  /// Text for lecture days
+  ///
+  /// In en, this message translates to:
+  /// **'Lecture days:'**
+  String get lecture_days;
+
+  /// Text for saturday
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday'**
+  String get saturday;
+
+  /// Text for sunday
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get sunday;
+
+  /// Text for monday
+  ///
+  /// In en, this message translates to:
+  /// **'Monday'**
+  String get monday;
+
+  /// Text for tuesday
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday'**
+  String get tuesday;
+
+  /// Text for wednesday
+  ///
+  /// In en, this message translates to:
+  /// **'Wednesday'**
+  String get wednesday;
+
+  /// Text for thursday
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday'**
+  String get thursday;
+
+  /// Text for friday
+  ///
+  /// In en, this message translates to:
+  /// **'Friday'**
+  String get friday;
+
+  /// Text for from
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get from;
+
+  /// Text for to
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get to;
+
+  /// Text for set time
+  ///
+  /// In en, this message translates to:
+  /// **'Set Time for '**
+  String get set_time;
+
+  /// Text for resources
+  ///
+  /// In en, this message translates to:
+  /// **'Resources'**
+  String get resources;
+
+  /// Text for save
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// Text for cancel
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// Text for link
+  ///
+  /// In en, this message translates to:
+  /// **'Link'**
+  String get link;
+
+  /// Text for image
+  ///
+  /// In en, this message translates to:
+  /// **'Image'**
+  String get image;
+
+  /// Text for book
+  ///
+  /// In en, this message translates to:
+  /// **'Book'**
+  String get book;
+
+  /// Text for pdf
+  ///
+  /// In en, this message translates to:
+  /// **'PDF'**
+  String get pdf;
+
+  /// Text for audio
+  ///
+  /// In en, this message translates to:
+  /// **'Audio'**
+  String get audio;
+
+  /// Text for video link
+  ///
+  /// In en, this message translates to:
+  /// **'Video Link'**
+  String get video_link;
+
+  /// Text for video
+  ///
+  /// In en, this message translates to:
+  /// **'Video'**
+  String get video;
+
+  /// Text for edit book
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Book'**
+  String get edit_book;
+
+  /// Text for edit link
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Link'**
+  String get edit_link;
+
+  /// Text for edit video
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Video'**
+  String get edit_video;
+
+  /// Text for edit audio
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Audio'**
+  String get edit_audio;
+
+  /// Text for edit pdf
+  ///
+  /// In en, this message translates to:
+  /// **'Edit PDF'**
+  String get edit_pdf;
+
+  /// Text for edit image
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Image'**
+  String get edit_image;
+
+  /// Text for add new book
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Book'**
+  String get add_new_book;
+
+  /// Text for book title
+  ///
+  /// In en, this message translates to:
+  /// **'Book Title'**
+  String get book_title;
+
+  /// Text for book author
+  ///
+  /// In en, this message translates to:
+  /// **'Auther Name'**
+  String get book_author;
+
+  /// Text for required book title
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter book title'**
+  String get required_book_title;
+
+  /// Text for required book author
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter author name'**
+  String get required_book_author;
+
+  /// Text for book description
+  ///
+  /// In en, this message translates to:
+  /// **'Book Description (Optional)'**
+  String get book_desc;
+
+  /// Text for update
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
+
+  /// Text for add
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// Text for web link
+  ///
+  /// In en, this message translates to:
+  /// **'Web Link'**
+  String get web_link;
+
+  /// Text for book link
+  ///
+  /// In en, this message translates to:
+  /// **'Book Link'**
+  String get book_link;
+
+  /// Text for edit video link
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Video Link'**
+  String get edit_video_link;
+
+  /// Text for add video link
+  ///
+  /// In en, this message translates to:
+  /// **'Add Video Link'**
+  String get add_video_link;
+
+  /// Text for edit book link
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Book Link'**
+  String get edit_book_link;
+
+  /// Text for add book link
+  ///
+  /// In en, this message translates to:
+  /// **'Add Book Link'**
+  String get add_book_link;
+
+  /// Text for add new link
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Link'**
+  String get add_new_link;
+
+  /// Text for link title
+  ///
+  /// In en, this message translates to:
+  /// **'Link Title'**
+  String get link_title;
+
+  /// Text for required link title
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter link title'**
+  String get required_link_title;
+
+  /// Text for required link url
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter link url'**
+  String get required_link_url;
+
+  /// Text for link url
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid URL'**
+  String get valid_link_url;
+
+  /// Text for link description
+  ///
+  /// In en, this message translates to:
+  /// **'Link Description (Optional)'**
+  String get link_desc;
+
+  /// Text for no resources
+  ///
+  /// In en, this message translates to:
+  /// **'No resources yet'**
+  String get no_resources;
+
+  /// Text for tap button
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the buttons above to add resources'**
+  String get tap_button;
+
+  /// Text for required year and semester
+  ///
+  /// In en, this message translates to:
+  /// **'Please select year and semester'**
+  String get required_year_and_semester;
+
+  /// Text for feild credit hours
+  ///
+  /// In en, this message translates to:
+  /// **'Credit hours must be a number'**
+  String get feild_credit_hours;
+
+  /// Text for network error
+  ///
+  /// In en, this message translates to:
+  /// **'Network Error, Please try again'**
+  String get network_error;
+
+  /// Text for saving project
+  ///
+  /// In en, this message translates to:
+  /// **'Saving project...'**
+  String get saving_project;
+
+  /// Text for please wait upload
+  ///
+  /// In en, this message translates to:
+  /// **'Please wait, files and images are being uploaded....'**
+  String get please_wait_upload;
 }
 
 class _AppLocalizationsDelegate

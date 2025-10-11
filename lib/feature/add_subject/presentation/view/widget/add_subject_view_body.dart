@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
+import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/feature/add_subject/data/model/resource_item.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart'
@@ -86,7 +90,6 @@ class _AddSubjectViewBodyState extends State<AddSubjectViewBody> {
               setState(() {
                 lectureSchedule = schedule;
               });
-              print('Schedule updated: $schedule');
             },
             initialSchedule: lectureSchedule,
           ),
@@ -96,13 +99,12 @@ class _AddSubjectViewBodyState extends State<AddSubjectViewBody> {
               setState(() {
                 subjectResources = resources;
               });
-              print('Resources updated: ${resources.length} items');
             },
             initialResources: subjectResources,
           ),
           heightBox(20),
           CustomButton(
-            text: 'Add Subject',
+            text: context.tr.add_new_subject,
             onPressed: _onSavePressed,
           ),
           heightBox(20),
@@ -119,7 +121,7 @@ extension on _AddSubjectViewBodyState {
     if (selectedYear == null || selectedSemester == null) {
       CustomSnackBar.showError(
         context,
-        'Please select year and semester',
+        context.tr.required_year_and_semester,
       );
       return;
     }
@@ -128,7 +130,7 @@ extension on _AddSubjectViewBodyState {
     if (parsedCredits == null) {
       CustomSnackBar.showError(
         context,
-        'Credit hours must be a number',
+        context.tr.feild_credit_hours,
       );
       return;
     }
@@ -182,7 +184,7 @@ extension on _AddSubjectViewBodyState {
         if (Navigator.of(context, rootNavigator: true).canPop()) {
           Navigator.of(context, rootNavigator: true).pop();
         }
-      CustomSnackBar.showError(context, 'Network error');
+        CustomSnackBar.showError(context, 'Network Error, Please try again');
       } finally {
         await sub.cancel();
       }
@@ -336,7 +338,10 @@ class _SavingDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      backgroundColor: AppColors.getCardColorTwo(context),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.r),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -344,11 +349,15 @@ class _SavingDialog extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomLoadingWidget(height: 28),
+            const CustomLoadingWidget(height: 30),
             heightBox(12),
-            const Text('Saving project...'),
+            Text(context.tr.saving_project,
+                style: Styles.font15PrimaryColorTextBold(context)),
             heightBox(12),
-            const Text('Please wait, files and images are being uploaded....'),
+            Text(
+              context.tr.please_wait_upload,
+              style: Styles.font13GreyBold(context),
+            ),
           ],
         ),
       ),

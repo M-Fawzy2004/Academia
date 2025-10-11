@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/time_selection_box.dart';
@@ -26,7 +26,6 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final isArabic = LanguageHelper.isArabic(context);
 
     return AlertDialog(
       shape: RoundedRectangleBorder(
@@ -34,7 +33,7 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
       ),
       backgroundColor: AppColors.getNavigationBar(context),
       title: Text(
-        isArabic ? 'تحديد وقت ${widget.day}' : 'Set time for ${widget.day}',
+        '${context.tr.set_time} ${widget.day}',
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
       ),
@@ -45,7 +44,7 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
             children: [
               Expanded(
                 child: TimeSelectionBox(
-                  label: isArabic ? 'من' : 'From',
+                  label:  context.tr.from,
                   time: fromTime,
                   onTimeSelected: (time) => setState(() => fromTime = time),
                 ),
@@ -53,7 +52,7 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
               widthBox(10),
               Expanded(
                 child: TimeSelectionBox(
-                  label: isArabic ? 'إلى' : 'To',
+                  label:  context.tr.to,
                   time: toTime,
                   onTimeSelected: (time) => setState(() => toTime = time),
                 ),
@@ -66,7 +65,7 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
         TextButton(
           onPressed: () => Navigator.pop(context),
           child: Text(
-            isArabic ? 'إلغاء' : 'Cancel',
+            'Cancel',
             style: Styles.font12MediumBold(context).copyWith(
               color: Colors.red,
             ),
@@ -81,7 +80,7 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
             ),
           ),
           child: Text(
-            isArabic ? 'حفظ' : 'Save',
+             context.tr.save,
             style: Styles.font14MediumEBold(context),
           ),
         ),

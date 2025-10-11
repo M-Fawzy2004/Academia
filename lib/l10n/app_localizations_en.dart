@@ -620,4 +620,256 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get theme_setting_desc => 'Choose your preferred theme';
+
+  @override
+  String get success_snack_bar => 'Subjects loaded successfully';
+
+  @override
+  String get error_snack_bar => 'Error => Please try again';
+
+  @override
+  String get header_subject_Desc =>
+      'Organize your studies and make learning more fun.';
+
+  @override
+  String get free => 'Free';
+
+  @override
+  String get medium => 'Medium';
+
+  @override
+  String get pro => 'Pro';
+
+  @override
+  String get first_year => 'First Year';
+
+  @override
+  String get second_year => 'Second Year';
+
+  @override
+  String get third_year => 'Third Year';
+
+  @override
+  String get fourth_year => 'Fourth Year';
+
+  @override
+  String get fifth_year => 'Fifth Year';
+
+  @override
+  String get sixth_year => 'Sixth Year';
+
+  @override
+  String get seventh_year => 'Seventh Year';
+
+  @override
+  String get first_semester => 'First Semester';
+
+  @override
+  String get second_semester => 'Second Semester';
+
+  @override
+  String get info_year_and_semester => 'Year and Semester Information';
+
+  @override
+  String get select_year => 'Select Year';
+
+  @override
+  String get select_semester => 'Select Semester';
+
+  @override
+  String get current_selection => 'Current selection: ';
+
+  @override
+  String get material_data => 'Material Data';
+
+  @override
+  String get subject_name => 'Subject Name';
+
+  @override
+  String get required_subjectt_name => 'Subject name is required';
+
+  @override
+  String get subject_code => 'Subject Code (Optional)';
+
+  @override
+  String get dr_name => 'Doctor Name';
+
+  @override
+  String get required_dr_name => 'Doctor name is required';
+
+  @override
+  String get credit_hours => 'Credit Hours';
+
+  @override
+  String get required_credit_hours => 'Credit hours is required';
+
+  @override
+  String get required_credit_hours_between =>
+      'Credit hours must be between 1 and 10';
+
+  @override
+  String get note => 'Notes (Optional)';
+
+  @override
+  String get lecture_days => 'Lecture days:';
+
+  @override
+  String get saturday => 'Saturday';
+
+  @override
+  String get sunday => 'Sunday';
+
+  @override
+  String get monday => 'Monday';
+
+  @override
+  String get tuesday => 'Tuesday';
+
+  @override
+  String get wednesday => 'Wednesday';
+
+  @override
+  String get thursday => 'Thursday';
+
+  @override
+  String get friday => 'Friday';
+
+  @override
+  String get from => 'From';
+
+  @override
+  String get to => 'To';
+
+  @override
+  String get set_time => 'Set Time for ';
+
+  @override
+  String get resources => 'Resources';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get link => 'Link';
+
+  @override
+  String get image => 'Image';
+
+  @override
+  String get book => 'Book';
+
+  @override
+  String get pdf => 'PDF';
+
+  @override
+  String get audio => 'Audio';
+
+  @override
+  String get video_link => 'Video Link';
+
+  @override
+  String get video => 'Video';
+
+  @override
+  String get edit_book => 'Edit Book';
+
+  @override
+  String get edit_link => 'Edit Link';
+
+  @override
+  String get edit_video => 'Edit Video';
+
+  @override
+  String get edit_audio => 'Edit Audio';
+
+  @override
+  String get edit_pdf => 'Edit PDF';
+
+  @override
+  String get edit_image => 'Edit Image';
+
+  @override
+  String get add_new_book => 'Add New Book';
+
+  @override
+  String get book_title => 'Book Title';
+
+  @override
+  String get book_author => 'Auther Name';
+
+  @override
+  String get required_book_title => 'Please enter book title';
+
+  @override
+  String get required_book_author => 'Please enter author name';
+
+  @override
+  String get book_desc => 'Book Description (Optional)';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get web_link => 'Web Link';
+
+  @override
+  String get book_link => 'Book Link';
+
+  @override
+  String get edit_video_link => 'Edit Video Link';
+
+  @override
+  String get add_video_link => 'Add Video Link';
+
+  @override
+  String get edit_book_link => 'Edit Book Link';
+
+  @override
+  String get add_book_link => 'Add Book Link';
+
+  @override
+  String get add_new_link => 'Add New Link';
+
+  @override
+  String get link_title => 'Link Title';
+
+  @override
+  String get required_link_title => 'Please enter link title';
+
+  @override
+  String get required_link_url => 'Please enter link url';
+
+  @override
+  String get valid_link_url => 'Please enter a valid URL';
+
+  @override
+  String get link_desc => 'Link Description (Optional)';
+
+  @override
+  String get no_resources => 'No resources yet';
+
+  @override
+  String get tap_button => 'Tap the buttons above to add resources';
+
+  @override
+  String get required_year_and_semester => 'Please select year and semester';
+
+  @override
+  String get feild_credit_hours => 'Credit hours must be a number';
+
+  @override
+  String get network_error => 'Network Error, Please try again';
+
+  @override
+  String get saving_project => 'Saving project...';
+
+  @override
+  String get please_wait_upload =>
+      'Please wait, files and images are being uploaded....';
 }

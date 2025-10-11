@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:study_box/core/helper/language_helper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 
 class YearSemesterSelector extends StatefulWidget {
@@ -35,18 +36,18 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
   }
 
   List<String> get years => [
-        LanguageHelper.isArabic(context) ? 'الفرقه الأولى' : 'First Year',
-        LanguageHelper.isArabic(context) ? 'الفرقه الثانية' : 'Second Year',
-        LanguageHelper.isArabic(context) ? 'الفرقه الثالثة' : 'Third Year',
-        LanguageHelper.isArabic(context) ? 'الفرقه الرابعة' : 'Fourth Year',
-        LanguageHelper.isArabic(context) ? 'الفرقه الخامسة' : 'Fifth Year',
-        LanguageHelper.isArabic(context) ? 'الفرقه السادسة' : 'Sixth Year',
-        LanguageHelper.isArabic(context) ? 'الفرقه السابعة' : 'Seventh Year',
+        context.tr.first_year,
+        context.tr.second_year,
+        context.tr.third_year,
+        context.tr.fourth_year,
+        context.tr.fifth_year,
+        context.tr.sixth_year,
+        context.tr.seventh_year,
       ];
 
   List<String> get semesters => [
-        LanguageHelper.isArabic(context) ? 'الترم الأول' : 'First Semester',
-        LanguageHelper.isArabic(context) ? 'الترم الثاني' : 'Second Semester',
+        context.tr.first_semester,
+        context.tr.second_semester,
       ];
 
   void _onYearChanged(String? newValue) {
@@ -82,7 +83,7 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
                 Theme.of(context).primaryColor.withOpacity(0.05),
               ],
             ),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
             border: Border.all(
               color: Theme.of(context).primaryColor.withOpacity(0.3),
               width: 1,
@@ -95,11 +96,9 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
                 color: Theme.of(context).primaryColor,
                 size: 20,
               ),
-              const SizedBox(width: 8),
+              widthBox(8),
               Text(
-                LanguageHelper.isArabic(context)
-                    ? 'معلومات السنة والترم'
-                    : 'Year and Semester Information',
+                context.tr.info_year_and_semester,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).primaryColor,
@@ -113,7 +112,7 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
         // Year Dropdown
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
             border: Border.all(
               color: Colors.grey.withOpacity(0.3),
               width: 1.5,
@@ -129,14 +128,12 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
           ),
           child: DropdownButtonFormField<String>(
             decoration: InputDecoration(
-              hintText: LanguageHelper.isArabic(context)
-                  ? 'اختر السنة'
-                  : 'Select Year',
+              hintText: context.tr.select_year,
               prefixIcon: const Icon(Icons.calendar_today, color: Colors.blue),
               border: InputBorder.none,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 16,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 15.w,
+                vertical: 12.h,
               ),
             ),
             value: selectedYear,
@@ -178,14 +175,12 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
           ),
           child: DropdownButtonFormField<String>(
             decoration: InputDecoration(
-              hintText: LanguageHelper.isArabic(context)
-                  ? 'اختر الترم'
-                  : 'Select Semester',
+              hintText: context.tr.select_semester,
               prefixIcon: const Icon(Icons.timeline, color: Colors.green),
               border: InputBorder.none,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 16,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 15.w,
+                vertical: 12.h,
               ),
             ),
             value: selectedSemester,
@@ -214,9 +209,11 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.blue.withOpacity(0.1),
+              color: AppColors.primaryColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.blue.withOpacity(0.3)),
+              border: Border.all(
+                color: AppColors.primaryColor.withOpacity(0.3),
+              ),
             ),
             child: Row(
               children: [
@@ -224,11 +221,9 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    LanguageHelper.isArabic(context)
-                        ? 'الاختيار الحالي: ${selectedYear ?? ''} ${selectedSemester != null ? '- $selectedSemester' : ''}'
-                        : 'Current selection: ${selectedYear ?? ''} ${selectedSemester != null ? '- $selectedSemester' : ''}',
+                    '${context.tr.current_selection} ${selectedYear ?? ''} ${selectedSemester != null ? '- $selectedSemester' : ''}',
                     style: const TextStyle(
-                      color: Colors.blue,
+                      color: AppColors.primaryColor,
                       fontWeight: FontWeight.w500,
                       fontSize: 13,
                     ),

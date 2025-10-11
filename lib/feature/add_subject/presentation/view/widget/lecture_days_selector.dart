@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/selected_schedule_display.dart';
@@ -50,10 +51,8 @@ class _LectureDaysSelectorState extends State<LectureDaysSelector> {
                 ? Alignment.centerRight
                 : Alignment.centerLeft,
             child: Text(
-              LanguageHelper.isArabic(context)
-                  ? 'أيام المحاضرات:'
-                  : 'Lecture days:',
-              style:Styles.font15MediumGreyBold(context),
+              context.tr.lecture_days,
+              style: Styles.font15MediumGreyBold(context),
             ),
           ),
           heightBox(10),

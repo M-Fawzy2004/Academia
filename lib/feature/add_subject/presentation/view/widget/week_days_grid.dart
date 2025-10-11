@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:study_box/core/helper/language_helper.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/day_selection_chip.dart';
 
 class WeekDaysGrid extends StatelessWidget {
@@ -15,25 +15,15 @@ class WeekDaysGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> weekDays = LanguageHelper.isArabic(context)
-        ? [
-            'السبت',
-            'الأحد',
-            'الاثنين',
-            'الثلاثاء',
-            'الأربعاء',
-            'الخميس',
-            'الجمعة'
-          ]
-        : [
-            'Saturday',
-            'Sunday',
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday'
-          ];
+    final List<String> weekDays = [
+      context.tr.saturday,
+      context.tr.sunday,
+      context.tr.monday,
+      context.tr.tuesday,
+      context.tr.wednesday,
+      context.tr.thursday,
+      context.tr.friday,
+    ];
 
     return Wrap(
       spacing: 10.w,

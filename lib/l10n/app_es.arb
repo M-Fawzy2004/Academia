@@ -771,5 +771,337 @@
   "theme_setting_desc": "Elige tu tema preferido",
   "@theme_setting_desc": {
     "description": "Text for theme settings description"
+  },
+  "success_snack_bar": "Materias cargadas exitosamente",
+  "@success_snack_bar": {
+    "description": "Text for success snack bar"
+  },
+  "error_snack_bar": "Error => Por favor intente de nuevo",
+  "@error_snack_bar": {
+    "description": "Text for error snack bar"
+  },
+  "header_subject_Desc": "Organiza tus estudios y haz el aprendizaje más divertido.",
+  "@header_subject_Desc": {
+    "description": "Text for header subject description"
+  },
+  "free": "Gratis",
+  "@free": {
+    "description": "Text for free"
+  },
+  "medium": "Medio",
+  "@medium": {
+    "description": "Text for medium"
+  },
+  "pro": "Pro",
+  "@pro": {
+    "description": "Text for pro"
+  },
+  "first_year": "Primer Año",
+  "@first_year": {
+    "description": "Text for first year"
+  },
+  "second_year": "Segundo Año",
+  "@second_year": {
+    "description": "Text for second year"
+  },
+  "third_year": "Tercer Año",
+  "@third_year": {
+    "description": "Text for third year"
+  },
+  "fourth_year": "Cuarto Año",
+  "@fourth_year": {
+    "description": "Text for fourth year"
+  },
+  "fifth_year": "Quinto Año",
+  "@fifth_year": {
+    "description": "Text for fifth year"
+  },
+  "sixth_year": "Sexto Año",
+  "@sixth_year": {
+    "description": "Text for sixth year"
+  },
+  "seventh_year": "Séptimo Año",
+  "@seventh_year": {
+    "description": "Text for seventh year"
+  },
+  "first_semester": "Primer Semestre",
+  "@first_semester": {
+    "description": "Text for first semester"
+  },
+  "second_semester": "Segundo Semestre",
+  "@second_semester": {
+    "description": "Text for second semester"
+  },
+  "info_year_and_semester": "Información del año y semestre",
+  "@info_year_and_semester": {
+    "description": "Text for info year"
+  },
+  "select_year": "Seleccionar año",
+  "@select_year": {
+    "description": "Text for select year"
+  },
+  "select_semester": "Seleccionar semestre",
+  "@select_semester": {
+    "description": "Text for select semester"
+  },
+  "current_selection": "Selección actual: ",
+  "@current_selection": {
+    "description": "Text for current selection"
+  },
+  "material_data": "Datos de la materia",
+  "@material_data": {
+    "description": "Text for material data"
+  },
+  "subject_name": "Nombre de la materia",
+  "@subject_name": {
+    "description": "Text for subject name"
+  },
+  "required_subjectt_name": "El nombre de la materia es requerido",
+  "@required_subjectt_name": {
+    "description": "Text for required subject name"
+  },
+  "subject_code": "Código de la materia (Opcional)",
+  "@subject_code": {
+    "description": "Text for subject code"
+  },
+  "dr_name": "Nombre del Profesor",
+  "@dr_name": {
+    "description": "Text for Doctor Name"
+  },
+  "required_dr_name": "El nombre del profesor es requerido",
+  "@required_dr_name": {
+    "description": "Text for required Doctor name"
+  },
+  "credit_hours": "Horas de crédito",
+  "@credit_hours": {
+    "description": "Text for credit hours"
+  },
+  "required_credit_hours": "Las horas de crédito son requeridas",
+  "@required_credit_hours": {
+    "description": "Text for required credit hours"
+  },
+  "required_credit_hours_between": "Las horas de crédito deben estar entre 1 y 10",
+  "@required_credit_hours_between": {
+    "description": "Text for required credit hours between"
+  },
+  "note": "Notas (Opcional)",
+  "@note": {
+    "description": "Text for note"
+  },
+  "lecture_days": "Días de clase:",
+  "@lecture_days": {
+    "description": "Text for lecture days"
+  },
+  "saturday": "Sábado",
+  "@saturday": {
+    "description": "Text for saturday"
+  },
+  "sunday": "Domingo",
+  "@sunday": {
+    "description": "Text for sunday"
+  },
+  "monday": "Lunes",
+  "@monday": {
+    "description": "Text for monday"
+  },
+  "tuesday": "Martes",
+  "@tuesday": {
+    "description": "Text for tuesday"
+  },
+  "wednesday": "Miércoles",
+  "@wednesday": {
+    "description": "Text for wednesday"
+  },
+  "thursday": "Jueves",
+  "@thursday": {
+    "description": "Text for thursday"
+  },
+  "friday": "Viernes",
+  "@friday": {
+    "description": "Text for friday"
+  },
+  "from": "Desde",
+  "@from": {
+    "description": "Text for from"
+  },
+  "to": "Hasta",
+  "@to": {
+    "description": "Text for to"
+  },
+  "set_time": "Establecer hora para ",
+  "@set_time": {
+    "description": "Text for set time"
+  },
+  "resources": "Recursos",
+  "@resources": {
+    "description": "Text for resources"
+  },
+  "save": "Guardar",
+  "@save": {
+    "description": "Text for save"
+  },
+  "cancel": "Cancelar",
+  "@cancel": {
+    "description": "Text for cancel"
+  },
+  "link": "Enlace",
+  "@link": {
+    "description": "Text for link"
+  },
+  "image": "Imagen",
+  "@image": {
+    "description": "Text for image"
+  },
+  "book": "Libro",
+  "@book": {
+    "description": "Text for book"
+  },
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "Text for pdf"
+  },
+  "audio": "Audio",
+  "@audio": {
+    "description": "Text for audio"
+  },
+  "video_link": "Enlace de Video",
+  "@video_link": {
+    "description": "Text for video link"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Text for video"
+  },
+  "edit_book": "Editar libro",
+  "@edit_book": {
+    "description": "Text for edit book"
+  },
+  "edit_link": "Editar enlace",
+  "@edit_link": {
+    "description": "Text for edit link"
+  },
+  "edit_video": "Editar video",
+  "@edit_video": {
+    "description": "Text for edit video"
+  },
+  "edit_audio": "Editar audio",
+  "@edit_audio": {
+    "description": "Text for edit audio"
+  },
+  "edit_pdf": "Editar PDF",
+  "@edit_pdf": {
+    "description": "Text for edit pdf"
+  },
+  "edit_image": "Editar imagen",
+  "@edit_image": {
+    "description": "Text for edit image"
+  },
+  "add_new_book": "Agregar nuevo libro",
+  "@add_new_book": {
+    "description": "Text for add new book"
+  },
+  "book_title": "Título del libro",
+  "@book_title": {
+    "description": "Text for book title"
+  },
+  "book_author": "Nombre del autor",
+  "@book_author": {
+    "description": "Text for book author"
+  },
+  "required_book_title": "Por favor ingrese el título del libro",
+  "@required_book_title": {
+    "description": "Text for required book title"
+  },
+  "required_book_author": "Por favor ingrese el nombre del autor",
+  "@required_book_author": {
+    "description": "Text for required book author"
+  },
+  "book_desc": "Descripción del libro (Opcional)",
+  "@book_desc": {
+    "description": "Text for book description"
+  },
+  "update": "Actualizar",
+  "@update": {
+    "description": "Text for update"
+  },
+  "add": "Agregar",
+  "@add": {
+    "description": "Text for add"
+  },
+  "web_link": "Enlace Web",
+  "@web_link": {
+    "description": "Text for web link"
+  },
+  "book_link": "Enlace del libro",
+  "@book_link": {
+    "description": "Text for book link"
+  },
+  "edit_video_link": "Editar enlace de video",
+  "@edit_video_link": {
+    "description": "Text for edit video link"
+  },
+  "add_video_link": "Agregar enlace de video",
+  "@add_video_link": {
+    "description": "Text for add video link"
+  },
+  "edit_book_link": "Editar enlace del libro",
+  "@edit_book_link": {
+    "description": "Text for edit book link"
+  },
+  "add_book_link": "Agregar enlace de libro",
+  "@add_book_link": {
+    "description": "Text for add book link"
+  },
+  "add_new_link": "Agregar nuevo enlace",
+  "@add_new_link": {
+    "description": "Text for add new link"
+  },
+  "link_title": "Título del enlace",
+  "@link_title": {
+    "description": "Text for link title"
+  },
+  "required_link_title": "Por favor ingrese el título del enlace",
+  "@required_link_title": {
+    "description": "Text for required link title"
+  },
+  "required_link_url": "Por favor ingrese la URL del enlace",
+  "@required_link_url": {
+    "description": "Text for required link url"
+  },
+  "valid_link_url": "Por favor ingrese una URL válida",
+  "@valid_link_url": {
+    "description": "Text for link url"
+  },
+  "link_desc": "Descripción del enlace (Opcional)",
+  "@link_desc": {
+    "description": "Text for link description"
+  },
+  "no_resources": "Aún no hay recursos",
+  "@no_resources": {
+    "description": "Text for no resources"
+  },
+  "tap_button": "Toque los botones de arriba para agregar recursos",
+  "@tap_button": {
+    "description": "Text for tap button"
+  },
+  "required_year_and_semester": "Por favor seleccione el año y el semestre",
+  "@required_year_and_semester": {
+    "description": "Text for required year and semester"
+  },
+  "feild_credit_hours": "Las horas de crédito deben ser un número",
+  "@feild_credit_hours": {
+    "description": "Text for feild credit hours"
+  },
+  "network_error": "Error de red, por favor intente de nuevo",
+  "@network_error": {
+    "description": "Text for network error"
+  },
+  "saving_project": "Guardando proyecto...",
+  "@saving_project": {
+    "description": "Text for saving project"
+  },
+  "please_wait_upload": "Por favor espere, los archivos e imágenes se están subiendo....",
+  "@please_wait_upload": {
+    "description": "Text for please wait upload"
   }
 }

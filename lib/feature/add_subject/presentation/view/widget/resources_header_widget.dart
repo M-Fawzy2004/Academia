@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/resources_cubit/resources_state.dart';
@@ -33,7 +34,7 @@ class ResourcesHeaderWidget extends StatelessWidget {
               ),
               widthBox(8),
               Text(
-                isArabic ? 'المصادر' : 'Resources',
+                context.tr.resources,
                 style: Styles.font15MediumGreyBold(context),
               ),
               if (state.resources.isNotEmpty) ...[

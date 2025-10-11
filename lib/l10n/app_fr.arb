@@ -771,5 +771,337 @@
     "theme_setting_desc": "Choisissez votre thème préféré",
     "@theme_setting_desc": {
         "description": "Text for theme settings description"
+    },
+    "success_snack_bar": "Matières chargées avec succès",
+    "@success_snack_bar": {
+        "description": "Text for success snack bar"
+    },
+    "error_snack_bar": "Erreur => Veuillez réessayer",
+    "@error_snack_bar": {
+        "description": "Text for error snack bar"
+    },
+    "header_subject_Desc": "Organisez vos études et rendez l'apprentissage plus amusant.",
+    "@header_subject_Desc": {
+        "description": "Text for header subject description"
+    },
+    "free": "Gratuit",
+    "@free": {
+        "description": "Text for free"
+    },
+    "medium": "Moyen",
+    "@medium": {
+        "description": "Text for medium"
+    },
+    "pro": "Pro",
+    "@pro": {
+        "description": "Text for pro"
+    },
+    "first_year": "Première Année",
+    "@first_year": {
+        "description": "Text for first year"
+    },
+    "second_year": "Deuxième Année",
+    "@second_year": {
+        "description": "Text for second year"
+    },
+    "third_year": "Troisième Année",
+    "@third_year": {
+        "description": "Text for third year"
+    },
+    "fourth_year": "Quatrième Année",
+    "@fourth_year": {
+        "description": "Text for fourth year"
+    },
+    "fifth_year": "Cinquième Année",
+    "@fifth_year": {
+        "description": "Text for fifth year"
+    },
+    "sixth_year": "Sixième Année",
+    "@sixth_year": {
+        "description": "Text for sixth year"
+    },
+    "seventh_year": "Septième Année",
+    "@seventh_year": {
+        "description": "Text for seventh year"
+    },
+    "first_semester": "Premier Semestre",
+    "@first_semester": {
+        "description": "Text for first semester"
+    },
+    "second_semester": "Deuxième Semestre",
+    "@second_semester": {
+        "description": "Text for second semester"
+    },
+    "info_year_and_semester": "Informations sur l'année et le semestre",
+    "@info_year_and_semester": {
+        "description": "Text for info year"
+    },
+    "select_year": "Sélectionner l'année",
+    "@select_year": {
+        "description": "Text for select year"
+    },
+    "select_semester": "Sélectionner le semestre",
+    "@select_semester": {
+        "description": "Text for select semester"
+    },
+    "current_selection": "Sélection actuelle : ",
+    "@current_selection": {
+        "description": "Text for current selection"
+    },
+    "material_data": "Données de la matière",
+    "@material_data": {
+        "description": "Text for material data"
+    },
+    "subject_name": "Nom de la matière",
+    "@subject_name": {
+        "description": "Text for subject name"
+    },
+    "required_subjectt_name": "Le nom de la matière est requis",
+    "@required_subjectt_name": {
+        "description": "Text for required subject name"
+    },
+    "subject_code": "Code de la matière (Optionnel)",
+    "@subject_code": {
+        "description": "Text for subject code"
+    },
+    "dr_name": "Nom du Professeur",
+    "@dr_name": {
+        "description": "Text for Doctor Name"
+    },
+    "required_dr_name": "Le nom du professeur est requis",
+    "@required_dr_name": {
+        "description": "Text for required Doctor name"
+    },
+    "credit_hours": "Heures de crédit",
+    "@credit_hours": {
+        "description": "Text for credit hours"
+    },
+    "required_credit_hours": "Les heures de crédit sont requises",
+    "@required_credit_hours": {
+        "description": "Text for required credit hours"
+    },
+    "required_credit_hours_between": "Les heures de crédit doivent être entre 1 et 10",
+    "@required_credit_hours_between": {
+        "description": "Text for required credit hours between"
+    },
+    "note": "Notes (Optionnel)",
+    "@note": {
+        "description": "Text for note"
+    },
+    "lecture_days": "Jours de cours :",
+    "@lecture_days": {
+        "description": "Text for lecture days"
+    },
+    "saturday": "Samedi",
+    "@saturday": {
+        "description": "Text for saturday"
+    },
+    "sunday": "Dimanche",
+    "@sunday": {
+        "description": "Text for sunday"
+    },
+    "monday": "Lundi",
+    "@monday": {
+        "description": "Text for monday"
+    },
+    "tuesday": "Mardi",
+    "@tuesday": {
+        "description": "Text for tuesday"
+    },
+    "wednesday": "Mercredi",
+    "@wednesday": {
+        "description": "Text for wednesday"
+    },
+    "thursday": "Jeudi",
+    "@thursday": {
+        "description": "Text for thursday"
+    },
+    "friday": "Vendredi",
+    "@friday": {
+        "description": "Text for friday"
+    },
+    "from": "De",
+    "@from": {
+        "description": "Text for from"
+    },
+    "to": "À",
+    "@to": {
+        "description": "Text for to"
+    },
+    "set_time": "Définir l'heure pour ",
+    "@set_time": {
+        "description": "Text for set time"
+    },
+    "resources": "Ressources",
+    "@resources": {
+        "description": "Text for resources"
+    },
+    "save": "Enregistrer",
+    "@save": {
+        "description": "Text for save"
+    },
+    "cancel": "Annuler",
+    "@cancel": {
+        "description": "Text for cancel"
+    },
+    "link": "Lien",
+    "@link": {
+        "description": "Text for link"
+    },
+    "image": "Image",
+    "@image": {
+        "description": "Text for image"
+    },
+    "book": "Livre",
+    "@book": {
+        "description": "Text for book"
+    },
+    "pdf": "PDF",
+    "@pdf": {
+        "description": "Text for pdf"
+    },
+    "audio": "Audio",
+    "@audio": {
+        "description": "Text for audio"
+    },
+    "video_link": "Lien Vidéo",
+    "@video_link": {
+        "description": "Text for video link"
+    },
+    "video": "Vidéo",
+    "@video": {
+        "description": "Text for video"
+    },
+    "edit_book": "Modifier le livre",
+    "@edit_book": {
+        "description": "Text for edit book"
+    },
+    "edit_link": "Modifier le lien",
+    "@edit_link": {
+        "description": "Text for edit link"
+    },
+    "edit_video": "Modifier la vidéo",
+    "@edit_video": {
+        "description": "Text for edit video"
+    },
+    "edit_audio": "Modifier l'audio",
+    "@edit_audio": {
+        "description": "Text for edit audio"
+    },
+    "edit_pdf": "Modifier le PDF",
+    "@edit_pdf": {
+        "description": "Text for edit pdf"
+    },
+    "edit_image": "Modifier l'image",
+    "@edit_image": {
+        "description": "Text for edit image"
+    },
+    "add_new_book": "Ajouter un nouveau livre",
+    "@add_new_book": {
+        "description": "Text for add new book"
+    },
+    "book_title": "Titre du livre",
+    "@book_title": {
+        "description": "Text for book title"
+    },
+    "book_author": "Nom de l'auteur",
+    "@book_author": {
+        "description": "Text for book author"
+    },
+    "required_book_title": "Veuillez entrer le titre du livre",
+    "@required_book_title": {
+        "description": "Text for required book title"
+    },
+    "required_book_author": "Veuillez entrer le nom de l'auteur",
+    "@required_book_author": {
+        "description": "Text for required book author"
+    },
+    "book_desc": "Description du livre (Optionnel)",
+    "@book_desc": {
+        "description": "Text for book description"
+    },
+    "update": "Mettre à jour",
+    "@update": {
+        "description": "Text for update"
+    },
+    "add": "Ajouter",
+    "@add": {
+        "description": "Text for add"
+    },
+    "web_link": "Lien Web",
+    "@web_link": {
+        "description": "Text for web link"
+    },
+    "book_link": "Lien du livre",
+    "@book_link": {
+        "description": "Text for book link"
+    },
+    "edit_video_link": "Modifier le lien vidéo",
+    "@edit_video_link": {
+        "description": "Text for edit video link"
+    },
+    "add_video_link": "Ajouter un lien vidéo",
+    "@add_video_link": {
+        "description": "Text for add video link"
+    },
+    "edit_book_link": "Modifier le lien du livre",
+    "@edit_book_link": {
+        "description": "Text for edit book link"
+    },
+    "add_book_link": "Ajouter un lien de livre",
+    "@add_book_link": {
+        "description": "Text for add book link"
+    },
+    "add_new_link": "Ajouter un nouveau lien",
+    "@add_new_link": {
+        "description": "Text for add new link"
+    },
+    "link_title": "Titre du lien",
+    "@link_title": {
+        "description": "Text for link title"
+    },
+    "required_link_title": "Veuillez entrer le titre du lien",
+    "@required_link_title": {
+        "description": "Text for required link title"
+    },
+    "required_link_url": "Veuillez entrer l'URL du lien",
+    "@required_link_url": {
+        "description": "Text for required link url"
+    },
+    "valid_link_url": "Veuillez entrer une URL valide",
+    "@valid_link_url": {
+        "description": "Text for link url"
+    },
+    "link_desc": "Description du lien (Optionnel)",
+    "@link_desc": {
+        "description": "Text for link description"
+    },
+    "no_resources": "Aucune ressource pour le moment",
+    "@no_resources": {
+        "description": "Text for no resources"
+    },
+    "tap_button": "Appuyez sur les boutons ci-dessus pour ajouter des ressources",
+    "@tap_button": {
+        "description": "Text for tap button"
+    },
+    "required_year_and_semester": "Veuillez sélectionner l'année et le semestre",
+    "@required_year_and_semester": {
+        "description": "Text for required year and semester"
+    },
+    "feild_credit_hours": "Les heures de crédit doivent être un nombre",
+    "@feild_credit_hours": {
+        "description": "Text for feild credit hours"
+    },
+    "network_error": "Erreur réseau, veuillez réessayer",
+    "@network_error": {
+        "description": "Text for network error"
+    },
+    "saving_project": "Enregistrement du projet...",
+    "@saving_project": {
+        "description": "Text for saving project"
+    },
+    "please_wait_upload": "Veuillez patienter, les fichiers et images sont en cours de téléchargement....",
+    "@please_wait_upload": {
+        "description": "Text for please wait upload"
     }
 }

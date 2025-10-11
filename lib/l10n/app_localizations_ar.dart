@@ -617,4 +617,255 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get theme_setting_desc => 'اختر المظهر المفضل لديك';
+
+  @override
+  String get success_snack_bar => 'تم تحميل المواد بنجاح';
+
+  @override
+  String get error_snack_bar => 'خطأ => حاول مرة أخرى';
+
+  @override
+  String get header_subject_Desc => 'نظم دراستك واجعل التعلم أكثر متعة.';
+
+  @override
+  String get free => 'مجاني';
+
+  @override
+  String get medium => 'متوسط';
+
+  @override
+  String get pro => 'احترافي';
+
+  @override
+  String get first_year => 'السنة الأولى';
+
+  @override
+  String get second_year => 'السنة الثانية';
+
+  @override
+  String get third_year => 'السنة الثالثة';
+
+  @override
+  String get fourth_year => 'السنة الرابعة';
+
+  @override
+  String get fifth_year => 'السنة الخامسة';
+
+  @override
+  String get sixth_year => 'السنة السادسة';
+
+  @override
+  String get seventh_year => 'السنة السابعة';
+
+  @override
+  String get first_semester => 'الفصل الدراسي الأول';
+
+  @override
+  String get second_semester => 'الفصل الدراسي الثاني';
+
+  @override
+  String get info_year_and_semester => 'معلومات السنة والفصل الدراسي';
+
+  @override
+  String get select_year => 'اختر السنة';
+
+  @override
+  String get select_semester => 'اختر الفصل الدراسي';
+
+  @override
+  String get current_selection => 'الاختيار الحالي: ';
+
+  @override
+  String get material_data => 'بيانات المادة';
+
+  @override
+  String get subject_name => 'اسم المادة';
+
+  @override
+  String get required_subjectt_name => 'اسم المادة مطلوب';
+
+  @override
+  String get subject_code => 'كود المادة (اختياري)';
+
+  @override
+  String get dr_name => 'اسم الدكتور';
+
+  @override
+  String get required_dr_name => 'اسم الدكتور مطلوب';
+
+  @override
+  String get credit_hours => 'الساعات المعتمدة';
+
+  @override
+  String get required_credit_hours => 'الساعات المعتمدة مطلوبة';
+
+  @override
+  String get required_credit_hours_between =>
+      'يجب أن تكون الساعات المعتمدة بين 1 و 10';
+
+  @override
+  String get note => 'ملاحظات (اختياري)';
+
+  @override
+  String get lecture_days => 'أيام المحاضرات:';
+
+  @override
+  String get saturday => 'السبت';
+
+  @override
+  String get sunday => 'الأحد';
+
+  @override
+  String get monday => 'الاثنين';
+
+  @override
+  String get tuesday => 'الثلاثاء';
+
+  @override
+  String get wednesday => 'الأربعاء';
+
+  @override
+  String get thursday => 'الخميس';
+
+  @override
+  String get friday => 'الجمعة';
+
+  @override
+  String get from => 'من';
+
+  @override
+  String get to => 'إلى';
+
+  @override
+  String get set_time => 'تحديد الوقت لـ ';
+
+  @override
+  String get resources => 'المصادر';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get link => 'رابط';
+
+  @override
+  String get image => 'صورة';
+
+  @override
+  String get book => 'كتاب';
+
+  @override
+  String get pdf => 'PDF';
+
+  @override
+  String get audio => 'صوت';
+
+  @override
+  String get video_link => 'رابط فيديو';
+
+  @override
+  String get video => 'فيديو';
+
+  @override
+  String get edit_book => 'تعديل الكتاب';
+
+  @override
+  String get edit_link => 'تعديل الرابط';
+
+  @override
+  String get edit_video => 'تعديل الفيديو';
+
+  @override
+  String get edit_audio => 'تعديل الصوت';
+
+  @override
+  String get edit_pdf => 'تعديل PDF';
+
+  @override
+  String get edit_image => 'تعديل الصورة';
+
+  @override
+  String get add_new_book => 'إضافة كتاب جديد';
+
+  @override
+  String get book_title => 'عنوان الكتاب';
+
+  @override
+  String get book_author => 'اسم المؤلف';
+
+  @override
+  String get required_book_title => 'الرجاء إدخال عنوان الكتاب';
+
+  @override
+  String get required_book_author => 'الرجاء إدخال اسم المؤلف';
+
+  @override
+  String get book_desc => 'وصف الكتاب (اختياري)';
+
+  @override
+  String get update => 'تحديث';
+
+  @override
+  String get add => 'إضافة';
+
+  @override
+  String get web_link => 'رابط ويب';
+
+  @override
+  String get book_link => 'رابط الكتاب';
+
+  @override
+  String get edit_video_link => 'تعديل رابط الفيديو';
+
+  @override
+  String get add_video_link => 'إضافة رابط فيديو';
+
+  @override
+  String get edit_book_link => 'تعديل رابط الكتاب';
+
+  @override
+  String get add_book_link => 'إضافة رابط كتاب';
+
+  @override
+  String get add_new_link => 'إضافة رابط جديد';
+
+  @override
+  String get link_title => 'عنوان الرابط';
+
+  @override
+  String get required_link_title => 'الرجاء إدخال عنوان الرابط';
+
+  @override
+  String get required_link_url => 'الرجاء إدخال عنوان URL للرابط';
+
+  @override
+  String get valid_link_url => 'الرجاء إدخال عنوان URL صحيح';
+
+  @override
+  String get link_desc => 'وصف الرابط (اختياري)';
+
+  @override
+  String get no_resources => 'لا توجد مصادر بعد';
+
+  @override
+  String get tap_button => 'اضغط على الأزرار أعلاه لإضافة المصادر';
+
+  @override
+  String get required_year_and_semester => 'الرجاء اختيار السنة والفصل الدراسي';
+
+  @override
+  String get feild_credit_hours => 'يجب أن تكون الساعات المعتمدة رقمًا';
+
+  @override
+  String get network_error => 'خطأ في الشبكة، حاول مرة أخرى';
+
+  @override
+  String get saving_project => 'جاري حفظ المشروع...';
+
+  @override
+  String get please_wait_upload =>
+      'الرجاء الانتظار، جاري رفع الملفات والصور....';
 }

@@ -638,4 +638,260 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get theme_setting_desc => 'Choisissez votre thème préféré';
+
+  @override
+  String get success_snack_bar => 'Matières chargées avec succès';
+
+  @override
+  String get error_snack_bar => 'Erreur => Veuillez réessayer';
+
+  @override
+  String get header_subject_Desc =>
+      'Organisez vos études et rendez l\'apprentissage plus amusant.';
+
+  @override
+  String get free => 'Gratuit';
+
+  @override
+  String get medium => 'Moyen';
+
+  @override
+  String get pro => 'Pro';
+
+  @override
+  String get first_year => 'Première Année';
+
+  @override
+  String get second_year => 'Deuxième Année';
+
+  @override
+  String get third_year => 'Troisième Année';
+
+  @override
+  String get fourth_year => 'Quatrième Année';
+
+  @override
+  String get fifth_year => 'Cinquième Année';
+
+  @override
+  String get sixth_year => 'Sixième Année';
+
+  @override
+  String get seventh_year => 'Septième Année';
+
+  @override
+  String get first_semester => 'Premier Semestre';
+
+  @override
+  String get second_semester => 'Deuxième Semestre';
+
+  @override
+  String get info_year_and_semester =>
+      'Informations sur l\'année et le semestre';
+
+  @override
+  String get select_year => 'Sélectionner l\'année';
+
+  @override
+  String get select_semester => 'Sélectionner le semestre';
+
+  @override
+  String get current_selection => 'Sélection actuelle : ';
+
+  @override
+  String get material_data => 'Données de la matière';
+
+  @override
+  String get subject_name => 'Nom de la matière';
+
+  @override
+  String get required_subjectt_name => 'Le nom de la matière est requis';
+
+  @override
+  String get subject_code => 'Code de la matière (Optionnel)';
+
+  @override
+  String get dr_name => 'Nom du Professeur';
+
+  @override
+  String get required_dr_name => 'Le nom du professeur est requis';
+
+  @override
+  String get credit_hours => 'Heures de crédit';
+
+  @override
+  String get required_credit_hours => 'Les heures de crédit sont requises';
+
+  @override
+  String get required_credit_hours_between =>
+      'Les heures de crédit doivent être entre 1 et 10';
+
+  @override
+  String get note => 'Notes (Optionnel)';
+
+  @override
+  String get lecture_days => 'Jours de cours :';
+
+  @override
+  String get saturday => 'Samedi';
+
+  @override
+  String get sunday => 'Dimanche';
+
+  @override
+  String get monday => 'Lundi';
+
+  @override
+  String get tuesday => 'Mardi';
+
+  @override
+  String get wednesday => 'Mercredi';
+
+  @override
+  String get thursday => 'Jeudi';
+
+  @override
+  String get friday => 'Vendredi';
+
+  @override
+  String get from => 'De';
+
+  @override
+  String get to => 'À';
+
+  @override
+  String get set_time => 'Définir l\'heure pour ';
+
+  @override
+  String get resources => 'Ressources';
+
+  @override
+  String get save => 'Enregistrer';
+
+  @override
+  String get cancel => 'Annuler';
+
+  @override
+  String get link => 'Lien';
+
+  @override
+  String get image => 'Image';
+
+  @override
+  String get book => 'Livre';
+
+  @override
+  String get pdf => 'PDF';
+
+  @override
+  String get audio => 'Audio';
+
+  @override
+  String get video_link => 'Lien Vidéo';
+
+  @override
+  String get video => 'Vidéo';
+
+  @override
+  String get edit_book => 'Modifier le livre';
+
+  @override
+  String get edit_link => 'Modifier le lien';
+
+  @override
+  String get edit_video => 'Modifier la vidéo';
+
+  @override
+  String get edit_audio => 'Modifier l\'audio';
+
+  @override
+  String get edit_pdf => 'Modifier le PDF';
+
+  @override
+  String get edit_image => 'Modifier l\'image';
+
+  @override
+  String get add_new_book => 'Ajouter un nouveau livre';
+
+  @override
+  String get book_title => 'Titre du livre';
+
+  @override
+  String get book_author => 'Nom de l\'auteur';
+
+  @override
+  String get required_book_title => 'Veuillez entrer le titre du livre';
+
+  @override
+  String get required_book_author => 'Veuillez entrer le nom de l\'auteur';
+
+  @override
+  String get book_desc => 'Description du livre (Optionnel)';
+
+  @override
+  String get update => 'Mettre à jour';
+
+  @override
+  String get add => 'Ajouter';
+
+  @override
+  String get web_link => 'Lien Web';
+
+  @override
+  String get book_link => 'Lien du livre';
+
+  @override
+  String get edit_video_link => 'Modifier le lien vidéo';
+
+  @override
+  String get add_video_link => 'Ajouter un lien vidéo';
+
+  @override
+  String get edit_book_link => 'Modifier le lien du livre';
+
+  @override
+  String get add_book_link => 'Ajouter un lien de livre';
+
+  @override
+  String get add_new_link => 'Ajouter un nouveau lien';
+
+  @override
+  String get link_title => 'Titre du lien';
+
+  @override
+  String get required_link_title => 'Veuillez entrer le titre du lien';
+
+  @override
+  String get required_link_url => 'Veuillez entrer l\'URL du lien';
+
+  @override
+  String get valid_link_url => 'Veuillez entrer une URL valide';
+
+  @override
+  String get link_desc => 'Description du lien (Optionnel)';
+
+  @override
+  String get no_resources => 'Aucune ressource pour le moment';
+
+  @override
+  String get tap_button =>
+      'Appuyez sur les boutons ci-dessus pour ajouter des ressources';
+
+  @override
+  String get required_year_and_semester =>
+      'Veuillez sélectionner l\'année et le semestre';
+
+  @override
+  String get feild_credit_hours =>
+      'Les heures de crédit doivent être un nombre';
+
+  @override
+  String get network_error => 'Erreur réseau, veuillez réessayer';
+
+  @override
+  String get saving_project => 'Enregistrement du projet...';
+
+  @override
+  String get please_wait_upload =>
+      'Veuillez patienter, les fichiers et images sont en cours de téléchargement....';
 }

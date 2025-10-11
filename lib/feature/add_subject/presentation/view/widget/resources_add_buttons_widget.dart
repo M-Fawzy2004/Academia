@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/resources_cubit/resources_cubit.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/resources_cubit/resources_state.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/link_dialog.dart';
@@ -69,7 +70,7 @@ class ResourcesLinkButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AddButton(
       icon: Icons.play_circle_outline,
-      label: isArabic ? 'رابط فيديو' : 'Video Link',
+      label: context.tr.video_link,
       color: Colors.purple,
       onTap: () => _showLinkDialog(context),
       isLoading: isLoading,
@@ -103,7 +104,7 @@ class ResourcesImageButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AddButton(
       icon: Icons.image,
-      label: isArabic ? 'صورة' : 'Image',
+      label: context.tr.image,
       color: Colors.green,
       onTap: () => cubit.addImage(context),
       isLoading: isLoading,
@@ -125,7 +126,7 @@ class ResourcesPdfButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AddButton(
       icon: Icons.picture_as_pdf,
-      label: 'PDF',
+      label: context.tr.pdf,
       color: Colors.red,
       onTap: () => cubit.addPDF(context),
       isLoading: isLoading,
@@ -149,7 +150,7 @@ class ResourcesBookButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AddButton(
       icon: Icons.book,
-      label: isArabic ? 'كتاب' : 'Book',
+      label: context.tr.book,
       color: Colors.orange,
       onTap: () => _showBookDialog(context),
       isLoading: isLoading,
