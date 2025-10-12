@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/extension.dart';
 import 'package:study_box/core/localization/translate.dart';
@@ -44,16 +43,13 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
               },
             ),
             const SettingsDivider(),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.h),
-              child: SettingsNavigation(
-                icon: Icons.color_lens_rounded,
-                title: context.tr.appearance,
-                onTap: () {
-                  context
-                      .navigateWithSlideTransition(const ThemeSelectorView());
-                },
-              ),
+            SettingsNavigation(
+              icon: Icons.color_lens_rounded,
+              title: context.tr.appearance,
+              subtitle: 'Choose Your Favorite Appearacne',
+              onTap: () {
+                context.navigateWithSlideTransition(const ThemeSelectorView());
+              },
             ),
             const SettingsDivider(),
             SettingsNavigation(
@@ -66,6 +62,7 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
             SettingsNavigation(
               icon: Icons.emoji_events_rounded,
               title: context.tr.achievements,
+              subtitle: 'Check Your Achievements',
               onTap: () {},
             ),
           ],

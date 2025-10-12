@@ -17,7 +17,7 @@ class SettingsCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: height,
-      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
         color: AppColors.getCardColorTwo(context),

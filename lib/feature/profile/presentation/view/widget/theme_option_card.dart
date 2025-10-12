@@ -30,7 +30,7 @@ class ThemeOptionCard extends StatelessWidget {
       child: Stack(
         children: [
           AnimatedContainer(
-            duration: const Duration(milliseconds: 400),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.easeOutCubic,
             margin: EdgeInsets.only(
               right: isRTL ? 0 : (isSelected ? 0 : 40.w),

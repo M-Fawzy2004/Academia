@@ -83,6 +83,8 @@ class _StudyBoxAppState extends State<StudyBoxApp> with WidgetsBindingObserver {
         },
         locale: _locale,
         theme: lightTheme,
+        themeAnimationDuration: const Duration(milliseconds: 300),
+        themeAnimationCurve: Curves.easeIn,
         darkTheme: darkTheme,
         themeMode: themeMode,
         key: ValueKey(

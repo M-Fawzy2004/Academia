@@ -24,7 +24,7 @@ class SettingsSwitch extends StatelessWidget {
     final isRTL = Directionality.of(context) == TextDirection.rtl;
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.h),
+      padding: EdgeInsets.symmetric(vertical: 12.h),
       child: Row(
         children: [
           Icon(icon),

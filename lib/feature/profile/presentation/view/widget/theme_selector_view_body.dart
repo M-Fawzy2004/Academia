@@ -40,10 +40,8 @@ class ThemeSelectorViewBodyState extends State<ThemeSelectorViewBody> {
     setState(() {
       selectedTheme = theme;
     });
+    await Future.delayed(const Duration(milliseconds: 300));
     await ThemeManager.instance.setTheme(theme);
-    if (mounted) {
-      setState(() {});
-    }
   }
 
   @override

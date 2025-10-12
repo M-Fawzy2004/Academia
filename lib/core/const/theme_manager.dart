@@ -56,6 +56,7 @@ class ThemeManager extends ChangeNotifier {
       useMaterial3: true,
       brightness: Brightness.light,
       fontFamily: 'fontApp',
+
       primaryColor: AppColors.primaryColor,
       scaffoldBackgroundColor: AppColors.lightBackgroundColor,
       cardColor: AppColors.lightCardColor,

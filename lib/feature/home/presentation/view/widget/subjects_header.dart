@@ -13,7 +13,7 @@ class SubjectsHeader extends StatelessWidget {
       children: [
         Text(
           context.tr.subject,
-          style: Styles.font20MediumBold(context),
+          style: Styles.font20PrimaryColorTextBold(context),
         ),
         const Spacer(),
         TextButton.icon(
