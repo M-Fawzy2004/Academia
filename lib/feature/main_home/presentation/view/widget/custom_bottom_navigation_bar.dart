@@ -19,13 +19,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.getBackgroundColor(context),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 20,
-            offset: const Offset(0, -5),
-          ),
-        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

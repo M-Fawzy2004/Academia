@@ -15,6 +15,8 @@ class SubjectCubit extends Cubit<SubjectState> {
 
   /// Update last accessed
   Future<void> updateLastAccessed(String subjectId) async {
+    if (isClosed) return;
+
     if (state is SubjectsLoaded) {
       final subjects = (state as SubjectsLoaded).subjects;
 
@@ -28,7 +30,9 @@ class SubjectCubit extends Cubit<SubjectState> {
         return subject;
       }).toList();
 
-      emit(SubjectsLoaded(updatedSubjects));
+      if (!isClosed) {
+        emit(SubjectsLoaded(updatedSubjects));
+      }
 
       final updatedSubject = updatedSubjects.firstWhere(
         (s) => s.id == subjectId,
@@ -39,21 +43,31 @@ class SubjectCubit extends Cubit<SubjectState> {
 
   /// Add subject
   Future<void> addSubject(SubjectEntity subject) async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final tierResult = await subjectRepository.getUserSubscriptionTier();
+    if (isClosed) return;
+
     await tierResult.fold(
-      (failure) async => emit(SubjectError(failure.formattedMessage)),
+      (failure) async {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
       (tier) async {
         final limits = SubscriptionLimits.limits[tier]!;
         final allSubjectsResult = await subjectRepository.getAllSubjects();
+        if (isClosed) return;
 
         await allSubjectsResult.fold(
-          (failure) async => emit(SubjectError(failure.formattedMessage)),
+          (failure) async {
+            if (!isClosed) emit(SubjectError(failure.formattedMessage));
+          },
           (allSubjects) async {
             if (allSubjects.length >= limits.maxSubjects) {
-              emit(
-                  SubjectError('Subject limit exceeded for ${tier.name} plan'));
+              if (!isClosed) {
+                emit(SubjectError(
+                    'Subject limit exceeded for ${tier.name} plan'));
+              }
               return;
             }
 
@@ -65,39 +79,60 @@ class SubjectCubit extends Cubit<SubjectState> {
                 .where((r) => r.type == ResourceType.pdf)
                 .length;
             final int linksCount = subject.resources
-                .where((r) => r.type == ResourceType.youtubeLink || r.type == ResourceType.bookLink)
+                .where((r) =>
+                    r.type == ResourceType.youtubeLink ||
+                    r.type == ResourceType.bookLink)
                 .length;
 
             if (imagesCount > limits.maxImagesPerSubject) {
-              emit(SubjectError('Image limit exceeded for ${tier.name} plan'));
+              if (!isClosed) {
+                emit(
+                    SubjectError('Image limit exceeded for ${tier.name} plan'));
+              }
               return;
             }
             if (pdfsCount > limits.maxPdfsPerSubject) {
-              emit(SubjectError('PDF limit exceeded for ${tier.name} plan'));
+              if (!isClosed) {
+                emit(SubjectError('PDF limit exceeded for ${tier.name} plan'));
+              }
               return;
             }
             if (linksCount > limits.maxLinksPerSubject) {
-              emit(SubjectError('Link limit exceeded for ${tier.name} plan'));
+              if (!isClosed) {
+                emit(SubjectError('Link limit exceeded for ${tier.name} plan'));
+              }
               return;
             }
 
-            for (final r in subject.resources.where((r) => r.type == ResourceType.pdf)) {
+            for (final r
+                in subject.resources.where((r) => r.type == ResourceType.pdf)) {
               final size = r.fileSizeMB;
               if (size != null && size > limits.maxPdfSizeMB) {
-                emit(SubjectError('PDF size exceeds ${limits.maxPdfSizeMB}MB limit for ${tier.name} plan'));
+                if (!isClosed) {
+                  emit(SubjectError(
+                      'PDF size exceeds ${limits.maxPdfSizeMB}MB limit for ${tier.name} plan'));
+                }
                 return;
               }
             }
 
             final result = await subjectRepository.addSubject(subject);
+            if (isClosed) return;
+
             await result.fold(
-              (failure) async => emit(SubjectError(failure.formattedMessage)),
+              (failure) async {
+                if (!isClosed) emit(SubjectError(failure.formattedMessage));
+              },
               (createdSubjectId) async {
                 // Upload local image/pdf files to storage and replace URLs
                 final List<ResourceItem> updatedResources = [];
                 for (final r in subject.resources) {
-                  final isFileType = r.type == ResourceType.image || r.type == ResourceType.pdf;
-                  final looksLikeHttp = r.url.startsWith('http://') || r.url.startsWith('https://');
+                  if (isClosed) return;
+
+                  final isFileType = r.type == ResourceType.image ||
+                      r.type == ResourceType.pdf;
+                  final looksLikeHttp = r.url.startsWith('http://') ||
+                      r.url.startsWith('https://');
                   if (isFileType && !looksLikeHttp) {
                     try {
                       final publicUrl = await storageService.uploadSubjectFile(
@@ -105,6 +140,8 @@ class SubjectCubit extends Cubit<SubjectState> {
                         filePath: r.url,
                         overrideFileName: r.title,
                       );
+
+                      if (isClosed) return;
 
                       // Optionally insert a row into resources table for centralized listing
                       await storageService.insertResourceRow(
@@ -114,6 +151,8 @@ class SubjectCubit extends Cubit<SubjectState> {
                         url: publicUrl,
                         fileSizeMB: r.fileSizeMB,
                       );
+
+                      if (isClosed) return;
 
                       updatedResources.add(
                         ResourceItem(
@@ -126,13 +165,17 @@ class SubjectCubit extends Cubit<SubjectState> {
                         ),
                       );
                     } catch (e) {
-                      emit(SubjectError('Failed to upload file: $e'));
+                      if (!isClosed) {
+                        emit(SubjectError('Failed to upload file: $e'));
+                      }
                       return;
                     }
                   } else {
                     updatedResources.add(r);
                   }
                 }
+
+                if (isClosed) return;
 
                 // Persist updated resources back to subject row
                 final updatedSubject = SubjectEntity(
@@ -152,10 +195,19 @@ class SubjectCubit extends Cubit<SubjectState> {
                   lastAccessedAt: subject.lastAccessedAt,
                 );
 
-                final updateResult = await subjectRepository.updateSubject(updatedSubject);
+                final updateResult =
+                    await subjectRepository.updateSubject(updatedSubject);
+                if (isClosed) return;
+
                 updateResult.fold(
-                  (failure) => emit(SubjectError(failure.formattedMessage)),
-                  (_) => emit(const SubjectSuccess('Subject added successfully')),
+                  (failure) {
+                    if (!isClosed) emit(SubjectError(failure.formattedMessage));
+                  },
+                  (_) {
+                    if (!isClosed) {
+                      emit(const SubjectSuccess('Subject added successfully'));
+                    }
+                  },
                 );
               },
             );
@@ -167,56 +219,95 @@ class SubjectCubit extends Cubit<SubjectState> {
 
   // Get subjects by year and semester
   Future<void> getSubjectsByYearAndSemester(int year, int semester) async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final result = await subjectRepository.getSubjects(year, semester);
+    if (isClosed) return;
+
     result.fold(
-      (failure) => emit(SubjectError(failure.formattedMessage)),
-      (subjects) => emit(SubjectsLoaded(subjects)),
+      (failure) {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
+      (subjects) {
+        if (!isClosed) emit(SubjectsLoaded(subjects));
+      },
     );
   }
 
   /// Get all subjects
   Future<void> getAllSubjects() async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final result = await subjectRepository.getAllSubjects();
+    if (isClosed) return;
+
     result.fold(
-      (failure) => emit(SubjectError(failure.formattedMessage)),
-      (subjects) => emit(SubjectsLoaded(subjects)),
+      (failure) {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
+      (subjects) {
+        if (!isClosed) emit(SubjectsLoaded(subjects));
+      },
     );
   }
 
   /// Update existing subject
   Future<void> updateSubject(SubjectEntity subject) async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final result = await subjectRepository.updateSubject(subject);
+    if (isClosed) return;
+
     result.fold(
-      (failure) => emit(SubjectError(failure.formattedMessage)),
-      (_) => emit(const SubjectSuccess('Subject updated successfully')),
+      (failure) {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
+      (_) {
+        if (!isClosed) {
+          emit(const SubjectSuccess('Subject updated successfully'));
+        }
+      },
     );
   }
 
   /// Delete subject
   Future<void> deleteSubject(String id) async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final result = await subjectRepository.deleteSubject(id);
+    if (isClosed) return;
+
     result.fold(
-      (failure) => emit(SubjectError(failure.formattedMessage)),
-      (_) => emit(const SubjectSuccess('Subject deleted successfully')),
+      (failure) {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
+      (_) {
+        if (!isClosed) {
+          emit(const SubjectSuccess('Subject deleted successfully'));
+        }
+      },
     );
   }
 
   /// Get subject by ID
   Future<void> getSubjectById(String id) async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final result = await subjectRepository.getSubjectById(id);
+    if (isClosed) return;
+
     result.fold(
-      (failure) => emit(SubjectError(failure.formattedMessage)),
-      (subject) => emit(SubjectLoaded(subject)),
+      (failure) {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
+      (subject) {
+        if (!isClosed) emit(SubjectLoaded(subject));
+      },
     );
   }
 
@@ -225,15 +316,24 @@ class SubjectCubit extends Cubit<SubjectState> {
     String subjectId,
     ResourceItem resource,
   ) async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final subjectResult = await subjectRepository.getSubjectById(subjectId);
+    if (isClosed) return;
+
     await subjectResult.fold(
-      (failure) async => emit(SubjectError(failure.formattedMessage)),
+      (failure) async {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
       (subject) async {
         final tierResult = await subjectRepository.getUserSubscriptionTier();
+        if (isClosed) return;
+
         await tierResult.fold(
-          (failure) async => emit(SubjectError(failure.formattedMessage)),
+          (failure) async {
+            if (!isClosed) emit(SubjectError(failure.formattedMessage));
+          },
           (tier) async {
             final currentCount =
                 subject.resources.where((r) => r.type == resource.type).length;
@@ -245,8 +345,12 @@ class SubjectCubit extends Cubit<SubjectState> {
               fileSizeMB: resource.fileSizeMB,
             );
 
+            if (isClosed) return;
+
             await limitCheck.fold(
-              (failure) async => emit(SubjectError(failure.formattedMessage)),
+              (failure) async {
+                if (!isClosed) emit(SubjectError(failure.formattedMessage));
+              },
               (_) async {
                 final updatedResources = [...subject.resources, resource];
                 final updatedSubject = SubjectEntity(
@@ -268,10 +372,17 @@ class SubjectCubit extends Cubit<SubjectState> {
 
                 final updateResult =
                     await subjectRepository.updateSubject(updatedSubject);
+                if (isClosed) return;
+
                 updateResult.fold(
-                  (failure) => emit(SubjectError(failure.formattedMessage)),
-                  (_) =>
-                      emit(const SubjectSuccess('Resource added successfully')),
+                  (failure) {
+                    if (!isClosed) emit(SubjectError(failure.formattedMessage));
+                  },
+                  (_) {
+                    if (!isClosed) {
+                      emit(const SubjectSuccess('Resource added successfully'));
+                    }
+                  },
                 );
               },
             );
@@ -286,11 +397,16 @@ class SubjectCubit extends Cubit<SubjectState> {
     String subjectId,
     String resourceId,
   ) async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final subjectResult = await subjectRepository.getSubjectById(subjectId);
+    if (isClosed) return;
+
     await subjectResult.fold(
-      (failure) async => emit(SubjectError(failure.formattedMessage)),
+      (failure) async {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
       (subject) async {
         final updatedResources =
             subject.resources.where((r) => r.id != resourceId).toList();
@@ -314,9 +430,17 @@ class SubjectCubit extends Cubit<SubjectState> {
 
         final updateResult =
             await subjectRepository.updateSubject(updatedSubject);
+        if (isClosed) return;
+
         updateResult.fold(
-          (failure) => emit(SubjectError(failure.formattedMessage)),
-          (_) => emit(const SubjectSuccess('Resource removed successfully')),
+          (failure) {
+            if (!isClosed) emit(SubjectError(failure.formattedMessage));
+          },
+          (_) {
+            if (!isClosed) {
+              emit(const SubjectSuccess('Resource removed successfully'));
+            }
+          },
         );
       },
     );
@@ -327,11 +451,16 @@ class SubjectCubit extends Cubit<SubjectState> {
     String subjectId,
     LectureSchedule lecture,
   ) async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final subjectResult = await subjectRepository.getSubjectById(subjectId);
+    if (isClosed) return;
+
     await subjectResult.fold(
-      (failure) async => emit(SubjectError(failure.formattedMessage)),
+      (failure) async {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
       (subject) async {
         final updatedLectures = [...subject.lectures, lecture];
         final updatedSubject = SubjectEntity(
@@ -353,9 +482,17 @@ class SubjectCubit extends Cubit<SubjectState> {
 
         final updateResult =
             await subjectRepository.updateSubject(updatedSubject);
+        if (isClosed) return;
+
         updateResult.fold(
-          (failure) => emit(SubjectError(failure.formattedMessage)),
-          (_) => emit(const SubjectSuccess('Lecture added successfully')),
+          (failure) {
+            if (!isClosed) emit(SubjectError(failure.formattedMessage));
+          },
+          (_) {
+            if (!isClosed) {
+              emit(const SubjectSuccess('Lecture added successfully'));
+            }
+          },
         );
       },
     );
@@ -366,11 +503,16 @@ class SubjectCubit extends Cubit<SubjectState> {
     String subjectId,
     String lectureId,
   ) async {
+    if (isClosed) return;
     emit(SubjectLoading());
 
     final subjectResult = await subjectRepository.getSubjectById(subjectId);
+    if (isClosed) return;
+
     await subjectResult.fold(
-      (failure) async => emit(SubjectError(failure.formattedMessage)),
+      (failure) async {
+        if (!isClosed) emit(SubjectError(failure.formattedMessage));
+      },
       (subject) async {
         final updatedLectures =
             subject.lectures.where((l) => l.id != lectureId).toList();
@@ -394,9 +536,17 @@ class SubjectCubit extends Cubit<SubjectState> {
 
         final updateResult =
             await subjectRepository.updateSubject(updatedSubject);
+        if (isClosed) return;
+
         updateResult.fold(
-          (failure) => emit(SubjectError(failure.formattedMessage)),
-          (_) => emit(const SubjectSuccess('Lecture removed successfully')),
+          (failure) {
+            if (!isClosed) emit(SubjectError(failure.formattedMessage));
+          },
+          (_) {
+            if (!isClosed) {
+              emit(const SubjectSuccess('Lecture removed successfully'));
+            }
+          },
         );
       },
     );
