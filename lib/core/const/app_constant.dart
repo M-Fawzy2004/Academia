@@ -25,4 +25,7 @@ class AppConstant {
 
   // user profile
   static const String subscriptionTable = 'subscription';
+
+  // reminders
+  static const String tableReminders = 'reminders';
 }

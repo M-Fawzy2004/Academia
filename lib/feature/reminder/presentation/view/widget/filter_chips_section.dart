@@ -15,7 +15,7 @@ class FilterChipsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final filters = ['All', 'Subjects', 'Tasks', 'AI'];
+    final filters = ['All', 'Subjects', 'Tasks'];
 
     return SizedBox(
       height: 40.h,

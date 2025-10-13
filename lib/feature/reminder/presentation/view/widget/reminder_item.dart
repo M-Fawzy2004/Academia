@@ -4,7 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
-import 'package:study_box/feature/reminder/data/model/reminder_type_config.dart';
+import 'package:study_box/feature/reminder/presentation/view/widget/reminder_type_config.dart';
 import 'package:study_box/feature/reminder/presentation/view/widget/reminder_type_badge.dart';
 
 class ReminderItem extends StatefulWidget {

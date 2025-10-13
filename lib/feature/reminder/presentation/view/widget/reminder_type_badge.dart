@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/styles.dart';
-import 'package:study_box/feature/reminder/data/model/reminder_type_config.dart';
+import 'package:study_box/feature/reminder/presentation/view/widget/reminder_type_config.dart';
 
 class ReminderTypeBadge extends StatelessWidget {
   final ReminderType type;
