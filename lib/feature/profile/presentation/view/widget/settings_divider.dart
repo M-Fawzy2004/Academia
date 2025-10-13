@@ -8,7 +8,7 @@ class SettingsDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Divider(
-      color: AppColors.darkBackgroundColor,
+      color: AppColors.getDarkGreyColor(context),
       thickness: 0.5.h,
       height: 1.h,
     );

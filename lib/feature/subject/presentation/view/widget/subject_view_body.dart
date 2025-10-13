@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/subject/presentation/view/widget/custom_search_widget.dart';
 import 'package:study_box/feature/subject/presentation/view/widget/subjects_bloc_builder.dart';
@@ -49,16 +49,11 @@ class _SubjectViewBodyState extends State<SubjectViewBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                heightBox(15),
                 Row(
                   children: [
                     Text(
                       context.tr.study_subject,
-                      style: TextStyle(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.getTextPrimaryColor(context),
-                      ),
+                      style: Styles.font20PrimaryColorTextBold(context),
                     ),
                     const Spacer(),
                     IconButton(
@@ -72,7 +67,6 @@ class _SubjectViewBodyState extends State<SubjectViewBody> {
                     ),
                   ],
                 ),
-                heightBox(10),
                 CustomSearchWidget(
                   showGradeFilter: true,
                   showSemesterFilter: true,

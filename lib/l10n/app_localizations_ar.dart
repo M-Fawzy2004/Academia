@@ -928,4 +928,138 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get past_exam => 'امتحانات سابقة';
+
+  @override
+  String get subject_details => 'تفاصيل المادة';
+
+  @override
+  String get instructor => 'المدرس';
+
+  @override
+  String get delete_subject => 'حذف المادة';
+
+  @override
+  String get delete_subject_details =>
+      'هل أنت متأكد من حذف هذه المادة؟ سيتم حذف جميع الملاحظات والموارد والبيانات المرتبطة بشكل دائم. لا يمكن التراجع عن هذا الإجراء.';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get add_note_success => 'تمت إضافة الملاحظة بنجاح';
+
+  @override
+  String get update_notes_success => 'تم تحديث الملاحظة بنجاح';
+
+  @override
+  String get delete_note_success => 'تم حذف الملاحظة بنجاح';
+
+  @override
+  String get notes => 'الملاحظات';
+
+  @override
+  String get retry => 'إعادة المحاولة';
+
+  @override
+  String get no_note => 'لا توجد ملاحظات بعد';
+
+  @override
+  String get add_first_notes => 'أضف أول ملاحظة للبدء';
+
+  @override
+  String get just_now => 'الآن';
+
+  @override
+  String get yesterday => 'أمس';
+
+  @override
+  String get close => 'إغلاق';
+
+  @override
+  String get delete_notes => 'حذف الملاحظة';
+
+  @override
+  String get check_delete_note =>
+      'هل أنت متأكد من حذف هذه الملاحظة؟ لا يمكن التراجع عن هذا الإجراء.';
+
+  @override
+  String get schedule => 'الجدول';
+
+  @override
+  String get lectures => 'المحاضرات';
+
+  @override
+  String get no_lectures => 'لا توجد محاضرات بعد';
+
+  @override
+  String get pdf_documents => 'مستندات PDF';
+
+  @override
+  String get book_links => 'روابط الكتب';
+
+  @override
+  String get video_links => 'روابط الفيديو';
+
+  @override
+  String get images => 'الصور';
+
+  @override
+  String get audios => 'الملفات الصوتية';
+
+  @override
+  String get pdf_details => 'تفاصيل PDF';
+
+  @override
+  String get book_details => 'تفاصيل الكتاب';
+
+  @override
+  String get video_details => 'تفاصيل الفيديو';
+
+  @override
+  String get audio_details => 'تفاصيل الصوت';
+
+  @override
+  String get image_details => 'تفاصيل الصورة';
+
+  @override
+  String get choose_appearance => 'اختر المظهر';
+
+  @override
+  String get check_achievements => 'تحقق من إنجازاتك';
+
+  @override
+  String get add_note => 'إضافة ملاحظة';
+
+  @override
+  String get title => 'العنوان';
+
+  @override
+  String get hint_text_title => 'أدخل عنوان الملاحظة';
+
+  @override
+  String get required_note_title => 'يرجى إدخال عنوان';
+
+  @override
+  String get details => 'التفاصيل';
+
+  @override
+  String get hint_text_details => 'أدخل تفاصيل الملاحظة';
+
+  @override
+  String get required_note_details => 'يرجى إدخال تفاصيل الملاحظة';
+
+  @override
+  String get edit_note => 'تعديل الملاحظة';
+
+  @override
+  String get update_note => 'تحديث الملاحظة';
+
+  @override
+  String get delete_note => 'حذف الملاحظة';
+
+  @override
+  String get motivational_quotes => 'كل كتاب هو خطوة جديدة نحو النجاح.';
+
+  @override
+  String get open => 'فتح';
 }

@@ -17,7 +17,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
       decoration: BoxDecoration(
         color: AppColors.getBackgroundColor(context),
         boxShadow: [

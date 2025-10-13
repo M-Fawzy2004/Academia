@@ -23,7 +23,7 @@ class HeaderSection extends StatelessWidget {
                 children: [
                   Text(
                     context.tr.welcome_back,
-                    style: Styles.font20MediumBold(context),
+                    style: Styles.font20PrimaryColorTextBold(context),
                   ),
                   heightBox(2),
                   Text(

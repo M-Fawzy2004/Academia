@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/widget/icon_back.dart';
 
@@ -20,7 +21,7 @@ class ImageDetailsHeader extends StatelessWidget {
         const IconBack(),
         // Title
         Text(
-          'Image Gallery',
+          context.tr.image_details,
           style: TextStyle(
             fontSize: 20.sp,
             fontWeight: FontWeight.bold,

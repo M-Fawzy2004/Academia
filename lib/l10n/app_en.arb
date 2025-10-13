@@ -1183,5 +1183,181 @@
   "past_exam": "Past Exams",
   "@past_exam": {
     "description": "Text for past exam"
+  },
+  "subject_details": "Subject Details",
+  "@subject_details": {
+    "description": "Text for subject details"
+  },
+  "instructor": "Instructor",
+  "@instructor": {
+    "description": "Text for Instructor"
+  },
+  "delete_subject": "Delete Subject",
+  "@delete_subject": {
+    "description": "Text for delete subject"
+  },
+  "delete_subject_details": "Are you sure you want to delete this subject? All associated notes, resources, and data will be permanently deleted. This action cannot be undone.",
+  "@delete_subject_details": {
+    "description": "Text for delete subject details"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Text for delete"
+  },
+  "add_note_success": "Note added successfully",
+  "@add_note_success": {
+    "description": "Text for add note success"
+  },
+  "update_notes_success": "Note updated successfully",
+  "@update_notes_success": {
+    "description": "Text for update notes success"
+  },
+  "delete_note_success": "Note deleted successfully",
+  "@delete_note_success": {
+    "description": "Text for delete note success"
+  },
+  "notes": "Notes",
+  "@notes": {
+    "description": "Text for notes"
+  },
+  "retry": "Retry",
+  "@retry": {
+    "description": "Text for retry"
+  },
+  "no_note": "No notes yet",
+  "@no_note": {
+    "description": "Text for no note"
+  },
+  "add_first_notes": "Add your first note to get started",
+  "@add_first_notes": {
+    "description": "Text for add first notes"
+  },
+  "just_now": "Just now",
+  "@just_now": {
+    "description": "Text for just now"
+  },
+  "yesterday": "Yesterday",
+  "@yesterday": {
+    "description": "Text for yesterday"
+  },
+  "close": "Close",
+  "@close": {
+    "description": "Text for close"
+  },
+  "delete_notes": "Delete Note",
+  "@delete_notes": {
+    "description": "Text for delete notes"
+  },
+  "check_delete_note": "Are you sure you want to delete this note? This action cannot be undone.",
+  "@check_delete_note": {
+    "description": "Text for check delete note"
+  },
+  "schedule": "Schedule",
+  "@schedule": {
+    "description": "Text for schedule"
+  },
+  "lectures": "Lectures",
+  "@lectures": {
+    "description": "Text for lectures"
+  },
+  "no_lectures": "No lectures yet",
+  "@no_lectures": {
+    "description": "Text for no lectures"
+  },
+  "pdf_documents": "PDF Documents",
+  "@pdf_documents": {
+    "description": "Text for pdf documents"
+  },
+  "book_links": "Book Links",
+  "@book_links": {
+    "description": "Text for book links"
+  },
+  "video_links": "Video Links",
+  "@video_links": {
+    "description": "Text for video links"
+  },
+  "images": "Images",
+  "@images": {
+    "description": "Text for images"
+  },
+  "audios": "Audios",
+  "@audios": {
+    "description": "Text for audios"
+  },
+  "pdf_details": "PDF Details",
+  "@pdf_details": {
+    "description": "Text for pdf details"
+  },
+  "book_details": "Book Details",
+  "@book_details": {
+    "description": "Text for book details"
+  },
+  "video_details": "Video Details",
+  "@video_details": {
+    "description": "Text for video details"
+  },
+  "audio_details": "Audio Details",
+  "@audio_details": {
+    "description": "Text for audio details"
+  },
+  "image_details": "Image Details",
+  "@image_details": {
+    "description": "Text for image details"
+  },
+  "choose_appearance" : "Choose Appearance",
+  "@choose_appearance" : {
+    "description" : "Text for choose appearance"
+  },
+  "check_achievements" : "Check your achievements",
+  "@check_achievements" : {
+    "description" : "Text for check achievements"
+  },
+  "add_note" : "Add Note",
+  "@add_note" : {
+    "description" : "Text for add note"
+  },
+  "title"  : "Title",
+  "@title"  : {
+    "description" : "Text for title"
+  },
+  "hint_text_title" : "Enter note title",
+  "@hint_text_title" : {
+    "description" : "Text for hint text title"
+  },
+  "required_note_title" : "Please enter a title",
+  "@required_note_title" : {
+    "description" : "Text for required"
+  },
+  "details"  : "Details",
+  "@details"  : {
+    "description" : "Text for details"
+  },
+  "hint_text_details" : "Enter note details",
+  "@hint_text_details" : {
+    "description" : "Text for hint text details"
+  },
+  "required_note_details" : "Please enter note details",
+  "@required_note_details" : {
+    "description" : "Text for required note details"
+  },
+  "edit_note" : "Edit Note",
+  "@edit_note" : {
+    "description" : "Text for edit note"
+  },
+  "update_note" : "Update Note",
+  "@update_note" : {
+    "description" : "Text for update note"
+  },
+  "delete_note" : "Delete Note",
+  "@delete_note" : {
+    "description" : "Text for delete note"
+  },
+  "motivational_quotes" : "Every book is a new step towards success.",
+  "@motivational_quotes" : {
+    "description" : "Text for motivational quotes"
+  },
+  "open" : "Open",
+  "@open" : {
+    "description" : "Text for open"
   }
 }

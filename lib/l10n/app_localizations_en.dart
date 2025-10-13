@@ -932,4 +932,138 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get past_exam => 'Past Exams';
+
+  @override
+  String get subject_details => 'Subject Details';
+
+  @override
+  String get instructor => 'Instructor';
+
+  @override
+  String get delete_subject => 'Delete Subject';
+
+  @override
+  String get delete_subject_details =>
+      'Are you sure you want to delete this subject? All associated notes, resources, and data will be permanently deleted. This action cannot be undone.';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get add_note_success => 'Note added successfully';
+
+  @override
+  String get update_notes_success => 'Note updated successfully';
+
+  @override
+  String get delete_note_success => 'Note deleted successfully';
+
+  @override
+  String get notes => 'Notes';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get no_note => 'No notes yet';
+
+  @override
+  String get add_first_notes => 'Add your first note to get started';
+
+  @override
+  String get just_now => 'Just now';
+
+  @override
+  String get yesterday => 'Yesterday';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get delete_notes => 'Delete Note';
+
+  @override
+  String get check_delete_note =>
+      'Are you sure you want to delete this note? This action cannot be undone.';
+
+  @override
+  String get schedule => 'Schedule';
+
+  @override
+  String get lectures => 'Lectures';
+
+  @override
+  String get no_lectures => 'No lectures yet';
+
+  @override
+  String get pdf_documents => 'PDF Documents';
+
+  @override
+  String get book_links => 'Book Links';
+
+  @override
+  String get video_links => 'Video Links';
+
+  @override
+  String get images => 'Images';
+
+  @override
+  String get audios => 'Audios';
+
+  @override
+  String get pdf_details => 'PDF Details';
+
+  @override
+  String get book_details => 'Book Details';
+
+  @override
+  String get video_details => 'Video Details';
+
+  @override
+  String get audio_details => 'Audio Details';
+
+  @override
+  String get image_details => 'Image Details';
+
+  @override
+  String get choose_appearance => 'Choose Appearance';
+
+  @override
+  String get check_achievements => 'Check your achievements';
+
+  @override
+  String get add_note => 'Add Note';
+
+  @override
+  String get title => 'Title';
+
+  @override
+  String get hint_text_title => 'Enter note title';
+
+  @override
+  String get required_note_title => 'Please enter a title';
+
+  @override
+  String get details => 'Details';
+
+  @override
+  String get hint_text_details => 'Enter note details';
+
+  @override
+  String get required_note_details => 'Please enter note details';
+
+  @override
+  String get edit_note => 'Edit Note';
+
+  @override
+  String get update_note => 'Update Note';
+
+  @override
+  String get delete_note => 'Delete Note';
+
+  @override
+  String get motivational_quotes => 'Every book is a new step towards success.';
+
+  @override
+  String get open => 'Open';
 }

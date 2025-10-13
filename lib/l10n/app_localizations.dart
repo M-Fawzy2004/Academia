@@ -1877,6 +1877,270 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Past Exams'**
   String get past_exam;
+
+  /// Text for subject details
+  ///
+  /// In en, this message translates to:
+  /// **'Subject Details'**
+  String get subject_details;
+
+  /// Text for Instructor
+  ///
+  /// In en, this message translates to:
+  /// **'Instructor'**
+  String get instructor;
+
+  /// Text for delete subject
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Subject'**
+  String get delete_subject;
+
+  /// Text for delete subject details
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this subject? All associated notes, resources, and data will be permanently deleted. This action cannot be undone.'**
+  String get delete_subject_details;
+
+  /// Text for delete
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// Text for add note success
+  ///
+  /// In en, this message translates to:
+  /// **'Note added successfully'**
+  String get add_note_success;
+
+  /// Text for update notes success
+  ///
+  /// In en, this message translates to:
+  /// **'Note updated successfully'**
+  String get update_notes_success;
+
+  /// Text for delete note success
+  ///
+  /// In en, this message translates to:
+  /// **'Note deleted successfully'**
+  String get delete_note_success;
+
+  /// Text for notes
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notes;
+
+  /// Text for retry
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// Text for no note
+  ///
+  /// In en, this message translates to:
+  /// **'No notes yet'**
+  String get no_note;
+
+  /// Text for add first notes
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first note to get started'**
+  String get add_first_notes;
+
+  /// Text for just now
+  ///
+  /// In en, this message translates to:
+  /// **'Just now'**
+  String get just_now;
+
+  /// Text for yesterday
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get yesterday;
+
+  /// Text for close
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// Text for delete notes
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Note'**
+  String get delete_notes;
+
+  /// Text for check delete note
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this note? This action cannot be undone.'**
+  String get check_delete_note;
+
+  /// Text for schedule
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule'**
+  String get schedule;
+
+  /// Text for lectures
+  ///
+  /// In en, this message translates to:
+  /// **'Lectures'**
+  String get lectures;
+
+  /// Text for no lectures
+  ///
+  /// In en, this message translates to:
+  /// **'No lectures yet'**
+  String get no_lectures;
+
+  /// Text for pdf documents
+  ///
+  /// In en, this message translates to:
+  /// **'PDF Documents'**
+  String get pdf_documents;
+
+  /// Text for book links
+  ///
+  /// In en, this message translates to:
+  /// **'Book Links'**
+  String get book_links;
+
+  /// Text for video links
+  ///
+  /// In en, this message translates to:
+  /// **'Video Links'**
+  String get video_links;
+
+  /// Text for images
+  ///
+  /// In en, this message translates to:
+  /// **'Images'**
+  String get images;
+
+  /// Text for audios
+  ///
+  /// In en, this message translates to:
+  /// **'Audios'**
+  String get audios;
+
+  /// Text for pdf details
+  ///
+  /// In en, this message translates to:
+  /// **'PDF Details'**
+  String get pdf_details;
+
+  /// Text for book details
+  ///
+  /// In en, this message translates to:
+  /// **'Book Details'**
+  String get book_details;
+
+  /// Text for video details
+  ///
+  /// In en, this message translates to:
+  /// **'Video Details'**
+  String get video_details;
+
+  /// Text for audio details
+  ///
+  /// In en, this message translates to:
+  /// **'Audio Details'**
+  String get audio_details;
+
+  /// Text for image details
+  ///
+  /// In en, this message translates to:
+  /// **'Image Details'**
+  String get image_details;
+
+  /// Text for choose appearance
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Appearance'**
+  String get choose_appearance;
+
+  /// Text for check achievements
+  ///
+  /// In en, this message translates to:
+  /// **'Check your achievements'**
+  String get check_achievements;
+
+  /// Text for add note
+  ///
+  /// In en, this message translates to:
+  /// **'Add Note'**
+  String get add_note;
+
+  /// Text for title
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get title;
+
+  /// Text for hint text title
+  ///
+  /// In en, this message translates to:
+  /// **'Enter note title'**
+  String get hint_text_title;
+
+  /// Text for required
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a title'**
+  String get required_note_title;
+
+  /// Text for details
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get details;
+
+  /// Text for hint text details
+  ///
+  /// In en, this message translates to:
+  /// **'Enter note details'**
+  String get hint_text_details;
+
+  /// Text for required note details
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter note details'**
+  String get required_note_details;
+
+  /// Text for edit note
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Note'**
+  String get edit_note;
+
+  /// Text for update note
+  ///
+  /// In en, this message translates to:
+  /// **'Update Note'**
+  String get update_note;
+
+  /// Text for delete note
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Note'**
+  String get delete_note;
+
+  /// Text for motivational quotes
+  ///
+  /// In en, this message translates to:
+  /// **'Every book is a new step towards success.'**
+  String get motivational_quotes;
+
+  /// Text for open
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get open;
 }
 
 class _AppLocalizationsDelegate

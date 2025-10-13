@@ -45,7 +45,6 @@ class SettingsSwitch extends StatelessWidget {
               width: 43.w,
               height: 23.h,
               style: SpinStyle.material,
-              thumbSizeRatio: 0.8.sp,
               switchDecoration: (val, isFocus) => BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: val ? AppColors.primaryColor : Colors.grey.shade400,

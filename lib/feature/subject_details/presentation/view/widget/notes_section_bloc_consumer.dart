@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/custom_snack_bar.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/feature/subject_details/presentation/manager/additional_note_cubit/additional_notes_cubit.dart';
 import 'package:study_box/feature/subject_details/presentation/view/widget/notes_section.dart';
 
@@ -17,11 +18,11 @@ class NotesSectionBlocConsumer extends StatelessWidget {
     return BlocConsumer<AdditionalNotesCubit, AdditionalNotesState>(
       listener: (context, state) {
         if (state is AdditionalNoteAdded) {
-          CustomSnackBar.showSuccess(context, 'Note added successfully');
+          CustomSnackBar.showSuccess(context, context.tr.add_note_success);
         } else if (state is AdditionalNoteUpdated) {
-          CustomSnackBar.showSuccess(context, 'Note updated successfully');
+          CustomSnackBar.showSuccess(context, context.tr.update_notes_success);
         } else if (state is AdditionalNoteDeleted) {
-          CustomSnackBar.showSuccess(context, 'Note deleted successfully');
+          CustomSnackBar.showSuccess(context, context.tr.delete_note_success);
         } else if (state is AdditionalNotesError) {
           CustomSnackBar.showError(context, state.message);
         }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:study_box/feature/home/presentation/view/home_view.dart';
 import 'package:study_box/feature/main_home/presentation/view/widget/custom_bottom_navigation_bar.dart';
 import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
+import 'package:study_box/feature/reminder/presentation/view/reminder_view.dart';
 import 'package:study_box/feature/subject/presentation/view/subject_view.dart';
 
 class MainView extends StatefulWidget {
@@ -23,7 +24,7 @@ class _MainViewState extends State<MainView> {
   List<Widget> get getScreens => [
         HomeView(onNavigateToSubjects: () => changeIndex(1)),
         const SubjectView(),
-        const Center(child: Text('ReminderView')),
+        const ReminderView(),
         const ProfileView(),
       ];
 

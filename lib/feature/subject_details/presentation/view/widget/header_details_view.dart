@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/icon_back.dart';
@@ -15,7 +16,7 @@ class HeaderDetailsView extends StatelessWidget {
         const IconBack(),
         const Spacer(),
         Text(
-          'Subject Details',
+          context.tr.subject_details,
           style: Styles.font20PrimaryColorTextBold(context),
         ),
         const Spacer(),

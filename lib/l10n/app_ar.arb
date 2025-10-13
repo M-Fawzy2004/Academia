@@ -1183,5 +1183,181 @@
   "past_exam": "امتحانات سابقة",
   "@past_exam": {
     "description": "Text for past exam"
+  },
+  "subject_details": "تفاصيل المادة",
+  "@subject_details": {
+    "description": "نص لتفاصيل المادة"
+  },
+  "instructor": "المدرس",
+  "@instructor": {
+    "description": "نص للمدرس"
+  },
+  "delete_subject": "حذف المادة",
+  "@delete_subject": {
+    "description": "نص لحذف المادة"
+  },
+  "delete_subject_details": "هل أنت متأكد من حذف هذه المادة؟ سيتم حذف جميع الملاحظات والموارد والبيانات المرتبطة بشكل دائم. لا يمكن التراجع عن هذا الإجراء.",
+  "@delete_subject_details": {
+    "description": "نص لتفاصيل حذف المادة"
+  },
+  "delete": "حذف",
+  "@delete": {
+    "description": "نص للحذف"
+  },
+  "add_note_success": "تمت إضافة الملاحظة بنجاح",
+  "@add_note_success": {
+    "description": "نص لنجاح إضافة الملاحظة"
+  },
+  "update_notes_success": "تم تحديث الملاحظة بنجاح",
+  "@update_notes_success": {
+    "description": "نص لنجاح تحديث الملاحظة"
+  },
+  "delete_note_success": "تم حذف الملاحظة بنجاح",
+  "@delete_note_success": {
+    "description": "نص لنجاح حذف الملاحظة"
+  },
+  "notes": "الملاحظات",
+  "@notes": {
+    "description": "نص للملاحظات"
+  },
+  "retry": "إعادة المحاولة",
+  "@retry": {
+    "description": "نص لإعادة المحاولة"
+  },
+  "no_note": "لا توجد ملاحظات بعد",
+  "@no_note": {
+    "description": "نص لعدم وجود ملاحظات"
+  },
+  "add_first_notes": "أضف أول ملاحظة للبدء",
+  "@add_first_notes": {
+    "description": "نص لإضافة أول ملاحظة"
+  },
+  "just_now": "الآن",
+  "@just_now": {
+    "description": "نص للآن"
+  },
+  "yesterday": "أمس",
+  "@yesterday": {
+    "description": "نص لأمس"
+  },
+  "close": "إغلاق",
+  "@close": {
+    "description": "نص للإغلاق"
+  },
+  "delete_notes": "حذف الملاحظة",
+  "@delete_notes": {
+    "description": "نص لحذف الملاحظة"
+  },
+  "check_delete_note": "هل أنت متأكد من حذف هذه الملاحظة؟ لا يمكن التراجع عن هذا الإجراء.",
+  "@check_delete_note": {
+    "description": "نص للتأكد من حذف الملاحظة"
+  },
+  "schedule": "الجدول",
+  "@schedule": {
+    "description": "نص للجدول"
+  },
+  "lectures": "المحاضرات",
+  "@lectures": {
+    "description": "نص للمحاضرات"
+  },
+  "no_lectures": "لا توجد محاضرات بعد",
+  "@no_lectures": {
+    "description": "نص لعدم وجود محاضرات"
+  },
+  "pdf_documents": "مستندات PDF",
+  "@pdf_documents": {
+    "description": "نص لمستندات PDF"
+  },
+  "book_links": "روابط الكتب",
+  "@book_links": {
+    "description": "نص لروابط الكتب"
+  },
+  "video_links": "روابط الفيديو",
+  "@video_links": {
+    "description": "نص لروابط الفيديو"
+  },
+  "images": "الصور",
+  "@images": {
+    "description": "نص للصور"
+  },
+  "audios": "الملفات الصوتية",
+  "@audios": {
+    "description": "نص للملفات الصوتية"
+  },
+  "pdf_details": "تفاصيل PDF",
+  "@pdf_details": {
+    "description": "نص لتفاصيل PDF"
+  },
+  "book_details": "تفاصيل الكتاب",
+  "@book_details": {
+    "description": "نص لتفاصيل الكتاب"
+  },
+  "video_details": "تفاصيل الفيديو",
+  "@video_details": {
+    "description": "نص لتفاصيل الفيديو"
+  },
+  "audio_details": "تفاصيل الصوت",
+  "@audio_details": {
+    "description": "نص لتفاصيل الصوت"
+  },
+  "image_details": "تفاصيل الصورة",
+  "@image_details": {
+    "description": "نص لتفاصيل الصورة"
+  },
+  "choose_appearance": "اختر المظهر",
+  "@choose_appearance": {
+    "description": "نص لاختيار المظهر"
+  },
+  "check_achievements": "تحقق من إنجازاتك",
+  "@check_achievements": {
+    "description": "نص للتحقق من الإنجازات"
+  },
+  "add_note": "إضافة ملاحظة",
+  "@add_note": {
+    "description": "نص لإضافة ملاحظة"
+  },
+  "title": "العنوان",
+  "@title": {
+    "description": "نص للعنوان"
+  },
+  "hint_text_title": "أدخل عنوان الملاحظة",
+  "@hint_text_title": {
+    "description": "نص لتلميح العنوان"
+  },
+  "required_note_title": "يرجى إدخال عنوان",
+  "@required_note_title": {
+    "description": "نص للحقل المطلوب"
+  },
+  "details": "التفاصيل",
+  "@details": {
+    "description": "نص للتفاصيل"
+  },
+  "hint_text_details": "أدخل تفاصيل الملاحظة",
+  "@hint_text_details": {
+    "description": "نص لتلميح التفاصيل"
+  },
+  "required_note_details": "يرجى إدخال تفاصيل الملاحظة",
+  "@required_note_details": {
+    "description": "نص لتفاصيل الملاحظة المطلوبة"
+  },
+  "edit_note": "تعديل الملاحظة",
+  "@edit_note": {
+    "description": "نص لتعديل الملاحظة"
+  },
+  "update_note": "تحديث الملاحظة",
+  "@update_note": {
+    "description": "نص لتحديث الملاحظة"
+  },
+  "delete_note": "حذف الملاحظة",
+  "@delete_note": {
+    "description": "نص لحذف الملاحظة"
+  },
+  "motivational_quotes": "كل كتاب هو خطوة جديدة نحو النجاح.",
+  "@motivational_quotes": {
+    "description": "نص لاقتباسات تحفيزية - عربي"
+  },
+  "open": "فتح",
+  "@open": {
+    "description": "نص لافتح"
   }
 }

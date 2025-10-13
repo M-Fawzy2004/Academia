@@ -46,7 +46,7 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
             SettingsNavigation(
               icon: Icons.color_lens_rounded,
               title: context.tr.appearance,
-              subtitle: 'Choose Your Favorite Appearacne',
+              subtitle: context.tr.choose_appearance,
               onTap: () {
                 context.navigateWithSlideTransition(const ThemeSelectorView());
               },
@@ -62,7 +62,7 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
             SettingsNavigation(
               icon: Icons.emoji_events_rounded,
               title: context.tr.achievements,
-              subtitle: 'Check Your Achievements',
+              subtitle: context.tr.check_achievements,
               onTap: () {},
             ),
           ],

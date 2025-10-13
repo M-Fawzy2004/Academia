@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/icon_back.dart';
 
@@ -13,7 +14,7 @@ class BookDetailsHeader extends StatelessWidget {
         const IconBack(),
         const Spacer(),
         Text(
-          'Book Details',
+          context.tr.book_details,
           style: Styles.font20PrimaryColorTextBold(context),
         ),
         const Spacer(),

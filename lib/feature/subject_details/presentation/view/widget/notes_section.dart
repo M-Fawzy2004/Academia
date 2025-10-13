@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/custom_loading_widget.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/helper/custom_snack_bar.dart';
@@ -66,7 +67,7 @@ class _NotesSectionState extends State<NotesSection> {
                   ),
                   widthBox(12),
                   Text(
-                    'Notes',
+                    context.tr.notes,
                     style: Styles.font18PrimaryColorTextBold(context),
                   ),
                   widthBox(10),
@@ -149,7 +150,7 @@ class _NotesSectionState extends State<NotesSection> {
                       .read<AdditionalNotesCubit>()
                       .loadNotes(widget.subjectId);
                 },
-                child: const Text('Retry'),
+                child: Text(context.tr.retry),
               ),
             ],
           ),
@@ -170,12 +171,12 @@ class _NotesSectionState extends State<NotesSection> {
               ),
               heightBox(12),
               Text(
-                'No notes yet',
+                context.tr.no_note,
                 style: Styles.font13GreyBold(context),
               ),
               heightBox(8),
               Text(
-                'Add your first note to get started',
+                context.tr.add_first_notes,
                 style: TextStyle(
                   color: const Color(0xFF9CA3AF),
                   fontSize: 12.sp,

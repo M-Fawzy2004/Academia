@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
@@ -113,7 +114,7 @@ class _EditNoteDialogState extends State<EditNoteDialog>
                         ),
                         widthBox(12),
                         Text(
-                          'Edit Note',
+                          context.tr.edit_note,
                           style: Styles.font18PrimaryColorTextBold(context),
                         ),
                         const Spacer(),
@@ -129,39 +130,39 @@ class _EditNoteDialogState extends State<EditNoteDialog>
                     ),
                     heightBox(20),
                     Text(
-                      'Title',
+                      context.tr.title,
                       style: Styles.font13GreyBold(context),
                     ),
                     heightBox(8),
                     CustomTextField(
                       controller: _titleController,
-                      hintText: 'Enter note title',
+                      hintText: context.tr.hint_text_title,
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Please enter a title';
+                          return context.tr.required_note_title;
                         }
                         return null;
                       },
                     ),
                     heightBox(16),
                     Text(
-                      'Details',
+                      context.tr.details,
                       style: Styles.font13GreyBold(context),
                     ),
                     heightBox(8),
                     CustomTextField(
                         controller: _detailsController,
-                        hintText: 'Enter note details',
+                        hintText: context.tr.hint_text_details,
                         maxLines: 5,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter details';
+                            return context.tr.required_note_details;
                           }
                           return null;
                         }),
                     heightBox(24),
                     CustomButton(
-                      text: 'Update Note',
+                      text: context.tr.update_note,
                       onPressed: _handleUpdateNote,
                     ),
                   ],

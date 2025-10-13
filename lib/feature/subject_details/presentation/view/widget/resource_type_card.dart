@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -87,14 +88,14 @@ class ResourceTypeCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'View All',
+                          context.tr.view_all,
                           style: Styles.font13GreyBold(context).copyWith(
                             fontSize: 12.sp,
                             color: gradient.colors.first,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        SizedBox(width: 4.w),
+                        widthBox(5),
                         Icon(
                           Icons.arrow_forward_ios_rounded,
                           size: 12.sp,

@@ -1183,5 +1183,181 @@
     "past_exam": "Examens antérieurs",
     "@past_exam": {
         "description": "Text for past exam"
+    },
+    "subject_details": "Détails de la matière",
+    "@subject_details": {
+        "description": "Texte pour les détails de la matière"
+    },
+    "instructor": "Instructeur",
+    "@instructor": {
+        "description": "Texte pour instructeur"
+    },
+    "delete_subject": "Supprimer la matière",
+    "@delete_subject": {
+        "description": "Texte pour supprimer la matière"
+    },
+    "delete_subject_details": "Êtes-vous sûr de vouloir supprimer cette matière ? Toutes les notes, ressources et données associées seront définitivement supprimées. Cette action ne peut pas être annulée.",
+    "@delete_subject_details": {
+        "description": "Texte pour les détails de suppression de la matière"
+    },
+    "delete": "Supprimer",
+    "@delete": {
+        "description": "Texte pour supprimer"
+    },
+    "add_note_success": "Note ajoutée avec succès",
+    "@add_note_success": {
+        "description": "Texte pour succès d'ajout de note"
+    },
+    "update_notes_success": "Note mise à jour avec succès",
+    "@update_notes_success": {
+        "description": "Texte pour succès de mise à jour de note"
+    },
+    "delete_note_success": "Note supprimée avec succès",
+    "@delete_note_success": {
+        "description": "Texte pour succès de suppression de note"
+    },
+    "notes": "Notes",
+    "@notes": {
+        "description": "Texte pour notes"
+    },
+    "retry": "Réessayer",
+    "@retry": {
+        "description": "Texte pour réessayer"
+    },
+    "no_note": "Aucune note pour le moment",
+    "@no_note": {
+        "description": "Texte pour aucune note"
+    },
+    "add_first_notes": "Ajoutez votre première note pour commencer",
+    "@add_first_notes": {
+        "description": "Texte pour ajouter la première note"
+    },
+    "just_now": "À l'instant",
+    "@just_now": {
+        "description": "Texte pour à l'instant"
+    },
+    "yesterday": "Hier",
+    "@yesterday": {
+        "description": "Texte pour hier"
+    },
+    "close": "Fermer",
+    "@close": {
+        "description": "Texte pour fermer"
+    },
+    "delete_notes": "Supprimer la note",
+    "@delete_notes": {
+        "description": "Texte pour supprimer la note"
+    },
+    "check_delete_note": "Êtes-vous sûr de vouloir supprimer cette note ? Cette action ne peut pas être annulée.",
+    "@check_delete_note": {
+        "description": "Texte pour confirmer la suppression de note"
+    },
+    "schedule": "Emploi du temps",
+    "@schedule": {
+        "description": "Texte pour emploi du temps"
+    },
+    "lectures": "Cours",
+    "@lectures": {
+        "description": "Texte pour cours"
+    },
+    "no_lectures": "Aucun cours pour le moment",
+    "@no_lectures": {
+        "description": "Texte pour aucun cours"
+    },
+    "pdf_documents": "Documents PDF",
+    "@pdf_documents": {
+        "description": "Texte pour documents PDF"
+    },
+    "book_links": "Liens de livres",
+    "@book_links": {
+        "description": "Texte pour liens de livres"
+    },
+    "video_links": "Liens vidéo",
+    "@video_links": {
+        "description": "Texte pour liens vidéo"
+    },
+    "images": "Images",
+    "@images": {
+        "description": "Texte pour images"
+    },
+    "audios": "Audios",
+    "@audios": {
+        "description": "Texte pour audios"
+    },
+    "pdf_details": "Détails du PDF",
+    "@pdf_details": {
+        "description": "Texte pour détails du PDF"
+    },
+    "book_details": "Détails du livre",
+    "@book_details": {
+        "description": "Texte pour détails du livre"
+    },
+    "video_details": "Détails de la vidéo",
+    "@video_details": {
+        "description": "Texte pour détails de la vidéo"
+    },
+    "audio_details": "Détails de l'audio",
+    "@audio_details": {
+        "description": "Texte pour détails de l'audio"
+    },
+    "image_details": "Détails de l'image",
+    "@image_details": {
+        "description": "Texte pour détails de l'image"
+    },
+    "choose_appearance": "Choisir l'apparence",
+    "@choose_appearance": {
+        "description": "Texte pour choisir l'apparence"
+    },
+    "check_achievements": "Consultez vos réalisations",
+    "@check_achievements": {
+        "description": "Texte pour consulter les réalisations"
+    },
+    "add_note": "Ajouter une note",
+    "@add_note": {
+        "description": "Texte pour ajouter une note"
+    },
+    "title": "Titre",
+    "@title": {
+        "description": "Texte pour titre"
+    },
+    "hint_text_title": "Entrez le titre de la note",
+    "@hint_text_title": {
+        "description": "Texte pour indication du titre"
+    },
+    "required_note_title": "Veuillez entrer un titre",
+    "@required_note_title": {
+        "description": "Texte pour champ requis"
+    },
+    "details": "Détails",
+    "@details": {
+        "description": "Texte pour détails"
+    },
+    "hint_text_details": "Entrez les détails de la note",
+    "@hint_text_details": {
+        "description": "Texte pour indication des détails"
+    },
+    "required_note_details": "Veuillez entrer les détails de la note",
+    "@required_note_details": {
+        "description": "Texte pour détails de note requis"
+    },
+    "edit_note": "Modifier la note",
+    "@edit_note": {
+        "description": "Texte pour modifier la note"
+    },
+    "update_note": "Mettre à jour la note",
+    "@update_note": {
+        "description": "Texte pour mettre à jour la note"
+    },
+    "delete_note": "Supprimer la note",
+    "@delete_note": {
+        "description": "Texte pour supprimer la note"
+    },
+    "motivational_quotes": "Chaque livre est une nouvelle étape vers le succès.",
+    "@motivational_quotes": {
+        "description": "Texte pour citations de motivation "
+    },
+    "open" : "Ouvrir",
+    "@open" : {
+        "description" : "Texte pour ouvrir"
     }
 }

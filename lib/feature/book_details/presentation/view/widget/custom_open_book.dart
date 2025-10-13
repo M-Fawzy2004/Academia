@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/extension.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/book_details/presentation/view/book_link_viewer.dart';
@@ -33,7 +34,7 @@ class CustomOpenBook extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.r),
         ),
         child: Text(
-          'Open',
+          context.tr.open,
           style: Styles.font16PrimaryColorTextBold(context),
         ),
       ),

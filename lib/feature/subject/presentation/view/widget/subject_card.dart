@@ -28,8 +28,8 @@ class SubjectCard extends StatelessWidget {
         color: subjectColor,
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
-          color: subjectColor.withOpacity(0.6),
-          width: 1.2.w,
+          color: subjectColor.withOpacity(0.4),
+          width: 1.w,
         ),
       ),
       child: Column(
@@ -41,7 +41,7 @@ class SubjectCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                heightBox(10),
+                heightBox(5),
                 _buildAvailableContent(subjectColor, context),
                 heightBox(13),
                 _buildOpenButton(subjectColor, context),
@@ -92,9 +92,7 @@ class SubjectCard extends StatelessWidget {
               children: [
                 Text(
                   subject.name,
-                  style: Styles.font16PrimaryColorTextBold(context).copyWith(
-                    fontSize: 18.sp,
-                  ),
+                  style: Styles.font16PrimaryColorTextBold(context),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -182,7 +180,7 @@ class SubjectCard extends StatelessWidget {
       height: 45.h,
       borderRadius: 12.r,
       text: context.tr.open_subject,
-      backgroundColor: subjectColor.withOpacity(0.8),
+      backgroundColor: subjectColor.withOpacity(0.4),
       onPressed: () {
         context.read<SubjectCubit>().updateLastAccessed(subject.id);
         context.push('${AppRouter.subjectDetailsView}?subjectId=${subject.id}');

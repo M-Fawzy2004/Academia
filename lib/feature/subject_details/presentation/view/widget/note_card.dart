@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/subject_details/domain/entities/additional_note_entity.dart';
@@ -24,7 +25,7 @@ class NoteCard extends StatelessWidget {
     return Dismissible(
       key: Key(note.id),
       direction: DismissDirection.endToStart,
-      background: _buildDeleteBackground(),
+      background: _buildDeleteBackground(context),
       confirmDismiss: (direction) async {
         final shouldDelete = await _confirmDelete(context);
         if (shouldDelete == true) {
@@ -74,7 +75,7 @@ class NoteCard extends StatelessWidget {
                     ),
                     heightBox(4),
                     Text(
-                      _formatDate(note.updatedAt),
+                      _formatDate(note.updatedAt, context),
                       style: TextStyle(
                         fontSize: 12.sp,
                         color: Colors.grey[600],
@@ -100,19 +101,19 @@ class NoteCard extends StatelessWidget {
     );
   }
 
-  String _formatDate(DateTime date) {
+  String _formatDate(DateTime date, BuildContext context) {
     final now = DateTime.now();
     final difference = now.difference(date);
 
     if (difference.inDays == 0) {
       if (difference.inHours == 0) {
         return difference.inMinutes == 0
-            ? 'Just now'
+            ? context.tr.just_now
             : '${difference.inMinutes}m ago';
       }
       return '${difference.inHours}h ago';
     } else if (difference.inDays == 1) {
-      return 'Yesterday';
+      return context.tr.yesterday;
     } else if (difference.inDays < 7) {
       return '${difference.inDays}d ago';
     }
@@ -181,7 +182,7 @@ class NoteCard extends StatelessWidget {
                 ),
                 widthBox(6),
                 Text(
-                  _formatDate(note.updatedAt),
+                  _formatDate(note.updatedAt, context),
                   style: TextStyle(
                     fontSize: 12.sp,
                     color: Colors.grey[600],
@@ -197,14 +198,14 @@ class NoteCard extends StatelessWidget {
             style: TextButton.styleFrom(
               foregroundColor: const Color(0xFF6366F1),
             ),
-            child: const Text('Close'),
+            child: Text(context.tr.close),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildDeleteBackground() {
+  Widget _buildDeleteBackground(BuildContext context) {
     return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -228,7 +229,7 @@ class NoteCard extends StatelessWidget {
           ),
           widthBox(8),
           Text(
-            'Delete',
+            context.tr.delete,
             style: TextStyle(
               color: Colors.red,
               fontWeight: FontWeight.bold,
@@ -253,11 +254,11 @@ class NoteCard extends StatelessWidget {
             const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         actionsPadding: const EdgeInsets.only(right: 12, bottom: 12),
         title: Text(
-          'Delete Note',
+          context.tr.delete_note,
           style: Styles.font18PrimaryColorTextBold(context),
         ),
         content: Text(
-          'Are you sure you want to delete this note? This action cannot be undone.',
+          context.tr.check_delete_note,
           style: Styles.font13MediumGreyBold(context),
         ),
         actions: [
@@ -266,7 +267,10 @@ class NoteCard extends StatelessWidget {
               foregroundColor: Colors.grey[700],
             ),
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Cancel', style: Styles.font12MediumBold(context)),
+            child: Text(
+              context.tr.cancel,
+              style: Styles.font12MediumBold(context),
+            ),
           ),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
@@ -278,7 +282,7 @@ class NoteCard extends StatelessWidget {
             ),
             onPressed: () => Navigator.of(dialogContext).pop(true),
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: const Text('Delete'),
+            label: Text(context.tr.delete),
           ),
         ],
       ),

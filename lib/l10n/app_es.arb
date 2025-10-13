@@ -1183,5 +1183,181 @@
   "past_exam": "Exámenes anteriores",
   "@past_exam": {
     "description": "Text for past exam"
+  },
+  "subject_details": "Detalles de la asignatura",
+  "@subject_details": {
+    "description": "Texto para detalles de la asignatura"
+  },
+  "instructor": "Instructor",
+  "@instructor": {
+    "description": "Texto para instructor"
+  },
+  "delete_subject": "Eliminar asignatura",
+  "@delete_subject": {
+    "description": "Texto para eliminar asignatura"
+  },
+  "delete_subject_details": "¿Está seguro de que desea eliminar esta asignatura? Todas las notas, recursos y datos asociados se eliminarán permanentemente. Esta acción no se puede deshacer.",
+  "@delete_subject_details": {
+    "description": "Texto para detalles de eliminar asignatura"
+  },
+  "delete": "Eliminar",
+  "@delete": {
+    "description": "Texto para eliminar"
+  },
+  "add_note_success": "Nota agregada con éxito",
+  "@add_note_success": {
+    "description": "Texto para éxito al agregar nota"
+  },
+  "update_notes_success": "Nota actualizada con éxito",
+  "@update_notes_success": {
+    "description": "Texto para éxito al actualizar nota"
+  },
+  "delete_note_success": "Nota eliminada con éxito",
+  "@delete_note_success": {
+    "description": "Texto para éxito al eliminar nota"
+  },
+  "notes": "Notas",
+  "@notes": {
+    "description": "Texto para notas"
+  },
+  "retry": "Reintentar",
+  "@retry": {
+    "description": "Texto para reintentar"
+  },
+  "no_note": "Aún no hay notas",
+  "@no_note": {
+    "description": "Texto para sin notas"
+  },
+  "add_first_notes": "Agrega tu primera nota para comenzar",
+  "@add_first_notes": {
+    "description": "Texto para agregar primera nota"
+  },
+  "just_now": "Justo ahora",
+  "@just_now": {
+    "description": "Texto para justo ahora"
+  },
+  "yesterday": "Ayer",
+  "@yesterday": {
+    "description": "Texto para ayer"
+  },
+  "close": "Cerrar",
+  "@close": {
+    "description": "Texto para cerrar"
+  },
+  "delete_notes": "Eliminar nota",
+  "@delete_notes": {
+    "description": "Texto para eliminar nota"
+  },
+  "check_delete_note": "¿Está seguro de que desea eliminar esta nota? Esta acción no se puede deshacer.",
+  "@check_delete_note": {
+    "description": "Texto para confirmar eliminar nota"
+  },
+  "schedule": "Horario",
+  "@schedule": {
+    "description": "Texto para horario"
+  },
+  "lectures": "Clases",
+  "@lectures": {
+    "description": "Texto para clases"
+  },
+  "no_lectures": "Aún no hay clases",
+  "@no_lectures": {
+    "description": "Texto para sin clases"
+  },
+  "pdf_documents": "Documentos PDF",
+  "@pdf_documents": {
+    "description": "Texto para documentos PDF"
+  },
+  "book_links": "Enlaces de libros",
+  "@book_links": {
+    "description": "Texto para enlaces de libros"
+  },
+  "video_links": "Enlaces de videos",
+  "@video_links": {
+    "description": "Texto para enlaces de videos"
+  },
+  "images": "Imágenes",
+  "@images": {
+    "description": "Texto para imágenes"
+  },
+  "audios": "Audios",
+  "@audios": {
+    "description": "Texto para audios"
+  },
+  "pdf_details": "Detalles del PDF",
+  "@pdf_details": {
+    "description": "Texto para detalles del PDF"
+  },
+  "book_details": "Detalles del libro",
+  "@book_details": {
+    "description": "Texto para detalles del libro"
+  },
+  "video_details": "Detalles del video",
+  "@video_details": {
+    "description": "Texto para detalles del video"
+  },
+  "audio_details": "Detalles del audio",
+  "@audio_details": {
+    "description": "Texto para detalles del audio"
+  },
+  "image_details": "Detalles de la imagen",
+  "@image_details": {
+    "description": "Texto para detalles de la imagen"
+  },
+  "choose_appearance": "Elegir apariencia",
+  "@choose_appearance": {
+    "description": "Texto para elegir apariencia"
+  },
+  "check_achievements": "Consulta tus logros",
+  "@check_achievements": {
+    "description": "Texto para consultar logros"
+  },
+  "add_note": "Agregar nota",
+  "@add_note": {
+    "description": "Texto para agregar nota"
+  },
+  "title": "Título",
+  "@title": {
+    "description": "Texto para título"
+  },
+  "hint_text_title": "Ingrese el título de la nota",
+  "@hint_text_title": {
+    "description": "Texto para sugerencia de título"
+  },
+  "required_note_title": "Por favor ingrese un título",
+  "@required_note_title": {
+    "description": "Texto para campo requerido"
+  },
+  "details": "Detalles",
+  "@details": {
+    "description": "Texto para detalles"
+  },
+  "hint_text_details": "Ingrese los detalles de la nota",
+  "@hint_text_details": {
+    "description": "Texto para sugerencia de detalles"
+  },
+  "required_note_details": "Por favor ingrese los detalles de la nota",
+  "@required_note_details": {
+    "description": "Texto para detalles de nota requeridos"
+  },
+  "edit_note": "Editar nota",
+  "@edit_note": {
+    "description": "Texto para editar nota"
+  },
+  "update_note": "Actualizar nota",
+  "@update_note": {
+    "description": "Texto para actualizar nota"
+  },
+  "delete_note": "Eliminar nota",
+  "@delete_note": {
+    "description": "Texto para eliminar nota"
+  },
+  "motivational_quotes": "Cada libro es un nuevo paso hacia el éxito.",
+  "@motivational_quotes": {
+    "description": "Texto para citas motivacionales - Español"
+  },
+  "open" : "Abrir",
+  "@open" : {
+    "description" : "Texto para abrir"
   }
 }

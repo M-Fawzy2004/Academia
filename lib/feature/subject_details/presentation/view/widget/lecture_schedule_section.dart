@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide TimeOfDay;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
@@ -55,7 +56,7 @@ class LectureScheduleSection extends StatelessWidget {
           ),
           widthBox(10),
           Text(
-            'Schedule',
+            context.tr.schedule,
             style: Styles.font16PrimaryColorTextBold(context),
           ),
           const Spacer(),
@@ -66,7 +67,7 @@ class LectureScheduleSection extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
-              '${subject.lectures.length} lectures',
+              '${subject.lectures.length} ${context.tr.lectures}',
               style: Styles.font13GreyBold(context),
             ),
           ),
@@ -111,7 +112,7 @@ class LectureScheduleSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  _getDayName(lecture.day),
+                  _getDayName(lecture.day, context),
                   style: Styles.font16PrimaryColorTextBold(context),
                 ),
                 heightBox(5),
@@ -184,7 +185,7 @@ class LectureScheduleSection extends StatelessWidget {
           ),
           heightBox(13),
           Text(
-            'No lectures scheduled',
+            context.tr.no_lectures,
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w600,
@@ -211,22 +212,22 @@ class LectureScheduleSection extends StatelessWidget {
     return '${formatSingleTime(start)} - ${formatSingleTime(end)}';
   }
 
-  String _getDayName(DayOfWeek day) {
+  String _getDayName(DayOfWeek day, BuildContext context) {
     switch (day) {
       case DayOfWeek.saturday:
-        return 'Saturday';
+        return context.tr.saturday;
       case DayOfWeek.sunday:
-        return 'Sunday';
+        return context.tr.sunday;
       case DayOfWeek.monday:
-        return 'Monday';
+        return context.tr.monday;
       case DayOfWeek.tuesday:
-        return 'Tuesday';
+        return context.tr.tuesday;
       case DayOfWeek.wednesday:
-        return 'Wednesday';
+        return context.tr.wednesday;
       case DayOfWeek.thursday:
-        return 'Thursday';
+        return context.tr.thursday;
       case DayOfWeek.friday:
-        return 'Friday';
+        return context.tr.friday;
     }
   }
 

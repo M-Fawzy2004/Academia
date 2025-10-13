@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
 import 'package:study_box/feature/book_details/presentation/view/widget/book_details_header.dart';
@@ -39,7 +40,7 @@ class _BookDetailsViewBodyState extends State<BookDetailsViewBody> {
           heightBox(25),
           // text widget
           Text(
-            'Every book is a new step towards success.',
+            context.tr.motivational_quotes,
             style: Styles.font13GreyBold(context).copyWith(
               fontSize: 15.sp,
             ),

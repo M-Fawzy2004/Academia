@@ -13,6 +13,7 @@ import 'package:study_box/feature/image_details/presentation/view/image_details_
 import 'package:study_box/feature/main_home/presentation/view/main_view.dart';
 import 'package:study_box/feature/pdf_details/presentation/view/pdf_detials_view.dart';
 import 'package:study_box/feature/profile/presentation/view/profile_view.dart';
+import 'package:study_box/feature/reminder/presentation/view/reminder_view.dart';
 import 'package:study_box/feature/subject/presentation/view/subject_view.dart';
 import 'package:study_box/feature/subject_details/presentation/view/subject_details_view.dart';
 import 'package:study_box/feature/video_details/presentation/view/video_details_view.dart';
@@ -39,6 +40,7 @@ abstract class AppRouter {
   static const videoDetailsView = '/videoDetailsView';
   static const imageDetailsView = '/imageDetailsView';
   static const bookDetailsView = '/bookDetailsView';
+  static const reminderView = '/reminderView';
 
   static var router = GoRouter(
     routes: [
@@ -206,6 +208,12 @@ abstract class AppRouter {
           }
 
           return BookDetailsView(subjectId: subjectId);
+        },
+      ),
+      GoRoute(
+        path: subjectView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const ReminderView();
         },
       ),
     ],

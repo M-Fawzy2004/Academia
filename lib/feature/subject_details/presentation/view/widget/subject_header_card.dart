@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 
@@ -75,7 +76,7 @@ class SubjectHeaderCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8.r),
                       ),
                       child: Text(
-                        '$hours Credit Hours',
+                        '$hours ${context.tr.credit_hours}',
                         style: TextStyle(
                           fontSize: 11.sp,
                           fontWeight: FontWeight.w600,
@@ -114,7 +115,7 @@ class SubjectHeaderCard extends StatelessWidget {
                   child: _buildInfoItem(
                     context,
                     icon: IconlyLight.profile,
-                    label: 'Instructor',
+                    label: context.tr.instructor,
                     value: instructorName,
                   ),
                 ),
@@ -184,11 +185,11 @@ class SubjectHeaderCard extends StatelessWidget {
             const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         actionsPadding: const EdgeInsets.only(right: 12, bottom: 12),
         title: Text(
-          'Delete Subject',
+          context.tr.delete_subject,
           style: Styles.font18PrimaryColorTextBold(context),
         ),
         content: Text(
-          'Are you sure you want to delete this subject? All associated notes, resources, and data will be permanently deleted. This action cannot be undone.',
+          context.tr.delete_subject_details,
           style: Styles.font13MediumGreyBold(context),
         ),
         actions: [
@@ -197,7 +198,10 @@ class SubjectHeaderCard extends StatelessWidget {
               foregroundColor: Colors.grey[700],
             ),
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Cancel', style: Styles.font12MediumBold(context)),
+            child: Text(
+              context.tr.cancel,
+              style: Styles.font12MediumBold(context),
+            ),
           ),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
@@ -209,7 +213,7 @@ class SubjectHeaderCard extends StatelessWidget {
             ),
             onPressed: () => Navigator.of(dialogContext).pop(true),
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: const Text('Delete'),
+            label: Text(context.tr.delete),
           ),
         ],
       ),
