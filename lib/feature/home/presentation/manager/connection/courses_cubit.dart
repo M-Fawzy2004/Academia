@@ -23,16 +23,13 @@ class CoursesCubit extends Cubit<CoursesState> {
   void _listenToConnectivity() {
     _connectivitySubscription = Connectivity().onConnectivityChanged.listen(
       (List<ConnectivityResult> results) {
-        // Check if any connection is available
         final bool hasConnection =
             results.any((result) => result != ConnectivityResult.none);
 
         if (!_hasInternet && hasConnection) {
-          // إذا كان الإنترنت راجع، حمل البيانات مرة أخرى
           _hasInternet = true;
           loadCourses();
         } else if (_hasInternet && !hasConnection) {
-          // إذا انقطع الإنترنت
           _hasInternet = false;
           emit(CoursesNoInternet());
         }
@@ -45,8 +42,6 @@ class CoursesCubit extends Cubit<CoursesState> {
   Future<void> loadCourses() async {
     try {
       emit(CoursesLoading());
-
-      // تحقق من الإنترنت أولاً
       final List<ConnectivityResult> connectivityResults =
           await Connectivity().checkConnectivity();
 
@@ -58,11 +53,8 @@ class CoursesCubit extends Cubit<CoursesState> {
         emit(CoursesNoInternet());
         return;
       }
-
-      // محاكاة تحميل البيانات من API
       await Future.delayed(const Duration(seconds: 2));
 
-      // بيانات تجريبية - استبدلها بـ API call حقيقي
       final courses = _getMockCourses();
       final userData = _getMockUserData();
 
@@ -130,24 +122,25 @@ class CoursesCubit extends Cubit<CoursesState> {
       'totalHours': 120,
       'upcomingTasks': [
         {
-          'title': 'مراجعة درس Flutter Widgets',
+          'title': 'Flutter Widgets',
           'dueDate': DateTime.now().add(const Duration(hours: 2)),
           'course': 'Flutter Development',
         },
         {
-          'title': 'حل تمارين UI Design',
+          'title': 'UI Design',
           'dueDate': DateTime.now().add(const Duration(hours: 5)),
           'course': 'UI/UX Design',
         },
         {
-          'title': 'إنهاء مشروع Backend',
+          'title': 'Backend',
           'dueDate': DateTime.now().add(const Duration(days: 1)),
           'course': 'Backend Development',
         },
       ],
       'motivationalQuote': {
-        'text': 'النجاح هو نتيجة الاستعداد والفرصة والعمل الجاد',
-        'author': 'محمد علي كلاي',
+        'text':
+            'Success is the result of preparation, opportunity, and hard work.',
+        'author': 'Muhammad Ali Clay',
       },
     };
   }

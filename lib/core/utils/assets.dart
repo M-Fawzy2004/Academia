@@ -38,6 +38,10 @@ class Assets {
   /// assets/images/png/mofawzy.png
   static const String imagesPngMofawzy = "assets/images/png/mofawzy.png";
 
+  /// Assets for imagesPngNoReminder
+  /// assets/images/png/no_reminder.png
+  static const String imagesPngNoReminder = "assets/images/png/no_reminder.png";
+
   /// Assets for imagesPngSplashView
   /// assets/images/png/splash_view.png
   static const String imagesPngSplashView = "assets/images/png/splash_view.png";

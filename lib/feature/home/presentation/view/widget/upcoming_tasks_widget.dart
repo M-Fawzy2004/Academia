@@ -8,6 +8,7 @@ import 'package:study_box/core/theme/styles.dart';
 
 class UpcomingTasksWidget extends StatelessWidget {
   const UpcomingTasksWidget({super.key});
+  
 
   @override
   Widget build(BuildContext context) {

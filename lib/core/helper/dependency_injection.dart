@@ -3,6 +3,10 @@ import 'package:study_box/feature/add_subject/data/repos/subject_repository_impl
 import 'package:study_box/feature/add_subject/data/service/subject_service.dart';
 import 'package:study_box/feature/add_subject/domain/repos/subject_repository.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
+import 'package:study_box/feature/reminder/data/repo/reminder_repository_impl.dart';
+import 'package:study_box/feature/reminder/data/service/reminder_service.dart';
+import 'package:study_box/feature/reminder/domain/repo/reminder_repository.dart';
+import 'package:study_box/feature/reminder/presentation/manager/reminder_cubit/reminder_cubit.dart';
 import 'package:study_box/feature/subject_details/data/service/additional_notes_service.dart';
 import 'package:study_box/feature/subject_details/presentation/manager/additional_note_cubit/additional_notes_cubit.dart';
 import 'package:study_box/feature/add_subject/data/service/storage_resource_service.dart';
@@ -37,9 +41,17 @@ Future<void> initDependencies() async {
     () => StorageResourceService(supabaseClient: getIt<SupabaseClient>()),
   );
 
+  // Additional Notes Service
   getIt.registerLazySingleton<AdditionalNotesService>(
     () => AdditionalNotesService(
       supabaseClient: getIt<SupabaseClient>(),
+    ),
+  );
+
+  // Reminder Service
+  getIt.registerLazySingleton<ReminderService>(
+    () => ReminderService(
+      supabaseClient: Supabase.instance.client,
     ),
   );
 
@@ -52,6 +64,13 @@ Future<void> initDependencies() async {
   // Subject Repository
   getIt.registerLazySingleton<SubjectRepository>(
     () => SubjectRepositoryImpl(subjectService: getIt()),
+  );
+
+  // Reminder Repository
+  getIt.registerLazySingleton<ReminderRepository>(
+    () => ReminderRepositoryImpl(
+      reminderService: getIt<ReminderService>(),
+    ),
   );
 
   /////////////// Cubits ///////////////////////
@@ -71,6 +90,13 @@ Future<void> initDependencies() async {
   // Additional Notes Cubit
   getIt.registerFactory<AdditionalNotesCubit>(
     () => AdditionalNotesCubit(getIt<AdditionalNotesService>()),
+  );
+
+  // Reminder Cubit
+  getIt.registerFactory<ReminderCubit>(
+    () => ReminderCubit(
+      reminderRepository: getIt<ReminderRepository>(),
+    ),
   );
 }
 

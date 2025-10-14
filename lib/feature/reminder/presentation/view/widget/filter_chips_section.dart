@@ -15,7 +15,7 @@ class FilterChipsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final filters = ['All', 'Subjects', 'Tasks'];
+    final filters = ['all', 'subject', 'task', 'custom'];
 
     return SizedBox(
       height: 40.h,
@@ -26,9 +26,27 @@ class FilterChipsSection extends StatelessWidget {
         separatorBuilder: (context, index) => widthBox(10),
         itemBuilder: (context, index) {
           final filter = filters[index];
-          final isSelected = selectedFilter == filter;
+          final isSelected =
+              selectedFilter.toLowerCase() == filter.toLowerCase();
+
+          String displayLabel = '';
+          switch (filter) {
+            case 'all':
+              displayLabel = 'All';
+              break;
+            case 'subject':
+              displayLabel = 'Subjects';
+              break;
+            case 'task':
+              displayLabel = 'Tasks';
+              break;
+            case 'custom':
+              displayLabel = 'Custom';
+              break;
+          }
+
           return FilterChip(
-            label: Text(filter),
+            label: Text(displayLabel),
             selected: isSelected,
             onSelected: (selected) {
               if (selected) {

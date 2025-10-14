@@ -15,8 +15,7 @@ class ReminderEntity extends Equatable {
   final String time;
   final ReminderType type;
   final bool isCompleted;
-  final String?
-      subjectId; // null for tasks/custom, has value for subject reminders
+  final String? subjectId;
   final DateTime createdAt;
   final DateTime updatedAt;
 

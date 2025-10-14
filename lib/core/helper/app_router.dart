@@ -211,7 +211,7 @@ abstract class AppRouter {
         },
       ),
       GoRoute(
-        path: subjectView,
+        path: reminderView,
         builder: (BuildContext context, GoRouterState state) {
           return const ReminderView();
         },

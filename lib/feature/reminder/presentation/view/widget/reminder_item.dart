@@ -1,31 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:intl/intl.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
-import 'package:study_box/feature/reminder/presentation/view/widget/reminder_type_config.dart';
+import 'package:study_box/feature/reminder/domain/enities/reminder_entity.dart';
 import 'package:study_box/feature/reminder/presentation/view/widget/reminder_type_badge.dart';
 
-class ReminderItem extends StatefulWidget {
-  final ReminderItemData data;
+class ReminderItem extends StatelessWidget {
+  final ReminderEntity reminder;
+  final VoidCallback onToggle;
+  final VoidCallback onDelete;
+  final VoidCallback onEdit;
 
   const ReminderItem({
     super.key,
-    required this.data,
+    required this.reminder,
+    required this.onToggle,
+    required this.onDelete,
+    required this.onEdit,
   });
 
-  @override
-  State<ReminderItem> createState() => _ReminderItemState();
-}
+  String formatDate(DateTime date) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final tomorrow = today.add(const Duration(days: 1));
+    final reminderDate = DateTime(date.year, date.month, date.day);
 
-class _ReminderItemState extends State<ReminderItem> {
-  late bool isCompleted;
-
-  @override
-  void initState() {
-    super.initState();
-    isCompleted = widget.data.isCompleted;
+    if (reminderDate == today) {
+      return 'Today';
+    } else if (reminderDate == tomorrow) {
+      return 'Tomorrow';
+    } else {
+      return DateFormat('MMM dd').format(date);
+    }
   }
 
   @override
@@ -45,34 +54,30 @@ class _ReminderItemState extends State<ReminderItem> {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {},
+          onTap: onEdit,
           borderRadius: BorderRadius.circular(12.r),
           child: Padding(
             padding: EdgeInsets.all(15.w),
             child: Row(
               children: [
                 GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isCompleted = !isCompleted;
-                    });
-                  },
+                  onTap: onToggle,
                   child: Container(
                     width: 20.w,
                     height: 20.h,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: isCompleted
+                        color: reminder.isCompleted
                             ? AppColors.primaryColor
                             : Colors.grey.shade400,
                         width: 2,
                       ),
-                      color: isCompleted
+                      color: reminder.isCompleted
                           ? AppColors.primaryColor
                           : Colors.transparent,
                     ),
-                    child: isCompleted
+                    child: reminder.isCompleted
                         ? Icon(
                             Icons.check,
                             size: 14.sp,
@@ -90,28 +95,30 @@ class _ReminderItemState extends State<ReminderItem> {
                         children: [
                           Expanded(
                             child: Text(
-                              widget.data.title,
+                              reminder.title,
                               style: Styles.font16PrimaryColorTextBold(context)
                                   .copyWith(
-                                decoration: isCompleted
+                                decoration: reminder.isCompleted
                                     ? TextDecoration.lineThrough
                                     : null,
-                                color:
-                                    isCompleted ? Colors.grey.shade600 : null,
+                                color: reminder.isCompleted
+                                    ? Colors.grey.shade600
+                                    : null,
                               ),
                             ),
                           ),
-                          ReminderTypeBadge(type: widget.data.type),
+                          ReminderTypeBadge(type: reminder.type),
                         ],
                       ),
                       heightBox(5),
                       Text(
-                        widget.data.description,
+                        reminder.description,
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey.shade600,
-                          decoration:
-                              isCompleted ? TextDecoration.lineThrough : null,
+                          decoration: reminder.isCompleted
+                              ? TextDecoration.lineThrough
+                              : null,
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -120,13 +127,27 @@ class _ReminderItemState extends State<ReminderItem> {
                       Row(
                         children: [
                           Icon(
+                            IconlyLight.calendar,
+                            size: 16,
+                            color: Colors.grey.shade600,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            formatDate(reminder.date),
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Icon(
                             IconlyLight.time_circle,
                             size: 16,
                             color: Colors.grey.shade600,
                           ),
                           const SizedBox(width: 4),
                           Text(
-                            widget.data.time,
+                            reminder.time,
                             style: TextStyle(
                               fontSize: 13,
                               color: Colors.grey.shade600,
@@ -135,6 +156,14 @@ class _ReminderItemState extends State<ReminderItem> {
                         ],
                       ),
                     ],
+                  ),
+                ),
+                IconButton(
+                  onPressed: onDelete,
+                  icon: Icon(
+                    IconlyLight.delete,
+                    color: Colors.red.shade400,
+                    size: 20.sp,
                   ),
                 ),
               ],
