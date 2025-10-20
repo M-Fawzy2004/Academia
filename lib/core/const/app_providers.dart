@@ -53,6 +53,9 @@ class AppProviders {
         BlocProvider<SubjectCubit>(
           create: (_) => getIt<SubjectCubit>()..getAllSubjects(),
         ),
+        BlocProvider<ReminderCubit>(
+          create: (_) => getIt<ReminderCubit>()..getAllReminders(),
+        ),
       ],
       child: child,
     );

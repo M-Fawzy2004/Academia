@@ -62,8 +62,10 @@ class FilterChipsSection extends StatelessWidget {
             selectedColor: AppColors.primaryColor.withOpacity(0.15),
             checkmarkColor: AppColors.primaryColor,
             labelStyle: TextStyle(
-              color: isSelected ? AppColors.primaryColor : Colors.grey.shade700,
-              fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+              color: isSelected
+                  ? AppColors.primaryColor
+                  : AppColors.getTextPrimaryColor(context),
+              fontWeight: isSelected ? FontWeight.w700 : FontWeight.normal,
             ),
           );
         },

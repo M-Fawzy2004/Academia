@@ -25,10 +25,8 @@ class BookItemGridBlocConsumer extends StatelessWidget {
           return BookItemGrid(subject: state.subject);
         }
 
-        return const Expanded(
-          child: Center(
-            child: Text('No Book item files found'),
-          ),
+        return const Center(
+          child: Text('No Book item files found'),
         );
       },
     );

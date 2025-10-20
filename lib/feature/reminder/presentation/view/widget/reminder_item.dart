@@ -41,15 +41,12 @@ class ReminderItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.getCardColorTwo(context),
+        color: AppColors.getBackgroundColor(context),
         borderRadius: BorderRadius.circular(12.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        border: Border.all(
+          color: AppColors.secondaryColor.withOpacity(0.3),
+          width: 1.5.w,
+        ),
       ),
       child: Material(
         color: Colors.transparent,
@@ -96,7 +93,7 @@ class ReminderItem extends StatelessWidget {
                           Expanded(
                             child: Text(
                               reminder.title,
-                              style: Styles.font16PrimaryColorTextBold(context)
+                              style: Styles.font15PrimaryColorTextBold(context)
                                   .copyWith(
                                 decoration: reminder.isCompleted
                                     ? TextDecoration.lineThrough
@@ -110,12 +107,9 @@ class ReminderItem extends StatelessWidget {
                           ReminderTypeBadge(type: reminder.type),
                         ],
                       ),
-                      heightBox(5),
                       Text(
                         reminder.description,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey.shade600,
+                        style: Styles.font13GreyBold(context).copyWith(
                           decoration: reminder.isCompleted
                               ? TextDecoration.lineThrough
                               : null,
@@ -123,35 +117,29 @@ class ReminderItem extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      const SizedBox(height: 8),
+                      heightBox(5),
                       Row(
                         children: [
                           Icon(
                             IconlyLight.calendar,
-                            size: 16,
+                            size: 16.sp,
                             color: Colors.grey.shade600,
                           ),
-                          const SizedBox(width: 4),
+                          widthBox(3),
                           Text(
                             formatDate(reminder.date),
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.grey.shade600,
-                            ),
+                            style: Styles.font13GreyBold(context),
                           ),
-                          const SizedBox(width: 12),
+                          widthBox(10),
                           Icon(
                             IconlyLight.time_circle,
-                            size: 16,
+                            size: 16.sp,
                             color: Colors.grey.shade600,
                           ),
-                          const SizedBox(width: 4),
+                          widthBox(3),
                           Text(
                             reminder.time,
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.grey.shade600,
-                            ),
+                            style: Styles.font13GreyBold(context),
                           ),
                         ],
                       ),

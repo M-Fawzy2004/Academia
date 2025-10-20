@@ -5,7 +5,6 @@ import 'package:study_box/feature/home/presentation/view/widget/header_section.d
 import 'package:study_box/feature/home/presentation/view/widget/subjects_header.dart';
 import 'package:study_box/feature/home/presentation/view/widget/quick_stats_card.dart';
 import 'package:study_box/feature/home/presentation/view/widget/study_streak_widget.dart';
-import 'package:study_box/feature/home/presentation/view/widget/upcoming_tasks_widget.dart';
 import 'package:study_box/feature/home/presentation/view/widget/motivational_quote_widget.dart';
 import 'package:study_box/feature/home/presentation/view/widget/recent_subjects_widget.dart';
 
@@ -35,9 +34,9 @@ class HomeSkeletonLoading extends StatelessWidget {
             child: QuickStatsCard(),
           ),
           SliverToBoxAdapter(child: heightBox(20)),
-          const SliverToBoxAdapter(
-            child: UpcomingTasksWidget(),
-          ),
+          // const SliverToBoxAdapter(
+          //   child: UpcomingTasksWidget(),
+          // ),
           SliverToBoxAdapter(child: heightBox(25)),
           SliverToBoxAdapter(
             child: Column(

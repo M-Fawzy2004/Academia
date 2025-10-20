@@ -35,7 +35,8 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
       if (response.user == null) {
         return Left(
           ServerFailure(
-              message: LocalizationManager.l.failed_to_create_account),
+            message: LocalizationManager.l.failed_to_create_account,
+          ),
         );
       }
 
@@ -413,15 +414,12 @@ class SupabaseAuthServiceImpl implements SupabaseAuthService {
           .eq('id', userId)
           .maybeSingle();
       if (existing == null) {
-        await _supabaseClient
-            .from(AppConstant.subscriptionTable)
-            .upsert({
-              'id': userId,
-              'subscription_tier': 'free',
-              'created_at': DateTime.now().toIso8601String(),
-              'updated_at': DateTime.now().toIso8601String(),
-            })
-            .select();
+        await _supabaseClient.from(AppConstant.subscriptionTable).upsert({
+          'id': userId,
+          'subscription_tier': 'free',
+          'created_at': DateTime.now().toIso8601String(),
+          'updated_at': DateTime.now().toIso8601String(),
+        }).select();
       }
     } catch (_) {
       // If RLS denies, ignore; app will treat as free in reads
