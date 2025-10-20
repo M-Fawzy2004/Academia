@@ -1,20 +1,30 @@
 import 'dart:io';
 import 'package:study_box/core/const/app_constant.dart';
+import 'package:study_box/feature/reminder/domain/enities/reminder_entity.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../model/reminder_model.dart';
+import '../../../../core/service/notification_service.dart';
 
 class ReminderService {
   final SupabaseClient supabaseClient;
+  final NotificationService notificationService;
 
-  ReminderService({required this.supabaseClient});
+  ReminderService({
+    required this.supabaseClient,
+    required this.notificationService,
+  });
 
   Future<String> addReminder(ReminderModel reminder) async {
     try {
       final userId = supabaseClient.auth.currentUser?.id;
       if (userId == null) throw Exception('User not authenticated');
 
-      final Map<String, dynamic> payload = Map<String, dynamic>.from(reminder.toJson());
-      
+      final notificationId =
+          await notificationService.scheduleReminder(reminder);
+
+      final Map<String, dynamic> payload =
+          Map<String, dynamic>.from(reminder.toJson());
+
       for (final key in ['title', 'description']) {
         final value = payload[key];
         if (value is String) {
@@ -24,6 +34,7 @@ class ReminderService {
 
       payload.remove('id');
       payload['user_id'] = userId;
+      payload['notification_id'] = notificationId;
 
       final inserted = await supabaseClient
           .from(AppConstant.tableReminders)
@@ -110,14 +121,23 @@ class ReminderService {
       final userId = supabaseClient.auth.currentUser?.id;
       if (userId == null) throw Exception('User not authenticated');
 
+      if (reminder.notificationId != null) {
+        await notificationService.cancelNotification(reminder.notificationId!);
+      }
+
+      final newNotificationId =
+          await notificationService.scheduleReminder(reminder);
+
       final payload = Map<String, dynamic>.from(reminder.toJson());
-      
+
       for (final key in ['title', 'description']) {
         final value = payload[key];
         if (value is String) {
           payload[key] = value.replaceAll(RegExp('[\u0000]'), '');
         }
       }
+
+      payload['notification_id'] = newNotificationId;
 
       await supabaseClient
           .from(AppConstant.tableReminders)
@@ -135,6 +155,18 @@ class ReminderService {
     try {
       final userId = supabaseClient.auth.currentUser?.id;
       if (userId == null) throw Exception('User not authenticated');
+
+      final reminder = await supabaseClient
+          .from(AppConstant.tableReminders)
+          .select()
+          .eq('id', id)
+          .eq('user_id', userId)
+          .single();
+
+      final notificationId = reminder['notification_id'] as int?;
+      if (notificationId != null) {
+        await notificationService.cancelNotification(notificationId);
+      }
 
       await supabaseClient
           .from(AppConstant.tableReminders)
@@ -185,7 +217,27 @@ class ReminderService {
         final location = lecture['location'] as String?;
 
         final nextLectureDate = _getNextDateForDay(day);
-        final timeString = '${startTime['hour'].toString().padLeft(2, '0')}:${startTime['minute'].toString().padLeft(2, '0')}';
+        final timeString =
+            '${startTime['hour'].toString().padLeft(2, '0')}:${startTime['minute'].toString().padLeft(2, '0')}';
+
+        final reminderModel = ReminderModel(
+          id: '',
+          userId: userId,
+          title: subjectName,
+          description: location != null ? 'Location: $location' : 'Lecture',
+          date: nextLectureDate,
+          time: timeString,
+          type: ReminderType.subject,
+          isCompleted: false,
+          subjectId: subjectId,
+          priority: ReminderPriority.medium,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+          notificationId: null,
+        );
+
+        final notificationId =
+            await notificationService.scheduleReminder(reminderModel);
 
         final reminderData = {
           'user_id': userId,
@@ -196,6 +248,8 @@ class ReminderService {
           'type': 'subject',
           'is_completed': false,
           'subject_id': subjectId,
+          'notification_id': notificationId,
+          'priority': 'medium',
           'created_at': DateTime.now().toIso8601String(),
           'updated_at': DateTime.now().toIso8601String(),
         };
@@ -231,11 +285,11 @@ class ReminderService {
     final targetDay = days[dayName.toLowerCase()] ?? DateTime.monday;
     final now = DateTime.now();
     final daysUntilTarget = (targetDay - now.weekday) % 7;
-    
+
     if (daysUntilTarget == 0) {
       return now;
     }
-    
+
     return now.add(Duration(days: daysUntilTarget));
   }
 }

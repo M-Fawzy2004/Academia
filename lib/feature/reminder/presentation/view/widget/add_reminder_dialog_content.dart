@@ -14,6 +14,7 @@ import 'package:study_box/feature/reminder/presentation/manager/add_reminder_for
 import 'package:study_box/feature/reminder/presentation/manager/reminder_cubit/reminder_cubit.dart';
 import 'package:study_box/feature/reminder/presentation/view/widget/reminder_date_time_picker.dart';
 import 'package:study_box/feature/reminder/presentation/view/widget/reminder_type_selector.dart';
+import 'package:study_box/feature/reminder/presentation/view/widget/reminder_priority_selector.dart';
 
 class AddReminderDialogContent extends StatefulWidget {
   final ReminderEntity? reminder;
@@ -126,6 +127,10 @@ class _AddReminderDialogContentState extends State<AddReminderDialogContent>
                       Text('Type', style: Styles.font13GreyBold(context)),
                       heightBox(8),
                       const ReminderTypeSelector(),
+                      heightBox(16),
+                      Text('Priority', style: Styles.font13GreyBold(context)),
+                      heightBox(8),
+                      const ReminderPrioritySelector(),
                       heightBox(16),
                       const ReminderDateTimePicker(),
                       heightBox(16),

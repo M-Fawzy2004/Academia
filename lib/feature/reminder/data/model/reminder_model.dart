@@ -10,6 +10,8 @@ class ReminderModel extends ReminderEntity {
     required super.time,
     required super.type,
     required super.isCompleted,
+    required super.notificationId,
+    required super.priority,
     super.subjectId,
     required super.createdAt,
     required super.updatedAt,
@@ -31,6 +33,11 @@ class ReminderModel extends ReminderEntity {
       subjectId: json['subject_id'] as String?,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
+      notificationId: json['notification_id'] as int?,
+      priority: ReminderPriority.values.firstWhere(
+        (e) => e.name == json['priority'],
+        orElse: () => ReminderPriority.low,
+      ),
     );
   }
 
@@ -47,6 +54,8 @@ class ReminderModel extends ReminderEntity {
       'subject_id': subjectId,
       'created_at': createdAt.toIso8601String(),
       'updated_at': updatedAt.toIso8601String(),
+      'notification_id': notificationId,
+      'priority': priority.name
     };
   }
 
@@ -63,6 +72,8 @@ class ReminderModel extends ReminderEntity {
       subjectId: entity.subjectId,
       createdAt: entity.createdAt,
       updatedAt: entity.updatedAt,
+      notificationId: entity.notificationId,
+      priority: entity.priority,
     );
   }
 }

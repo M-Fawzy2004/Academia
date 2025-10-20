@@ -1,4 +1,6 @@
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_it/get_it.dart';
+import 'package:study_box/core/service/notification_service.dart';
 import 'package:study_box/feature/add_subject/data/repos/subject_repository_impl.dart';
 import 'package:study_box/feature/add_subject/data/service/subject_service.dart';
 import 'package:study_box/feature/add_subject/domain/repos/subject_repository.dart';
@@ -23,6 +25,11 @@ Future<void> initDependencies() async {
   // Supabase Client
   getIt.registerLazySingleton<SupabaseClient>(
     () => Supabase.instance.client,
+  );
+
+  // Notification Plugin
+  getIt.registerLazySingleton<FlutterLocalNotificationsPlugin>(
+    () => FlutterLocalNotificationsPlugin(),
   );
 
   /////////////// Services ////////////////////////
@@ -52,6 +59,14 @@ Future<void> initDependencies() async {
   getIt.registerLazySingleton<ReminderService>(
     () => ReminderService(
       supabaseClient: Supabase.instance.client,
+      notificationService: getIt<NotificationService>(),
+    ),
+  );
+
+  // Notification Service
+  getIt.registerLazySingleton<NotificationService>(
+    () => NotificationService(
+      notificationsPlugin: getIt<FlutterLocalNotificationsPlugin>(),
     ),
   );
 

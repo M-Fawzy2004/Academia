@@ -16,6 +16,8 @@ class AddReminderFormCubit extends Cubit<AddReminderFormState> {
 
     final type = reminder?.type ?? ReminderType.task;
     final date = reminder?.date ?? DateTime.now();
+    final priority = reminder?.priority ?? ReminderPriority.medium;
+    
     TimeOfDay time;
 
     if (reminder != null) {
@@ -32,6 +34,7 @@ class AddReminderFormCubit extends Cubit<AddReminderFormState> {
       selectedType: type,
       selectedDate: date,
       selectedTime: time,
+      selectedPriority: priority,
     ));
   }
 
@@ -45,6 +48,10 @@ class AddReminderFormCubit extends Cubit<AddReminderFormState> {
 
   void updateTime(TimeOfDay time) {
     emit(state.copyWith(selectedTime: time));
+  }
+
+  void updatePriority(ReminderPriority priority) {
+    emit(state.copyWith(selectedPriority: priority));
   }
 
   String? validateTitle() {
@@ -68,6 +75,8 @@ class AddReminderFormCubit extends Cubit<AddReminderFormState> {
       type: state.selectedType,
       isCompleted: existingReminder?.isCompleted ?? false,
       subjectId: null,
+      notificationId: existingReminder?.notificationId,
+      priority: state.selectedPriority,
       createdAt: existingReminder?.createdAt ?? DateTime.now(),
       updatedAt: DateTime.now(),
     );

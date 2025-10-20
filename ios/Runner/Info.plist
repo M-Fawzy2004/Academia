@@ -42,18 +42,17 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleURLTypes</key>
-	<key>CFBundleURLTypes</key>
 	<array>
-    	<dict>
-    		<key>CFBundleTypeRole</key>
-    		<string>Editor</string>
-    		<key>CFBundleURLSchemes</key>
-    		<array>
-      		<!-- TODO Replace this value: -->
-      		<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
-      		<string>com.googleusercontent.apps.861823949799-vc35cprkp249096uujjn0vvnmcvjppkn</string>
-    		</array>
- 		 </dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!-- TODO Replace this value: -->
+				<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+				<string>com.googleusercontent.apps.861823949799-vc35cprkp249096uujjn0vvnmcvjppkn</string>
+			</array>
+		</dict>
 	</array>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
@@ -65,5 +64,30 @@
 	<string>This app needs access to camera to take photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs access to photo library to select images</string>
+	<!-- ======================================= -->
+	<!-- NOTIFICATION CONFIGURATIONS -->
+	<!-- ======================================= -->
+	<!-- Background Modes for Notifications -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+		<string>processing</string>
+	</array>
+	<!-- User Notification Alert Style -->
+	<key>NSUserNotificationAlertStyle</key>
+	<string>alert</string>
+	<!-- Time Sensitive Notifications Permission -->
+	<key>com.apple.developer.usernotifications.time-sensitive</key>
+	<true/>
+	<!-- Status Bar Style for Notifications -->
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<!-- Calendar Access -->
+	<key>NSCalendarsUsageDescription</key>
+	<string>نحتاج الوصول للتقويم لجدولة التذكيرات الدراسية</string>
+	<!-- Reminders Access -->
+	<key>NSRemindersUsageDescription</key>
+	<string>نحتاج الوصول للتذكيرات لمساعدتك في تنظيم جدولك الدراسي</string>
 </dict>
 </plist>

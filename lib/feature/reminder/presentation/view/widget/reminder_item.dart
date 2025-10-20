@@ -7,6 +7,7 @@ import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/reminder/domain/enities/reminder_entity.dart';
 import 'package:study_box/feature/reminder/presentation/view/widget/reminder_type_badge.dart';
+import 'package:study_box/feature/reminder/presentation/view/widget/reminder_priority_badge.dart';
 
 class ReminderItem extends StatelessWidget {
   final ReminderEntity reminder;
@@ -104,6 +105,8 @@ class ReminderItem extends StatelessWidget {
                               ),
                             ),
                           ),
+                          ReminderPriorityBadge(priority: reminder.priority),
+                          widthBox(6),
                           ReminderTypeBadge(type: reminder.type),
                         ],
                       ),

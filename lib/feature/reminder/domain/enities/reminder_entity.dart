@@ -1,10 +1,8 @@
 import 'package:equatable/equatable.dart';
 
-enum ReminderType {
-  subject,
-  task,
-  custom,
-}
+enum ReminderType { subject, task, custom }
+
+enum ReminderPriority { high, medium, low }
 
 class ReminderEntity extends Equatable {
   final String id;
@@ -16,6 +14,8 @@ class ReminderEntity extends Equatable {
   final ReminderType type;
   final bool isCompleted;
   final String? subjectId;
+  final int? notificationId;
+  final ReminderPriority priority;
   final DateTime createdAt;
   final DateTime updatedAt;
 
@@ -29,6 +29,8 @@ class ReminderEntity extends Equatable {
     required this.type,
     required this.isCompleted,
     this.subjectId,
+    this.notificationId,
+    this.priority = ReminderPriority.medium,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -43,6 +45,8 @@ class ReminderEntity extends Equatable {
     ReminderType? type,
     bool? isCompleted,
     String? subjectId,
+    int? notificationId,
+    ReminderPriority? priority,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -56,6 +60,8 @@ class ReminderEntity extends Equatable {
       type: type ?? this.type,
       isCompleted: isCompleted ?? this.isCompleted,
       subjectId: subjectId ?? this.subjectId,
+      notificationId: notificationId ?? this.notificationId,
+      priority: priority ?? this.priority,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -72,6 +78,8 @@ class ReminderEntity extends Equatable {
         type,
         isCompleted,
         subjectId,
+        notificationId,
+        priority,
         createdAt,
         updatedAt,
       ];
