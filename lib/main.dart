@@ -1,16 +1,13 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:study_box/core/const/app_constant.dart';
 import 'package:study_box/core/const/theme_manager.dart';
 import 'package:study_box/core/helper/dependency_injection.dart';
 import 'package:study_box/core/service/notification_service.dart';
-import 'package:study_box/firebase_options.dart';
 import 'package:study_box/study_box_app.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -19,21 +16,30 @@ late NotificationService notificationService;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+
   // Initialize TimeZones
   tz.initializeTimeZones();
 
-  // Get device timezone automatically
+  // Use device's local timezone
+  final String deviceTimeZone = DateTime.now().timeZoneName;
+  final Duration deviceOffset = DateTime.now().timeZoneOffset;
+
   try {
-    final String currentTimeZone =
-        await FlutterNativeTimezone.getLocalTimezone();
-    tz.setLocalLocation(tz.getLocation(currentTimeZone));
+    // Try to set exact timezone by name
+    tz.setLocalLocation(tz.getLocation(deviceTimeZone));
   } catch (e) {
-    // Fallback to UTC if device timezone fails
-    tz.setLocalLocation(tz.getLocation('UTC'));
-    debugPrint('Could not get device timezone, using UTC: $e');
+    // If timezone name not found, find by offset
+    try {
+      final location = tz.timeZoneDatabase.locations.values.firstWhere(
+        (location) =>
+            tz.TZDateTime.now(location).timeZoneOffset == deviceOffset,
+      );
+      tz.setLocalLocation(location);
+    } catch (e) {
+      // Last fallback: use UTC
+      tz.setLocalLocation(tz.getLocation('UTC'));
+      debugPrint('Using UTC timezone');
+    }
   }
 
   // Initialize Local Notifications
