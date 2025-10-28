@@ -7,12 +7,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:study_box/study_box_app.dart';
+import 'package:study_box/academia_ai_app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const StudyBoxApp());
+    await tester.pumpWidget(const AcademiaAiApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

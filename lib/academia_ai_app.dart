@@ -6,14 +6,15 @@ import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/localization/localization_manager.dart';
 import 'package:study_box/l10n/app_localizations.dart' show AppLocalizations;
 
-class StudyBoxApp extends StatefulWidget {
-  const StudyBoxApp({super.key});
+class AcademiaAiApp extends StatefulWidget {
+  const AcademiaAiApp({super.key});
 
   @override
-  State<StudyBoxApp> createState() => _StudyBoxAppState();
+  State<AcademiaAiApp> createState() => _AcademiaAiAppState();
 }
 
-class _StudyBoxAppState extends State<StudyBoxApp> with WidgetsBindingObserver {
+class _AcademiaAiAppState extends State<AcademiaAiApp>
+    with WidgetsBindingObserver {
   Locale _locale = const Locale('en');
 
   @override

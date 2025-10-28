@@ -1,4 +1,4 @@
-package com.example.study_box
+package com.mohamed.academiaai
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine

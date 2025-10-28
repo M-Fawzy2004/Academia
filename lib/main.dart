@@ -4,7 +4,7 @@ import 'package:study_box/core/const/app_constant.dart';
 import 'package:study_box/core/const/theme_manager.dart';
 import 'package:study_box/core/helper/dependency_injection.dart';
 import 'package:study_box/core/service/notification_service.dart';
-import 'package:study_box/study_box_app.dart';
+import 'package:study_box/academia_ai_app.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -63,6 +63,6 @@ void main() async {
   await ThemeManager.instance.loadSavedTheme();
 
   runApp(
-    const StudyBoxApp(),
+    const AcademiaAiApp(),
   );
 }
