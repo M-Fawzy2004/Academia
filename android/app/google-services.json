@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "243310646583",
+    "project_id": "academia-ai-26224",
+    "storage_bucket": "academia-ai-26224.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243310646583:android:4011d7bf37ee38227fb6b2",
+        "android_client_info": {
+          "package_name": "com.example.study_box"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMlYN10HDkmYigR7VAv0FidvvfBjETwcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

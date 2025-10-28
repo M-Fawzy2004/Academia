@@ -34,6 +34,10 @@ class Assets {
   /// assets/images/png/app_logo.png
   static const String imagesPngAppLogo = "assets/images/png/app_logo.png";
 
+  /// Assets for imagesPngChatbot
+  /// assets/images/png/chatbot.png
+  static const String imagesPngChatbot = "assets/images/png/chatbot.png";
+
   /// Assets for imagesPngMofawzy
   /// assets/images/png/mofawzy.png
   static const String imagesPngMofawzy = "assets/images/png/mofawzy.png";

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_box/core/const/app_providers.dart';
 import 'package:study_box/feature/add_subject/presentation/view/add_subject_view.dart';
+import 'package:study_box/feature/ai/presentation/view/ai_view.dart';
 import 'package:study_box/feature/auth/presentation/view/forget_pass_view.dart';
 import 'package:study_box/feature/auth/presentation/view/login_view.dart';
 import 'package:study_box/feature/auth/presentation/view/register_view.dart';
@@ -41,6 +42,7 @@ abstract class AppRouter {
   static const imageDetailsView = '/imageDetailsView';
   static const bookDetailsView = '/bookDetailsView';
   static const reminderView = '/reminderView';
+  static const aiView = '/aiView';
 
   static var router = GoRouter(
     routes: [
@@ -214,6 +216,12 @@ abstract class AppRouter {
         path: reminderView,
         builder: (BuildContext context, GoRouterState state) {
           return const ReminderView();
+        },
+      ),
+      GoRoute(
+        path: aiView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const AiView();
         },
       ),
     ],
