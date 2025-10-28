@@ -116,10 +116,3 @@ flutter_assets:
   field_prefix: null
 
   generate: true
-
-## flutter_launcher_icons ##
-flutter_launcher_icons:
-  android: true
-  ios: true
-  image_path: "assets/images/png/app_logo.png"
-  remove_alpha_ios: true

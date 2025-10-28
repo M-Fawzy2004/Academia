@@ -1,0 +1,18 @@
+# Flutter Launcher Icons Configuration
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+
+  # ========== Light Mode ==========
+  image_path: "assets/images/icon/app_icon_light.png"
+  remove_alpha_ios: true
+
+  # ========== Android Adaptive Icon ==========
+  #  8.0+ (API 26+)
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/icon/app_icon_light.png"
+
+  # ========== Android Monochrome Icon ==========
+  #  13+ (API 33+)
+  adaptive_icon_monochrome: "assets/images/icon/app_icon_mono.png"

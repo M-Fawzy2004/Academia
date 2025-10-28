@@ -2,6 +2,18 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesIconAppIconDark
+  /// assets/images/icon/app_icon_dark.png
+  static const String imagesIconAppIconDark = "assets/images/icon/app_icon_dark.png";
+
+  /// Assets for imagesIconAppIconLight
+  /// assets/images/icon/app_icon_light.png
+  static const String imagesIconAppIconLight = "assets/images/icon/app_icon_light.png";
+
+  /// Assets for imagesIconAppIconMono
+  /// assets/images/icon/app_icon_mono.png
+  static const String imagesIconAppIconMono = "assets/images/icon/app_icon_mono.png";
+
   /// Assets for imagesIconApple
   /// assets/images/icon/apple.png
   static const String imagesIconApple = "assets/images/icon/apple.png";
