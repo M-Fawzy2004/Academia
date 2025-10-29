@@ -62,19 +62,19 @@ class _NotesSectionState extends State<NotesSection> {
                     child: Icon(
                       Icons.description_outlined,
                       color: const Color(0xFF6366F1),
-                      size: 24.sp,
+                      size: 20.sp,
                     ),
                   ),
-                  widthBox(12),
+                  widthBox(7),
                   Text(
                     context.tr.notes,
-                    style: Styles.font18PrimaryColorTextBold(context),
+                    style: Styles.font16PrimaryColorTextBold(context),
                   ),
                   widthBox(10),
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 10.w,
-                      vertical: 4.h,
+                      horizontal: 7.w,
+                      vertical: 2.h,
                     ),
                     decoration: BoxDecoration(
                       color: const Color(0xFF6366F1).withOpacity(0.1),

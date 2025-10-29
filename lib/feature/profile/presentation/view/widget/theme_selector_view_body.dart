@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study_box/core/const/theme_manager.dart';
+import 'package:study_box/core/theme/theme_manager.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/theme_option_card.dart';

@@ -42,10 +42,6 @@ class Assets {
   /// assets/images/jpg/welcome_view_image.jpg
   static const String imagesJpgWelcomeViewImage = "assets/images/jpg/welcome_view_image.jpg";
 
-  /// Assets for imagesPngAppLogo
-  /// assets/images/png/app_logo.png
-  static const String imagesPngAppLogo = "assets/images/png/app_logo.png";
-
   /// Assets for imagesPngChatbot
   /// assets/images/png/chatbot.png
   static const String imagesPngChatbot = "assets/images/png/chatbot.png";
@@ -61,6 +57,10 @@ class Assets {
   /// Assets for imagesPngSplashView
   /// assets/images/png/splash_view.png
   static const String imagesPngSplashView = "assets/images/png/splash_view.png";
+
+  /// Assets for imagesPngSplashViewDark
+  /// assets/images/png/splash_view_dark.png
+  static const String imagesPngSplashViewDark = "assets/images/png/splash_view_dark.png";
 
   /// Assets for imagesPngVerfEmailImage
   /// assets/images/png/verf_email_image.png

@@ -29,11 +29,11 @@ class SettingsNavigation extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(8.r),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10.h),
+        padding: EdgeInsets.symmetric(vertical: 8.h),
         child: Row(
           children: [
             Icon(icon),
-            widthBox(15),
+            widthBox(10),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

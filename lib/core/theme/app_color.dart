@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study_box/core/const/theme_manager.dart'; 
+import 'package:study_box/core/theme/theme_manager.dart'; 
 
 enum ThemeMode2 {
   light,

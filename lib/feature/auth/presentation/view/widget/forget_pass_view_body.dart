@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
+import 'package:study_box/core/widget/icon_back.dart';
 import 'package:study_box/feature/auth/presentation/manager/cubit/auth_cubit.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/code_verification_action_buttons.dart'
     show CodeVerificationActionButtons;
@@ -304,8 +305,11 @@ class _ForgetPassViewBodyState extends State<ForgetPassViewBody> {
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            heightBox(50),
+            heightBox(20),
+            const IconBack(),
+            heightBox(30),
             ForgetPasswordHeader(title: _getTitle()),
             heightBox(20),
             _buildCurrentStep(),

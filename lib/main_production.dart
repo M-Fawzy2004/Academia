@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:study_box/core/const/app_constant.dart';
-import 'package:study_box/core/const/theme_manager.dart';
+import 'package:study_box/core/theme/theme_manager.dart';
 import 'package:study_box/core/helper/dependency_injection.dart';
 import 'package:study_box/core/service/notification_service.dart';
 import 'package:study_box/academia_ai_app.dart';

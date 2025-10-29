@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
+import 'package:study_box/core/theme/theme_manager.dart';
 import 'package:study_box/core/utils/assets.dart';
 import 'package:study_box/core/widget/icon_back.dart';
 import 'package:study_box/feature/auth/presentation/view/widget/auth_redirect_text.dart';
@@ -14,6 +15,15 @@ class RegisterViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeManager = ThemeManager.instance;
+    final currentTheme = themeManager.getEffectiveTheme(context);
+
+    String splashImage;
+    if (currentTheme == AppThemeMode.light) {
+      splashImage = Assets.imagesPngSplashView;
+    } else {
+      splashImage = Assets.imagesPngSplashViewDark;
+    }
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
@@ -24,8 +34,8 @@ class RegisterViewBody extends StatelessWidget {
             child: IconBack(),
           ),
           Image.asset(
-            Assets.imagesPngSplashView,
-            height: 200.h,
+            splashImage,
+            height: 170.h,
             width: 300.w,
           ),
           const RegisterFormWrapper(),

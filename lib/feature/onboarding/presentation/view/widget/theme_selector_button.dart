@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:study_box/core/const/theme_manager.dart';
+import 'package:study_box/core/theme/theme_manager.dart';
 import 'package:study_box/core/theme/app_color.dart';
 
 class ThemeSelectorButton extends StatelessWidget {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
+import 'package:study_box/core/theme/theme_manager.dart';
 import 'package:study_box/core/utils/assets.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -52,6 +53,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   Widget build(BuildContext context) {
+    final themeManager = ThemeManager.instance;
+    final currentTheme = themeManager.getEffectiveTheme(context);
+
+    String splashImage;
+    if (currentTheme == AppThemeMode.light) {
+      splashImage = Assets.imagesPngSplashView;
+    } else {
+      splashImage = Assets.imagesPngSplashViewDark;
+    }
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -62,7 +72,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
               return Transform.scale(
                 scale: _scaleAnimation.value,
                 child: Image.asset(
-                  Assets.imagesPngSplashView,
+                  splashImage,
                   width: 300.w,
                   height: 300.h,
                 ),

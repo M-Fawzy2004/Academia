@@ -23,11 +23,11 @@ class SettingsItem extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(8.r),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 12.h),
+        padding: EdgeInsets.symmetric(vertical: 10.h),
         child: Row(
           children: [
             Icon(icon),
-            widthBox(15),
+            widthBox(10),
             Text(
               title,
               style: Styles.font16PrimaryColorTextBold(context),

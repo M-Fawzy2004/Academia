@@ -42,16 +42,30 @@ class SettingsSwitch extends StatelessWidget {
               future: () => getFuture(),
               onChange: onChanged,
               onTap: (val) {},
-              width: 43.w,
-              height: 23.h,
+              width: 45.w,
+              height: 25.h,
               style: SpinStyle.material,
               switchDecoration: (val, isFocus) => BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: val ? AppColors.primaryColor : Colors.grey.shade400,
+                borderRadius: BorderRadius.circular(16),
+                color: val ? AppColors.primaryColor : Colors.grey.shade300,
+                border: Border.all(
+                  color: val
+                      ? AppColors.primaryColor.withOpacity(0.3)
+                      : Colors.grey.shade400,
+                  width: 1.w,
+                ),
               ),
-              thumbDecoration: (val, isFocus) => const BoxDecoration(
+              thumbDecoration: (val, isFocus) => BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 3,
+                    spreadRadius: 0.5,
+                    offset: const Offset(0, 1),
+                  ),
+                ],
               ),
             ),
           ),
