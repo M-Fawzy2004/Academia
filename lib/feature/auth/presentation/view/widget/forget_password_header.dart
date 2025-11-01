@@ -18,7 +18,7 @@ class ForgetPasswordHeader extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Styles.font18MediumPrimaryBold(context),
+          style: Styles.font16MediumPrimaryBold(context),
         ),
         heightBox(20),
         Center(

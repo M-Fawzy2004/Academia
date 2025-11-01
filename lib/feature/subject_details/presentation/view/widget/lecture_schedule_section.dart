@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
 
@@ -22,7 +23,7 @@ class LectureScheduleSection extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
         color: AppColors.getCardColorTwo(context),
       ),
       child: Column(
@@ -57,18 +58,18 @@ class LectureScheduleSection extends StatelessWidget {
           widthBox(10),
           Text(
             context.tr.schedule,
-            style: Styles.font16PrimaryColorTextBold(context),
+            style: Styles.font14PrimaryColorTextBold(context),
           ),
           const Spacer(),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               color: Color(subject.color).withOpacity(0.1),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppRadius.large),
             ),
             child: Text(
               '${subject.lectures.length} ${context.tr.lectures}',
-              style: Styles.font13GreyBold(context),
+              style: Styles.font12GreyBold(context),
             ),
           ),
         ],
@@ -82,7 +83,7 @@ class LectureScheduleSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
         border: Border.all(
           color: AppColors.primaryColor.withOpacity(0.3),
           width: 1.5.w,
@@ -96,12 +97,12 @@ class LectureScheduleSection extends StatelessWidget {
             height: 50.h,
             decoration: BoxDecoration(
               color: AppColors.getCardColor(context),
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(AppRadius.large),
             ),
             child: Center(
               child: Text(
                 _getDayShort(lecture.day),
-                style: Styles.font15PrimaryColorTextBold(context),
+                style: Styles.font14PrimaryColorTextBold(context),
               ),
             ),
           ),
@@ -113,7 +114,7 @@ class LectureScheduleSection extends StatelessWidget {
               children: [
                 Text(
                   _getDayName(lecture.day, context),
-                  style: Styles.font16PrimaryColorTextBold(context),
+                  style: Styles.font14PrimaryColorTextBold(context),
                 ),
                 heightBox(5),
                 Row(
@@ -126,7 +127,7 @@ class LectureScheduleSection extends StatelessWidget {
                     widthBox(5),
                     Text(
                       timeInfo,
-                      style: Styles.font13GreyBold(context),
+                      style: Styles.font12GreyBold(context),
                     ),
                   ],
                 ),
@@ -167,7 +168,7 @@ class LectureScheduleSection extends StatelessWidget {
       padding: const EdgeInsets.all(40),
       decoration: BoxDecoration(
         color: AppColors.getCardColorTwo(context),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.large),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
@@ -180,7 +181,7 @@ class LectureScheduleSection extends StatelessWidget {
         children: [
           Icon(
             Icons.calendar_today_outlined,
-            size: 50,
+            size: 50.sp,
             color: Colors.grey[400],
           ),
           heightBox(13),

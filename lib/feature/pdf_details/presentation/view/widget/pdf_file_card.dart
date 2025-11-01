@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/extension.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/pdf_details/presentation/view/pdf_viewer.dart';
 
@@ -37,7 +38,7 @@ class PdfFileCard extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 10.w),
               decoration: BoxDecoration(
                 color: AppColors.getCardColorTwo(context),
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(AppRadius.large),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.08),
@@ -47,7 +48,7 @@ class PdfFileCard extends StatelessWidget {
                 ],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(AppRadius.large),
                 child: Container(
                   color: AppColors.getCardColorTwo(context),
                   child: Center(
@@ -86,7 +87,7 @@ class PdfFileCard extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 4.w),
             child: Text(
               fileName,
-              style: Styles.font15PrimaryColorTextBold(context),
+              style: Styles.font14PrimaryColorTextBold(context),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
@@ -96,7 +97,7 @@ class PdfFileCard extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 4.w),
             child: Text(
               subtitle,
-              style: Styles.font13GreyBold(context).copyWith(
+              style: Styles.font12GreyBold(context).copyWith(
                 fontSize: 10.sp,
               ),
             ),

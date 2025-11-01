@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class VideoCardItemSkeletonizer extends StatelessWidget {
   const VideoCardItemSkeletonizer({super.key});
@@ -13,7 +14,7 @@ class VideoCardItemSkeletonizer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.getBackgroundColor(context),
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
           border: Border.all(
             color: AppColors.getCardColorTwo(context),
             width: 2.w,
@@ -25,8 +26,8 @@ class VideoCardItemSkeletonizer extends StatelessWidget {
             // Thumbnail skeleton
             ClipRRect(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12.r),
-                topRight: Radius.circular(12.r),
+                topLeft: Radius.circular(AppRadius.large),
+                topRight: Radius.circular(AppRadius.large),
               ),
               child: AspectRatio(
                 aspectRatio: 16 / 8,
@@ -47,7 +48,7 @@ class VideoCardItemSkeletonizer extends StatelessWidget {
                     height: 16.h,
                     decoration: BoxDecoration(
                       color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(4.r),
+                      borderRadius: BorderRadius.circular(AppRadius.large),
                     ),
                   ),
                   SizedBox(height: 8.h),
@@ -57,7 +58,7 @@ class VideoCardItemSkeletonizer extends StatelessWidget {
                     height: 14.h,
                     decoration: BoxDecoration(
                       color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(4.r),
+                      borderRadius: BorderRadius.circular(AppRadius.large),
                     ),
                   ),
                 ],

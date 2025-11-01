@@ -6,9 +6,11 @@ class AppRadius {
   static double medium = 12.r;
   static double big = 16.r;
   static double large = 25.r;
+  static double extraLarge = 35.r;
 
   static BorderRadius get smallRadius => BorderRadius.circular(small);
   static BorderRadius get mediumRadius => BorderRadius.circular(medium);
   static BorderRadius get bigRadius => BorderRadius.circular(big);
   static BorderRadius get largeRadius => BorderRadius.circular(large);
+  static BorderRadius get extraLargeRadius => BorderRadius.circular(extraLarge);
 }

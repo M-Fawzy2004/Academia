@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 
 class StudyStreakWidget extends StatelessWidget {
@@ -11,7 +12,7 @@ class StudyStreakWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.all(12.w),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [
@@ -21,15 +22,15 @@ class StudyStreakWidget extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(12.w),
+            padding: EdgeInsets.all(10.w),
             decoration: BoxDecoration(
               color: AppColors.lightSurfaceColor.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(12.r),
+              shape: BoxShape.circle,
             ),
             child: Icon(
               Icons.local_fire_department,
@@ -37,22 +38,22 @@ class StudyStreakWidget extends StatelessWidget {
               size: 24.sp,
             ),
           ),
-          widthBox(15),
+          widthBox(10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '${context.tr.study_streak} 🔥',
-                  style: Styles.font15MediumBold(context).copyWith(
-                    color: AppColors.lightSurfaceColor,
+                  style: Styles.font14MediumBold(context).copyWith(
+                    color: AppColors.white,
                   ),
                 ),
                 heightBox(4),
                 Text(
                   '7 ${context.tr.day_keep}',
-                  style: Styles.font13GreyBold(context).copyWith(
-                    color: AppColors.lightSurfaceColor.withOpacity(0.8),
+                  style: Styles.font11MediumWhiteBold(context).copyWith(
+                    color: AppColors.grey,
                   ),
                 ),
               ],

@@ -119,7 +119,7 @@ class _BookDialogState extends State<BookDialog> {
                       isEditing
                           ? context.tr.edit_book
                           : context.tr.add_new_book,
-                      style: Styles.font15MediumGreyBold(context),
+                      style: Styles.font14MediumGreyBold(context),
                     ),
                   ),
                   IconButton(

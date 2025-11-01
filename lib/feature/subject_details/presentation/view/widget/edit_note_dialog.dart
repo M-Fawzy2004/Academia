@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
@@ -86,10 +87,10 @@ class _EditNoteDialogState extends State<EditNoteDialog>
         child: Dialog(
           backgroundColor: AppColors.getBackgroundColor(context),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(AppRadius.large),
           ),
           child: Padding(
-            padding: EdgeInsets.all(20.w),
+            padding: EdgeInsets.all(15.w),
             child: Form(
               key: _formKey,
               child: SingleChildScrollView(
@@ -104,7 +105,8 @@ class _EditNoteDialogState extends State<EditNoteDialog>
                           padding: EdgeInsets.all(10.w),
                           decoration: BoxDecoration(
                             color: const Color(0xFF6366F1).withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(12.r),
+                            borderRadius:
+                                BorderRadius.circular(AppRadius.large),
                           ),
                           child: Icon(
                             Icons.edit_note_outlined,
@@ -115,7 +117,7 @@ class _EditNoteDialogState extends State<EditNoteDialog>
                         widthBox(12),
                         Text(
                           context.tr.edit_note,
-                          style: Styles.font18PrimaryColorTextBold(context),
+                          style: Styles.font14PrimaryColorTextBold(context),
                         ),
                         const Spacer(),
                         IconButton(
@@ -131,7 +133,7 @@ class _EditNoteDialogState extends State<EditNoteDialog>
                     heightBox(20),
                     Text(
                       context.tr.title,
-                      style: Styles.font13GreyBold(context),
+                      style: Styles.font12GreyBold(context),
                     ),
                     heightBox(8),
                     CustomTextField(
@@ -147,7 +149,7 @@ class _EditNoteDialogState extends State<EditNoteDialog>
                     heightBox(16),
                     Text(
                       context.tr.details,
-                      style: Styles.font13GreyBold(context),
+                      style: Styles.font12GreyBold(context),
                     ),
                     heightBox(8),
                     CustomTextField(
@@ -162,6 +164,7 @@ class _EditNoteDialogState extends State<EditNoteDialog>
                         }),
                     heightBox(24),
                     CustomButton(
+                      height: 40.h,
                       text: context.tr.update_note,
                       onPressed: _handleUpdateNote,
                     ),

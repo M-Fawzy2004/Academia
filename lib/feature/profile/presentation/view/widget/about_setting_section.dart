@@ -80,7 +80,7 @@ class AboutSettingsSection extends StatelessWidget {
                 ),
                 child: Text(
                   'v1.0.0',
-                  style: Styles.font12MediumBold(context).copyWith(
+                  style: Styles.font11MediumBold(context).copyWith(
                     color: AppColors.primaryColor,
                     fontWeight: FontWeight.w600,
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class QuickActionButton extends StatelessWidget {
   const QuickActionButton({
@@ -19,12 +20,12 @@ class QuickActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(18.r),
+      borderRadius: BorderRadius.circular(AppRadius.large),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
         decoration: BoxDecoration(
           gradient: gradient,
-          borderRadius: BorderRadius.circular(18.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.15),

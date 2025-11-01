@@ -35,7 +35,7 @@ class ResourcesHeaderWidget extends StatelessWidget {
               widthBox(8),
               Text(
                 context.tr.resources,
-                style: Styles.font15MediumGreyBold(context),
+                style: Styles.font14MediumGreyBold(context),
               ),
               if (state.resources.isNotEmpty) ...[
                 widthBox(8),

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class YearSemesterSelector extends StatefulWidget {
   final String? initialYear;
@@ -36,19 +37,19 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
   }
 
   List<String> get years => [
-        context.tr.first_year,
-        context.tr.second_year,
-        context.tr.third_year,
-        context.tr.fourth_year,
-        context.tr.fifth_year,
-        context.tr.sixth_year,
-        context.tr.seventh_year,
-      ];
+    context.tr.first_year,
+    context.tr.second_year,
+    context.tr.third_year,
+    context.tr.fourth_year,
+    context.tr.fifth_year,
+    context.tr.sixth_year,
+    context.tr.seventh_year,
+  ];
 
   List<String> get semesters => [
-        context.tr.first_semester,
-        context.tr.second_semester,
-      ];
+    context.tr.first_semester,
+    context.tr.second_semester,
+  ];
 
   void _onYearChanged(String? newValue) {
     setState(() {
@@ -83,7 +84,7 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
                 Theme.of(context).primaryColor.withOpacity(0.05),
               ],
             ),
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(AppRadius.large),
             border: Border.all(
               color: Theme.of(context).primaryColor.withOpacity(0.3),
               width: 1,
@@ -112,11 +113,8 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
         // Year Dropdown
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.r),
-            border: Border.all(
-              color: Colors.grey.withOpacity(0.3),
-              width: 1.5,
-            ),
+            borderRadius: BorderRadius.circular(AppRadius.large),
+            border: Border.all(color: Colors.grey.withOpacity(0.3), width: 1.5),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.05),
@@ -151,7 +149,7 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
             }).toList(),
             onChanged: _onYearChanged,
             dropdownColor: AppColors.getFieldColor(context),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppRadius.large),
             icon: const Icon(Icons.arrow_drop_down, color: Colors.blue),
           ),
         ),
@@ -159,11 +157,8 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
         // Semester Dropdown
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: Colors.grey.withOpacity(0.3),
-              width: 1.5,
-            ),
+            borderRadius: BorderRadius.circular(AppRadius.large),
+            border: Border.all(color: Colors.grey.withOpacity(0.3), width: 1.5),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.05),
@@ -198,7 +193,7 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
             }).toList(),
             onChanged: _onSemesterChanged,
             dropdownColor: AppColors.getFieldColor(context),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppRadius.large),
             icon: const Icon(Icons.arrow_drop_down, color: Colors.green),
           ),
         ),
@@ -210,7 +205,7 @@ class _YearSemesterSelectorState extends State<YearSemesterSelector> {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: AppColors.primaryColor.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(AppRadius.large),
               border: Border.all(
                 color: AppColors.primaryColor.withOpacity(0.3),
               ),

@@ -56,14 +56,14 @@ class _PdfViewerState extends State<PdfViewer> {
           children: [
             Text(
               widget.fileName,
-              style: Styles.font16PrimaryColorTextBold(context),
+              style: Styles.font14PrimaryColorTextBold(context),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
             if (_totalPages > 0)
               Text(
                 'Page $_currentPage of $_totalPages',
-                style: Styles.font13GreyBold(context),
+                style: Styles.font12GreyBold(context),
               ),
           ],
         ),
@@ -127,7 +127,7 @@ class _PdfViewerState extends State<PdfViewer> {
                     SizedBox(height: 16.h),
                     Text(
                       'Loading PDF...',
-                      style: Styles.font16PrimaryColorTextBold(context),
+                      style: Styles.font14PrimaryColorTextBold(context),
                     ),
                   ],
                 ),
@@ -177,7 +177,7 @@ class _PdfViewerState extends State<PdfViewer> {
                     ),
                     child: Text(
                       '$_currentPage / $_totalPages',
-                      style: Styles.font15PrimaryColorTextBold(context),
+                      style: Styles.font14PrimaryColorTextBold(context),
                     ),
                   ),
                   _buildNavButton(

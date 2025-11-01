@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 
 class ResourceTypeCard extends StatelessWidget {
@@ -28,19 +29,19 @@ class ResourceTypeCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.getCardColorTwo(context),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(16.w),
+            padding: EdgeInsets.all(10.w),
             child: Row(
               children: [
                 Container(
                   padding: EdgeInsets.all(10.w),
                   decoration: BoxDecoration(
                     gradient: gradient,
-                    borderRadius: BorderRadius.circular(12.r),
+                    borderRadius: BorderRadius.circular(AppRadius.large),
                   ),
                   child: Icon(
                     icon,
@@ -55,12 +56,12 @@ class ResourceTypeCard extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: Styles.font16PrimaryColorTextBold(context),
+                        style: Styles.font14PrimaryColorTextBold(context),
                       ),
                       heightBox(2),
                       Text(
                         '$count files',
-                        style: Styles.font13GreyBold(context).copyWith(
+                        style: Styles.font12GreyBold(context).copyWith(
                           fontSize: 12.sp,
                           color: const Color(0xFF9CA3AF),
                         ),
@@ -70,15 +71,15 @@ class ResourceTypeCard extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: onViewAll,
-                  borderRadius: BorderRadius.circular(8.r),
+                  borderRadius: BorderRadius.circular(AppRadius.large),
                   child: Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: 12.w,
-                      vertical: 6.h,
+                      vertical: 5.h,
                     ),
                     decoration: BoxDecoration(
                       color: gradient.colors.first.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(8.r),
+                      borderRadius: BorderRadius.circular(AppRadius.large),
                       border: Border.all(
                         color: gradient.colors.first.withOpacity(0.2),
                         width: 1,
@@ -89,7 +90,7 @@ class ResourceTypeCard extends StatelessWidget {
                       children: [
                         Text(
                           context.tr.view_all,
-                          style: Styles.font13GreyBold(context).copyWith(
+                          style: Styles.font12GreyBold(context).copyWith(
                             fontSize: 12.sp,
                             color: gradient.colors.first,
                             fontWeight: FontWeight.w600,

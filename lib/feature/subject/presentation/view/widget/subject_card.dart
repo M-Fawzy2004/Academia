@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
@@ -26,7 +27,7 @@ class SubjectCard extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10.h),
       decoration: BoxDecoration(
         color: subjectColor,
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
         border: Border.all(
           color: subjectColor.withOpacity(0.4),
           width: 1.w,
@@ -60,8 +61,8 @@ class SubjectCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: subjectColor.withOpacity(0.05),
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(12.r),
-          topRight: Radius.circular(12.r),
+          topLeft: Radius.circular(AppRadius.large),
+          topRight: Radius.circular(AppRadius.large),
         ),
       ),
       child: Row(
@@ -85,21 +86,21 @@ class SubjectCard extends StatelessWidget {
               size: 26.sp,
             ),
           ),
-          widthBox(16),
+          widthBox(10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   subject.name,
-                  style: Styles.font16PrimaryColorTextBold(context),
+                  style: Styles.font14PrimaryColorTextBold(context),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 heightBox(3),
                 Text(
                   '${context.tr.year_title} ${subject.year} • ${context.tr.semester_title}  ${subject.semester}',
-                  style: Styles.font13GreyBold(context),
+                  style: Styles.font12GreyBold(context),
                 ),
               ],
             ),
@@ -121,7 +122,7 @@ class SubjectCard extends StatelessWidget {
       children: [
         Text(
           context.tr.available,
-          style: Styles.font16PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         heightBox(10),
         if (resourcesByType.isEmpty)
@@ -156,10 +157,10 @@ class SubjectCard extends StatelessWidget {
     BuildContext context,
   ) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(
         color: subjectColor.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -168,7 +169,7 @@ class SubjectCard extends StatelessWidget {
           widthBox(6),
           Text(
             label,
-            style: Styles.font12MediumBold(context),
+            style: Styles.font11MediumBold(context),
           ),
         ],
       ),
@@ -177,10 +178,9 @@ class SubjectCard extends StatelessWidget {
 
   Widget _buildOpenButton(Color subjectColor, BuildContext context) {
     return CustomButton(
-      height: 45.h,
-      borderRadius: 12.r,
+      height: 40.h,
       text: context.tr.open_subject,
-      backgroundColor: subjectColor.withOpacity(0.4),
+      backgroundColor: subjectColor.withOpacity(0.8),
       onPressed: () {
         context.read<SubjectCubit>().updateLastAccessed(subject.id);
         context.push('${AppRouter.subjectDetailsView}?subjectId=${subject.id}');

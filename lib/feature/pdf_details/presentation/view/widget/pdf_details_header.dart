@@ -15,7 +15,7 @@ class PdfDetailsHeader extends StatelessWidget {
         const Spacer(),
         Text(
           context.tr.pdf_details,
-          style: Styles.font20PrimaryColorTextBold(context),
+          style: Styles.font16PrimaryColorTextBold(context),
         ),
         const Spacer(),
         SizedBox(width: 45.w, height: 45.w),

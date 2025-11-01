@@ -17,24 +17,22 @@ class ProfileHeaderSction extends StatelessWidget {
         // Name
         Text(
           'Mohamed Fawzy',
-          style: Styles.font18PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         heightBox(5),
         // College And University
         Text(
           'Faculty Computer and Information Systems, Tanta University',
           textAlign: TextAlign.center,
-          style: Styles.font12MediumBold(context).copyWith(
-            color: Colors.grey[600],
-          ),
+          style: Styles.font11MediumBold(context),
         ),
         heightBox(3),
         // Email Address
         Text(
           'mofawzy.com7@gmail.com',
-          style: Styles.font12MediumBold(context).copyWith(
-            color: Colors.grey[600],
-          ),
+          style: Styles.font11MediumBold(
+            context,
+          ).copyWith(color: Colors.grey[600]),
         ),
         heightBox(15),
         // Edit Account

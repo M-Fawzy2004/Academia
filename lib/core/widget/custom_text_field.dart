@@ -61,7 +61,7 @@ class CustomTextField extends StatefulWidget {
     this.textColor,
     this.hintColor,
     this.labelColor,
-    this.borderRadius = 12.0,
+    this.borderRadius = 25,
     this.contentPadding,
     this.height,
     this.width,
@@ -184,7 +184,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 )
               : null,
           contentPadding: widget.contentPadding ??
-              EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
+              EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius),
             borderSide: BorderSide.none,

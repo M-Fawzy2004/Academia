@@ -4,6 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 
 class SubjectHeaderCard extends StatelessWidget {
@@ -24,7 +25,7 @@ class SubjectHeaderCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,14 +33,14 @@ class SubjectHeaderCard extends StatelessWidget {
           Row(
             children: [
               Container(
-                padding: EdgeInsets.all(12.w),
+                padding: EdgeInsets.all(10.w),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
-                  borderRadius: BorderRadius.circular(12.r),
+                  borderRadius: BorderRadius.circular(AppRadius.large),
                   boxShadow: [
                     BoxShadow(
                       color: const Color(0xFF6366F1).withOpacity(0.3),
@@ -61,7 +62,7 @@ class SubjectHeaderCard extends StatelessWidget {
                   children: [
                     Text(
                       subjectName,
-                      style: Styles.font20PrimaryColorTextBold(context),
+                      style: Styles.font14PrimaryColorTextBold(context),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -73,7 +74,7 @@ class SubjectHeaderCard extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: const Color(0xFF6366F1).withOpacity(0.15),
-                        borderRadius: BorderRadius.circular(8.r),
+                        borderRadius: BorderRadius.circular(AppRadius.large),
                       ),
                       child: Text(
                         '$hours ${context.tr.credit_hours}',
@@ -92,11 +93,12 @@ class SubjectHeaderCard extends StatelessWidget {
                 onPressed: () => _showDeleteConfirmation(context),
                 icon: const Icon(Icons.delete_outline_rounded),
                 color: const Color(0xFFEF4444),
-                iconSize: 24.sp,
+                iconSize: 25.sp,
                 style: IconButton.styleFrom(
+                  padding: const EdgeInsets.all(10),
                   backgroundColor: const Color(0xFFEF4444).withOpacity(0.1),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.r),
+                    borderRadius: BorderRadius.circular(AppRadius.large),
                   ),
                 ),
               ),
@@ -104,10 +106,10 @@ class SubjectHeaderCard extends StatelessWidget {
           ),
           heightBox(16),
           Container(
-            padding: EdgeInsets.all(10.w),
+            padding: EdgeInsets.all(9.w),
             decoration: BoxDecoration(
               color: AppColors.getCardColorTwo(context),
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(AppRadius.large),
             ),
             child: Row(
               children: [
@@ -136,14 +138,14 @@ class SubjectHeaderCard extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: EdgeInsets.all(8.w),
+          padding: EdgeInsets.all(7.w),
           decoration: BoxDecoration(
             color: const Color(0xFF6366F1).withOpacity(0.1),
-            borderRadius: BorderRadius.circular(8.r),
+            shape: BoxShape.circle,
           ),
           child: Icon(
             icon,
-            size: 18.sp,
+            size: 20.sp,
             color: const Color(0xFF6366F1),
           ),
         ),
@@ -154,14 +156,14 @@ class SubjectHeaderCard extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: Styles.font13MediumGreyBold(context).copyWith(
+                style: Styles.font12MediumGreyBold(context).copyWith(
                   color: AppColors.getTextPrimaryColor(context),
                 ),
               ),
               heightBox(2),
               Text(
                 value,
-                style: Styles.font13MediumGreyBold(context),
+                style: Styles.font13MediumPrimaryBold(context),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -178,7 +180,7 @@ class SubjectHeaderCard extends StatelessWidget {
       builder: (dialogContext) => AlertDialog(
         backgroundColor: AppColors.getCardColorTwo(context),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
         ),
         titlePadding: const EdgeInsets.fromLTRB(24, 24, 24, 8),
         contentPadding:
@@ -186,11 +188,11 @@ class SubjectHeaderCard extends StatelessWidget {
         actionsPadding: const EdgeInsets.only(right: 12, bottom: 12),
         title: Text(
           context.tr.delete_subject,
-          style: Styles.font18PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         content: Text(
           context.tr.delete_subject_details,
-          style: Styles.font13MediumGreyBold(context),
+          style: Styles.font12MediumGreyBold(context),
         ),
         actions: [
           TextButton(
@@ -200,7 +202,7 @@ class SubjectHeaderCard extends StatelessWidget {
             onPressed: () => Navigator.of(dialogContext).pop(false),
             child: Text(
               context.tr.cancel,
-              style: Styles.font12MediumBold(context),
+              style: Styles.font11MediumBold(context),
             ),
           ),
           ElevatedButton.icon(
@@ -208,7 +210,7 @@ class SubjectHeaderCard extends StatelessWidget {
               backgroundColor: Colors.red,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(AppRadius.large),
               ),
             ),
             onPressed: () => Navigator.of(dialogContext).pop(true),

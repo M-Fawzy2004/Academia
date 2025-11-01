@@ -4,6 +4,7 @@ import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/selected_schedule_display.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/time_selection_dialog.dart';
@@ -41,7 +42,7 @@ class _LectureDaysSelectorState extends State<LectureDaysSelector> {
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.getFieldColor(context),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +53,7 @@ class _LectureDaysSelectorState extends State<LectureDaysSelector> {
                 : Alignment.centerLeft,
             child: Text(
               context.tr.lecture_days,
-              style: Styles.font15MediumGreyBold(context),
+              style: Styles.font14MediumGreyBold(context),
             ),
           ),
           heightBox(10),
@@ -79,10 +80,7 @@ class _LectureDaysSelectorState extends State<LectureDaysSelector> {
         day: day,
         onTimeSelected: (timeFrom, timeTo) {
           setState(() {
-            selectedDaysSchedule[day] = {
-              'from': timeFrom,
-              'to': timeTo,
-            };
+            selectedDaysSchedule[day] = {'from': timeFrom, 'to': timeTo};
           });
           widget.onScheduleChanged?.call(selectedDaysSchedule);
         },

@@ -13,14 +13,14 @@ class SubjectsHeader extends StatelessWidget {
       children: [
         Text(
           context.tr.subject,
-          style: Styles.font20PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         const Spacer(),
         TextButton.icon(
           onPressed: onViewAllPressed,
           label: Text(
             context.tr.view_all,
-            style: Styles.font13GreyBold(context).copyWith(
+            style: Styles.font11MediumBold(context).copyWith(
               color: AppColors.primaryColor,
             ),
           ),

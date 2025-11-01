@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/feature/video_details/presentation/manager/cubit/video_player_cubit.dart';
 
 class VideoControlButtons extends StatelessWidget {
@@ -11,10 +12,10 @@ class VideoControlButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.all(12.r),
       decoration: BoxDecoration(
         color: AppColors.getCardColorTwo(context),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +97,7 @@ class VideoControlButtons extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.getPrimaryColor(context)
               .withOpacity(isDisabled ? 0.05 : 0.1),
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
           border: Border.all(
             color: AppColors.getPrimaryColor(context)
                 .withOpacity(isDisabled ? 0.1 : 0.3),

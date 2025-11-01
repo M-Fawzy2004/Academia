@@ -55,7 +55,7 @@ class ResourcesEmptyTitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       context.tr.no_resources,
-      style: Styles.font13GreyBold(context).copyWith(
+      style: Styles.font12GreyBold(context).copyWith(
         color: Colors.grey.withOpacity(0.7),
       ),
     );

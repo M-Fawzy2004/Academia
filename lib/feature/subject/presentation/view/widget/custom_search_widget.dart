@@ -4,6 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
 
@@ -111,6 +112,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
       children: [
         Expanded(
           child: CustomTextField(
+            borderRadius: AppRadius.large,
             controller: _searchController,
             onChanged: (value) => _onSearchChanged(),
             hintText: context.tr.search_subject,
@@ -138,7 +140,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
           color: _isExpanded
               ? AppColors.primaryColor
               : AppColors.primaryColor.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -172,7 +174,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
         padding: EdgeInsets.all(12.5.w),
         decoration: BoxDecoration(
           color: Colors.red.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
         ),
         child: Icon(
           Icons.clear_rounded,
@@ -200,7 +202,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
         padding: EdgeInsets.all(15.w),
         decoration: BoxDecoration(
           color: AppColors.primaryColor.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
           border: Border.all(
             color: AppColors.primaryColor.withOpacity(0.2),
             width: 1.w,
@@ -219,7 +221,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
                 SizedBox(width: 8.w),
                 Text(
                   context.tr.filter_results,
-                  style: Styles.font16PrimaryColorTextBold(context),
+                  style: Styles.font14PrimaryColorTextBold(context),
                 ),
               ],
             ),
@@ -272,7 +274,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
                   color: isSelected
                       ? AppColors.primaryColor
                       : AppColors.primaryColor.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(7.r),
+                  borderRadius: BorderRadius.circular(AppRadius.large),
                 ),
                 child: Text(
                   grade.label,
@@ -329,7 +331,7 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget>
                     color: isSelected
                         ? AppColors.primaryColor
                         : AppColors.primaryColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(12.r),
+                    borderRadius: BorderRadius.circular(AppRadius.large),
                   ),
                   child: Text(
                     semester.label,

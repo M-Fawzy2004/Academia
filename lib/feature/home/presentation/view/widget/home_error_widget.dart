@@ -40,13 +40,13 @@ class HomeErrorWidget extends StatelessWidget {
             heightBox(20),
             Text(
               'عذراً!',
-              style: Styles.font20MediumBold(context),
+              style: Styles.font18MediumBold(context),
               textAlign: TextAlign.center,
             ),
             heightBox(10),
             Text(
               message,
-              style: Styles.font15MediumBold(context),
+              style: Styles.font14MediumBold(context),
               textAlign: TextAlign.center,
             ),
             heightBox(30),
@@ -68,7 +68,7 @@ class HomeErrorWidget extends StatelessWidget {
                 ),
                 label: Text(
                   'إعادة المحاولة',
-                  style: Styles.font15MediumBold(context),
+                  style: Styles.font14MediumBold(context),
                 ),
               ),
             ),
@@ -112,13 +112,13 @@ class CoursesNoInternetWidget extends StatelessWidget {
             heightBox(20),
             Text(
               'No internet connection',
-              style: Styles.font20MediumBold(context),
+              style: Styles.font18MediumBold(context),
               textAlign: TextAlign.center,
             ),
             heightBox(10),
             Text(
               'Please check your internet connection and try again.',
-              style: Styles.font15MediumBold(context),
+              style: Styles.font14MediumBold(context),
               textAlign: TextAlign.center,
             ),
             heightBox(30),
@@ -140,7 +140,7 @@ class CoursesNoInternetWidget extends StatelessWidget {
                 ),
                 label: Text(
                   'Retry',
-                  style: Styles.font15MediumBold(context),
+                  style: Styles.font14MediumBold(context),
                 ),
               ),
             ),

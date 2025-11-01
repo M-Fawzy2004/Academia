@@ -27,7 +27,7 @@ class ForgetPasswordActionButtons extends StatelessWidget {
             onPressed: onResendCode,
             child: Text(
               context.tr.resend_code,
-              style: Styles.font14MediumPrimaryBold(context),
+              style: Styles.font13MediumPrimaryBold(context),
             ),
           ),
         ],

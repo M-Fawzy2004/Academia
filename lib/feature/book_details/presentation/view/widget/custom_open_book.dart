@@ -35,7 +35,7 @@ class CustomOpenBook extends StatelessWidget {
         ),
         child: Text(
           context.tr.open,
-          style: Styles.font16PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
       ),
     );

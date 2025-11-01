@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class TimeSelectionBox extends StatelessWidget {
   final String label;
@@ -31,7 +32,7 @@ class TimeSelectionBox extends StatelessWidget {
         padding: EdgeInsets.all(12.w),
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.primaryColor, width: 1.5),
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
         ),
         child: Column(
           children: [

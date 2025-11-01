@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
@@ -79,7 +80,7 @@ class _AddNoteDialogState extends State<AddNoteDialog>
         child: Dialog(
           backgroundColor: AppColors.getBackgroundColor(context),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(AppRadius.large),
           ),
           child: Padding(
             padding: EdgeInsets.all(15.w),
@@ -97,7 +98,7 @@ class _AddNoteDialogState extends State<AddNoteDialog>
                           padding: EdgeInsets.all(10.w),
                           decoration: BoxDecoration(
                             color: const Color(0xFF6366F1).withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(12.r),
+                            shape: BoxShape.circle,
                           ),
                           child: Icon(
                             Icons.note_add_outlined,
@@ -105,10 +106,10 @@ class _AddNoteDialogState extends State<AddNoteDialog>
                             size: 24.sp,
                           ),
                         ),
-                        widthBox(12),
+                        widthBox(7),
                         Text(
                           context.tr.add_note,
-                          style: Styles.font18PrimaryColorTextBold(context),
+                          style: Styles.font14PrimaryColorTextBold(context),
                         ),
                         const Spacer(),
                         IconButton(
@@ -125,7 +126,7 @@ class _AddNoteDialogState extends State<AddNoteDialog>
                     // Title Field
                     Text(
                       context.tr.title,
-                      style: Styles.font13GreyBold(context),
+                      style: Styles.font12GreyBold(context),
                     ),
                     heightBox(8),
                     CustomTextField(
@@ -142,7 +143,7 @@ class _AddNoteDialogState extends State<AddNoteDialog>
                     // Details Field
                     Text(
                       context.tr.details,
-                      style: Styles.font13GreyBold(context),
+                      style: Styles.font12GreyBold(context),
                     ),
                     heightBox(8),
                     CustomTextField(
@@ -158,6 +159,7 @@ class _AddNoteDialogState extends State<AddNoteDialog>
                     ),
                     heightBox(24),
                     CustomButton(
+                      height: 40.h,
                       text: context.tr.add_note,
                       onPressed: _handleAddNote,
                     ),

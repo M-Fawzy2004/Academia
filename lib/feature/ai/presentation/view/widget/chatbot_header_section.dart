@@ -30,11 +30,11 @@ class ChatbotHeaderSection extends StatelessWidget {
           children: [
             Text(
               'Chatbot',
-              style: Styles.font16PrimaryColorTextBold(context),
+              style: Styles.font14PrimaryColorTextBold(context),
             ),
             Text(
               'Chat with our AI assistant',
-              style: Styles.font13GreyBold(context),
+              style: Styles.font12GreyBold(context),
             ),
           ],
         ),

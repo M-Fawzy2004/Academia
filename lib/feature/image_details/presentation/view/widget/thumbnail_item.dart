@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/custom_loading_widget.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class ThumbnailItem extends StatelessWidget {
   final String imageUrl;
@@ -27,7 +28,7 @@ class ThumbnailItem extends StatelessWidget {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
           border: Border.all(
             color: isSelected
                 ? Colors.blue.shade600
@@ -36,7 +37,7 @@ class ThumbnailItem extends StatelessWidget {
           ),
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(10.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
           child: Stack(
             fit: StackFit.expand,
             children: [

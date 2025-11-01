@@ -53,14 +53,14 @@ class DeleteImageDialog extends StatelessWidget {
             // Title
             Text(
               'Delete Image',
-              style: Styles.font20PrimaryColorTextBold(context),
+              style: Styles.font14PrimaryColorTextBold(context),
             ),
             heightBox(12),
             // Message
             Text(
               'Are you sure you want to delete this image? This action cannot be undone.',
               textAlign: TextAlign.center,
-              style: Styles.font13GreyBold(context),
+              style: Styles.font12GreyBold(context),
             ),
             heightBox(25),
             // Buttons
@@ -78,7 +78,7 @@ class DeleteImageDialog extends StatelessWidget {
                     ),
                     child: Text(
                       'Cancel',
-                      style: Styles.font16PrimaryColorTextBold(context),
+                      style: Styles.font14PrimaryColorTextBold(context),
                     ),
                   ),
                 ),
@@ -100,7 +100,7 @@ class DeleteImageDialog extends StatelessWidget {
                     ),
                     child: Text(
                       'Delete',
-                      style: Styles.font16PrimaryColorTextBold(context),
+                      style: Styles.font14PrimaryColorTextBold(context),
                     ),
                   ),
                 ),

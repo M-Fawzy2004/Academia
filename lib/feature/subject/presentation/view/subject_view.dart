@@ -22,26 +22,25 @@ class SubjectView extends StatelessWidget {
             child: const SubjectViewBody(),
           ),
         ),
-        floatingActionButton: Container(
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: LinearGradient(
-              colors: [
-                AppColors.secondaryColor,
-                AppColors.primaryColor,
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+        floatingActionButton: Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).size.height * 0.06,
           ),
-          child: FloatingActionButton(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            onPressed: () => context.push(AppRouter.addSubjectView),
-            child: Icon(
-              Icons.add_rounded,
-              size: 28.sp,
-              color: Colors.white,
+          child: Container(
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                colors: [AppColors.secondaryColor, AppColors.primaryColor],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            child: FloatingActionButton(
+              heroTag: 'addSubject',
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              onPressed: () => context.push(AppRouter.addSubjectView),
+              child: Icon(Icons.add_rounded, size: 28.sp, color: Colors.white),
             ),
           ),
         ),

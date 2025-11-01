@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/presentation/view/widget/time_selection_box.dart';
 
@@ -26,10 +27,9 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
 
   @override
   Widget build(BuildContext context) {
-
     return AlertDialog(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       backgroundColor: AppColors.getNavigationBar(context),
       title: Text(
@@ -44,7 +44,7 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
             children: [
               Expanded(
                 child: TimeSelectionBox(
-                  label:  context.tr.from,
+                  label: context.tr.from,
                   time: fromTime,
                   onTimeSelected: (time) => setState(() => fromTime = time),
                 ),
@@ -52,7 +52,7 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
               widthBox(10),
               Expanded(
                 child: TimeSelectionBox(
-                  label:  context.tr.to,
+                  label: context.tr.to,
                   time: toTime,
                   onTimeSelected: (time) => setState(() => toTime = time),
                 ),
@@ -66,9 +66,7 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
           onPressed: () => Navigator.pop(context),
           child: Text(
             'Cancel',
-            style: Styles.font12MediumBold(context).copyWith(
-              color: Colors.red,
-            ),
+            style: Styles.font11MediumBold(context).copyWith(color: Colors.red),
           ),
         ),
         ElevatedButton(
@@ -76,12 +74,12 @@ class _TimeSelectionDialogState extends State<TimeSelectionDialog> {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primaryColor,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.r),
+              borderRadius: BorderRadius.circular(AppRadius.large),
             ),
           ),
           child: Text(
-             context.tr.save,
-            style: Styles.font14MediumEBold(context),
+            context.tr.save,
+            style: Styles.font13MediumEBold(context),
           ),
         ),
       ],

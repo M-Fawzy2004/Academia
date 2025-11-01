@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class OnboardingSkipButton extends StatelessWidget {
   const OnboardingSkipButton({super.key, required this.onSkip});
@@ -18,7 +19,7 @@ class OnboardingSkipButton extends StatelessWidget {
           color: Colors.transparent,
           child: InkWell(
             onTap: onSkip,
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(AppRadius.large),
             child: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: 20.w,
@@ -26,7 +27,7 @@ class OnboardingSkipButton extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 color: AppColors.getCardColor(context).withOpacity(0.9),
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(AppRadius.large),
                 border: Border.all(
                   color: const Color(0xFF667EEA).withOpacity(0.2),
                   width: 1.5.w,

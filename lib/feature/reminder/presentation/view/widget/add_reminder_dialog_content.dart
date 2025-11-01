@@ -6,6 +6,7 @@ import 'package:study_box/core/cubit/dialog_animation/dialog_animation_cubit.dar
 import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/custom_button.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
@@ -19,10 +20,7 @@ import 'package:study_box/feature/reminder/presentation/view/widget/reminder_pri
 class AddReminderDialogContent extends StatefulWidget {
   final ReminderEntity? reminder;
 
-  const AddReminderDialogContent({
-    super.key,
-    this.reminder,
-  });
+  const AddReminderDialogContent({super.key, this.reminder});
 
   @override
   State<AddReminderDialogContent> createState() =>
@@ -80,7 +78,7 @@ class _AddReminderDialogContentState extends State<AddReminderDialogContent>
             child: Dialog(
               backgroundColor: AppColors.getBackgroundColor(context),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(AppRadius.large),
               ),
               child: Padding(
                 padding: EdgeInsets.all(20.w),
@@ -103,7 +101,7 @@ class _AddReminderDialogContentState extends State<AddReminderDialogContent>
                             widget.reminder != null
                                 ? 'Edit Reminder'
                                 : 'Add Reminder',
-                            style: Styles.font16PrimaryColorTextBold(context),
+                            style: Styles.font14PrimaryColorTextBold(context),
                           ),
                           const Spacer(),
                           IconButton(
@@ -124,11 +122,11 @@ class _AddReminderDialogContentState extends State<AddReminderDialogContent>
                         hintText: 'Enter details',
                       ),
                       heightBox(16),
-                      Text('Type', style: Styles.font13GreyBold(context)),
+                      Text('Type', style: Styles.font12GreyBold(context)),
                       heightBox(8),
                       const ReminderTypeSelector(),
                       heightBox(16),
-                      Text('Priority', style: Styles.font13GreyBold(context)),
+                      Text('Priority', style: Styles.font12GreyBold(context)),
                       heightBox(8),
                       const ReminderPrioritySelector(),
                       heightBox(16),
@@ -138,8 +136,9 @@ class _AddReminderDialogContentState extends State<AddReminderDialogContent>
                         children: [
                           Expanded(
                             child: CustomButton(
-                              backgroundColor:
-                                  AppColors.getCardColorTwo(context),
+                              backgroundColor: AppColors.getCardColorTwo(
+                                context,
+                              ),
                               textColor: AppColors.getTextPrimaryColor(context),
                               fontSize: 14.sp,
                               height: 45.h,

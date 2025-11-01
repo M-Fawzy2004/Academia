@@ -23,7 +23,7 @@ class EmailInputStep extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Text(
             context.tr.enter_email,
-            style: Styles.font14MediumPrimaryBold(context),
+            style: Styles.font13MediumPrimaryBold(context),
           ),
         ),
         heightBox(15),

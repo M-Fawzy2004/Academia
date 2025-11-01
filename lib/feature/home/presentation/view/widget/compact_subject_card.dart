@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/add_subject/domain/entities/subject_entity.dart';
 import 'package:study_box/feature/add_subject/presentation/manager/subject_cubit/subject_cubit.dart';
@@ -28,20 +29,20 @@ class CompactSubjectCard extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 12.h),
-        padding: EdgeInsets.all(16.w),
+        padding: EdgeInsets.all(8.w),
         decoration: BoxDecoration(
-          color: AppColors.getBackgroundColor(context),
-          borderRadius: BorderRadius.circular(12.r),
+          color: AppColors.getCardColor(context),
+          borderRadius: BorderRadius.circular(AppRadius.large),
           border: Border.all(
-            color: subjectColor.withOpacity(0.1),
-            width: 1,
+            color: subjectColor.withOpacity(0.2),
+            width: 2.w,
           ),
         ),
         child: Row(
           children: [
             // Subject Icon
             Container(
-              padding: EdgeInsets.all(12.w),
+              padding: EdgeInsets.all(10.w),
               decoration: BoxDecoration(
                 color: subjectColor.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(12.r),
@@ -60,11 +61,10 @@ class CompactSubjectCard extends StatelessWidget {
                 children: [
                   Text(
                     subject.name,
-                    style: Styles.font16PrimaryColorTextBold(context),
+                    style: Styles.font14PrimaryColorTextBold(context),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  heightBox(8),
                   // Progress Bar
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,7 +74,7 @@ class CompactSubjectCard extends StatelessWidget {
                         children: [
                           Text(
                             _getProgressText(),
-                            style: Styles.font13GreyBold(context).copyWith(
+                            style: Styles.font12GreyBold(context).copyWith(
                               fontSize: 11.sp,
                             ),
                           ),

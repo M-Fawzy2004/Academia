@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study_box/core/theme/theme_manager.dart'; 
+import 'package:study_box/core/theme/theme_manager.dart';
 
 enum ThemeMode2 {
   light,
@@ -109,8 +109,8 @@ class AppColors {
 
   static Color getSurfaceColor(BuildContext context) {
     if (_isDark2(context)) return dark2SurfaceColor;
-    return _isDark(context) 
-        ? const Color.fromRGBO(30, 41, 59, 1) 
+    return _isDark(context)
+        ? const Color.fromRGBO(30, 41, 59, 1)
         : lightSurfaceColor;
   }
 
@@ -190,9 +190,7 @@ class AppColors {
   }
 
   static Color getSkipButtonBackground(BuildContext context) {
-    return _isDark(context)
-        ? white.withOpacity(0.15)
-        : white.withOpacity(0.2);
+    return _isDark(context) ? white.withOpacity(0.15) : white.withOpacity(0.2);
   }
 
   static Color getSkipButtonForeground(BuildContext context) {
@@ -205,8 +203,6 @@ class AppColors {
   }
 
   static Color getOnboardingShapeColor(BuildContext context) {
-    return _isDark(context)
-        ? white.withOpacity(0.08)
-        : white.withOpacity(0.1);
+    return _isDark(context) ? white.withOpacity(0.08) : white.withOpacity(0.1);
   }
 }

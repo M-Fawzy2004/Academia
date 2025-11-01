@@ -30,7 +30,7 @@ class ErrorStateView extends StatelessWidget {
           Text(
             "Please check your internet connection and try again.",
             textAlign: TextAlign.center,
-            style: Styles.font16PrimaryColorTextBold(context).copyWith(
+            style: Styles.font14PrimaryColorTextBold(context).copyWith(
               color: Colors.red.shade300,
             ),
           ),

@@ -116,7 +116,7 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                 Center(
                   child: Text(
                     context.tr.confirm_email,
-                    style: Styles.font18MediumPrimaryBold(context),
+                    style: Styles.font16MediumPrimaryBold(context),
                   ),
                 ),
                 heightBox(20),
@@ -130,7 +130,7 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                 heightBox(20),
                 Text(
                   context.tr.send_code_with_email,
-                  style: Styles.font14MediumPrimaryBold(context),
+                  style: Styles.font13MediumPrimaryBold(context),
                 ),
                 heightBox(10),
                 Text(
@@ -181,7 +181,7 @@ class _VerfEmailViewBodyState extends State<VerfEmailViewBody> {
                     onPressed: isLoading ? null : _handleResendCode,
                     child: Text(
                       context.tr.resend_code,
-                      style: Styles.font13MediumGreyBold(context).copyWith(
+                      style: Styles.font12MediumGreyBold(context).copyWith(
                         color: isLoading ? Colors.grey : null,
                       ),
                     ),

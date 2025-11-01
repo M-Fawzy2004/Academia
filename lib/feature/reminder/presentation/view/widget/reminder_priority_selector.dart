@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/reminder/domain/enities/reminder_entity.dart';
 import 'package:study_box/feature/reminder/presentation/manager/add_reminder_form_cubit/add_reminder_form_cubit.dart';
@@ -82,13 +83,14 @@ class _PriorityOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
         padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
         decoration: BoxDecoration(
           color: isSelected
               ? color.withOpacity(0.15)
               : AppColors.getCardColorTwo(context),
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
           border: Border.all(
             color: isSelected ? color : Colors.transparent,
             width: 2.w,
@@ -96,15 +98,11 @@ class _PriorityOption extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Icon(
-              icon,
-              color: isSelected ? color : Colors.grey,
-              size: 24.sp,
-            ),
+            Icon(icon, color: isSelected ? color : Colors.grey, size: 24.sp),
             heightBox(4),
             Text(
               label,
-              style: Styles.font13GreyBold(context).copyWith(
+              style: Styles.font12GreyBold(context).copyWith(
                 color: isSelected ? color : Colors.grey,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
               ),

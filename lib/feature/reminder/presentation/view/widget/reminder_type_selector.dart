@@ -29,6 +29,7 @@ class ReminderTypeSelector extends StatelessWidget {
                 break;
             }
             return ChoiceChip(
+              shape: const StadiumBorder(),
               label: Text(label),
               selected: isSelected,
               onSelected: (selected) {

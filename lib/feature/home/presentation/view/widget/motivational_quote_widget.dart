@@ -5,6 +5,7 @@ import 'package:study_box/core/helper/language_helper.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/home/data/model/quote.dart';
 import 'package:study_box/feature/home/data/service/quotes_service.dart';
@@ -132,7 +133,7 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
         color: AppColors.getCardColor(context),
         border: Border.all(
           color: AppColors.primaryColor.withOpacity(0.1),
@@ -163,13 +164,13 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
                   children: [
                     Text(
                       context.tr.daily_inspiration,
-                      style: Styles.font14MediumBold(context).copyWith(
+                      style: Styles.font13MediumBold(context).copyWith(
                         color: AppColors.primaryColor,
                       ),
                     ),
                     Text(
                       'Refreshes every 6 hours',
-                      style: Styles.font12MediumWhiteBold(context).copyWith(
+                      style: Styles.font11MediumWhiteBold(context).copyWith(
                         color: AppColors.primaryColor.withOpacity(0.7),
                         fontSize: 10.sp,
                       ),
@@ -199,7 +200,7 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
           if (currentQuote != null) ...[
             Text(
               '"${currentQuote!.text}"',
-              style: Styles.font15MediumBold(context).copyWith(
+              style: Styles.font14MediumBold(context).copyWith(
                 fontStyle: FontStyle.italic,
                 height: 1.4,
               ),
@@ -216,7 +217,7 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
                 Expanded(
                   child: Text(
                     '— ${currentQuote!.author}',
-                    style: Styles.font13GreyBold(context).copyWith(
+                    style: Styles.font12GreyBold(context).copyWith(
                       fontWeight: FontWeight.w600,
                       color: AppColors.primaryColor,
                     ),
@@ -232,7 +233,7 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
                     ),
                     child: Text(
                       currentQuote!.category!.toUpperCase(),
-                      style: Styles.font12MediumWhiteBold(context).copyWith(
+                      style: Styles.font11MediumWhiteBold(context).copyWith(
                         color: AppColors.primaryColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -245,7 +246,7 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
               heightBox(4),
               Text(
                 '(Using offline quote)',
-                style: Styles.font12MediumWhiteBold(context).copyWith(
+                style: Styles.font11MediumWhiteBold(context).copyWith(
                   color: Colors.orange,
                   fontSize: 10.sp,
                 ),
@@ -259,7 +260,7 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
                     LanguageHelper.isArabic(context)
                         ? 'لا يمكن تحميل القولة'
                         : 'Unable to load quote',
-                    style: Styles.font13GreyBold(context),
+                    style: Styles.font12GreyBold(context),
                   ),
                   heightBox(8),
                   GestureDetector(
@@ -268,7 +269,7 @@ class _MotivationalQuoteWidgetState extends State<MotivationalQuoteWidget> {
                       LanguageHelper.isArabic(context)
                           ? 'إعادة المحاولة'
                           : 'Tap to retry',
-                      style: Styles.font13GreyBold(context).copyWith(
+                      style: Styles.font12GreyBold(context).copyWith(
                         color: AppColors.primaryColor,
                         decoration: TextDecoration.underline,
                       ),

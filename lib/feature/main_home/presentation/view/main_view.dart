@@ -22,22 +22,24 @@ class _MainViewState extends State<MainView> {
   }
 
   List<Widget> get getScreens => [
-        HomeView(onNavigateToSubjects: () => changeIndex(1)),
-        const SubjectView(),
-        const ReminderView(),
-        const ProfileView(),
-      ];
+    HomeView(onNavigateToSubjects: () => changeIndex(1)),
+    const SubjectView(),
+    const ReminderView(),
+    const ProfileView(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: currentIndex,
-        children: getScreens,
-      ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: changeIndex,
+      extendBody: true,
+      body: Stack(
+        children: [
+          IndexedStack(index: currentIndex, children: getScreens),
+          CustomBottomNavigationBar(
+            currentIndex: currentIndex,
+            onTap: changeIndex,
+          ),
+        ],
       ),
     );
   }

@@ -37,7 +37,7 @@ class ThumbnailsGrid extends StatelessWidget {
             widthBox(10),
             Text(
               'All Images (${images.length})',
-              style: Styles.font20PrimaryColorTextBold(context),
+              style: Styles.font14PrimaryColorTextBold(context),
             ),
           ],
         ),

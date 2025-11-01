@@ -40,13 +40,13 @@ class SettingsNavigation extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: Styles.font16PrimaryColorTextBold(context),
+                    style: Styles.font14PrimaryColorTextBold(context),
                   ),
                   if (subtitle != null) ...[
                     heightBox(2),
                     Text(
                       subtitle!,
-                      style: Styles.font12MediumBold(context).copyWith(
+                      style: Styles.font11MediumBold(context).copyWith(
                         color: Colors.grey[600],
                       ),
                     ),

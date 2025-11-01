@@ -20,13 +20,13 @@ class AuthRedirectText extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Styles.font13MediumGreyBold(context),
+          style: Styles.font12MediumGreyBold(context),
         ),
         GestureDetector(
           onTap: onTap,
           child: Text(
             buttonTitle,
-            style: Styles.font14MediumPrimaryBold(context),
+            style: Styles.font13MediumPrimaryBold(context),
           ),
         ),
       ],

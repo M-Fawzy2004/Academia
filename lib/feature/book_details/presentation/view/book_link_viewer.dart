@@ -17,7 +17,7 @@ class BookLinkViewer extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Book Link Viewer',
-          style: Styles.font16PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         centerTitle: true,
         elevation: 0,

@@ -19,7 +19,7 @@ class OrDivider extends StatelessWidget {
         ),
         Text(
           "OR",
-          style: Styles.font14MediumPrimaryBold(context),
+          style: Styles.font13MediumPrimaryBold(context),
         ),
         Expanded(
           child: Divider(

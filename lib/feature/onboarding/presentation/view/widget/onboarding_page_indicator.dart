@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class OnboardingPageIndicator extends StatelessWidget {
   final int currentIndex;
@@ -27,7 +28,7 @@ class OnboardingPageIndicator extends StatelessWidget {
             color: currentIndex == index
                 ? const Color(0xFF667EEA)
                 : const Color(0xFFE2E8F0),
-            borderRadius: BorderRadius.circular(4.r),
+            borderRadius: BorderRadius.circular(AppRadius.large),
           ),
         ),
       ),

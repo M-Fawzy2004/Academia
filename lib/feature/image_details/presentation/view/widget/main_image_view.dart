@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/custom_loading_widget.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 
 class MainImageView extends StatelessWidget {
@@ -23,10 +24,10 @@ class MainImageView extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(AppRadius.large),
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(AppRadius.large),
             child: CachedNetworkImage(
               imageUrl: imageUrl,
               fit: BoxFit.cover,
@@ -88,8 +89,8 @@ class MainImageView extends StatelessWidget {
                 ],
               ),
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(12.r),
-                bottomRight: Radius.circular(12.r),
+                bottomLeft: Radius.circular(AppRadius.large),
+                bottomRight: Radius.circular(AppRadius.large),
               ),
             ),
             child: Row(
@@ -97,7 +98,7 @@ class MainImageView extends StatelessWidget {
                 Expanded(
                   child: Text(
                     imageName,
-                    style: Styles.font14MediumBold(context),
+                    style: Styles.font13MediumBold(context),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),

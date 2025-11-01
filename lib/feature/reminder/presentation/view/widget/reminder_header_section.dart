@@ -17,7 +17,7 @@ class ReminderHeaderSection extends StatelessWidget {
       children: [
         Text(
           'Reminders',
-          style: Styles.font20PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         const Spacer(),
         IconButton(

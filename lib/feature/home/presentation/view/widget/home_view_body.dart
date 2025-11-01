@@ -44,12 +44,11 @@ class HomeViewBody extends StatelessWidget {
           const SliverToBoxAdapter(
             child: MotivationalQuoteWidget(),
           ),
-          SliverToBoxAdapter(child: heightBox(20)),
+          SliverToBoxAdapter(child: heightBox(10)),
           const SliverToBoxAdapter(
             child: QuickStatsCard(),
           ),
-          SliverToBoxAdapter(child: heightBox(10)),
-          SliverToBoxAdapter(child: heightBox(10)),
+          SliverToBoxAdapter(child: heightBox(7)),
           BlocBuilder<SubjectCubit, SubjectState>(
             builder: (context, state) {
               if (state is SubjectsLoaded && state.subjects.isNotEmpty) {

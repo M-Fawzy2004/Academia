@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
+import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/widget/icon_back.dart';
 
 class ImageDetailsHeader extends StatelessWidget {
@@ -22,10 +24,7 @@ class ImageDetailsHeader extends StatelessWidget {
         // Title
         Text(
           context.tr.image_details,
-          style: TextStyle(
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Styles.font16PrimaryColorTextBold(context),
         ),
         // Add button
         GestureDetector(
@@ -35,7 +34,7 @@ class ImageDetailsHeader extends StatelessWidget {
             height: 45.w,
             decoration: BoxDecoration(
               color: AppColors.getCardColorTwo(context),
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(AppRadius.large),
             ),
             child: const Icon(
               Icons.add_photo_alternate,

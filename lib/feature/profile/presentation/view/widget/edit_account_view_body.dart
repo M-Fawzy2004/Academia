@@ -26,7 +26,7 @@ class EditAccountViewBody extends StatelessWidget {
               const Spacer(),
               Text(
                 context.tr.edit_profile,
-                style: Styles.font20PrimaryColorTextBold(context),
+                style: Styles.font14PrimaryColorTextBold(context),
               ),
               const Spacer(),
               SizedBox(width: 45.w, height: 45.w),
@@ -35,20 +35,19 @@ class EditAccountViewBody extends StatelessWidget {
           heightBox(30),
           Text(
             context.tr.edit_profile_desc,
-            style: Styles.font16PrimaryColorTextBold(context),
+            style: Styles.font15PrimaryColorTextBold(context),
           ),
           heightBox(30),
-          SectionTitle(
-            title: context.tr.personal_info,
-            icon: Icons.person,
-          ),
+          SectionTitle(title: context.tr.personal_info, icon: Icons.person),
           heightBox(10),
           const CustomTextField(
+            readOnly: true,
             hintText: 'Mohamed Fawzy',
             suffixIcon: IconlyLight.edit,
           ),
           heightBox(10),
           const CustomTextField(
+            readOnly: true,
             hintText: 'mofawzy.com7@gmail.com',
             suffixIcon: IconlyLight.edit,
           ),
@@ -59,23 +58,20 @@ class EditAccountViewBody extends StatelessWidget {
           ),
           heightBox(10),
           const CustomTextField(
+            readOnly: true,
             hintText: 'Faculty Computer and Information Systems',
             suffixIcon: IconlyLight.edit,
           ),
           heightBox(10),
           const CustomTextField(
+            readOnly: true,
             hintText: 'Tanta University',
             suffixIcon: IconlyLight.edit,
           ),
           heightBox(30),
-          CustomButton(
-            text: context.tr.save_changes,
-            onPressed: () {},
-          ),
+          CustomButton(text: context.tr.save_changes, onPressed: () {}),
           heightBox(30),
-          SubscriptionCard(
-            onPressed: () {},
-          ),
+          SubscriptionCard(onPressed: () {}),
           heightBox(20),
         ],
       ),

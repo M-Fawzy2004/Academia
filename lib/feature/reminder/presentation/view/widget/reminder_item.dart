@@ -4,6 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:intl/intl.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/reminder/domain/enities/reminder_entity.dart';
 import 'package:study_box/feature/reminder/presentation/view/widget/reminder_type_badge.dart';
@@ -43,17 +44,18 @@ class ReminderItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.getBackgroundColor(context),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
         border: Border.all(
           color: AppColors.secondaryColor.withOpacity(0.3),
           width: 1.5.w,
         ),
       ),
       child: Material(
+        elevation: 0,
         color: Colors.transparent,
         child: InkWell(
           onTap: onEdit,
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
           child: Padding(
             padding: EdgeInsets.all(15.w),
             child: Row(
@@ -76,11 +78,7 @@ class ReminderItem extends StatelessWidget {
                           : Colors.transparent,
                     ),
                     child: reminder.isCompleted
-                        ? Icon(
-                            Icons.check,
-                            size: 14.sp,
-                            color: Colors.white,
-                          )
+                        ? Icon(Icons.check, size: 14.sp, color: Colors.white)
                         : null,
                   ),
                 ),
@@ -94,15 +92,15 @@ class ReminderItem extends StatelessWidget {
                           Expanded(
                             child: Text(
                               reminder.title,
-                              style: Styles.font15PrimaryColorTextBold(context)
+                              style: Styles.font14PrimaryColorTextBold(context)
                                   .copyWith(
-                                decoration: reminder.isCompleted
-                                    ? TextDecoration.lineThrough
-                                    : null,
-                                color: reminder.isCompleted
-                                    ? Colors.grey.shade600
-                                    : null,
-                              ),
+                                    decoration: reminder.isCompleted
+                                        ? TextDecoration.lineThrough
+                                        : null,
+                                    color: reminder.isCompleted
+                                        ? Colors.grey.shade600
+                                        : null,
+                                  ),
                             ),
                           ),
                           ReminderPriorityBadge(priority: reminder.priority),
@@ -112,7 +110,7 @@ class ReminderItem extends StatelessWidget {
                       ),
                       Text(
                         reminder.description,
-                        style: Styles.font13GreyBold(context).copyWith(
+                        style: Styles.font12GreyBold(context).copyWith(
                           decoration: reminder.isCompleted
                               ? TextDecoration.lineThrough
                               : null,
@@ -131,7 +129,7 @@ class ReminderItem extends StatelessWidget {
                           widthBox(3),
                           Text(
                             formatDate(reminder.date),
-                            style: Styles.font13GreyBold(context),
+                            style: Styles.font12GreyBold(context),
                           ),
                           widthBox(10),
                           Icon(
@@ -142,7 +140,7 @@ class ReminderItem extends StatelessWidget {
                           widthBox(3),
                           Text(
                             reminder.time,
-                            style: Styles.font13GreyBold(context),
+                            style: Styles.font12GreyBold(context),
                           ),
                         ],
                       ),

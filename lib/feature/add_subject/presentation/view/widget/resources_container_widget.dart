@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class ResourcesContainerWidget extends StatelessWidget {
   final Widget child;
 
-  const ResourcesContainerWidget({
-    super.key,
-    required this.child,
-  });
+  const ResourcesContainerWidget({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +14,8 @@ class ResourcesContainerWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
       decoration: BoxDecoration(
         color: AppColors.getFieldColor(context),
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(
-          color: AppColors.primaryColor.withOpacity(0.1),
-        ),
+        borderRadius: BorderRadius.circular(AppRadius.large),
+        border: Border.all(color: AppColors.primaryColor.withOpacity(0.1)),
       ),
       child: child,
     );
@@ -38,9 +34,6 @@ class ResourcesExpandableContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizeTransition(
-      sizeFactor: expandAnimation,
-      child: child,
-    );
+    return SizeTransition(sizeFactor: expandAnimation, child: child);
   }
 }

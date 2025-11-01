@@ -3,16 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/reminder/domain/enities/reminder_entity.dart';
 
 class ReminderTypeBadge extends StatelessWidget {
   final ReminderType type;
 
-  const ReminderTypeBadge({
-    super.key,
-    required this.type,
-  });
+  const ReminderTypeBadge({super.key, required this.type});
 
   Map<String, dynamic> getTypeConfig() {
     switch (type) {
@@ -45,7 +43,7 @@ class ReminderTypeBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: (config['color'] as Color).withOpacity(0.15),
-        borderRadius: BorderRadius.circular(6.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -58,9 +56,9 @@ class ReminderTypeBadge extends StatelessWidget {
           widthBox(5),
           Text(
             config['label'] as String,
-            style: Styles.font13GreyBold(context).copyWith(
-              color: config['color'] as Color,
-            ),
+            style: Styles.font12GreyBold(
+              context,
+            ).copyWith(color: config['color'] as Color),
           ),
         ],
       ),

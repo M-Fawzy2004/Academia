@@ -19,7 +19,14 @@ class IconBack extends StatelessWidget {
         height: 45.w,
         decoration: BoxDecoration(
           color: AppColors.getCardColorTwo(context),
-          borderRadius: BorderRadius.circular(12.r),
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 2),
+              color: AppColors.black.withOpacity(0.1),
+              blurRadius: 100,
+            ),
+          ],
         ),
         child: Icon(
           LanguageHelper.isArabic(context)

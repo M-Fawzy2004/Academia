@@ -15,7 +15,7 @@ class VideoDetailsHeader extends StatelessWidget {
         const Spacer(),
         Text(
           context.tr.video_details,
-          style: Styles.font20PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         const Spacer(),
         SizedBox(

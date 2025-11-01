@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class OnboardingButton extends StatelessWidget {
   final String text;
@@ -17,7 +18,7 @@ class OnboardingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 56.h,
+      height: 50.h,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
@@ -27,7 +28,7 @@ class OnboardingButton extends StatelessWidget {
           elevation: isPrimary ? 1 : 0,
           shadowColor: const Color(0xFF667EEA).withOpacity(0.3),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.r),
+            borderRadius: BorderRadius.circular(AppRadius.large),
             side: isPrimary
                 ? BorderSide.none
                 : BorderSide(

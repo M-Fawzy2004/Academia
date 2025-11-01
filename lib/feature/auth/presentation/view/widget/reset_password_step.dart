@@ -36,7 +36,7 @@ class _ResetPasswordStepState extends State<ResetPasswordStep> {
           alignment: Alignment.centerRight,
           child: Text(
             context.tr.enter_new_pass,
-            style: Styles.font14MediumPrimaryBold(context),
+            style: Styles.font13MediumPrimaryBold(context),
           ),
         ),
         heightBox(15),

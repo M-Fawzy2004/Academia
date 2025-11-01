@@ -28,14 +28,14 @@ class ResourcesSection extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.all(8.w),
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
                     colors: [
                       Color(0xFF6366F1),
                       Color(0xFF8B5CF6),
                     ],
                   ),
-                  borderRadius: BorderRadius.circular(12.r),
+                  shape: BoxShape.circle,
                 ),
                 child: Icon(
                   Icons.folder_rounded,
@@ -46,7 +46,7 @@ class ResourcesSection extends StatelessWidget {
               widthBox(12),
               Text(
                 context.tr.resources,
-                style: Styles.font18PrimaryColorTextBold(context),
+                style: Styles.font14PrimaryColorTextBold(context),
               ),
             ],
           ),

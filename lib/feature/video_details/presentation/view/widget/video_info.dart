@@ -16,7 +16,7 @@ class VideoInfo extends StatelessWidget {
       padding: EdgeInsets.all(12.w),
       child: Text(
         title,
-        style: Styles.font16PrimaryColorTextBold(context),
+        style: Styles.font14PrimaryColorTextBold(context),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),

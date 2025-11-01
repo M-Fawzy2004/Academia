@@ -23,12 +23,12 @@ class HeaderSection extends StatelessWidget {
                 children: [
                   Text(
                     context.tr.welcome_back,
-                    style: Styles.font20PrimaryColorTextBold(context),
+                    style: Styles.font16PrimaryColorTextBold(context),
                   ),
                   heightBox(2),
                   Text(
                     context.tr.ready_learning,
-                    style: Styles.font13GreyBold(context),
+                    style: Styles.font12GreyBold(context),
                   ),
                 ],
               ),
@@ -62,21 +62,6 @@ class HeaderSection extends StatelessWidget {
                   ],
                 ),
                 color: AppColors.secondaryColor,
-              ),
-            ),
-            widthBox(8),
-            // Search Button
-            Container(
-              decoration: BoxDecoration(
-                color: AppColors.primaryColor.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              child: IconButton(
-                onPressed: () {
-                  // Handle search
-                },
-                icon: const Icon(IconlyLight.search),
-                color: AppColors.primaryColor,
               ),
             ),
           ],

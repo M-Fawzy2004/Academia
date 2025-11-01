@@ -30,7 +30,7 @@ class SettingsItem extends StatelessWidget {
             widthBox(10),
             Text(
               title,
-              style: Styles.font16PrimaryColorTextBold(context),
+              style: Styles.font14PrimaryColorTextBold(context),
             ),
             if (trailing != null) ...[
               const Spacer(),

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/feature/subject_details/domain/entities/additional_note_entity.dart';
 import 'package:study_box/feature/subject_details/presentation/manager/additional_note_cubit/additional_notes_cubit.dart';
@@ -69,7 +70,7 @@ class NoteCard extends StatelessWidget {
                   children: [
                     Text(
                       note.title,
-                      style: Styles.font15PrimaryColorTextBold(context),
+                      style: Styles.font14PrimaryColorTextBold(context),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -127,16 +128,16 @@ class NoteCard extends StatelessWidget {
       builder: (dialogContext) => AlertDialog(
         backgroundColor: AppColors.getBackgroundColor(context),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
         ),
-        contentPadding: EdgeInsets.all(20.w),
+        contentPadding: EdgeInsets.all(15.w),
         title: Row(
           children: [
             Container(
-              padding: EdgeInsets.all(8.w),
+              padding: EdgeInsets.all(10.w),
               decoration: BoxDecoration(
                 color: const Color(0xFF6366F1).withOpacity(0.1),
-                borderRadius: BorderRadius.circular(8.r),
+                shape: BoxShape.circle,
               ),
               child: Icon(
                 Icons.note_outlined,
@@ -144,7 +145,7 @@ class NoteCard extends StatelessWidget {
                 size: 20.sp,
               ),
             ),
-            widthBox(12),
+            widthBox(10),
             Expanded(
               child: Text(
                 note.title,
@@ -165,11 +166,11 @@ class NoteCard extends StatelessWidget {
               padding: EdgeInsets.all(14.w),
               decoration: BoxDecoration(
                 color: AppColors.getCardColorTwo(context),
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(AppRadius.large),
               ),
               child: Text(
                 note.details,
-                style: Styles.font13GreyBold(context),
+                style: Styles.font12GreyBold(context),
               ),
             ),
             heightBox(12),
@@ -207,9 +208,9 @@ class NoteCard extends StatelessWidget {
 
   Widget _buildDeleteBackground(BuildContext context) {
     return Container(
-      alignment: Alignment.centerRight,
+      alignment: Alignment.center,
       padding: EdgeInsets.symmetric(horizontal: 20.w),
-      margin: EdgeInsets.only(bottom: 12.h),
+      margin: EdgeInsets.only(left: 12.h),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -217,7 +218,7 @@ class NoteCard extends StatelessWidget {
             Colors.red.withOpacity(0.2),
           ],
         ),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -247,7 +248,7 @@ class NoteCard extends StatelessWidget {
       builder: (dialogContext) => AlertDialog(
         backgroundColor: AppColors.getBackgroundColor(context),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(AppRadius.large),
         ),
         titlePadding: const EdgeInsets.fromLTRB(24, 24, 24, 8),
         contentPadding:
@@ -255,11 +256,11 @@ class NoteCard extends StatelessWidget {
         actionsPadding: const EdgeInsets.only(right: 12, bottom: 12),
         title: Text(
           context.tr.delete_note,
-          style: Styles.font18PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         content: Text(
           context.tr.check_delete_note,
-          style: Styles.font13MediumGreyBold(context),
+          style: Styles.font12MediumGreyBold(context),
         ),
         actions: [
           TextButton(
@@ -269,7 +270,7 @@ class NoteCard extends StatelessWidget {
             onPressed: () => Navigator.of(dialogContext).pop(false),
             child: Text(
               context.tr.cancel,
-              style: Styles.font12MediumBold(context),
+              style: Styles.font11MediumBold(context),
             ),
           ),
           ElevatedButton.icon(
@@ -277,7 +278,7 @@ class NoteCard extends StatelessWidget {
               backgroundColor: Colors.red,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(AppRadius.large),
               ),
             ),
             onPressed: () => Navigator.of(dialogContext).pop(true),

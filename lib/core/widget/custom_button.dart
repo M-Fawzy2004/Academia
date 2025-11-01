@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/custom_loading_widget.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -44,7 +45,8 @@ class CustomButton extends StatelessWidget {
           elevation: elevation,
           shadowColor: backgroundColor!.withOpacity(0.3),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
+            borderRadius:
+                BorderRadius.circular(borderRadius ?? AppRadius.large),
           ),
         ),
         child: isLoading

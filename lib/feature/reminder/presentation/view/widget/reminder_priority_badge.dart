@@ -5,10 +5,7 @@ import 'package:study_box/feature/reminder/domain/enities/reminder_entity.dart';
 class ReminderPriorityBadge extends StatelessWidget {
   final ReminderPriority priority;
 
-  const ReminderPriorityBadge({
-    super.key,
-    required this.priority,
-  });
+  const ReminderPriorityBadge({super.key, required this.priority});
 
   Color _getPriorityColor() {
     switch (priority) {
@@ -40,21 +37,12 @@ class ReminderPriorityBadge extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
       decoration: BoxDecoration(
         color: color.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(6.r),
-        border: Border.all(
-          color: color.withOpacity(0.3),
-          width: 1.w,
-        ),
+        shape: BoxShape.circle,
+        border: Border.all(color: color.withOpacity(0.3), width: 1.w),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            _getPriorityIcon(),
-            size: 14.sp,
-            color: color,
-          ),
-        ],
+        children: [Icon(_getPriorityIcon(), size: 14.sp, color: color)],
       ),
     );
   }

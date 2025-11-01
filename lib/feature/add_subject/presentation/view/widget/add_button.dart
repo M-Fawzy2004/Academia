@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class AddButton extends StatefulWidget {
   final IconData icon;
@@ -34,13 +35,9 @@ class _AddButtonState extends State<AddButton>
       duration: const Duration(milliseconds: 150),
       vsync: this,
     );
-    _scaleAnimation = Tween<double>(
-      begin: 1.0,
-      end: 0.95,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-    ));
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.95).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
   }
 
   @override
@@ -71,12 +68,14 @@ class _AddButtonState extends State<AddButton>
           return Transform.scale(
             scale: _scaleAnimation.value,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.all(12.w),
+                  padding: EdgeInsets.all(13.w),
                   decoration: BoxDecoration(
                     color: widget.color.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(12.r),
+                    borderRadius: BorderRadius.circular(AppRadius.large),
                     border: Border.all(color: widget.color.withOpacity(0.3)),
                     boxShadow: [
                       BoxShadow(
@@ -93,21 +92,18 @@ class _AddButtonState extends State<AddButton>
                           height: 24.sp,
                           child: CircularProgressIndicator(
                             strokeWidth: 2,
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(widget.color),
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              widget.color,
+                            ),
                           ),
                         )
-                      : Icon(
-                          widget.icon,
-                          color: widget.color,
-                          size: 24.sp,
-                        ),
+                      : Icon(widget.icon, color: widget.color, size: 24.sp),
                 ),
                 heightBox(5),
                 Text(
                   widget.label,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     color: widget.color,
                     fontWeight: FontWeight.w500,
                   ),

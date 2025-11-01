@@ -39,11 +39,11 @@ class SubjectHeaderColumn extends StatelessWidget {
         heightBox(5),
         Text(
           context.tr.add_new_subject,
-          style: Styles.font18MediumBold(context),
+          style: Styles.font16MediumBold(context),
         ),
         Text(
           context.tr.header_subject_Desc,
-          style: Styles.font13GreyBold(context),
+          style: Styles.font12GreyBold(context),
         ),
         heightBox(6),
         _PlanBadge(),

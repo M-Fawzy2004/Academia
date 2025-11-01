@@ -5,6 +5,7 @@ import 'package:study_box/core/helper/custom_loading_widget.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/helper/custom_snack_bar.dart';
 import 'package:study_box/feature/subject_details/domain/entities/additional_note_entity.dart';
@@ -38,7 +39,7 @@ class _NotesSectionState extends State<NotesSection> {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.getCardColorTwo(context),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Column(
         children: [
@@ -48,16 +49,16 @@ class _NotesSectionState extends State<NotesSection> {
                 isExpanded = !isExpanded;
               });
             },
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(AppRadius.large),
             child: Padding(
-              padding: EdgeInsets.all(10.w),
+              padding: EdgeInsets.all(7.w),
               child: Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(10.w),
+                    padding: EdgeInsets.all(7.w),
                     decoration: BoxDecoration(
                       color: const Color(0xFF6366F1).withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(12.r),
+                      borderRadius: BorderRadius.circular(AppRadius.large),
                     ),
                     child: Icon(
                       Icons.description_outlined,
@@ -68,7 +69,7 @@ class _NotesSectionState extends State<NotesSection> {
                   widthBox(7),
                   Text(
                     context.tr.notes,
-                    style: Styles.font16PrimaryColorTextBold(context),
+                    style: Styles.font14PrimaryColorTextBold(context),
                   ),
                   widthBox(10),
                   Container(
@@ -140,7 +141,7 @@ class _NotesSectionState extends State<NotesSection> {
               heightBox(12),
               Text(
                 CustomSnackBar.formatForBuild(widget.errorMessage!),
-                style: Styles.font13GreyBold(context),
+                style: Styles.font12GreyBold(context),
                 textAlign: TextAlign.center,
               ),
               heightBox(12),
@@ -172,7 +173,7 @@ class _NotesSectionState extends State<NotesSection> {
               heightBox(12),
               Text(
                 context.tr.no_note,
-                style: Styles.font13GreyBold(context),
+                style: Styles.font12GreyBold(context),
               ),
               heightBox(8),
               Text(

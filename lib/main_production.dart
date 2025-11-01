@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:study_box/core/const/app_constant.dart';
@@ -63,6 +64,9 @@ void main() async {
   await ThemeManager.instance.loadSavedTheme();
 
   runApp(
-    const AcademiaAiApp(),
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const AcademiaAiApp(),
+    ),
   );
 }

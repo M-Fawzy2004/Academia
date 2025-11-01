@@ -73,7 +73,7 @@ class _LoginFormState extends State<LoginForm> {
                 },
                 child: Text(
                   context.tr.login_forgot,
-                  style: Styles.font14MediumPrimaryBold(context),
+                  style: Styles.font13MediumPrimaryBold(context),
                 ),
               ),
             ],

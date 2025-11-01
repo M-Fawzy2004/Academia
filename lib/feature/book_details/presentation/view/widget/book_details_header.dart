@@ -15,7 +15,7 @@ class BookDetailsHeader extends StatelessWidget {
         const Spacer(),
         Text(
           context.tr.book_details,
-          style: Styles.font20PrimaryColorTextBold(context),
+          style: Styles.font16PrimaryColorTextBold(context),
         ),
         const Spacer(),
         SizedBox(width: 45.w, height: 45.w),

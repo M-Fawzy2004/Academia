@@ -7,7 +7,6 @@ import 'package:study_box/feature/profile/presentation/view/widget/settings_card
 import 'package:study_box/feature/profile/presentation/view/widget/settings_divider.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_navigation.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_section_header.dart';
-import 'package:study_box/feature/profile/presentation/view/widget/settings_switch.dart';
 
 class GeneralSettingsSection extends StatefulWidget {
   const GeneralSettingsSection({super.key});
@@ -32,19 +31,8 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
         ),
         SettingsCard(
           children: [
-            SettingsSwitch(
-              icon: IconlyLight.notification,
-              title: context.tr.notfication,
-              value: notificationsEnabled,
-              onChanged: (value) {
-                setState(() {
-                  notificationsEnabled = value;
-                });
-              },
-            ),
-            const SettingsDivider(),
             SettingsNavigation(
-              icon: Icons.color_lens_rounded,
+              icon: Icons.color_lens_outlined,
               title: context.tr.appearance,
               subtitle: context.tr.choose_appearance,
               onTap: () {
@@ -53,14 +41,14 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
             ),
             const SettingsDivider(),
             SettingsNavigation(
-              icon: Icons.language_rounded,
+              icon: Icons.language,
               title: context.tr.language,
               subtitle: selectedLanguage,
               onTap: () {},
             ),
             const SettingsDivider(),
             SettingsNavigation(
-              icon: Icons.emoji_events_rounded,
+              icon: Icons.emoji_events_outlined,
               title: context.tr.achievements,
               subtitle: context.tr.check_achievements,
               onTap: () {},

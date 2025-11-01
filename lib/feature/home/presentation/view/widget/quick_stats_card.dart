@@ -4,6 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 
 class QuickStatsCard extends StatelessWidget {
@@ -61,15 +62,15 @@ class QuickStatsCard extends StatelessWidget {
           color: AppColors.primaryColor.withOpacity(0.1),
           width: 1.5.w,
         ),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(8.w),
+            padding: EdgeInsets.all(10.w),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(8.r),
+              color: color.withOpacity(0.3),
+              shape: BoxShape.circle,
             ),
             child: Icon(
               icon,
@@ -80,12 +81,12 @@ class QuickStatsCard extends StatelessWidget {
           heightBox(8),
           Text(
             value,
-            style: Styles.font18MediumBold(context),
+            style: Styles.font16MediumBold(context),
           ),
           heightBox(4),
           Text(
             title,
-            style: Styles.font12MediumBold(context),
+            style: Styles.font11MediumBold(context),
             textAlign: TextAlign.center,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,

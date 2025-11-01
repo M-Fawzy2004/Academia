@@ -38,7 +38,7 @@ class ReminderListSection extends StatelessWidget {
                 heightBox(20),
                 Text(
                   'No reminders found',
-                  style: Styles.font15PrimaryColorTextBold(context).copyWith(
+                  style: Styles.font14PrimaryColorTextBold(context).copyWith(
                     color: Colors.grey,
                   ),
                 ),
@@ -83,4 +83,3 @@ class ReminderListSection extends StatelessWidget {
     );
   }
 }
-

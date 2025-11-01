@@ -19,7 +19,7 @@ class NameHeaderVideo extends StatelessWidget {
         const Spacer(),
         Text(
           videoTitle,
-          style: Styles.font20PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         const Spacer(),
         SizedBox(

@@ -352,11 +352,11 @@ class _SavingDialog extends StatelessWidget {
             const CustomLoadingWidget(height: 30),
             heightBox(12),
             Text(context.tr.saving_project,
-                style: Styles.font15PrimaryColorTextBold(context)),
+                style: Styles.font14PrimaryColorTextBold(context)),
             heightBox(12),
             Text(
               context.tr.please_wait_upload,
-              style: Styles.font13GreyBold(context),
+              style: Styles.font12GreyBold(context),
             ),
           ],
         ),

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:load_switch/load_switch.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 
 class SettingsSwitch extends StatelessWidget {
@@ -29,10 +30,7 @@ class SettingsSwitch extends StatelessWidget {
         children: [
           Icon(icon),
           widthBox(15),
-          Text(
-            title,
-            style: Styles.font16PrimaryColorTextBold(context),
-          ),
+          Text(title, style: Styles.font14PrimaryColorTextBold(context)),
           const Spacer(),
           Transform(
             alignment: Alignment.center,
@@ -42,11 +40,11 @@ class SettingsSwitch extends StatelessWidget {
               future: () => getFuture(),
               onChange: onChanged,
               onTap: (val) {},
-              width: 45.w,
-              height: 25.h,
+              width: 39.w,
+              height: 20.h,
               style: SpinStyle.material,
               switchDecoration: (val, isFocus) => BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(AppRadius.large),
                 color: val ? AppColors.primaryColor : Colors.grey.shade300,
                 border: Border.all(
                   color: val

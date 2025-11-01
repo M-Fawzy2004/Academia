@@ -30,7 +30,7 @@ class SettingsSectionHeader extends StatelessWidget {
           ],
           Text(
             title,
-            style: Styles.font14MediumEBold(context).copyWith(
+            style: Styles.font13MediumEBold(context).copyWith(
               color: AppColors.primaryColor,
               fontWeight: FontWeight.w600,
             ),

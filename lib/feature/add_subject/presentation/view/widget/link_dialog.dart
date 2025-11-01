@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/localization/translate.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 import 'package:study_box/core/theme/styles.dart';
 import 'package:study_box/core/theme/app_color.dart';
 import 'package:study_box/core/widget/custom_text_field.dart';
@@ -79,13 +80,14 @@ class _LinkDialogState extends State<LinkDialog> {
           : _isVideoUrl(url);
       final bool isBook = widget.forcedType == ResourceType.book;
       final resource = ResourceItem(
-        id: widget.initialResource?.id ??
+        id:
+            widget.initialResource?.id ??
             DateTime.now().millisecondsSinceEpoch.toString(),
         title: _titleController.text.trim(),
         description: _descriptionController.text.trim().isEmpty
             ? (isVideo
-                ? context.tr.video_link
-                : (isBook ? context.tr.book_link : context.tr.web_link))
+                  ? context.tr.video_link
+                  : (isBook ? context.tr.book_link : context.tr.web_link))
             : _descriptionController.text.trim(),
         type: isVideo
             ? ResourceType.video
@@ -110,18 +112,15 @@ class _LinkDialogState extends State<LinkDialog> {
     final titleText = widget.forcedType == ResourceType.video
         ? (isEditing ? context.tr.edit_video_link : context.tr.add_video_link)
         : widget.forcedType == ResourceType.book
-            ? (isEditing ? context.tr.edit_book_link : context.tr.add_book_link)
-            : (isEditing ? context.tr.edit_link : context.tr.add_book_link);
+        ? (isEditing ? context.tr.edit_book_link : context.tr.add_book_link)
+        : (isEditing ? context.tr.edit_link : context.tr.add_book_link);
 
     return Dialog(
       backgroundColor: AppColors.getBackgroundColor(context),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(AppRadius.large),
       ),
-      insetPadding: EdgeInsets.symmetric(
-        horizontal: 16.w,
-        vertical: 24.h,
-      ),
+      insetPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
       child: Container(
         width: double.infinity,
         constraints: BoxConstraints(
@@ -138,25 +137,19 @@ class _LinkDialogState extends State<LinkDialog> {
                   Expanded(
                     child: Text(
                       titleText,
-                      style: Styles.font15MediumGreyBold(context),
+                      style: Styles.font14MediumGreyBold(context),
                     ),
                   ),
                   IconButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    icon: Icon(
-                      Icons.close,
-                      color: Colors.grey[600],
-                    ),
+                    icon: Icon(Icons.close, color: Colors.grey[600]),
                   ),
                 ],
               ),
             ),
 
             // Divider
-            Divider(
-              height: 1,
-              color: Colors.grey[300],
-            ),
+            Divider(height: 1, color: Colors.grey[300]),
 
             // Scrollable Content
             Flexible(
@@ -210,10 +203,7 @@ class _LinkDialogState extends State<LinkDialog> {
             ),
 
             // Divider
-            Divider(
-              height: 1,
-              color: Colors.grey[300],
-            ),
+            Divider(height: 1, color: Colors.grey[300]),
 
             // Actions
             Padding(
@@ -239,9 +229,7 @@ class _LinkDialogState extends State<LinkDialog> {
                         vertical: 12.h,
                       ),
                     ),
-                    child: Text(
-                      isEditing ? context.tr.update : context.tr.add,
-                    ),
+                    child: Text(isEditing ? context.tr.update : context.tr.add),
                   ),
                 ],
               ),

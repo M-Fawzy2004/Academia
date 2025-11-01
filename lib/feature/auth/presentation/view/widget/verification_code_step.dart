@@ -23,7 +23,7 @@ class VerificationCodeStep extends StatelessWidget {
       children: [
         Text(
           context.tr.send_code_with_email,
-          style: Styles.font14MediumPrimaryBold(context),
+          style: Styles.font13MediumPrimaryBold(context),
         ),
         heightBox(10),
         Text(

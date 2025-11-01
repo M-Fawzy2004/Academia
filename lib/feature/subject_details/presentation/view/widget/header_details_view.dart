@@ -17,7 +17,7 @@ class HeaderDetailsView extends StatelessWidget {
         const Spacer(),
         Text(
           context.tr.subject_details,
-          style: Styles.font20PrimaryColorTextBold(context),
+          style: Styles.font14PrimaryColorTextBold(context),
         ),
         const Spacer(),
         IconButton(

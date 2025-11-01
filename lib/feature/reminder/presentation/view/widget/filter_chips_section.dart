@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:study_box/core/helper/spacing.dart';
 import 'package:study_box/core/theme/app_color.dart';
+import 'package:study_box/core/theme/app_radius.dart';
 
 class FilterChipsSection extends StatelessWidget {
   final String selectedFilter;
@@ -55,7 +56,7 @@ class FilterChipsSection extends StatelessWidget {
             },
             side: BorderSide.none,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(AppRadius.large),
               side: BorderSide.none,
             ),
             backgroundColor: AppColors.getCardColorTwo(context),

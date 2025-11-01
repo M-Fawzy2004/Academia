@@ -57,7 +57,7 @@ class ResourceItem extends StatelessWidget {
                   children: [
                     Text(
                       name,
-                      style: Styles.font13GreyBold(context).copyWith(
+                      style: Styles.font12GreyBold(context).copyWith(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
@@ -68,7 +68,7 @@ class ResourceItem extends StatelessWidget {
                       heightBox(4),
                       Text(
                         subtitle!,
-                        style: Styles.font13GreyBold(context).copyWith(
+                        style: Styles.font12GreyBold(context).copyWith(
                           fontSize: 12.sp,
                           color: const Color(0xFF9CA3AF),
                         ),

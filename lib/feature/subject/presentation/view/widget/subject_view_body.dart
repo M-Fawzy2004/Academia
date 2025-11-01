@@ -53,7 +53,7 @@ class _SubjectViewBodyState extends State<SubjectViewBody> {
                   children: [
                     Text(
                       context.tr.study_subject,
-                      style: Styles.font20PrimaryColorTextBold(context),
+                      style: Styles.font16PrimaryColorTextBold(context),
                     ),
                     const Spacer(),
                     IconButton(

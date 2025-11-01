@@ -32,7 +32,7 @@ class AuthModel {
       college: profile?['college'],
       emailVerified: user.emailConfirmedAt != null,
       // ignore: unnecessary_null_comparison
-      createdAt: user.createdAt != null ? DateTime.parse(user.createdAt) : null,
+      createdAt: DateTime.parse(user.createdAt),
     );
   }
 
