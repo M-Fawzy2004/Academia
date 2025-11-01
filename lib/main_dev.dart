@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:study_box/core/const/app_constant.dart';
+import 'package:study_box/core/helper/language_manager.dart';
 import 'package:study_box/core/theme/theme_manager.dart';
 import 'package:study_box/core/helper/dependency_injection.dart';
 import 'package:study_box/core/service/notification_service.dart';
@@ -62,7 +63,8 @@ void main() async {
   // Load saved theme
   await ThemeManager.instance.loadSavedTheme();
 
-  runApp(
-    const AcademiaAiApp(),
-  );
+  // Load saved language
+  await LanguageManager.instance.loadSavedLanguage();
+
+  runApp(const AcademiaAiApp());
 }

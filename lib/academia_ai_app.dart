@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:study_box/core/helper/language_manager.dart';
 import 'package:study_box/core/theme/theme_manager.dart';
 import 'package:study_box/core/helper/app_router.dart';
 import 'package:study_box/core/localization/localization_manager.dart';
@@ -15,19 +16,19 @@ class AcademiaAiApp extends StatefulWidget {
 
 class _AcademiaAiAppState extends State<AcademiaAiApp>
     with WidgetsBindingObserver {
-  Locale _locale = const Locale('en');
-
   @override
   void initState() {
     super.initState();
     ThemeManager.instance.addListener(onThemeChanged);
     WidgetsBinding.instance.addObserver(this);
+    LanguageManager.instance.addListener(_onSettingsChanged);
   }
 
   @override
   void dispose() {
     ThemeManager.instance.removeListener(onThemeChanged);
     WidgetsBinding.instance.removeObserver(this);
+    LanguageManager.instance.removeListener(_onSettingsChanged);
     super.dispose();
   }
 
@@ -39,16 +40,16 @@ class _AcademiaAiAppState extends State<AcademiaAiApp>
     }
   }
 
-  void onThemeChanged() {
+  void _onSettingsChanged() {
     if (mounted) {
       setState(() {});
     }
   }
 
-  void setLocale(Locale locale) {
-    setState(() {
-      _locale = locale;
-    });
+  void onThemeChanged() {
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
@@ -56,6 +57,8 @@ class _AcademiaAiAppState extends State<AcademiaAiApp>
     final themeMode = ThemeManager.instance.getThemeMode();
     final lightTheme = ThemeManager.instance.getCurrentTheme();
     final darkTheme = ThemeManager.instance.getCurrentDarkTheme();
+    final currentLocale = LanguageManager.instance.currentLocale;
+
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -82,14 +85,14 @@ class _AcademiaAiAppState extends State<AcademiaAiApp>
           }
           return child!;
         },
-        locale: _locale,
+        locale: currentLocale,
         theme: lightTheme,
         themeAnimationDuration: const Duration(milliseconds: 300),
         themeAnimationCurve: Curves.easeIn,
         darkTheme: darkTheme,
         themeMode: themeMode,
         key: ValueKey(
-          themeMode.toString() + ThemeManager.instance.currentTheme.toString(),
+          '${themeMode.toString()}_${ThemeManager.instance.currentTheme.toString()}_${currentLocale.toString()}',
         ),
       ),
     );

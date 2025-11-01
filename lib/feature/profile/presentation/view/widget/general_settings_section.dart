@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:study_box/core/helper/extension.dart';
+import 'package:study_box/core/helper/language_manager.dart';
 import 'package:study_box/core/localization/translate.dart';
 import 'package:study_box/feature/profile/presentation/view/theme_selector_view.dart';
+import 'package:study_box/feature/profile/presentation/view/widget/language_selector_dialog.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_card.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_divider.dart';
 import 'package:study_box/feature/profile/presentation/view/widget/settings_navigation.dart';
@@ -15,11 +17,36 @@ class GeneralSettingsSection extends StatefulWidget {
   State<GeneralSettingsSection> createState() => _GeneralSettingsSectionState();
 }
 
-bool notificationsEnabled = true;
-String selectedLanguage = 'English';
-bool darkModeEnabled = false;
-
 class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
+  @override
+  void initState() {
+    super.initState();
+    // Listen to language changes
+    LanguageManager.instance.addListener(_onLanguageChanged);
+  }
+
+  @override
+  void dispose() {
+    LanguageManager.instance.removeListener(_onLanguageChanged);
+    super.dispose();
+  }
+
+  void _onLanguageChanged() {
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  Future<void> _showLanguageSelector() async {
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (context) => const LanguageSelectorDialog(),
+    );
+    if (result == true && mounted) {
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,8 +70,8 @@ class _GeneralSettingsSectionState extends State<GeneralSettingsSection> {
             SettingsNavigation(
               icon: Icons.language,
               title: context.tr.language,
-              subtitle: selectedLanguage,
-              onTap: () {},
+              subtitle: LanguageManager.instance.currentLanguageName,
+              onTap: _showLanguageSelector,
             ),
             const SettingsDivider(),
             SettingsNavigation(

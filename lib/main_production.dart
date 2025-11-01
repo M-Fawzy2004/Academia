@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:study_box/core/const/app_constant.dart';
+import 'package:study_box/core/helper/language_manager.dart';
 import 'package:study_box/core/theme/theme_manager.dart';
 import 'package:study_box/core/helper/dependency_injection.dart';
 import 'package:study_box/core/service/notification_service.dart';
@@ -63,10 +64,10 @@ void main() async {
   // Load saved theme
   await ThemeManager.instance.loadSavedTheme();
 
+  // Load saved language
+  await LanguageManager.instance.loadSavedLanguage();
+
   runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const AcademiaAiApp(),
-    ),
+    DevicePreview(enabled: true, builder: (context) => const AcademiaAiApp()),
   );
 }
